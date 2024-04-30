@@ -407,69 +407,14 @@
                         <a href="javascript:;" class="prolinkadd" onclick="showProfileProjectModal();"
                             data-toggle="modal" data-target="#exampleModal"> Add Project
                         </a>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <form>
 
-                                @csrf
-
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                                <i class="fa fa-times" aria-hidden="true" style="color: black"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="tow">
-                                                <div class="col-md-12">
-                                                    <div class="input-field">
-                                                        <label for="exampleInputEmail1" class="mb-1">Project Name</label>
-                                                        <input type="text" class="form-control" id="">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 mt-2">
-                                                    <div class="input-field">
-                                                        <label for="exampleInputEmail1" class="mb-1">Client Name</label>
-                                                        <input type="text" class="form-control" id="">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 mt-2">
-                                                    <div class="input-field">
-                                                        <label for="exampleInputEmail1" class="mb-1">Project Description</label>
-                                                        <input type="text" class="form-control" id="">
-
-                                                    </div>
-                                                </div>
-                                                <div class="tow" id="newinput">
-                                                </div>
-                                               
-                                                <div class="col-md-3 mt-4">
-                                                    <div class="input-field">
-                                                        <button id="rowAdder" type="button" class="btn">
-                                                            ADD
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary mt-5">Save
-                                                    changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
 
                         <hr>
 
                         <div class="modal" id="add_project_modal" role="dialog"></div>
 
 
-                        <h5 onclick="showExperience();">Experience</h5>
+
 
                         <div class="row">
 
@@ -480,9 +425,37 @@
                             </div>
 
                         </div>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Experience</h5>
 
-                        <a href="javascript:;" class="prolinkadd" onclick="showProfileExperienceModal();"> Add
+
+                        <a class="btn btn-primary prolinkadd col-md-4" data-toggle="collapse" href="#collapseExample"
+                            role="button" aria-expanded="false" aria-controls="collapseExample"> Add
                             Experience </a>
+
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <div class="col-md-12">
+                                    <form action="{{ url('/candidate_project') }}" method="POST">
+                                        <input type="hidden" class="form-control"
+                                            value="{{ $candidateprofile->id }}" name="id">
+                                        <div class="input-field d-flex ">
+                                            @csrf
+                                            <input type="text" class="form-control " id="project_name"
+                                                name="project_name" placeholder="Project Name">
+                                            <input type="text" class="form-control ml-2" id="project_client"
+                                                name="project_client" placeholder="Client Name">
+                                            <input type="text" class="form-control ml-2" id="project_description"
+                                                name="project_description" placeholder="Project Description">
+                                            <button id="rowAdder" type="button" class="btn ml-2">
+                                                ADD
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+                        </div>
 
                         <hr>
 
@@ -500,6 +473,7 @@
                             </div>
 
                         </div>
+
 
                         <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#add_education_modal"
                             class="prolinkadd" onclick="showProfileEducationModal();"> Add Education </a>
@@ -1055,7 +1029,7 @@
     });
 </script>
 
-    @push('page_scripts')
+@push('page_scripts')
     <script>
         $("#rowAdder").click(function() {
             newRowAdd =

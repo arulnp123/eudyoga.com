@@ -150,7 +150,7 @@ public function getstate( Request $request )
   }
 
               
-  public function  manage_resume(){
+  public function  manage_resume(Request $request){
     $userid = Session::get('id'); 
     // dd($userid);
     
@@ -164,6 +164,15 @@ public function getstate( Request $request )
     $industries  = DB::table('industries')->orderBy( 'id', 'Asc' )->get();
     $functional_areas  = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     $getnationality =DB::table('nationality')->orderBy( 'id', 'Asc' )->get();
+
+    
+  DB::table('candidate_project')->insert([
+    
+    'project_name'          => $request->project_name,
+    'project_client'        => $request->project_client,
+    'project_description'   => $request->project_description,
+    'user_id'               =>$userid
+  ]);
 
     $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
     ->join('states','states.id','=','users.state_id')
@@ -213,6 +222,7 @@ public function getstate( Request $request )
          //dd($updatecandidate);
               return redirect( 'candidate/manage_resume')->with('success', 'Profile updated successfully');
  }
+ 
   public function  my_followings(){
         return view( 'candidate/my_followings');
   } 

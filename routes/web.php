@@ -93,6 +93,7 @@ Route::get('/my_job_application', [App\Http\Controllers\Candidate\CandidateContr
 Route::get('/my_mesages', [App\Http\Controllers\Candidate\CandidateController::class, 'my_mesages'])->name('my_mesages');
 Route::get('/print_resume', [App\Http\Controllers\Candidate\CandidateController::class, 'print_resume'])->name('print_resume');
 Route::post('/updateresume', [App\Http\Controllers\Candidate\CandidateController::class, 'updateresume'])->name('updateresume');
+Route::post('/candidate_project', [App\Http\Controllers\Candidate\CandidateController::class, 'manage_resume'])->name('manage_resume');
 Route::get('/view_public_profile', [App\Http\Controllers\Candidate\CandidateController::class, 'view_public_profile'])->name('view_public_profile');
 Route::get('/candidatelogout', [App\Http\Controllers\Candidate\CandidateController::class, 'candidatelogout'])->name('candidatelogout');
 Route::post('/getstate', [App\Http\Controllers\Candidate\CandidateController::class, 'getstate'])->name('getstate');
