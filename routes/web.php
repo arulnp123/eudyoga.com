@@ -93,13 +93,20 @@ Route::get('/my_job_application', [App\Http\Controllers\Candidate\CandidateContr
 Route::get('/my_mesages', [App\Http\Controllers\Candidate\CandidateController::class, 'my_mesages'])->name('my_mesages');
 Route::get('/print_resume', [App\Http\Controllers\Candidate\CandidateController::class, 'print_resume'])->name('print_resume');
 Route::post('/updateresume', [App\Http\Controllers\Candidate\CandidateController::class, 'updateresume'])->name('updateresume');
-Route::post('/candidate_project', [App\Http\Controllers\Candidate\CandidateController::class, 'manage_resume'])->name('manage_resume');
 Route::get('/view_public_profile', [App\Http\Controllers\Candidate\CandidateController::class, 'view_public_profile'])->name('view_public_profile');
 Route::get('/candidatelogout', [App\Http\Controllers\Candidate\CandidateController::class, 'candidatelogout'])->name('candidatelogout');
 Route::post('/getstate', [App\Http\Controllers\Candidate\CandidateController::class, 'getstate'])->name('getstate');
 Route::post('/getcity', [App\Http\Controllers\Candidate\CandidateController::class, 'getcity'])->name('getcity');
 
+Route::post('/candidate_project', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
+Route::post('/candidate_experience', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
+Route::post('/candidate_education', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
+Route::post('/candidate_skill', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
+Route::post('/candidate_language', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
+Route::post('/upload_cv', [App\Http\Controllers\Candidate\CandidateController::class, 'upload_cv'])->name('upload_cv');
+
 Route::get('/basicdetialscandidate', [App\Http\Controllers\Candidate\CandidateController::class, 'basicdetialscandidate'])->name('basicdetialscandidate');
+Route::post('/favorite-jobs/{job}', [App\Http\Controllers\Candidate\CandidateController::class, 'addToFavorites'])->name('addToFavorites');
 
 
 

@@ -6,6 +6,9 @@
         <div class="col-md-12">
             <div class="col-md-12 col-sm-12">
 
+               
+
+
 
                 <div class="userccount">
                     <div class="formpanel mt0">
@@ -376,6 +379,12 @@
                     </div>
                 </div>
 
+                @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
                 <div class="userccount">
                     <div class="formpanel mt0">
                         <!-- Personal Information -->
@@ -392,8 +401,12 @@
                         </div>
 
                         {{-- <a href="javascript:;" class="prolinkadd" onclick="showProfileCvModal();"> Add CV </a> --}}
-                        <h5>Add CV </h5>
-                        <input type="file" class="prolinkadd">
+                        <h5>Add CV</h5>
+                        <form action="{{ route('upload_cv') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="cv_file" class="prolinkadd col-md-4">
+                            <button type="submit" class="btn btn-primary col-md-2">Upload CV</button>
+                        </form>
 
                         <hr>
 
@@ -404,10 +417,36 @@
 
                         <div class="row" id="projects_div"></div>
 
-                        <a href="javascript:;" class="prolinkadd" onclick="showProfileProjectModal();"
-                            data-toggle="modal" data-target="#exampleModal"> Add Project
+                        <a class="btn btn-primary prolinkadd col-md-2" data-toggle="collapse" href="#collapseExample"
+                            role="button" aria-expanded="false" aria-controls="collapseExample"> Add Project
                         </a>
-
+                        <div class="collapse mt-2" id="collapseExample">
+                            <div class="card card-body">
+                                <div class="col-md-12">
+                                    <form action="{{ url('/candidate_project') }}" method="POST" id="projectForm">
+                                        <input type="hidden" class="form-control"
+                                            value="{{ $candidateprofile->id }}" name="id">
+                                        @csrf
+                                        <div id="projectFields">
+                                            <!-- Initially, only one set of input fields -->
+                                            <div class="input-field d-flex ">
+                                                <input type="text" class="form-control" name="project_name"
+                                                    placeholder="Project Name" required>
+                                                <input type="text" class="form-control ml-2" name="project_client"
+                                                    placeholder="Client Name" required>
+                                                <input type="text" class="form-control ml-2"
+                                                    name="project_description" placeholder="Project Description"
+                                                    required>
+                                                <button type="button" class="btn ml-2 deleteButton">Delete</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="addProjectButton" class="btn btn-success mt-2">Add
+                                            Another Project</button>
+                                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                         <hr>
 
@@ -416,7 +455,7 @@
 
 
 
-                        <div class="row">
+                        {{-- <div class="row">
 
                             <div class="col-md-12">
 
@@ -424,38 +463,46 @@
 
                             </div>
 
-                        </div>
-                        <h5 class="modal-title" id="exampleModalLabel">Add Experience</h5>
+                        </div> --}}
+                        <h5 class=" modal-title">Add Experience</h5>
 
 
-                        <a class="btn btn-primary prolinkadd col-md-4" data-toggle="collapse" href="#collapseExample"
-                            role="button" aria-expanded="false" aria-controls="collapseExample"> Add
-                            Experience </a>
-
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                <div class="col-md-12">
-                                    <form action="{{ url('/candidate_project') }}" method="POST">
-                                        <input type="hidden" class="form-control"
-                                            value="{{ $candidateprofile->id }}" name="id">
-                                        <div class="input-field d-flex ">
+                        <a class="btn btn-primary prolinkadd col-md-3" data-toggle="collapse"
+                            href="#collapseExample_2" role="button" aria-expanded="false"
+                            aria-controls="collapseExample"> Add Experience </a>
+                            <div class="collapse mt-2" id="collapseExample_2">
+                                <div class="card card-body">
+                                    <div class="col-md-12">
+                                        <form action="{{ url('/candidate_experience') }}" method="POST" id="projectForm_two">
+                                            <input type="hidden" class="form-control" value="{{ $candidateprofile->id }}" name="id">
                                             @csrf
-                                            <input type="text" class="form-control " id="project_name"
-                                                name="project_name" placeholder="Project Name">
-                                            <input type="text" class="form-control ml-2" id="project_client"
-                                                name="project_client" placeholder="Client Name">
-                                            <input type="text" class="form-control ml-2" id="project_description"
-                                                name="project_description" placeholder="Project Description">
-                                            <button id="rowAdder" type="button" class="btn ml-2">
-                                                ADD
-                                            </button>
-                                        </div>
-                                    </form>
+                                            <div class="projectFields">
+                                                <!-- Initially, only one set of input fields -->
+                                                <div class="input-field d-flex align-item-center justify-content-between mt-4">
+                                                    <input type="text" class="form-control col-md-4" name="company_name" placeholder="Company Name">
+                                                    <div class="col-md-4">
+                                                        <span>To Date</span>
+                                                        <input type="date" class="form-control" name="to_date">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span>End Date</span>
+                                                        <input type="date" class="form-control" name="end_date">
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="input-field d-flex align-item-center justify-content-between mt-2">
+                                                    <input type="text" class="form-control col-md-4" name="role" placeholder="Role">
+                                                    <input type="text" class="form-control ml-2 col-md-4" name="package" placeholder="Package">
+                                                    <button type="button" class="btn ml-2 deleteButton">Delete</button>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-success mt-2 addButton">Add Another Experience</button>
+                                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                        </form>
+                                    </div>
                                 </div>
-
-
                             </div>
-                        </div>
+
 
                         <hr>
 
@@ -474,9 +521,39 @@
 
                         </div>
 
+                        <a class="btn btn-primary prolinkadd col-md-3" data-toggle="collapse"
+                            href="#collapseExample_3" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">Add Education</a>
 
-                        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#add_education_modal"
-                            class="prolinkadd" onclick="showProfileEducationModal();"> Add Education </a>
+                        <div class="collapse mt-2" id="collapseExample_3">
+                            <div class="card card-body">
+                                <div class="col-md-12">
+                                    <form action="{{ url('/candidate_education') }}" method="POST"
+                                        id="educationForm">
+                                        <input type="hidden" class="form-control"
+                                            value="{{ $candidateprofile->id }}" name="id">
+                                        @csrf
+                                        <div id="educationFields">
+                                            <!-- Initially, only one set of input fields -->
+                                            <div class="input-field d-flex">
+                                                <input type="text" class="form-control" name="college_name"
+                                                    placeholder="College Name">
+                                                <input type="text" class="form-control ml-2"
+                                                    name="year_of_passout" placeholder="Year Of Passout">
+                                                <input type="text" class="form-control ml-2" name="university"
+                                                    placeholder="University">
+                                                <input type="text" class="form-control ml-2" name="grade"
+                                                    placeholder="Grade">
+                                                <button type="button" class="btn ml-2 deleteButton_3">Delete</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="addEducationButton"
+                                            class="btn btn-success mt-2">Add Another Education</button>
+                                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                         <hr>
 
@@ -495,8 +572,34 @@
 
                         </div>
 
-                        <a href="javascript:;" class="prolinkadd" onclick="showProfileSkillModal();"> Add Skill </a>
+                        <a class="btn btn-primary prolinkadd col-md-3" data-toggle="collapse"
+                            href="#collapseExample_4" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">Add Skill</a>
 
+                        <div class="collapse mt-2" id="collapseExample_4">
+                            <div class="card card-body">
+                                <div class="col-md-12">
+                                    <form action="{{ url('/candidate_skill') }}" method="POST" id="skillForm">
+                                        <input type="hidden" class="form-control"
+                                            value="{{ $candidateprofile->id }}" name="id">
+                                        @csrf
+                                        <div id="skillFields">
+                                            <!-- Initially, only one set of input fields -->
+                                            <div class="input-field d-flex">
+                                                <input type="text" class="form-control" name="primary_skill"
+                                                    placeholder="Primary Skill">
+                                                <input type="text" class="form-control ml-2"
+                                                    name="secondary_skill" placeholder="Secondary Skill">
+                                                <button type="button" class="btn ml-2 deleteButton_4">Delete</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="addSkillButton" class="btn btn-success mt-2">Add
+                                            Another Skill</button>
+                                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <hr>
 
                         <div class="modal" id="add_skill_modal" role="dialog"></div>
@@ -513,8 +616,35 @@
 
                         </div>
 
-                        <a href="javascript:;" class="prolinkadd" onclick="showProfileLanguageModal();"> Add Language
-                        </a>
+                        <a class="btn btn-primary prolinkadd col-md-3" data-toggle="collapse"
+                            href="#collapseExample_5" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">Add Language</a>
+
+                        <div class="collapse mt-2" id="collapseExample_5">
+                            <div class="card card-body">
+                                <div class="col-md-12">
+                                    <form action="{{ url('/candidate_language') }}" method="POST"
+                                        id="languageForm">
+                                        <input type="hidden" class="form-control"
+                                            value="{{ $candidateprofile->id }}" name="id">
+                                        @csrf
+                                        <div id="languageFields">
+                                            <!-- Initially, only one set of input fields -->
+                                            <div class="input-field d-flex">
+                                                <input type="text" class="form-control" name="language"
+                                                    placeholder="Language">
+                                                <input type="text" class="form-control ml-2" name="language_level"
+                                                    placeholder="Language Level">
+                                                <button type="button" class="btn ml-2 deleteButton_5">Delete</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="addLanguageButton"
+                                            class="btn btn-success mt-2">Add Another Language</button>
+                                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                         <hr>
 
@@ -552,7 +682,7 @@
 <!--Footer-->
 <div class="largebanner shadow3">
     <div class="adin">
-        <img src="{{ URL::to('/') }}/assets/images/banner1.jpg">.
+        <img src="{{ URL::to('/') }}/assets/images/banner1.jpg">
     </div>
     <div class="clearfix"></div>
 </div>
@@ -1028,49 +1158,167 @@
         });
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to add a new set of input fields
+        function addProjectFields() {
+            var projectFieldsContainer = document.getElementById("projectFields");
+            var newProjectFields = document.createElement("div");
+            newProjectFields.classList.add("input-field", "d-flex");
+            newProjectFields.innerHTML = `
+                <input type="text" class="form-control mt-2" name="project_name" placeholder="Project Name">
+                <input type="text" class="form-control ml-2 mt-2 " name="project_client" placeholder="Client Name">
+                <input type="text" class="form-control ml-2 mt-2" name="project_description" placeholder="Project Description">
+                <button type="button" class="btn ml-2 mt-2 deleteButton ">Delete</button>
+            `;
+            projectFieldsContainer.appendChild(newProjectFields);
+        }
 
-@push('page_scripts')
-    <script>
-        $("#rowAdder").click(function() {
-            newRowAdd =
-
-                '<div class="tow1">' +
-                '<div class="col-md-12">' +
-                '<div class="input-field">' +
-                '<label for="exampleInputEmail1">Select Age Range</label>' +
-                '<select required name="details[]" class="chosen-select">' +
-                '<option value="" disabled selected>Select Age Details</option>' +
-
-                '</select>' +
-                '</div>' +
-                '</div>' +
-                '<div class="col-md-3">' +
-                '<div class="input-field">' +
-                '<label for="exampleInputEmail1">Persons</label>' +
-                '<input required maxlength="2" type="number" name="counts[]" class="form-control number paxcount" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Persons">' +
-                '</div>' +
-                ' </div>' +
-                '<div class="col-md-3">' +
-                '<div class="input-field">' +
-                ' <button class="btn btn-danger" id="DeleteRow" type="button"><i class="bi bi-trash"></i> Delete </button>' +
-                '</div>' +
-                '</div>' +
-
-                '</div>';
-
-            $('#newinput').append(newRowAdd);
+        // Event listener for the "Add Another Project" button
+        document.getElementById("addProjectButton").addEventListener("click", function() {
+            addProjectFields();
         });
 
-        $("body").on("click", "#DeleteRow", function() {
-            $(this).parents(".tow1").remove();
-        })
-
-        $('.number').keypress(function(event) {
-            var keycode = event.which;
-            if (!(event.shiftKey == false && (keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 &&
-                    keycode <= 57)))) {
-                event.preventDefault();
+        // Event delegation for dynamically added delete buttons
+        document.getElementById("projectForm").addEventListener("click", function(event) {
+            if (event.target.classList.contains("deleteButton")) {
+                event.target.parentNode.remove();
             }
         });
-    </script>
-@endpush
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to add a new set of input fields
+        function addExperienceFields() {
+            let projectFieldsContainer = document.querySelector(".projectFields");
+            let newProjectFields = document.createElement("div");
+            newProjectFields.classList.add("input-field", "d-flex", "flex-wrap", "align-items-center", "justify-content-between", "mt-2");
+            newProjectFields.innerHTML = `
+                <input type="text" class="form-control col-md-3" name="company_name" placeholder="Company Name">
+                <div class="col-md-3">
+                    <span>To Date</span>
+                    <input type="date" class="form-control" name="to_date">
+                </div>
+                <div class="col-md-3">
+                    <span>End Date</span>
+                    <input type="date" class="form-control" name="end_date">
+                </div>
+                <input type="text" class="form-control col-md-3" name="role" placeholder="Role">
+                <input type="text" class="form-control ml-2 col-md-3" name="package" placeholder="Package">
+                <button type="button" class="btn ml-2 deleteButton">Delete</button>
+            `;
+            projectFieldsContainer.appendChild(newProjectFields);
+        }
+
+        // Event listener for the "Add Another Experience" button
+        document.querySelector(".addButton").addEventListener("click", function() {
+            addExperienceFields();
+        });
+
+        // Event delegation for dynamically added delete buttons
+        document.querySelector(".projectFields").addEventListener("click", function(event) {
+            if (event.target.classList.contains("deleteButton")) {
+                event.target.parentNode.remove();
+            }
+        });
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to add a new set of input fields
+        function addEducationFields() {
+            var educationFieldsContainer = document.getElementById("educationFields");
+            var newEducationFields = document.createElement("div");
+            newEducationFields.classList.add("input-field", "d-flex");
+            newEducationFields.innerHTML = `
+                <div class="input-field d-flex mt-2">
+                    <input type="text" class="form-control" name="college_name" placeholder="College Name">
+                    <input type="text" class="form-control ml-2" name="year_of_passout" placeholder="Year Of Passout">
+                    <input type="text" class="form-control ml-2" name="university" placeholder="University">
+                    <input type="text" class="form-control ml-2" name="grade" placeholder="Grade">
+                    <button type="button" class="btn ml-2 deleteButton_3">Delete</button>
+                </div>
+            `;
+            educationFieldsContainer.appendChild(newEducationFields);
+        }
+
+        // Event listener for the "Add Another Education" button
+        document.getElementById("addEducationButton").addEventListener("click", function() {
+            addEducationFields();
+        });
+
+        // Event delegation for dynamically added delete buttons
+        document.getElementById("educationForm").addEventListener("click", function(event) {
+            if (event.target.classList.contains("deleteButton_3")) {
+                event.target.parentNode.remove();
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to add a new set of input fields
+        function addSkillFields() {
+            var skillFieldsContainer = document.getElementById("skillFields");
+            var newSkillFields = document.createElement("div");
+            newSkillFields.classList.add("input-field", "d-flex");
+            newSkillFields.innerHTML = `
+                <div class="input-field d-flex mt-2">
+                    <input type="text" class="form-control" name="primary_skill" placeholder="Primary Skill">
+                    <input type="text" class="form-control ml-2" name="secondary_skill" placeholder="Secondary Skill">
+                    <button type="button" class="btn ml-2 deleteButton_4">Delete</button>
+                </div>
+            `;
+            skillFieldsContainer.appendChild(newSkillFields);
+        }
+
+        // Event listener for the "Add Another Skill" button
+        document.getElementById("addSkillButton").addEventListener("click", function() {
+            addSkillFields();
+        });
+
+        // Event delegation for dynamically added delete buttons
+        document.getElementById("skillForm").addEventListener("click", function(event) {
+            if (event.target.classList.contains("deleteButton_4")) {
+                event.target.parentNode.remove();
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to add a new set of input fields
+        function addLanguageFields() {
+            var languageFieldsContainer = document.getElementById("languageFields");
+            var newLanguageFields = document.createElement("div");
+            newLanguageFields.classList.add("input-field", "d-flex");
+            newLanguageFields.innerHTML = `
+                <div class="input-field d-flex mt-2">
+                    <input type="text" class="form-control" name="language" placeholder="Language">
+                    <input type="text" class="form-control ml-2" name="language_level" placeholder="Language Level">
+                    <button type="button" class="btn ml-2 deleteButton_5">Delete</button>
+                </div>
+            `;
+            languageFieldsContainer.appendChild(newLanguageFields);
+        }
+
+        // Event listener for the "Add Another Language" button
+        document.getElementById("addLanguageButton").addEventListener("click", function() {
+            addLanguageFields();
+        });
+
+        // Event delegation for dynamically added delete buttons
+        document.getElementById("languageForm").addEventListener("click", function(event) {
+            if (event.target.classList.contains("deleteButton_5")) {
+                event.target.parentNode.remove();
+            }
+        });
+    });
+</script>

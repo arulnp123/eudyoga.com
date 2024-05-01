@@ -150,7 +150,7 @@ public function getstate( Request $request )
   }
 
               
-  public function  manage_resume(Request $request){
+  public function  manage_resume(){
     $userid = Session::get('id'); 
     // dd($userid);
     
@@ -165,15 +165,7 @@ public function getstate( Request $request )
     $functional_areas  = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     $getnationality =DB::table('nationality')->orderBy( 'id', 'Asc' )->get();
 
-    
-  DB::table('candidate_project')->insert([
-    
-    'project_name'          => $request->project_name,
-    'project_client'        => $request->project_client,
-    'project_description'   => $request->project_description,
-    'user_id'               =>$userid
-  ]);
-
+  
     $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
@@ -222,6 +214,119 @@ public function getstate( Request $request )
          //dd($updatecandidate);
               return redirect( 'candidate/manage_resume')->with('success', 'Profile updated successfully');
  }
+ public function resume_date(Request $request){
+  // Check if the form has been submitted
+  if ($request->isMethod('post')) {
+      $userid = Session::get('id'); 
+      $gender = DB::table('genders')->orderBy('id', 'asc')->get();
+      $candidateprofile = DB::table('users')->where('id', '=', $userid)->first();
+      $marital_statuses = DB::table('marital_statuses')->orderBy('id', 'asc')->get();
+      $managecountries = DB::table('countries')->orderBy('id', 'asc')->get();
+      $job_experiences = DB::table('job_experiences')->orderBy('id', 'asc')->get();
+      $career_levels  = DB::table('career_levels')->orderBy('id', 'asc')->get();
+      $industries  = DB::table('industries')->orderBy('id', 'asc')->get();
+      $functional_areas  = DB::table('functional_areas')->orderBy('id', 'asc')->get();
+      $getnationality = DB::table('nationality')->orderBy('id', 'asc')->get();
+
+      $view_puplic_profile = DB::table('users')
+          ->select('users.*', 'cities.city', 'states.state', 'countries.country', 'marital_statuses.marital_status', 'job_experiences.job_experience', 'genders.gender', 'career_levels.career_level')
+          ->join('states', 'states.id', '=', 'users.state_id')
+          ->join('cities', 'cities.id', '=', 'users.city_id')
+          ->join('countries', 'countries.id', '=', 'users.country_id')
+          ->join('marital_statuses', 'marital_statuses.id', '=', 'users.marital_status_id')
+          ->join('job_experiences', 'job_experiences.id', '=', 'users.job_experience_id')
+          ->join('genders', 'genders.id', '=', 'users.gender_id')
+          ->join('career_levels', 'career_levels.id', '=', 'users.career_level_id')
+          ->where('users.id', '=', $userid)
+          ->first();
+
+      // Insert into candidate_project if the fields are filled
+      if ($request->filled('project_name', 'project_client', 'project_description')) {
+          DB::table('candidate_project')->insert([
+              'project_name'          => $request->project_name,
+              'project_client'        => $request->project_client,
+              'project_description'   => $request->project_description,
+              'user_id'               => $userid
+          ]);
+      }
+
+      if ($request->filled('company_name', 'to_date', 'end_date', 'role', 'package')) {
+          DB::table('candidate_experience')->insert([
+              'company_name'          => $request->company_name,
+              'to_date'               => $request->to_date,
+              'end_date'              => $request->end_date,
+              'role'                  => $request->role,
+              'package'               => $request->package,
+              'user_id'               => $userid
+          ]);
+      }
+
+      if ($request->filled('college_name', 'year_of_passout', 'university', 'grade')) {
+          DB::table('candidate_education')->insert([
+              'college_name'          => $request->college_name,
+              'year_of_passout'       => $request->year_of_passout,
+              'university'            => $request->university,
+              'grade'                 => $request->grade,
+              'user_id'               => $userid
+          ]);
+      }
+
+      if ($request->filled('primary_skill', 'secondary_skill')) {
+        DB::table('candidate_skill')->insert([
+            'primary_skill'         => $request->primary_skill,
+            'secondary_skill'       => $request->secondary_skill,
+            'user_id'               => $userid
+        ]);
+    }
+
+      if ($request->filled('language', 'language_level')) {
+          DB::table('candidate_language')->insert([
+              'language'              => $request->language,
+              'language_level'        => $request->language_level,
+              'user_id'               => $userid
+          ]);
+      }
+
+      return view('candidate/manage_resume', compact('view_puplic_profile', 'gender', 'candidateprofile', 'marital_statuses', 'managecountries', 'job_experiences', 'career_levels', 'industries', 'functional_areas', 'getnationality'));
+  }
+
+  return view('empty_view');
+}
+
+public function upload_cv(Request $request) {
+  // Validate the uploaded file
+  $request->validate([
+      'cv_file' => 'required|mimes:pdf|max:2048', // PDF file, maximum size 2MB
+  ]);
+
+  // Get the user ID
+  $userId = Session::get('id');
+
+  // Check if a file is uploaded
+  if ($request->hasFile('cv_file')) {
+      // Get the file from the request
+      $file = $request->file('cv_file');
+
+      // Generate a unique name for the file
+      $fileName = $userId . '_cv.' . $file->getClientOriginalExtension();
+
+      // Move the uploaded file to the storage location
+      $file->move(public_path('uploads/cv'), $fileName);
+
+      // Store the file path in the database
+      DB::table('candidate_cv')->insert([
+          'user_id' => $userId,
+          'cv'      => $fileName,
+      ]);
+
+      return redirect('candidate/manage_resume')->with('success', 'CV uploaded successfully.');
+  } else {
+      return redirect('candidate/manage_resume')->back()->with('error', 'No file uploaded.');
+  }
+}
+
+
+
  
   public function  my_followings(){
         return view( 'candidate/my_followings');
@@ -311,6 +416,24 @@ public function  print_resume(){
   public function candidatelogout(){
     Session::flush();
     return redirect( '/candidate_login' );
-  }   
+  }  
+  
+  public function addToFavorites(Job $job)
+{
+    // Check if the job is already in favorites for the authenticated user
+    $userId = auth::user()->id();
+    $alreadyFavorited = FavoriteJob::where('user_id', $userId)->where('job_id', $job->id)->exists();
+
+    if (!$alreadyFavorited) {
+        // Add the job to favorites for the authenticated user
+        FavoriteJob::create([
+            'user_id' => $userId,
+            'job_id' => $job->id,
+        ]);
+    }
+
+    // Redirect back or to a specific page
+    return redirect('my_favourite_jobs')->back()->with('success', 'Job added to favorites successfully.');
+}
 
 }
