@@ -64,6 +64,8 @@ Route::get('/user_profile/{id}', [App\Http\Controllers\Employer\EmployerControll
 Route::get('/logout', [App\Http\Controllers\Frontend\EmployerController::class, 'logout'])->name('logout');
 Route::get('/candsearch',  [App\Http\Controllers\Employer\EmployerController::class, 'candsearch'])->name('candsearch');
 Route::get('/search_cand',  [App\Http\Controllers\Employer\EmployerController::class, 'search_cand'])->name('search_cand');
+// Route::get('/getcity', [App\Http\Controllers\Candidate\EmployerController::class, 'getcity'])->name('getcity');
+
 
 
 
@@ -107,6 +109,9 @@ Route::post('/upload_cv', [App\Http\Controllers\Candidate\CandidateController::c
 
 Route::get('/basicdetialscandidate', [App\Http\Controllers\Candidate\CandidateController::class, 'basicdetialscandidate'])->name('basicdetialscandidate');
 Route::post('/favorite-jobs/{job}', [App\Http\Controllers\Candidate\CandidateController::class, 'addToFavorites'])->name('addToFavorites');
+
+
+Route::get('/example', [App\Http\Controllers\Candidate\CandidateController::class, 'get_user_name'])->name('get_user_name');
 
 
 

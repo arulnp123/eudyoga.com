@@ -4,10 +4,16 @@
 <div class="pageTitle">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <h1 class="page-heading">My Profile</h1>
+        
+            <div class="col-md-5 col-sm-6">
+                <h1 class="page-heading"> @if ($userFirstName)
+                    <p>Welcome, {{ $userFirstName }}</p>
+                @else
+                    <p>Welcome, Guest</p>
+                @endif</h1>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-7 col-sm-6">
+              
                 <div class="breadCrumb"><a href="{{url('/')}}">Home</a> / <span>My Profile</span></div>
             </div>
         </div>
@@ -43,11 +49,11 @@
                             
         <li class="nav-item "><a href="{{ url('/companies') }}" class="nav-link"><i class="fa fa-building"></i>Companies</a> </li>
 
-        <li class=""><a href="{{url('/my_job_application')}}"><i class="fas fa-desktop" aria-hidden="true"></i> My Job Applications</a>
+        {{-- <li class=""><a href="{{url('/my_job_application')}}"><i class="fas fa-desktop" aria-hidden="true"></i> My Job Applications</a> --}}
         </li>
         <li class=""><a href="{{url('/my_favourite_jobs')}}"><i class="fas fa-heart" aria-hidden="true"></i> My Favourite Jobs</a>
         </li>
-        <li class=""><a href="{{url('/my_job_alerts')}}"><i class="fas fa-bullhorn" aria-hidden="true"></i> My Job Alerts</a>
+        {{-- <li class=""><a href="{{url('/my_job_alerts')}}"><i class="fas fa-bullhorn" aria-hidden="true"></i> My Job Alerts</a> --}}
         </li>
         <li><a href="{{url('/manage_resume')}}"><i class="fas fa-file" aria-hidden="true"></i> Manage Resume</a>
         </li>
@@ -61,7 +67,7 @@
     </ul>
         </div>
     <div class="row">
-        <div class="col-md-12"><img src="{{ URL::to('/') }}/assets/images/banner1.jpg">.</div>
+        <div class="col-md-12"><img src="{{ URL::to('/') }}/assets/images/banner1.jpg"></div>
     </div>
         
 </div>

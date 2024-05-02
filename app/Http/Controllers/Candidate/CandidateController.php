@@ -45,7 +45,19 @@ class CandidateController extends Controller
        
   public function candidate_index(){
     return view( 'candidate/candidate_index');
-  }       
+  }     
+  
+  public function get_user_name()
+  {
+      $userId = Session::get('id');
+
+      $userFirstName = null;
+      if ($userId) {
+          $user = DB::table('users')->where('id', $userId)->first();
+          $userFirstName = $user ? $user->first_name : null;
+      }
+
+  }
   public function abc(){
     return view( 'candidate/abc');
   }  
@@ -146,6 +158,7 @@ public function getstate( Request $request )
     } 
     public function getcity( Request $request ) {
       $getcity = DB::table( 'cities' )->where( 'state_id', $request->state_id )->orderBy( 'id', 'Asc' )->get();
+      
       return response()->json( $getcity );
   }
 

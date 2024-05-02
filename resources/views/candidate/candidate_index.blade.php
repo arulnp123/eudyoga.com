@@ -161,7 +161,7 @@
 <!--Footer-->
 <div class="largebanner shadow3">
 <div class="adin">
-<img src="{{ URL::to('/') }}/assets/images/banner1.jpg">.
+<img src="{{ URL::to('/') }}/assets/images/banner1.jpg">
 </div>
 <div class="clearfix"></div>
 </div>

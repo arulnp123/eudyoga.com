@@ -132,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            --}}
+            
             <script>
                 $('#state_id').on('change', function() {
                     var stateid = this.value;
@@ -161,7 +161,7 @@
                                 if (key >= 48 && key <= 57) {
                                     e.preventDefault();
                                 }
-                            });
+                            })});
             </script>
             </form>
         </div>
