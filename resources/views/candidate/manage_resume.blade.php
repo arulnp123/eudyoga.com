@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="col-md-12 col-sm-12">
 
-               
+
 
 
 
@@ -380,10 +380,10 @@
                 </div>
 
                 @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
                 <div class="userccount">
                     <div class="formpanel mt0">
@@ -430,14 +430,15 @@
                                         <div id="projectFields">
                                             <!-- Initially, only one set of input fields -->
                                             <div class="input-field d-flex ">
-                                                <input type="text" class="form-control" name="project_name"
+                                                <input type="text" class="form-control mt-2" name="project_name[]"
                                                     placeholder="Project Name" required>
-                                                <input type="text" class="form-control ml-2" name="project_client"
-                                                    placeholder="Client Name" required>
-                                                <input type="text" class="form-control ml-2"
-                                                    name="project_description" placeholder="Project Description"
+                                                <input type="text" class="form-control ml-2 mt-2 "
+                                                    name="project_client[]" placeholder="Client Name" required>
+                                                <input type="text" class="form-control ml-2 mt-2"
+                                                    name="project_description[]" placeholder="Project Description"
                                                     required>
-                                                <button type="button" class="btn ml-2 deleteButton">Delete</button>
+                                                <button type="button"
+                                                    class="btn ml-2 mt-2 deleteButton">Delete</button>
                                             </div>
                                         </div>
                                         <button type="button" id="addProjectButton" class="btn btn-success mt-2">Add
@@ -470,38 +471,48 @@
                         <a class="btn btn-primary prolinkadd col-md-3" data-toggle="collapse"
                             href="#collapseExample_2" role="button" aria-expanded="false"
                             aria-controls="collapseExample"> Add Experience </a>
-                            <div class="collapse mt-2" id="collapseExample_2">
-                                <div class="card card-body">
-                                    <div class="col-md-12">
-                                        <form action="{{ url('/candidate_experience') }}" method="POST" id="projectForm_two">
-                                            <input type="hidden" class="form-control" value="{{ $candidateprofile->id }}" name="id">
-                                            @csrf
-                                            <div class="projectFields">
-                                                <!-- Initially, only one set of input fields -->
-                                                <div class="input-field d-flex align-item-center justify-content-between mt-4">
-                                                    <input type="text" class="form-control col-md-4" name="company_name" placeholder="Company Name">
-                                                    <div class="col-md-4">
-                                                        <span>To Date</span>
-                                                        <input type="date" class="form-control" name="to_date">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <span>End Date</span>
-                                                        <input type="date" class="form-control" name="end_date">
-                                                    </div>
+                        <div class="collapse mt-2" id="collapseExample_2">
+                            <div class="card card-body">
+                                <div class="col-md-12">
+                                    <form action="{{ url('/candidate_experience') }}" method="POST"
+                                        id="projectForm_two">
+                                        <input type="hidden" class="form-control"
+                                            value="{{ $candidateprofile->id }}" name="id">
+                                        @csrf
+                                        <div class="projectFields">
+                                            <!-- Initially, only one set of input fields -->
+                                            <div
+                                                class="input-field d-flex align-item-center justify-content-between mt-4">
+                                                <input type="text" class="form-control col-md-4"
+                                                    name="company_name[]" placeholder="Company Name" required>
+                                                <div class="col-md-4">
+                                                    <span>To Date</span>
+                                                    <input type="date" class="form-control" name="to_date[]"
+                                                        required>
                                                 </div>
-                            
-                                                <div class="input-field d-flex align-item-center justify-content-between mt-2">
-                                                    <input type="text" class="form-control col-md-4" name="role" placeholder="Role">
-                                                    <input type="text" class="form-control ml-2 col-md-4" name="package" placeholder="Package">
-                                                    <button type="button" class="btn ml-2 deleteButton">Delete</button>
+                                                <div class="col-md-4">
+                                                    <span>End Date</span>
+                                                    <input type="date" class="form-control" name="end_date[]"
+                                                        required>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-success mt-2 addButton">Add Another Experience</button>
-                                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                                        </form>
-                                    </div>
+
+                                            <div
+                                                class="input-field d-flex align-item-center justify-content-between mt-2">
+                                                <input type="text" class="form-control col-md-4" name="role[]"
+                                                    placeholder="Role" required>
+                                                <input type="text" class="form-control ml-2 col-md-4"
+                                                    name="package[]" placeholder="Package" required>
+                                                <button type="button" class="btn ml-2 deleteButton">Delete</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success mt-2 addButton">Add Another
+                                            Experience</button>
+                                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                    </form>
                                 </div>
                             </div>
+                        </div>
 
 
                         <hr>
@@ -535,15 +546,15 @@
                                         @csrf
                                         <div id="educationFields">
                                             <!-- Initially, only one set of input fields -->
-                                            <div class="input-field d-flex">
-                                                <input type="text" class="form-control" name="college_name"
-                                                    placeholder="College Name">
+                                            <div class="input-field d-flex mt-2">
+                                                <input type="text" class="form-control" name="college_name[]"
+                                                    placeholder="College Name" required>
                                                 <input type="text" class="form-control ml-2"
-                                                    name="year_of_passout" placeholder="Year Of Passout">
-                                                <input type="text" class="form-control ml-2" name="university"
-                                                    placeholder="University">
-                                                <input type="text" class="form-control ml-2" name="grade"
-                                                    placeholder="Grade">
+                                                    name="year_of_passout[]" placeholder="Year Of Passout">
+                                                <input type="text" class="form-control ml-2" name="university[]"
+                                                    placeholder="University" required>
+                                                <input type="text" class="form-control ml-2" name="grade[]"
+                                                    placeholder="Grade" required>
                                                 <button type="button" class="btn ml-2 deleteButton_3">Delete</button>
                                             </div>
                                         </div>
@@ -554,6 +565,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <hr>
 
@@ -571,7 +583,6 @@
                             </div>
 
                         </div>
-
                         <a class="btn btn-primary prolinkadd col-md-3" data-toggle="collapse"
                             href="#collapseExample_4" role="button" aria-expanded="false"
                             aria-controls="collapseExample">Add Skill</a>
@@ -585,11 +596,11 @@
                                         @csrf
                                         <div id="skillFields">
                                             <!-- Initially, only one set of input fields -->
-                                            <div class="input-field d-flex">
-                                                <input type="text" class="form-control" name="primary_skill"
-                                                    placeholder="Primary Skill">
+                                            <div class="input-field d-flex mt-2">
+                                                <input type="text" class="form-control" name="primary_skill[]"
+                                                    placeholder="Primary Skill" required>
                                                 <input type="text" class="form-control ml-2"
-                                                    name="secondary_skill" placeholder="Secondary Skill">
+                                                    name="secondary_skill[]" placeholder="Secondary Skill" required>
                                                 <button type="button" class="btn ml-2 deleteButton_4">Delete</button>
                                             </div>
                                         </div>
@@ -600,6 +611,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <hr>
 
                         <div class="modal" id="add_skill_modal" role="dialog"></div>
@@ -630,11 +642,11 @@
                                         @csrf
                                         <div id="languageFields">
                                             <!-- Initially, only one set of input fields -->
-                                            <div class="input-field d-flex">
-                                                <input type="text" class="form-control" name="language"
-                                                    placeholder="Language">
-                                                <input type="text" class="form-control ml-2" name="language_level"
-                                                    placeholder="Language Level">
+                                            <div class="input-field d-flex mt-2">
+                                                <input type="text" class="form-control" name="language[]"
+                                                    placeholder="Language" required>
+                                                <input type="text" class="form-control ml-2"
+                                                    name="language_level[]" placeholder="Language Level" required>
                                                 <button type="button" class="btn ml-2 deleteButton_5">Delete</button>
                                             </div>
                                         </div>
@@ -692,6 +704,11 @@
 
 
 
+
+
+
+
+
 <div class="footerWrap">
     <div class="container">
         <div class="row">
@@ -703,17 +720,18 @@
                 <ul class="quicklinks">
                     <li><a href="index">Home</a></li>
                     <li><a href="contact_us">Contact Us</a></li>
-                    <li class="postad"><a href="{{ url('/') }}">Post a Job</a></li>
-                    <li><a href="{{ url('/') }}">FAQs</a></li>
+                    <li class="postad"><a href="https://eudyoga.com/post-job">Post a Job</a></li>
+                    <li><a href="https://eudyoga.com/faq">FAQs</a></li>
 
                     <li class=""><a href="about_us">About Us</a></li>
 
-                    <li class=""><a href="{{ url('/') }}">Terms &amp; Conditions</a></li>
+                    <li class=""><a href="https://eudyoga.com/cms/Terms_And_Conditions">Terms &amp;
+                            Conditions</a></li>
 
-                    <!--<li class=""><a href="{{ url('/') }}">Privacy Policy</a></li>-->
+                    <!--<li class=""><a href="https://eudyoga.com/cms/Privacy_Policy">Privacy Policy</a></li>-->
 
-                    <!--<li class=""><a href="{{ url('/') }}">Refund_Policy</a></li>-->
-                    <!--<li><a href="https://103.154.233.105:2003/mail/" target="_blank">EMAIL ID LOGIN</a></li>-->
+                    <!--<li class=""><a href="https://eudyoga.com/cms/Refund_Policy">Refund_Policy</a></li>-->
+                    <!--                    <li><a href="https://103.154.233.105:2003/mail/" target="_blank">EMAIL ID LOGIN</a></li>-->
                 </ul>
             </div>
             <!--Quick Links menu end-->
@@ -730,16 +748,27 @@
                     <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=23">Creative Design</a></li>-->
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=119">Sales &amp; Business
                             Development</a></li>
-
-                    <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=1">Accountant</a></li>
+                    <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=127">SMO</a></li>-->
+                    <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=1">Accountant</a></li>-->
                     <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=2">Accounts, Finance &amp; Financial Services</a></li>-->
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=58">IT Systems Analyst</a></li>
-
+                    <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=63">Maintenance/Repair</a></li>
                 </ul>
             </div>
 
             <div class="col-md-3 col-sm-12">
                 <h5>Jobs By Industry</h5>
+                <ul class="quicklinks">
+                    <li><a href="#">BCS</a></li>
+                    <li><a href="#">Siddhran
+                        </a></li>
+                    <li><a href="#">Recrument </a></li>
+                    <li><a href="#">Pragna solution</a>
+                    </li>
+                    <li><a href="#">Arul Rubbers pvt ltd</a></li>
+                    <li><a href="#">Kalyani Moters</a></li>
+
+                </ul>
                 <!--<div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>-->
                 <!--<div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>-->
             </div>
@@ -760,9 +789,8 @@
                     <a href="https://www.instagram.com/eudyoga/" target="_blank"><i class="fab fa-instagram"
                             aria-hidden="true"></i></a>
                     <a href="https://www.linkedin.com/in/e-udyoga-25a2371b5/" target="_blank"><i
-                            class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"
-                            aria-hidden="true"></i></a>
+                            class="fa-brands fa-linkedin"></i></a><a href="https://www.youtube.com"
+                        target="_blank"><i class="fab fa-youtube-square" aria-hidden="true"></i></a>
                 </div>
                 <!-- Social Icons end -->
 
@@ -780,13 +808,11 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="bttxt">Copyright &copy; 2024 E-Udyoga. All Rights Reserved. Design by: <a
-                        href="https://eudyoga.comhttp://graphicriver.net/user/ecreativesol" target="_blank">Thousand
-                        Vision World Pvt Ltd</a></div>
+                        href="https://npgroups.com/" target="_blank">npgroups</a></div>
             </div>
-            <div class="col-md-4">
-                <div class="paylogos"><img src="{{ URL::to('/') }}/assets/images/payment-icons.png"
-                        alt="" /></div>
-            </div>
+            <!--<div class="col-md-4">-->
+            <!--    <div class="paylogos"><img src="{{ URL::to('/') }}/assets/images/payment-icons.png" alt="" /></div>  -->
+            <!--</div>-->
         </div>
 
     </div>
@@ -1160,26 +1186,23 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Function to add a new set of input fields
         function addProjectFields() {
             var projectFieldsContainer = document.getElementById("projectFields");
             var newProjectFields = document.createElement("div");
             newProjectFields.classList.add("input-field", "d-flex");
             newProjectFields.innerHTML = `
-                <input type="text" class="form-control mt-2" name="project_name" placeholder="Project Name">
-                <input type="text" class="form-control ml-2 mt-2 " name="project_client" placeholder="Client Name">
-                <input type="text" class="form-control ml-2 mt-2" name="project_description" placeholder="Project Description">
+                <input type="text" class="form-control mt-2" name="project_name" placeholder="Project Name" required>
+                <input type="text" class="form-control ml-2 mt-2 " name="project_client" placeholder="Client Name" required>
+                <input type="text" class="form-control ml-2 mt-2" name="project_description" placeholder="Project Description" required>
                 <button type="button" class="btn ml-2 mt-2 deleteButton ">Delete</button>
             `;
             projectFieldsContainer.appendChild(newProjectFields);
         }
 
-        // Event listener for the "Add Another Project" button
         document.getElementById("addProjectButton").addEventListener("click", function() {
             addProjectFields();
         });
 
-        // Event delegation for dynamically added delete buttons
         document.getElementById("projectForm").addEventListener("click", function(event) {
             if (event.target.classList.contains("deleteButton")) {
                 event.target.parentNode.remove();
@@ -1189,34 +1212,32 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Function to add a new set of input fields
         function addExperienceFields() {
             let projectFieldsContainer = document.querySelector(".projectFields");
             let newProjectFields = document.createElement("div");
-            newProjectFields.classList.add("input-field", "d-flex", "flex-wrap", "align-items-center", "justify-content-between", "mt-2");
+            newProjectFields.classList.add("input-field", "d-flex", "flex-wrap", "align-items-center",
+                "justify-content-between", "mt-2");
             newProjectFields.innerHTML = `
-                <input type="text" class="form-control col-md-3" name="company_name" placeholder="Company Name">
-                <div class="col-md-3">
-                    <span>To Date</span>
-                    <input type="date" class="form-control" name="to_date">
-                </div>
-                <div class="col-md-3">
-                    <span>End Date</span>
-                    <input type="date" class="form-control" name="end_date">
-                </div>
-                <input type="text" class="form-control col-md-3" name="role" placeholder="Role">
-                <input type="text" class="form-control ml-2 col-md-3" name="package" placeholder="Package">
-                <button type="button" class="btn ml-2 deleteButton">Delete</button>
-            `;
+            <input type="text" class="form-control col-md-3" name="company_name[]" placeholder="Company Name" required>
+            <div class="col-md-3">
+                <span>To Date</span>
+                <input type="date" class="form-control" name="to_date[]" required>
+            </div>
+            <div class="col-md-3">
+                <span>End Date</span>
+                <input type="date" class="form-control" name="end_date[]" required>
+            </div>
+            <input type="text" class="form-control col-md-3" name="role[]" placeholder="Role" required>
+            <input type="text" class="form-control ml-2 col-md-3" name="package[]" placeholder="Package" required>
+            <button type="button" class="btn ml-2 mt-2 deleteButton">Delete</button>
+        `;
             projectFieldsContainer.appendChild(newProjectFields);
         }
 
-        // Event listener for the "Add Another Experience" button
         document.querySelector(".addButton").addEventListener("click", function() {
             addExperienceFields();
         });
 
-        // Event delegation for dynamically added delete buttons
         document.querySelector(".projectFields").addEventListener("click", function(event) {
             if (event.target.classList.contains("deleteButton")) {
                 event.target.parentNode.remove();
@@ -1230,29 +1251,30 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Function to add a new set of input fields
         function addEducationFields() {
             var educationFieldsContainer = document.getElementById("educationFields");
             var newEducationFields = document.createElement("div");
-            newEducationFields.classList.add("input-field", "d-flex");
+            newEducationFields.classList.add("input-field", "d-flex", "mt-2");
             newEducationFields.innerHTML = `
-                <div class="input-field d-flex mt-2">
-                    <input type="text" class="form-control" name="college_name" placeholder="College Name">
-                    <input type="text" class="form-control ml-2" name="year_of_passout" placeholder="Year Of Passout">
-                    <input type="text" class="form-control ml-2" name="university" placeholder="University">
-                    <input type="text" class="form-control ml-2" name="grade" placeholder="Grade">
-                    <button type="button" class="btn ml-2 deleteButton_3">Delete</button>
-                </div>
-            `;
+            <div class="input-field d-flex mt-2">
+                <input type="text" class="form-control" name="college_name[]"
+                    placeholder="College Name" required>
+                <input type="text" class="form-control ml-2"
+                    name="year_of_passout[]" placeholder="Year Of Passout" required>
+                <input type="text" class="form-control ml-2" name="university[]"
+                    placeholder="University" required>
+                <input type="text" class="form-control ml-2" name="grade[]"
+                    placeholder="Grade" required>
+                <button type="button" class="btn ml-2 deleteButton_3">Delete</button>
+            </div>
+        `;
             educationFieldsContainer.appendChild(newEducationFields);
         }
 
-        // Event listener for the "Add Another Education" button
         document.getElementById("addEducationButton").addEventListener("click", function() {
             addEducationFields();
         });
 
-        // Event delegation for dynamically added delete buttons
         document.getElementById("educationForm").addEventListener("click", function(event) {
             if (event.target.classList.contains("deleteButton_3")) {
                 event.target.parentNode.remove();
@@ -1263,27 +1285,25 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Function to add a new set of input fields
         function addSkillFields() {
             var skillFieldsContainer = document.getElementById("skillFields");
             var newSkillFields = document.createElement("div");
-            newSkillFields.classList.add("input-field", "d-flex");
+            newSkillFields.classList.add("input-field", "d-flex", "mt-2");
             newSkillFields.innerHTML = `
-                <div class="input-field d-flex mt-2">
-                    <input type="text" class="form-control" name="primary_skill" placeholder="Primary Skill">
-                    <input type="text" class="form-control ml-2" name="secondary_skill" placeholder="Secondary Skill">
-                    <button type="button" class="btn ml-2 deleteButton_4">Delete</button>
-                </div>
-            `;
+            <div class="input-field d-flex mt-2">
+               
+                <input type="text" class="form-control ml-2" name="secondary_skill[]"
+                    placeholder="Secondary Skill" required>
+                <button type="button" class="btn ml-2 deleteButton_4">Delete</button>
+            </div>
+        `;
             skillFieldsContainer.appendChild(newSkillFields);
         }
 
-        // Event listener for the "Add Another Skill" button
         document.getElementById("addSkillButton").addEventListener("click", function() {
             addSkillFields();
         });
 
-        // Event delegation for dynamically added delete buttons
         document.getElementById("skillForm").addEventListener("click", function(event) {
             if (event.target.classList.contains("deleteButton_4")) {
                 event.target.parentNode.remove();
@@ -1292,29 +1312,29 @@
     });
 </script>
 
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Function to add a new set of input fields
         function addLanguageFields() {
             var languageFieldsContainer = document.getElementById("languageFields");
             var newLanguageFields = document.createElement("div");
-            newLanguageFields.classList.add("input-field", "d-flex");
+            newLanguageFields.classList.add("input-field", "d-flex", "mt-2");
             newLanguageFields.innerHTML = `
                 <div class="input-field d-flex mt-2">
-                    <input type="text" class="form-control" name="language" placeholder="Language">
-                    <input type="text" class="form-control ml-2" name="language_level" placeholder="Language Level">
+                    <input type="text" class="form-control" name="language[]"
+                        placeholder="Language" required>
+                    <input type="text" class="form-control ml-2" name="language_level[]"
+                        placeholder="Language Level" required>
                     <button type="button" class="btn ml-2 deleteButton_5">Delete</button>
                 </div>
             `;
             languageFieldsContainer.appendChild(newLanguageFields);
         }
 
-        // Event listener for the "Add Another Language" button
         document.getElementById("addLanguageButton").addEventListener("click", function() {
             addLanguageFields();
         });
 
-        // Event delegation for dynamically added delete buttons
         document.getElementById("languageForm").addEventListener("click", function(event) {
             if (event.target.classList.contains("deleteButton_5")) {
                 event.target.parentNode.remove();

@@ -98,11 +98,11 @@ Route::get('/candidatelogout', [App\Http\Controllers\Candidate\CandidateControll
 Route::post('/getstate', [App\Http\Controllers\Candidate\CandidateController::class, 'getstate'])->name('getstate');
 Route::post('/getcity', [App\Http\Controllers\Candidate\CandidateController::class, 'getcity'])->name('getcity');
 
-Route::post('/candidate_project', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
-Route::post('/candidate_experience', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
-Route::post('/candidate_education', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
-Route::post('/candidate_skill', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
-Route::post('/candidate_language', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_date'])->name('resume_date');
+Route::post('/candidate_project', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_data'])->name('resume_data');
+Route::post('/candidate_experience', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_data'])->name('resume_data');
+Route::post('/candidate_education', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_data'])->name('resume_data');
+Route::post('/candidate_skill', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_data'])->name('resume_data');
+Route::post('/candidate_language', [App\Http\Controllers\Candidate\CandidateController::class, 'resume_data'])->name('resume_data');
 Route::post('/upload_cv', [App\Http\Controllers\Candidate\CandidateController::class, 'upload_cv'])->name('upload_cv');
 
 Route::get('/basicdetialscandidate', [App\Http\Controllers\Candidate\CandidateController::class, 'basicdetialscandidate'])->name('basicdetialscandidate');

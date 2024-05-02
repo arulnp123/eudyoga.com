@@ -214,8 +214,7 @@ public function getstate( Request $request )
          //dd($updatecandidate);
               return redirect( 'candidate/manage_resume')->with('success', 'Profile updated successfully');
  }
- public function resume_date(Request $request){
-  // Check if the form has been submitted
+ public function resume_data(Request $request){
   if ($request->isMethod('post')) {
       $userid = Session::get('id'); 
       $gender = DB::table('genders')->orderBy('id', 'asc')->get();
@@ -240,52 +239,87 @@ public function getstate( Request $request )
           ->where('users.id', '=', $userid)
           ->first();
 
-      // Insert into candidate_project if the fields are filled
-      if ($request->filled('project_name', 'project_client', 'project_description')) {
-          DB::table('candidate_project')->insert([
-              'project_name'          => $request->project_name,
-              'project_client'        => $request->project_client,
-              'project_description'   => $request->project_description,
-              'user_id'               => $userid
-          ]);
-      }
+      if ($request->isMethod('post')) {
+        $userid = Session::get('id'); 
 
-      if ($request->filled('company_name', 'to_date', 'end_date', 'role', 'package')) {
-          DB::table('candidate_experience')->insert([
-              'company_name'          => $request->company_name,
-              'to_date'               => $request->to_date,
-              'end_date'              => $request->end_date,
-              'role'                  => $request->role,
-              'package'               => $request->package,
-              'user_id'               => $userid
-          ]);
-      }
+        if ($request->filled('project_name', 'project_client', 'project_description')) {
+            $projectNames = $request->input('project_name');
+            $projectClients = $request->input('project_client');
+            $projectDescriptions = $request->input('project_description');
 
-      if ($request->filled('college_name', 'year_of_passout', 'university', 'grade')) {
-          DB::table('candidate_education')->insert([
-              'college_name'          => $request->college_name,
-              'year_of_passout'       => $request->year_of_passout,
-              'university'            => $request->university,
-              'grade'                 => $request->grade,
-              'user_id'               => $userid
-          ]);
-      }
+            foreach ($projectNames as $key => $projectName) {
+                DB::table('candidate_project')->insert([
+                    'project_name'        => $projectName,
+                    'project_client'      => $projectClients[$key],
+                    'project_description' => $projectDescriptions[$key],
+                    'user_id'             => $userid
+                ]);
+            }
+        }
 
-      if ($request->filled('primary_skill', 'secondary_skill')) {
-        DB::table('candidate_skill')->insert([
-            'primary_skill'         => $request->primary_skill,
-            'secondary_skill'       => $request->secondary_skill,
-            'user_id'               => $userid
-        ]);
+    }
+    
+    if ($request->filled('company_name') && is_array($request->company_name)) {
+        $experiences = [];
+
+        foreach ($request->company_name as $key => $company_name) {
+            $experiences[] = [
+                'company_name' => $company_name,
+                'to_date' => $request->to_date[$key],
+                'end_date' => $request->end_date[$key],
+                'role' => $request->role[$key],
+                'package' => $request->package[$key],
+                'user_id' => $userid
+            ];
+        }
+
+        DB::table('candidate_experience')->insert($experiences);
     }
 
-      if ($request->filled('language', 'language_level')) {
-          DB::table('candidate_language')->insert([
-              'language'              => $request->language,
-              'language_level'        => $request->language_level,
-              'user_id'               => $userid
-          ]);
-      }
+    if ($request->filled('college_name') && is_array($request->college_name)) {
+        $educations = [];
+
+        foreach ($request->college_name as $key => $college_name) {
+            $educations[] = [
+                'college_name' => $college_name,
+                'year_of_passout' => $request->year_of_passout[$key],
+                'university' => $request->university[$key],
+                'grade' => $request->grade[$key],
+                'user_id' => $userid
+            ];
+        }
+
+        DB::table('candidate_education')->insert($educations);
+    }
+
+    if ($request->filled('primary_skill') && is_array($request->primary_skill)) {
+        $skills = [];
+
+        foreach ($request->primary_skill as $key => $primary_skill) {
+            $skills[] = [
+                'primary_skill' => $primary_skill,
+                'secondary_skill' => $request->secondary_skill[$key],
+                'user_id' => $userid
+            ];
+        }
+
+        DB::table('candidate_skill')->insert($skills);
+    }
+
+    if ($request->filled('language') && is_array($request->language)) {
+        $languages = [];
+
+        foreach ($request->language as $key => $language) {
+            $languages[] = [
+                'language' => $language,
+                'language_level' => $request->language_level[$key],
+                'user_id' => $userid
+            ];
+        }
+
+        DB::table('candidate_language')->insert($languages);
+    }
+
 
       return view('candidate/manage_resume', compact('view_puplic_profile', 'gender', 'candidateprofile', 'marital_statuses', 'managecountries', 'job_experiences', 'career_levels', 'industries', 'functional_areas', 'getnationality'));
   }
@@ -301,7 +335,7 @@ public function upload_cv(Request $request) {
 
   // Get the user ID
   $userId = Session::get('id');
-
+                                    
   // Check if a file is uploaded
   if ($request->hasFile('cv_file')) {
       // Get the file from the request
@@ -319,9 +353,9 @@ public function upload_cv(Request $request) {
           'cv'      => $fileName,
       ]);
 
-      return redirect('candidate/manage_resume')->with('success', 'CV uploaded successfully.');
+      return redirect('manage_resume')->with('success', 'CV uploaded successfully.');
   } else {
-      return redirect('candidate/manage_resume')->back()->with('error', 'No file uploaded.');
+      return redirect('manage_resume')->back()->with('error', 'No file uploaded.');
   }
 }
 
