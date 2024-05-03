@@ -112,6 +112,8 @@ Route::post('/favorite-jobs/{job}', [App\Http\Controllers\Candidate\CandidateCon
 
 
 Route::get('/example', [App\Http\Controllers\Candidate\CandidateController::class, 'get_user_name'])->name('get_user_name');
+Route::get('/candidate/view_details/{id}', [App\Http\Controllers\Candidate\CandidateController::class, 'view_details'])->name('view_details');
+Route::get('/delete_fav_job/{id}', [App\Http\Controllers\Candidate\CandidateController::class, 'delete_fav_job'])->name('delete_fav_job');
 
 
 

@@ -14,13 +14,12 @@
                         <!-- job start -->
                     </ul>
                 </div>
+                @if (count($fav) > 0)
                 <ul class="searchList">
                     @foreach ($fav as $key => $favList)
                         <li class="">
                             <div class="row">
-
-
-                                <div class="col-lg-10 col-md-8">
+                                <div class="col-lg-10 col-md-8">    
                                     <div class="jobimg"><img src="{{ url('assets/no-image.jpg') }}">
                                     </div>
                                     <div class="jobinfo">
@@ -31,24 +30,45 @@
 
                                         <div class="companyName"><a href="company/srinivas-92.html"
                                                 title="Kalyani Motors">{{ $favList->c_name }}</a></div>
-
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="col-lg-2.5">
                                     <div class="listbtn"><a
-                                            href="{{ url('view_detail', $favList->id) }}">ViewDetials</a>
+                                            href="{{ url('candidate/view_details', $favList->id) }}">ViewDetials</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="content">
                                 <p class="more">{{ $favList->description }}</p>
                             </div>
-
-
                         </li>
                     @endforeach
                 </ul>
+                @else
+                <!-- Error 404 Template 1 - Bootstrap Brain Component -->
+                <section class="d-flex justify-content-center align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="text-center">
+                                    <h2 class="d-flex justify-content-center align-items-center gap-2 mb-4">
+                                        {{-- <span class="display-1 fw-bold h1">4</span> --}}
+                                        <!-- <i class="bi bi-exclamation-circle-fill text-danger display-4"></i> -->
+                                        <i class="fa fa-exclamation-circle text-danger fa-2x"></i>
+                                        {{-- <span class="display-1 fw-bold bsb-flip-h h1">4</span> --}}
+                                    </h2>
+                                    <h3 class="h2">Oops! </h3>
+                                    <p class="mb-3" style="color: red">Sorry No Favourite Jobs </p>
+                                    <a href="{{url('jobs')}}"><h4 >Click to Search Jobs</h4></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+                @endif
             </div>
         </div>
     </div>

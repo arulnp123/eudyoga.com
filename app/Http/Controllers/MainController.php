@@ -85,7 +85,7 @@ class MainController extends Controller{
             'job_id' =>$request->job_id
         ]);
         
-        return redirect('jobs');
+        return redirect('my_favourite_jobs');
 
       }
 
