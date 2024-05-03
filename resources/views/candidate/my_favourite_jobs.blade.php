@@ -14,9 +14,41 @@
                         <!-- job start -->
                     </ul>
                 </div>
+                <ul class="searchList">
+                    @foreach ($fav as $key => $favList)
+                        <li class="">
+                            <div class="row">
 
 
+                                <div class="col-lg-10 col-md-8">
+                                    <div class="jobimg"><img src="{{ url('assets/no-image.jpg') }}">
+                                    </div>
+                                    <div class="jobinfo">
+                                        <h3><a href="job/Relationship%20Manager.html"
+                                                title="Relationship Manager">{{ $favList->title }}</h3>
+                                        <div class="desi"><i class="fa fa-map-marker"
+                                                aria-hidden="true"></i>{{ $favList->state }},{{ $favList->city }}</div>
 
+                                        <div class="companyName"><a href="company/srinivas-92.html"
+                                                title="Kalyani Motors">{{ $favList->c_name }}</a></div>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-lg-2.5">
+                                    <div class="listbtn"><a
+                                            href="{{ url('view_detail', $favList->id) }}">ViewDetials</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p class="more">{{ $favList->description }}</p>
+                            </div>
+
+
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
@@ -132,7 +164,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="bttxt">Copyright &copy; 2024 E-Udyoga. All Rights Reserved. Design by: <a
-                            href="https://eudyoga.comhttp://graphicriver.net/user/ecreativesol" target="_blank">Thousand
+                            href="https://eudyoga.comhttp://graphicriver.net/user/ecreativesol"
+                            target="_blank">Thousand
                             Vision World Pvt Ltd</a></div>
                 </div>
                 <div class="col-md-4">
@@ -464,3 +497,49 @@
 
 
 </script>
+<script>
+    $(document).ready(function() {
+        var showChar = 150; // Set the number of characters to show initially
+        var ellipsestext = "...";
+        var moretext = "Read more";
+        var lesstext = "Read less";
+
+
+        $('.more').each(function() {
+            var content = $(this).html();
+
+            if (content.length > showChar) {
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+
+                var html = c + '<span class="moreellipses">' + ellipsestext +
+                    '&nbsp;</span><span class="morecontent"><span>' + h +
+                    '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+                $(this).html(html);
+            }
+        });
+
+        $(".morelink").click(function() {
+            if ($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
+</script>
+<style>
+    .morecontent span {
+        display: none;
+    }
+
+    .morelink {
+        display: block;
+    }
+</style>

@@ -157,7 +157,7 @@ public function getstate( Request $request )
         return response()->json( $getstate );
     } 
     public function getcity( Request $request ) {
-      $getcity = DB::table( 'cities' )->where( 'state_id', $request->state_id )->orderBy( 'id', 'Asc' )->get();
+      $getcity = DB::table( 'cities' )->where( 'state_id', $request->stateid )->orderBy( 'id', 'Asc' )->get();
       
       return response()->json( $getcity );
   }
@@ -341,26 +341,19 @@ public function getstate( Request $request )
 }
 
 public function upload_cv(Request $request) {
-  // Validate the uploaded file
   $request->validate([
       'cv_file' => 'required|mimes:pdf|max:2048', // PDF file, maximum size 2MB
   ]);
 
-  // Get the user ID
   $userId = Session::get('id');
                                     
-  // Check if a file is uploaded
   if ($request->hasFile('cv_file')) {
-      // Get the file from the request
       $file = $request->file('cv_file');
 
-      // Generate a unique name for the file
       $fileName = $userId . '_cv.' . $file->getClientOriginalExtension();
 
-      // Move the uploaded file to the storage location
       $file->move(public_path('uploads/cv'), $fileName);
 
-      // Store the file path in the database
       DB::table('candidate_cv')->insert([
           'user_id' => $userId,
           'cv'      => $fileName,
@@ -382,7 +375,20 @@ public function upload_cv(Request $request) {
         return view( 'candidate/my_job_alerts');
   } 
   public function  my_favourite_jobs(){
-        return view( 'candidate/my_favourite_jobs');
+    $userid = Session::get('id'); 
+    $fav = DB::table('jobs')->select('jobs.*','favourites_job.job_id', 'states.state', 'companies.c_name', 'cities.city')
+    ->join('favourites_job','favourites_job.job_id' , '=' ,'jobs.id')
+    ->join('companies', 'companies.id','=','jobs.company_id')
+        ->join('states','states.id','=','jobs.state_id')
+        ->join('cities','cities.id','=' ,'jobs.city_id')
+    ->where('favourites_job.user_id', '=', $userid)
+    ->get();
+    
+    //print_r($fav);
+    // echo($FavoritesJobs);
+    //die;
+      
+        return view( 'candidate/my_favourite_jobs', compact('fav'));
   }
   public function  my_job_application(){
         return view( 'candidate/my_job_application');
@@ -464,23 +470,4 @@ public function  print_resume(){
     Session::flush();
     return redirect( '/candidate_login' );
   }  
-  
-  public function addToFavorites(Job $job)
-{
-    // Check if the job is already in favorites for the authenticated user
-    $userId = auth::user()->id();
-    $alreadyFavorited = FavoriteJob::where('user_id', $userId)->where('job_id', $job->id)->exists();
-
-    if (!$alreadyFavorited) {
-        // Add the job to favorites for the authenticated user
-        FavoriteJob::create([
-            'user_id' => $userId,
-            'job_id' => $job->id,
-        ]);
-    }
-
-    // Redirect back or to a specific page
-    return redirect('my_favourite_jobs')->back()->with('success', 'Job added to favorites successfully.');
-}
-
-}
+ }

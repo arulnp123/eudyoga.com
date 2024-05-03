@@ -131,18 +131,7 @@ class EmployerController extends Controller
   public function cv_search_packages(){
     return view( 'employer/cv_search_packages');
   }
-    public function view_detail($id){
-    $jobs1 = DB::table('jobs')->where('id', '=', $id)->get();
-    $profile1 = DB::table('jobs')->select('jobs.*', 'companies.c_name','job_experiences.job_experience','degree_levels.degree_level','job_types.job_type','functional_areas.functional_area','career_levels.career_level')
-    ->join('companies','companies.id','=','jobs.company_id')
-    ->join('job_experiences','job_experiences.id','=','jobs.job_experience_id')
-    ->join('degree_levels','degree_levels.id','=','jobs.degree_level_id')
-    ->join('job_types','job_types.id','=','jobs.job_type_id')
-    ->join('functional_areas','functional_areas.functional_area_id','=','jobs.functional_area_id')
-    ->join('career_levels','career_levels.career_level_id','=','jobs.career_level_id')->where('jobs.id', '=', $id)->orderBy('jobs.id', 'Asc')->first();
-    // echo($profile1);die;
-    return view( 'employer/view_detail',compact('jobs1','profile1'));
-  }
+
   public function edit_profile(){
     $userid = Session::get('id'); 
     $employerprofile = DB::table('companies')->first();

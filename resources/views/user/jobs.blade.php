@@ -5,9 +5,9 @@
 
 
 
-<form action="{{url('job_search')}}" method="get">
+<form action="{{ url('job_search') }}" method="get">
     <!-- Page Title start -->
-       @csrf
+    @csrf
     <div class="container">
         <div class="pageSearch">
 
@@ -42,7 +42,7 @@
 
 
 
-        <form action="{{url('job_search')}}"  method="get">
+        <form action="{{ url('job_search') }}" method="get">
 
             <!-- Search Result and sidebar start -->
 
@@ -60,7 +60,7 @@
                     <!-- Side Bar start -->
                     <div class="sidebar">
                         <input type="hidden" name="search" value="" />
-                        
+
                         <!--Jobs By Title-->
                         <div class="widget ">
                             <h4 class="widget-title">Jobs By Title</h4>
@@ -82,11 +82,11 @@
 
                         </div>
 
-                        
-                       
+
+
 
                         <!-- Jobs By Country -->
-             
+
                         <div class="widget ">
                             <h4 class="widget-title">Country</h4>
                             <ul class="countrylist view_more_ul">
@@ -100,11 +100,11 @@
                                 @endforeach
 
                             </ul>
-                           
+
                             <span class="text text-primary view_more hide_vm" id="country"
                                 onclick="country()">View More</span>
 
-                        </div> 
+                        </div>
 
 
                         <!-- Jobs By Country end-->
@@ -125,11 +125,11 @@
                                 @endforeach
 
                             </ul>
-                             
+
                             <span class="text text-primary view_more hide_vm" id="state"
                                 onclick="state()">View More</span>
 
-                        </div> 
+                        </div>
 
                         <!-- Jobs By State end-->
 
@@ -150,7 +150,7 @@
                                 @endforeach
 
                             </ul>
-                            
+
                             <span class="text text-primary view_more hide_vm" id="city"
                                 onclick="city()">View More</span>
 
@@ -159,15 +159,16 @@
                         <!-- Jobs By City end-->
                         <!-- Jobs By Title -->
 
-                       
-                       
+
+
                         <!-- Jobs By Experience -->
                         <div class="widget ">
                             <h4 class="widget-title">Jobs By Experiance</h4>
                             <ul class="job_experienceslist view_more_ul">
                                 @foreach ($job_experiences as $key => $job_experienceslist)
                                     <li>
-                                        <input type="checkbox" name="job_experience" id="{{ $job_experienceslist->id }}"
+                                        <input type="checkbox" name="job_experience"
+                                            id="{{ $job_experienceslist->id }}"
                                             value="{{ $job_experienceslist->job_experience }}">
                                         <label for="{{ $job_experienceslist->id }}"></label>
                                         {{ $job_experienceslist->job_experience }}
@@ -446,17 +447,18 @@
 
 
                                     <div class="col-lg-10 col-md-8">
-                                        <div class="jobimg"><img
-                                                src="{{url('assets/no-image.jpg')}}">
+                                        <div class="jobimg"><img src="{{ url('assets/no-image.jpg') }}">
                                         </div>
                                         <div class="jobinfo">
                                             <h3><a href="job/Relationship%20Manager.html"
                                                     title="Relationship Manager">{{ $jobs2->title }}</h3>
-                             <div class="desi"><i class="fa fa-map-marker" aria-hidden="true"></i>{{$jobs2->state}},{{$jobs2->city}}</div>
+                                            <div class="desi"><i class="fa fa-map-marker"
+                                                    aria-hidden="true"></i>{{ $jobs2->state }},{{ $jobs2->city }}
+                                            </div>
 
                                             <div class="companyName"><a href="company/srinivas-92.html"
                                                     title="Kalyani Motors">{{ $jobs2->c_name }}</a></div>
-                                          
+                                            
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -466,19 +468,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            
-                                
-                            
-                              
+
+
+
+
                                 <div class="content">
 
 
                                     <p class="more">{{ $jobs2->description }}</p>
-                                   
+
 
                                 </div>
-                               
-                               
+
+
                             </li>
                         @endforeach
 
@@ -492,8 +494,8 @@
                         {{ $jobs1->links() }}
                     </li>
 
-                   
-                        <div class="topstatinfo">
+
+                    <div class="topstatinfo">
                         Showing Jobs : {{ $jobs1->currentPage() * $jobs1->perPage() }} Total {{ $activejobs }}
                     </div>
 
@@ -839,75 +841,84 @@
 
 
 <script type="text/javascript">
-$('#jbsearch').on('keyup',function(){
-$value=$(this).val();
-$.ajax({
-type : 'get',
-url : '{{URL::to('search')}}',
-data:{'search':$value},
-success:function(data){
-    console.log(data);
-$('.searchList').html(data);
-}
-});
-})
+    $('#jbsearch').on('keyup', function() {
+        $value = $(this).val();
+        $.ajax({
+            type: 'get',
+            url: '{{ URL::to('search') }}',
+            data: {
+                'search': $value
+            },
+            success: function(data) {
+                console.log(data);
+                $('.searchList').html(data);
+            }
+        });
+    })
 </script>
 
 
 <script type="text/javascript">
-$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    $.ajaxSetup({
+        headers: {
+            'csrftoken': '{{ csrf_token() }}'
+        }
+    });
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
-  
+
 
 
 
 
 <script>
-$(document).ready(function(){
-    var showChar = 150;  // Set the number of characters to show initially
-    var ellipsestext = "...";
-    var moretext = "Read more";
-    var lesstext = "Read less";
-    
-    
-    $('.more').each(function() {
-        var content = $(this).html();
-        
-        if(content.length > showChar) {
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
-            
-            var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-            
-            $(this).html(html);
-        }
+    $(document).ready(function() {
+        var showChar = 150; // Set the number of characters to show initially
+        var ellipsestext = "...";
+        var moretext = "Read more";
+        var lesstext = "Read less";
+
+
+        $('.more').each(function() {
+            var content = $(this).html();
+
+            if (content.length > showChar) {
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+
+                var html = c + '<span class="moreellipses">' + ellipsestext +
+                    '&nbsp;</span><span class="morecontent"><span>' + h +
+                    '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+                $(this).html(html);
+            }
+        });
+
+        $(".morelink").click(function() {
+            if ($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
     });
-    
-    $(".morelink").click(function(){
-        if($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(moretext);
-        } else {
-            $(this).addClass("less");
-            $(this).html(lesstext);
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
-    });
-});
 </script>
 <style>
-.morecontent span {
-    display: none;
-}
-.morelink {
-    display: block;
-}
+    .morecontent span {
+        display: none;
+    }
+
+    .morelink {
+        display: block;
+    }
 </style>
 
 
@@ -919,34 +930,40 @@ $(document).ready(function(){
 
 
 <script type="text/javascript">
-    $('#jbsearch').on('keyup',function(){
-    $value=$(this).val();
-    $.ajax({
-    type : 'get',
-    url : '{{URL::to('search')}}',
-    data:{'search':$value},
-    success:function(data){
-        console.log(data);
-    $('.searchList').html(data);
-    }
-    });
+    $('#jbsearch').on('keyup', function() {
+        $value = $(this).val();
+        $.ajax({
+            type: 'get',
+            url: '{{ URL::to('search') }}',
+            data: {
+                'search': $value
+            },
+            success: function(data) {
+                console.log(data);
+                $('.searchList').html(data);
+            }
+        });
     })
-    </script>
-    
-    
-    <script type="text/javascript">
-    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-    </script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    
-   
+</script>
 
 
-   
-<div class="footerWrap"> 
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'csrftoken': '{{ csrf_token() }}'
+        }
+    });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+
+
+
+<div class="footerWrap">
     <div class="container">
-        <div class="row"> 
+        <div class="row">
 
             <!--Quick Links-->
             <div class="col-md-3 col-sm-6">
@@ -957,13 +974,13 @@ $(document).ready(function(){
                     <li><a href="contact_us">Contact Us</a></li>
                     <li class="postad"><a href="login.html">Post a Job</a></li>
                     <li><a href="faq">FAQs</a></li>
-                                        
+
                     <li class=""><a href="about_us">About Us</a></li>
-                                        
+
                     <li class=""><a href="cms/Terms_And_Conditions.html">Terms &amp; Conditions</a></li>
-                                        
+
                     <!--<li class=""><a href="cms/Privacy_Policy.html">Privacy Policy</a></li>-->
-                                        
+
                     <!--<li class=""><a href="cms/Refund_Policy.html">Refund_Policy</a></li>-->
                     <!--                    <li><a href="https://103.154.233.105:2003/mail/" target="_blank">EMAIL ID LOGIN</a></li>-->
                 </ul>
@@ -974,55 +991,63 @@ $(document).ready(function(){
                 <h5>Jobs By Functional Area</h5>
                 <!--Quick Links menu Start-->
                 <ul class="quicklinks">
-                                                            <li><a href="jobs6e73.html?functional_area_id%5B%5D=2">Accounts, Finance &amp; Financial Services</a></li>
-                                        <li><a href="jobs073c.html?functional_area_id%5B%5D=53">Interior Designers &amp; Architects</a></li>
-                                        <li><a href="jobs3de1.html?functional_area_id%5B%5D=17">Client Services &amp; Customer Support</a></li>
-                                        <!--<li><a href="jobsa6eb.html?functional_area_id%5B%5D=119">Sales &amp; Business Development</a></li>-->
-                                        <li><a href="jobs222d.html?functional_area_id%5B%5D=1">Accountant</a></li>
-                                        <!--<li><a href="jobsa0ca.html?functional_area_id%5B%5D=127">SMO</a></li>-->
-                                        <li><a href="jobs14fd.html?functional_area_id%5B%5D=68">Manufacturing &amp; Operations</a></li>
-                                        <!--<li><a href="jobsd4f3.html?functional_area_id%5B%5D=112">Retail</a></li>-->
-                                        <!--<li><a href="jobsc39a.html?functional_area_id%5B%5D=118">Sales</a></li>-->
-                                        <li><a href="jobs099f.html?functional_area_id%5B%5D=13">Business Development</a></li>
-                                    </ul>
+                    <li><a href="jobs6e73.html?functional_area_id%5B%5D=2">Accounts, Finance &amp; Financial
+                            Services</a></li>
+                    <li><a href="jobs073c.html?functional_area_id%5B%5D=53">Interior Designers &amp; Architects</a>
+                    </li>
+                    <li><a href="jobs3de1.html?functional_area_id%5B%5D=17">Client Services &amp; Customer Support</a>
+                    </li>
+                    <!--<li><a href="jobsa6eb.html?functional_area_id%5B%5D=119">Sales &amp; Business Development</a></li>-->
+                    <li><a href="jobs222d.html?functional_area_id%5B%5D=1">Accountant</a></li>
+                    <!--<li><a href="jobsa0ca.html?functional_area_id%5B%5D=127">SMO</a></li>-->
+                    <li><a href="jobs14fd.html?functional_area_id%5B%5D=68">Manufacturing &amp; Operations</a></li>
+                    <!--<li><a href="jobsd4f3.html?functional_area_id%5B%5D=112">Retail</a></li>-->
+                    <!--<li><a href="jobsc39a.html?functional_area_id%5B%5D=118">Sales</a></li>-->
+                    <li><a href="jobs099f.html?functional_area_id%5B%5D=13">Business Development</a></li>
+                </ul>
             </div>
-            
-             <div class="col-md-3 col-sm-12">
+
+            <div class="col-md-3 col-sm-12">
                 <h5>Jobs By Industry</h5>
                 <ul class="quicklinks">
-                                <li><a href="#">BCS</a></li>
-                                <li><a href="#">Siddhran
-                                        </a></li>
-                                <li><a href="#">Recrument </a></li>
-                                <li><a href="#">Pragna solution</a>
-                                </li>
-                                <li><a href="#">Arul Rubbers pvt ltd</a></li>
-                                <li><a href="#">Kalyani Moters</a></li>
-                                
-                            </ul>
+                    <li><a href="#">BCS</a></li>
+                    <li><a href="#">Siddhran
+                        </a></li>
+                    <li><a href="#">Recrument </a></li>
+                    <li><a href="#">Pragna solution</a>
+                    </li>
+                    <li><a href="#">Arul Rubbers pvt ltd</a></li>
+                    <li><a href="#">Kalyani Moters</a></li>
+
+                </ul>
                 <!--<div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>-->
                 <!--<div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>-->
             </div>
-            
 
-           
+
+
             <div class="col-md-3 col-sm-12">
                 <h5>Contact Us</h5>
                 <div class="phone"> <a href="tel:+91 888-444-2936">+91 888-444-2936</a></div>
                 <div class="email"> <a href="mailto:hrdesk@eudyoga.com">hrdesk@eudyoga.com</a> </div>
                 <div class="address">No 1088/1 K N Ext, Yeshwanthpur Bangalore Bangalore Karnataka – 560022 India</div>
-                
+
                 <!-- Social Icons -->
-                <div class="social"><a href="https://www.facebook.com/profile.php?id=100067114542067" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-<a href="https://twitter.com/e_udyoga" target="_blank"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
-<a href="https://www.instagram.com/eudyoga/" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
- <a href="https://www.linkedin.com/in/e-udyoga-25a2371b5/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-<a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube-square" aria-hidden="true"></i></a>
-</div>
-                <!-- Social Icons end --> 
+                <div class="social"><a href="https://www.facebook.com/profile.php?id=100067114542067"
+                        target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/e_udyoga" target="_blank"><i class="fab fa-twitter-square"
+                            aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/eudyoga/" target="_blank"><i class="fab fa-instagram"
+                            aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/e-udyoga-25a2371b5/" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube-square"
+                            aria-hidden="true"></i></a>
+                </div>
+                <!-- Social Icons end -->
 
             </div>
-            
+
 
         </div>
     </div>

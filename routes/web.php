@@ -21,7 +21,7 @@ Route::get('/employer_index', [App\Http\Controllers\MainController::class, 'empl
 
 
 Route::get('/company_public_profile/{id}', [App\Http\Controllers\MainController::class, 'company_public_profile'])->name('company_public_profile');
-Route::get('/view_detail/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'view_detail'])->name('view_detail');
+Route::get('/view_detail/{id}', [App\Http\Controllers\MainController::class, 'view_detail'])->name('view_detail');
 
 
 Route::get('/search',  [App\Http\Controllers\MainController::class, 'search'])->name('search');	
@@ -33,6 +33,7 @@ Route::get('/searchindex',  [App\Http\Controllers\MainController::class, 'search
 Route::get('/index_search',  [App\Http\Controllers\MainController::class, 'index_search'])->name('index_search');
 Route::get('/searchabout',  [App\Http\Controllers\MainController::class, 'searchabout'])->name('searchabout');
 Route::get('/about_search',  [App\Http\Controllers\MainController::class, 'about_search'])->name('about_search');
+Route::post('/add_to_favorite',  [App\Http\Controllers\MainController::class, 'add_to_favorite'])->name('add_to_favorite');
 
 
 // Employer
@@ -80,7 +81,6 @@ Route::post('/candidatepost', [App\Http\Controllers\Candidate\CandidateControlle
 // Route::post('/candidate_post', [App\Http\Controllers\Candidate\CandidateController::class, 'candidate_post'])->name('candidate_post');
 
 
-// Route::get('/getcity', [App\Http\Controllers\Candidate\CandidateController::class, 'getcity'])->name('getcity');
 
 
 
