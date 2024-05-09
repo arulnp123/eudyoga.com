@@ -20,6 +20,8 @@
                                 <strong> {{ session('error') }} </strong>
                             </div>
                             @endif
+
+                            
                             
             <div id="printableArea" >
                 <div class="js-embeddable">
@@ -32,13 +34,13 @@
                           <div class="row">
                            <div class="col-md-3 col-sm-3">
                             <div class="photo">
-                             <img src="{{ URL::to('/') }}/assets/assets/no-image.png"  alt="" title="{{ $printresume->email }}">
+                             <img src="{{ URL::to('/') }}/assets/assets/no-image.png"  alt="" title="{{ $printresume->email ?? ''}}">
                          </div>
                      </div>
                      <div class="col-sm-9 name">
                         <div class="name-inner">
                          <h1>
-                            {{$printresume->email}}
+                            {{$printresume->email ?? ''}}
                        </h1>
                        <h6 class="subheader">
                         <span>Immediate Available For Work</span>
@@ -54,7 +56,7 @@
                     </span>
                 </td>
                 <td>
-                    <strong> {{$printresume->city}}</strong>
+                    <strong> {{$printresume->city ?? ''}}</strong>
                 </td>
             </tr>
             
@@ -67,7 +69,7 @@
         <td>
             <strong class="break-word">
 
-             <a href="tel:mibota1985"> {{$printresume->phone}}</a>
+             <a href="tel:mibota1985"> {{$printresume->phone ?? ''}}</a>
 
          </strong>
      </td>
@@ -80,7 +82,7 @@
     <td>
         <strong class="break-word">
 
-            <a href=""> {{$printresume->email}}</a>
+            <a href=""> {{$printresume->email ?? ''}}</a>
 
         </strong>
     </td>
@@ -138,34 +140,34 @@
     <li class="row">
         <div class="col-md-6 col-xs-6">Is Email Verified</div>
 
-        <div class="col-md-6 col-xs-6"><span>{{$printresume->verified}}</span></div>
+        <div class="col-md-6 col-xs-6"><span>{{$printresume->verified ?? ''}}</span></div>
     </li>
     <li class="row">
 
         <div class="col-md-6 col-xs-6">Immediate Available</div>
 
-        <div class="col-md-6 col-xs-6"><span>{{$printresume->is_immediate_available}}</span></div>
+        <div class="col-md-6 col-xs-6"><span>{{$printresume->is_immediate_available ?? ''}}</span></div>
 
     </li>
     <li class="row">
 
         <div class="col-md-6 col-xs-6">Age</div>
 
-        <div class="col-md-6 col-xs-6"><span> {{$printresume->age}}</span></div>
+        <div class="col-md-6 col-xs-6"><span> {{$printresume->age ?? ''}}</span></div>
 
     </li>
     <li class="row">
 
         <div class="col-md-6 col-xs-6">Gender</div>
 
-        <div class="col-md-6 col-xs-6"><span>{{$printresume->gender}}</span></div>
+        <div class="col-md-6 col-xs-6"><span>{{$printresume->gender ?? ''}}</span></div>
 
     </li>
     <li class="row">
 
         <div class="col-md-6 col-xs-6">Marital Status</div>
 
-        <div class="col-md-6 col-xs-6"><span>{{$printresume->marital_status}}</span></div>
+        <div class="col-md-6 col-xs-6"><span>{{$printresume->marital_status ?? ''}}</span></div>
 
     </li>
 
@@ -173,7 +175,7 @@
 
         <div class="col-md-6 col-xs-6">Experience</div>
 
-        <div class="col-md-6 col-xs-6"><span>{{$printresume->job_experience}}</span></div>
+        <div class="col-md-6 col-xs-6"><span>{{$printresume->job_experience ?? ''}}</span></div>
 
     </li>
 
@@ -181,7 +183,7 @@
 
         <div class="col-md-6 col-xs-6">Career Level</div>
 
-        <div class="col-md-6 col-xs-6"><span>{{$printresume->career_level}}</span></div>
+        <div class="col-md-6 col-xs-6"><span>{{$printresume->career_level ?? ''}}</span></div>
 
     </li>             
 
@@ -189,7 +191,7 @@
 
         <div class="col-md-6 col-xs-6">Current Salary</div>
 
-        <div class="col-md-6 col-xs-6"><span class="">{{$printresume->current_salary}} </span></div>
+        <div class="col-md-6 col-xs-6"><span class="">{{$printresume->current_salary ?? ''}} </span></div>
 
     </li>
 
@@ -197,8 +199,8 @@
 
         <div class="col-md-6 col-xs-6">Expected Salary</div>
 
-        <div class="col-md-6 col-xs-6"><span class=""> {{$printresume->expected_salary}}</span></div>
-
+        <div class="col-md-6 col-xs-6"><span class=""> {{$printresume->expected_salary ?? ''}}</span></div>
+ 
     </li>
 </ul>
 </div>

@@ -61,7 +61,7 @@ class AppServiceProvider extends ServiceProvider
         $userId = $this->getCurrentUserId();
         if ($userId) {
             $user = DB::table('users')->where('id', $userId)->first();
-            return $user ? $user->first_name : null;
+            return $user ? $user->name : null;
         }
         return null;
     }

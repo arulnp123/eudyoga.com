@@ -157,7 +157,7 @@ public function getstate( Request $request )
         return response()->json( $getstate );
     } 
     public function getcity( Request $request ) {
-      $getcity = DB::table( 'cities' )->where( 'state_id', $request->stateid )->orderBy( 'id', 'Asc' )->get();
+      $getcity = DB::table( 'cities' )->where( 'state_id', $request->state_id )->orderBy( 'id', 'Asc' )->get();
       
       return response()->json( $getcity );
   }

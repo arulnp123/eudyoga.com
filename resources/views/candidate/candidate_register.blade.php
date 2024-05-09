@@ -84,13 +84,13 @@
                                     <input type="submit" class="btn" value="Register">
                                     <script>
                                         $('#stateid').on('change', function() {
-                                            var stateid = this.value;
+                                            var state_id = this.value;
                                             $("#cityid").html('');
                                             $.ajax({
                                                 url: "{{ url('/getcity') }}",
                                                 type: "POST",
                                                 data: {
-                                                    stateid: stateid,
+                                                    state_id: state_id,
                                                     _token: '{{ csrf_token() }}'
                                                 },
                                                 dataType: 'json',

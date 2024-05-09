@@ -82,8 +82,8 @@
                                                                             <label for="email"
                                                                                 class="form-label mb-2">Name</label>
                                                                             <input type="text" class="form-control"
-                                                                                name="first_name"
-                                                                                value="{{ $candidateprofile->first_name }}"
+                                                                                name="name"
+                                                                                value="{{ $candidateprofile->name }}"
                                                                                 id="name" placeholder="Full Name">
                                                                         </div>
 

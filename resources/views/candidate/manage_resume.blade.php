@@ -15,7 +15,7 @@
                         <!-- Personal Information -->
                         <form method="post" action="{{ url('/updateresume') }}" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" class="form-control" value="{{ $candidateprofile->id }}"
+                            <input type="hidden" class="form-control" value="{{ $candidateprofile->id ?? ''}}"
                                 name="id">
 
                             <h5>Account Information</h5>
@@ -24,7 +24,7 @@
                                     <div class="formrow ">
                                         <label for="">Email</label>
                                         <input class="form-control" id="email" placeholder="Email" name="email"
-                                            type="text" value="{{ $view_puplic_profile->name }}">
+                                            type="text" value="{{ $view_puplic_profile->name ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -68,14 +68,14 @@
                                         <label for="">First Name</label>
                                         <input class="form-control" id="first_name" placeholder="First Name"
                                             name="first_name" type="text"
-                                            value="{{ $view_puplic_profile->first_name }}">
+                                            value="{{ $view_puplic_profile->first_name ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow ">
                                         <label for="">Email ID</label>
                                         <input class="form-control" id="email" placeholder="Email" name="email"
-                                            type="text" value="{{ $view_puplic_profile->email }}">
+                                            type="text" value="{{ $view_puplic_profile->email ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -83,7 +83,7 @@
                                         <label for="mother_name">Mother Name</label>
                                         <input class="form-control" type="text" id="mother_name"
                                             placeholder="Mother Name" name="mother_name"
-                                            value="{{ $view_puplic_profile->mother_name }}">
+                                            value="{{ $view_puplic_profile->mother_name ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -91,7 +91,7 @@
                                         <label for="">Father Name</label>
                                         <input class="form-control" id="father_name" placeholder="Father Name"
                                             name="father_name" type="text"
-                                            value="{{ $view_puplic_profile->father_name }}">
+                                            value="{{ $view_puplic_profile->father_name ?? ''}}">
                                     </div>
                                 </div>
 
@@ -180,7 +180,7 @@
                                         <label for="">Date of Birth</label>
                                         <input class="form-control" id="date_of_birth" placeholder="Date of Birth"
                                             autocomplete="off" name="date_of_birth" type="date"
-                                            value="{{ $view_puplic_profile->date_of_birth }}">
+                                            value="{{ $view_puplic_profile->date_of_birth ?? '' }}">
                                     </div>
 
 
@@ -191,14 +191,14 @@
                                     <div class="formrow ">
                                         <label for="">Age</label>
                                         <input class="form-control" id="age" placeholder="Age" name="age"
-                                            type="text" value="{{ $view_puplic_profile->age }}">
+                                            type="text" value="{{ $view_puplic_profile->age ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow ">
                                         <label for="">Mobile</label>
                                         <input class="form-control" id="phone" placeholder="Mobile"
-                                            name="phone" type="text" value="{{ $view_puplic_profile->phone }}">
+                                            name="phone" type="text" value="{{ $view_puplic_profile->phone ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -206,14 +206,14 @@
                                         <label for="">Alternate Number</label>
                                         <input class="form-control" id="mobile_num" placeholder="Alternate Number"
                                             name="mobile_num" type="text"
-                                            value="{{ $view_puplic_profile->mobile_num }}">
+                                            value="{{ $view_puplic_profile->mobile_num ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="formrow ">
                                         <label for="">Street Address</label>
                                         <textarea class="form-control" id="street_address" placeholder="Street Address" name="street_address"
-                                            cols="50" rows="10">{{ $view_puplic_profile->street_address }}</textarea>
+                                            cols="50" rows="10">{{ $view_puplic_profile->street_address ?? ''}}</textarea>
                                     </div>
                                 </div>
 
@@ -228,7 +228,7 @@
                                         <label for="">Video Link - sample:
                                             https://www.youtube.com/embed/538cRSPrwZU</label>
                                         <textarea class="form-control" id="video_link" placeholder="Video Link" name="video_link" cols="50"
-                                            rows="10">{{ $view_puplic_profile->video_link }}</textarea>
+                                            rows="10">{{ $view_puplic_profile->video_link ?? '' }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -304,7 +304,7 @@
                                         <label for="">Current Salary</label>
                                         <input class="form-control" id="current_salary" placeholder="Current Salary"
                                             name="current_salary" type="text"
-                                            value="{{ $view_puplic_profile->current_salary }}">
+                                            value="{{ $view_puplic_profile->current_salary ?? ''}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 fresher_val">
@@ -312,7 +312,7 @@
                                         <label for="">Expected Salary</label>
                                         <input class="form-control" id="expected_salary"
                                             placeholder="Expected Salary" name="expected_salary" type="text"
-                                            value="{{ $view_puplic_profile->expected_salary }}">
+                                            value="{{ $view_puplic_profile->expected_salary ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 fresher_val">
@@ -321,7 +321,7 @@
                                         <input class="form-control" id="salary_currency"
                                             placeholder="Salary Currency" autocomplete="off" name="salary_currency"
                                             type="text" value="INR"
-                                            value="{{ $view_puplic_profile->salary_currency }}">
+                                            value="{{ $view_puplic_profile->salary_currency ?? ''}}">
                                     </div>
                                 </div>
 

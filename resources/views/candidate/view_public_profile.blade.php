@@ -24,11 +24,11 @@
                             src="assets/images/favicon.png"></div>
                     
                     <div class="title">
-                                <h3>{{$view_puplic_profile->name}}
+                                <h3>{{$view_puplic_profile->name ?? ''}}
                                                                 </h3>
                         {{-- <div class="desi"><i class="fa fa-map-marker" aria-hidden="true"></i> {{$view_puplic_profile->city}}, {{$view_puplic_profile->state}}, {{$view_puplic_profile->country}}</div> --}}
                         
-                        <div class="membersinc"><i class="fa fa-history" aria-hidden="true"></i> Member Since, {{substr($view_puplic_profile->created_at , 0,10)}}</div>
+                        <div class="membersinc"><i class="fa fa-history" aria-hidden="true"></i> Member Since, {{substr($view_puplic_profile->created_at ?? '' , 0,10 ) }}</div>
                         
                             </div>
                     
@@ -88,40 +88,40 @@
 
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Is Email Verified</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->verified}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->verified ?? ''}}</span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Immediate Available</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->is_immediate_available}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->is_immediate_available ?? ''}}</span></div>
                             </li>
 
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Age</div>
-                                <div class="col-md-6 col-xs-6"><span> {{$view_puplic_profile->age}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span> {{$view_puplic_profile->age ?? ''}}</span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Gender</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->gender}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->gender ?? ''}}</span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Marital Status</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->marital_status}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->marital_status ?? ''}}</span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Experience</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->job_experience}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->job_experience ?? ''}}</span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Career Level</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->career_level}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span>{{$view_puplic_profile->career_level ?? ''}}</span></div>
                             </li>             
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Current Salary</div>
-                                <div class="col-md-6 col-xs-6"><span class="permanent">{{$view_puplic_profile->current_salary}} </span></div>
+                                <div class="col-md-6 col-xs-6"><span class="permanent">{{$view_puplic_profile->current_salary ?? ''}} </span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Expected Salary</div>
-                                <div class="col-md-6 col-xs-6"><span class="freelance">{{$view_puplic_profile->expected_salary}} </span></div>
+                                <div class="col-md-6 col-xs-6"><span class="freelance">{{$view_puplic_profile->expected_salary ?? ''}} </span></div>
                             </li>              
                         </ul>
                     </div>

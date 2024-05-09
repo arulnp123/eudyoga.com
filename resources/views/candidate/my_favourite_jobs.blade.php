@@ -143,8 +143,17 @@
 
                 <div class="col-md-3 col-sm-12">
                     <h5>Jobs By Industry</h5>
-                    <!--<div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>-->
-                    <!--<div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>-->
+                    <ul class="quicklinks">
+                        <li><a href="#">BCS</a></li>
+                        <li><a href="#">Siddhran
+                                </a></li>
+                        <li><a href="#">Recrument </a></li>
+                        <li><a href="#">Pragna solution</a>
+                        </li>
+                        <li><a href="#">Arul Rubbers pvt ltd</a></li>
+                        <li><a href="#">Kalyani Moters</a></li>
+                        
+                    </ul>
                 </div>
 
 

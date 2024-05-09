@@ -80,7 +80,7 @@
                         <h3>Job Description</h3>
                         <li class="row">
                             {{-- <div class="col-md-6 col-xs-6">Expected Salary</div> --}}
-                            <div class="col-md-6 col-xs-6 ">
+                            <div class="col-md-12 col-xs-6 ">
                                 <p class="h-6">{{ $profile1->description }}</p>
                             </div>
                         </li>
@@ -154,6 +154,17 @@
                                 <div class="col-md-6 col-xs-6">Expected Salary</div>
                                 <div class="col-md-6 col-xs-6"><span>{{ $profile1->salary_to }}</span></div>
                             </li>
+                            <li class="row">
+                                <div class="col-md-6 col-xs-6">Do You Want Remove</div>
+                                <div class="col-md-6 col-xs-6"><form method="POST" action="{{ route('add_to_favorite') }}">
+                                    @csrf
+                                    <input type="hidden" name="job_id" id="job_id" value="{{ $id }}">
+    
+                                    <a onclick="return confirm('Do you want to Confirm delete operation?')"
+                                        href="{{ url('/delete_fav_job', $profile1->id) }}"><button type="submit"
+                                            class="btn btn-danger">Remove Favorite</button></a>
+                                </form></div>
+                            </li>
                         </ul>
 
                     </div>
@@ -168,18 +179,6 @@
                     <div class="contentbox">
                         <h3>Education</h3>
                         <div class="" id="education_div"></div>
-                        <div class="container float-right">
-
-                            <form method="POST" action="{{ route('add_to_favorite') }}">
-                                @csrf
-                                <input type="hidden" name="job_id" id="job_id" value="{{ $id }}">
-
-                                <a onclick="return confirm('Do you want to Confirm delete operation?')"
-                                    href="{{ url('/delete_fav_job', $profile1->id) }}"><button type="submit"
-                                        class="btn btn-danger">Remove Favorite</button></a>
-                            </form>
-                        </div>
-
                     </div>
                 </div>
 
