@@ -151,7 +151,7 @@ class CandidateController extends Controller
         return view( 'candidate/candidate_index');
         } 
 
-public function getstate( Request $request )
+    public function getstate( Request $request )
     {
         $getstate = DB::table( 'states' )->where( 'country_id', $request->country_id )->orderBy( 'id', 'Asc' )->get();
         return response()->json( $getstate );
@@ -160,7 +160,7 @@ public function getstate( Request $request )
       $getcity = DB::table( 'cities' )->where( 'state_id', $request->state_id )->orderBy( 'id', 'Asc' )->get();
       
       return response()->json( $getcity );
-  }
+    }
 
               
   public function  manage_resume(){

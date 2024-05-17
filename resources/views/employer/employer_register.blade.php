@@ -13,61 +13,63 @@
 
                     </div>
                     <div class="userccount whitebg">
-                        <h4 class="text-center pb-2">Employer Register Form</h4>
+                        <h4 class="text-center pb-2">Employee Register Form</h4>
                         <div class="tab-content">
                             <div id="candidate" class="formpanel mt-0 tab-pane active">
                                 <form class="form-horizontal" id="company_register" action="{{ url('/addemployer') }}"
                                     method="POST">
                                     @csrf
-                                   
-                        <div class="formrow">
-                          <input type="text" id="fullnameinput" name="name" class="form-control txtOnly" required="required" placeholder="HR Name" value="">
-                          <span id="name" class="help-block">  </span>
-                       </div>
-                       <div class="formrow">
-                          <input type="text" name="name" class="form-control txtOnly" required="required" placeholder="Company Name" value="">
-                          <span id="c_name" class="help-block">  </span>
-                       </div>
-                       <div class="formrow">
-                          <input type="number" name="phone" class="form-control" placeholder="Whatsapp Number" value="" maxlength="10">
-                          <span id="phone" class="help-block">  </span>
-                       </div>
-                       <div class="formrow">
-                          <input type="email" name="email" class="form-control" required="required" placeholder="Email" value="">
-                          <span id="email" class="help-block">  </span>
-                       </div>
-                       <div class="formrow">
-                          <input type="password" name="password" class="form-control" required="required" placeholder="Password" value="">
-                          <span id="password" class="help-block">  </span>
-                       </div>
-                       <div class="formrow">
-                          <input type="password" name="password_confirmation" class="form-control" required="required" placeholder="Password Confirmation" value="">
-                          <span id="password_confirmation" class="help-block">  </span>
-                       </div>
-                       
-                       
-                                    
- 
+
+                                    <div class="formrow">
+                                        <input type="text" id="fullnameinput" name="name"
+                                            class="form-control txtOnly" required="required" placeholder="HR Name"
+                                            value="">
+                                        <span id="name" class="help-block"> </span>
+                                    </div>
+                                    <div class="formrow">
+                                        <input type="text" name="name" class="form-control txtOnly"
+                                            required="required" placeholder="Company Name" value="">
+                                        <span id="c_name" class="help-block"> </span>
+                                    </div>
+                                    <div class="formrow">
+                                        <input type="number" id="phone" name="phone" class="form-control"
+                                            placeholder="Whatsapp Number" value="" maxlength="10">
+                                        <span id="dupmobile" class="help-block"> </span>
+                                    </div>
+                                    <div class="formrow">
+                                        <input type="email" name="email" id="email" onkeyup="duplicateemail(0)"
+                                            class="form-control" required="required" placeholder="Email" value="">
+                                        <span id="dupemail" class="help-block" style="color: red"> </span>
+                                    </div>
+                                    <div class="formrow">
+                                        <input type="password" name="password" class="form-control" required="required"
+                                            placeholder="Password" value="">
+                                        <span id="password" class="help-block"> </span>
+                                    </div>
+                                    <div class="formrow">
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                            required="required" placeholder="Password Confirmation" value="">
+                                        <span id="password_confirmation" class="help-block"> </span>
+                                    </div>
 
 
-                                    <div class="formrow{{ $errors->has('state_id') ? ' has-error' : '' }}">
-                                        <select name="state_id" id="state_id" required class="form-control">
+
+
+
+
+                                    <div class="formrow">
+                                        <select name="state_id" id="stateid" required class="form-control">
                                             <option value="">Select State</option>
+                                            @foreach ($states as $key => $statelist)
+                                                <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="formrow">
+                                        <select name="city_id" id="cityid" required class="form-control">
+                                        </select>
+                                    </div>
 
-                                            {{-- <<<<<<< HEAD --}}
-                                            @foreach ($states as $key => $statelist)
-                                                <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
-                                            @endforeach
-                                            @foreach ($states as $key => $statelist)
-                                                <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="formrow{{ $errors->has('city_id') ? ' has-error' : '' }}">
-                                        <select name="city_id" id="cityid" class="form-control"
-                                            onchange="changestae(this.value)">
-                                        </select>
-                                    </div>
 
                                     <div class="formrow">
                                         <input type="text" name="refrence" class="form-control"
@@ -95,29 +97,33 @@
                                     <!--        class="g-recaptcha"></div>-->
                                     <!--    <span id="g-recaptcha-response" class="help-block"> </span>-->
                                     <!--</div>-->
-                                    <input type="submit" class="btn" value="Register">
+                                    <input type="submit" class="btn" value="Register" id="save">
                                     <script>
-                                        $('#state_id').on('change', function() {
-                                            var stateid = this.value;
+                                        $('#stateid').on('change', function() {
+                                            var state_id = this.value;
                                             $("#cityid").html('');
                                             $.ajax({
                                                 url: "{{ url('/getcity') }}",
                                                 type: "POST",
                                                 data: {
-                                                    stateid: stateid,
+                                                    state_id: state_id,
                                                     _token: '{{ csrf_token() }}'
                                                 },
                                                 dataType: 'json',
                                                 success: function(result) {
-                                                    $('#cityid').html(
-                                                        '<option value="">Select City Name</option>'
-                                                    );
+                                                    $('#cityid').html('<option value="">Select City Name</option>');
                                                     $.each(result, function(key, value) {
-                                                        $("#cityid").append('<option value="' +
-                                                            value
-                                                            .id + '">' + value.city +
-                                                            ' </option>');
+                                                        $("#cityid").append('<option value="' + value
+                                                            .id + '">' + value.city + '</option>');
                                                     });
+                                                }
+                                            });
+                                        });
+                                        $(document).ready(function() {
+                                            $(".txtOnly").keypress(function(e) {
+                                                var key = e.keyCode;
+                                                if (key >= 48 && key <= 57) {
+                                                    e.preventDefault();
                                                 }
                                             });
                                         });
@@ -132,43 +138,13 @@
                     </div>
                 </div>
             </div>
-            
-            <script>
-                $('#state_id').on('change', function() {
-                    var stateid = this.value;
-                    $("#cityid").html('');
-                    $.ajax({
-                        url: "{{ url('/getcity') }}",
-                        type: "POST",
-                        data: {
-                            stateid: stateid,
-                            _token: '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function(result) {
-                            $('#cityid').html('<option value="">Select City Name</option>');
-                            $.each(result, function(key, value) {
-                                $("#cityid").append('<option value="' + value
-                                    .id + '">' + value.city_name + '</option>');
-                            });
-                        }
-                    });
-                });
 
-                $(document).ready(function() {
-                            $(".txtOnly").keypress(function(e) {
-                                var key = e.keyCode;
-                                if (key >= 48 && key <= 57) {
-                                    e.preventDefault();
-                                }
-                            })});
-            </script>
             </form>
         </div>
     </div>
     <!-- sign up form -->
     {{-- <div class="newuser"><i class="fas fa-user" aria-hidden="true"></i> Have Account? <a href="{{url('/employer_login')}}">Sign in</a></div>
-              <!-- sign up form end--> 
+              <!-- sign up form end-->
            </div>
 
         </div>

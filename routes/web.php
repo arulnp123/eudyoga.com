@@ -24,8 +24,8 @@ Route::get('/company_public_profile/{id}', [App\Http\Controllers\MainController:
 Route::get('/view_detail/{id}', [App\Http\Controllers\MainController::class, 'view_detail'])->name('view_detail');
 
 
-Route::get('/search',  [App\Http\Controllers\MainController::class, 'search'])->name('search');	
-Route::get('/job_search',  [App\Http\Controllers\MainController::class, 'job_search'])->name('job_search');	
+Route::get('/search',  [App\Http\Controllers\MainController::class, 'search'])->name('search');
+Route::get('/job_search',  [App\Http\Controllers\MainController::class, 'job_search'])->name('job_search');
 Route::get('/searchcompany',  [App\Http\Controllers\MainController::class, 'searchcompany'])->name('searchcompany');
 Route::get('/company_search',  [App\Http\Controllers\MainController::class, 'company_search'])->name('company_search');
 Route::get('/featured_companies/{id}', [App\Http\Controllers\MainController::class, 'featured_companies'])->name('featured_companies');
@@ -35,6 +35,10 @@ Route::get('/searchabout',  [App\Http\Controllers\MainController::class, 'search
 Route::get('/about_search',  [App\Http\Controllers\MainController::class, 'about_search'])->name('about_search');
 Route::post('/add_to_favorite',  [App\Http\Controllers\MainController::class, 'add_to_favorite'])->name('add_to_favorite');
 
+//verofied
+
+Route::post('/checkphone', [App\Http\Controllers\User\UserController::class, 'checkphone'])->name('checkphone');
+Route::post('/checkemail', [App\Http\Controllers\User\UserController::class, 'checkemail'])->name('checkemail');
 
 // Employer
 Route::get('/employer_register', [App\Http\Controllers\Employer\EmployerController::class, 'employer_register'])->name('employer_register');
@@ -124,12 +128,12 @@ Route::get('/delete_fav_job/{id}', [App\Http\Controllers\Candidate\CandidateCont
 
 // Admin user
 Route::get('/list_admin_users', [App\Http\Controllers\Admin\AdminController::class, 'list_admin_users'])->name('list_admin_users');
-Route::get('/view_admin_users/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_admin_users'])->name('view_admin_users'); 
+Route::get('/view_admin_users/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_admin_users'])->name('view_admin_users');
 Route::get('/edit_admin_users/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_admin_users'])->name('edit_admin_users');
-Route::post('/update_admin_users', [App\Http\Controllers\Admin\AdminController::class, 'update_admin_users'])->name('update_admin_users'); 
-Route::get('/delete_admin_users/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_admin_users'])->name('delete_admin_users'); 
+Route::post('/update_admin_users', [App\Http\Controllers\Admin\AdminController::class, 'update_admin_users'])->name('update_admin_users');
+Route::get('/delete_admin_users/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_admin_users'])->name('delete_admin_users');
 Route::get('/add_admin_users', [App\Http\Controllers\Admin\AdminController::class, 'add_admin_users'])->name('add_admin_users');
-Route::post('/save_admin_users', [App\Http\Controllers\Admin\AdminController::class, 'save_admin_users'])->name('save_admin_users'); 
+Route::post('/save_admin_users', [App\Http\Controllers\Admin\AdminController::class, 'save_admin_users'])->name('save_admin_users');
 
 
 
@@ -140,38 +144,38 @@ Route::post('/save_admin_users', [App\Http\Controllers\Admin\AdminController::cl
 
 //Job Shift
 Route::get('/sort_jobshifts', [App\Http\Controllers\Admin\AdminController::class, 'sort_jobshifts'])->name('sort_jobshifts');
-Route::post('/save_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'save_jobsshifts'])->name('save_jobsshifts'); 
+Route::post('/save_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'save_jobsshifts'])->name('save_jobsshifts');
 Route::post('/add_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'add_jobsshifts'])->name('add_jobsshifts');
 Route::get('/list_jobshifts', [App\Http\Controllers\Admin\AdminController::class, 'list_jobshifts'])->name('list_jobshifts');
-Route::post('/update_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'update_jobsshifts'])->name('update_jobsshifts'); 
-Route::get('/delete_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobsshifts'])->name('delete_jobsshifts'); 
+Route::post('/update_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'update_jobsshifts'])->name('update_jobsshifts');
+Route::get('/delete_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobsshifts'])->name('delete_jobsshifts');
 Route::get('/edit_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_jobsshifts'])->name('edit_jobsshifts');
-Route::get('/view_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobsshifts'])->name('view_jobsshifts'); 
+Route::get('/view_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobsshifts'])->name('view_jobsshifts');
 
 // JOB
 Route::get('/list_jobs', [App\Http\Controllers\Admin\AdminController::class, 'list_jobs'])->name('list_jobs');
 Route::get('/add_jobs', [App\Http\Controllers\Admin\AdminController::class, 'add_jobs'])->name('add_jobs');
-Route::get('/view_jobs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobs'])->name('view_jobs'); 
-Route::post('/save_jobs', [App\Http\Controllers\Admin\AdminController::class, 'save_jobs'])->name('save_jobs'); 
+Route::get('/view_jobs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobs'])->name('view_jobs');
+Route::post('/save_jobs', [App\Http\Controllers\Admin\AdminController::class, 'save_jobs'])->name('save_jobs');
 Route::get('/edit_jobs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_jobs'])->name('edit_jobs');
-Route::post('/update_jobs', [App\Http\Controllers\Admin\AdminController::class, 'update_jobs'])->name('update_jobs'); 
-Route::get('/delete_jobs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobs'])->name('delete_jobs'); 
+Route::post('/update_jobs', [App\Http\Controllers\Admin\AdminController::class, 'update_jobs'])->name('update_jobs');
+Route::get('/delete_jobs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobs'])->name('delete_jobs');
 
 //EMPLOYER
 Route::get('/employer_list', [App\Http\Controllers\Admin\AdminController::class, 'employer_list'])->name('employer_list');
 Route::get('/employer_add', [App\Http\Controllers\Admin\AdminController::class, 'employer_add'])->name('employer_add');
-Route::get('/view_employer/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_employer'])->name('view_employer'); 
+Route::get('/view_employer/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_employer'])->name('view_employer');
 Route::post('/saveemployer', [App\Http\Controllers\Admin\AdminController::class, 'saveemployer'])->name('saveemployer');
 Route::get('/edit_employer/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_employer'])->name('edit_employer');
-Route::post('/update_employer', [App\Http\Controllers\Admin\AdminController::class, 'update_employer'])->name('update_employer'); 
-Route::get('/delete_employer/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_employer'])->name('delete_employer'); 
+Route::post('/update_employer', [App\Http\Controllers\Admin\AdminController::class, 'update_employer'])->name('update_employer');
+Route::get('/delete_employer/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_employer'])->name('delete_employer');
 Route::get('/employer_payment_history', [App\Http\Controllers\Admin\AdminController::class, 'employer_payment_history'])->name('employer_payment_history');
 
 // CANDIDATE PROFILE
 Route::get('/candidate_list', [App\Http\Controllers\Admin\AdminController::class, 'candidate_list'])->name('candidate_list');
 Route::get('/candidate_add', [App\Http\Controllers\Admin\AdminController::class, 'candidate_add'])->name('candidate_add');
 Route::post('/savecandidate', [App\Http\Controllers\Admin\AdminController::class, 'savecandidate'])->name('savecandidate');
-Route::get('/view_candidate/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_candidate'])->name('view_candidate'); 
+Route::get('/view_candidate/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_candidate'])->name('view_candidate');
 Route::get('/edit_candidate/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_candidate'])->name('edit_candidate');
 Route::post('/update_candidate', [App\Http\Controllers\Admin\AdminController::class, 'update_candidate'])->name('update_candidate');
 Route::get('/delete_candidate/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_candidate'])->name('delete_candidate');
@@ -192,18 +196,18 @@ Route::get('/add_blogs', [App\Http\Controllers\Admin\AdminController::class, 'ad
 Route::get('/list_blogs', [App\Http\Controllers\Admin\AdminController::class, 'list_blogs'])->name('list_blogs');
 Route::get('/categories', [App\Http\Controllers\Admin\AdminController::class, 'categories'])->name('categories');
 
-Route::get('/view_companies', [App\Http\Controllers\Admin\AdminController::class, 'view_companies'])->name('view_companies'); 
+Route::get('/view_companies', [App\Http\Controllers\Admin\AdminController::class, 'view_companies'])->name('view_companies');
 
 
 
-Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'admin'])->name('admin'); 
-Route::post('/checkadminlogin', [App\Http\Controllers\Admin\AdminController::class, 'checkadminlogin'])->name('checkadminlogin'); 
-Route::get('/adminlogout', [App\Http\Controllers\Admin\AdminController::class, 'adminlogout'])->name('adminlogout'); 
-Route::get('/admin_register', [App\Http\Controllers\Admin\AdminController::class, 'admin_register'])->name('admin_register'); 
-Route::get('/dashboard_admin', [App\Http\Controllers\Admin\AdminController::class, 'dashboard_admin'])->name('dashboard_admin'); 
- 
-Route::get('/companyApproval', [App\Http\Controllers\Admin\AdminController::class, 'companyApproval'])->name('companyApproval'); 
-Route::get('/admin_profile', [App\Http\Controllers\Admin\AdminController::class, 'admin_profile'])->name('admin_profile'); 
+Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'admin'])->name('admin');
+Route::post('/checkadminlogin', [App\Http\Controllers\Admin\AdminController::class, 'checkadminlogin'])->name('checkadminlogin');
+Route::get('/adminlogout', [App\Http\Controllers\Admin\AdminController::class, 'adminlogout'])->name('adminlogout');
+Route::get('/admin_register', [App\Http\Controllers\Admin\AdminController::class, 'admin_register'])->name('admin_register');
+Route::get('/dashboard_admin', [App\Http\Controllers\Admin\AdminController::class, 'dashboard_admin'])->name('dashboard_admin');
+
+Route::get('/companyApproval', [App\Http\Controllers\Admin\AdminController::class, 'companyApproval'])->name('companyApproval');
+Route::get('/admin_profile', [App\Http\Controllers\Admin\AdminController::class, 'admin_profile'])->name('admin_profile');
 
 Route::get('/dashboard_post_job', [App\Http\Controllers\Admin\AdminController::class, 'dashboard_post_job'])->name('dashboard_post_job');
 Route::get('/admin_manage_job', [App\Http\Controllers\Admin\AdminController::class, 'admin_manage_job'])->name('admin_manage_job');
@@ -269,7 +273,7 @@ Route::get('/add_jobshifts', [App\Http\Controllers\Admin\AdminController::class,
 Route::get('/list_country_details', [App\Http\Controllers\Admin\AdminController::class, 'list_country_details'])->name('list_country_details');
 Route::get('/add_country', [App\Http\Controllers\Admin\AdminController::class, 'add_country'])->name('add_country');
 Route::post('/save_country',[App\Http\Controllers\Admin\AdminController::class,'save_country'])->name('save_country');
-Route::get('/view_country/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country'])->name('view_country'); 
+Route::get('/view_country/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country'])->name('view_country');
 Route::get('/edit_country/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_country'])->name('edit_country');
 Route::get('delete_country/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_country'])->name('delete_country');
 Route::post('/update_country',[App\Http\Controllers\Admin\AdminController::class,'update_country'])->name('update_country');
@@ -284,8 +288,8 @@ Route::post('/update_country',[App\Http\Controllers\Admin\AdminController::class
 Route::get('/list_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
 Route::get('/add_faqs', [App\Http\Controllers\Admin\AdminController::class, 'add_faqs'])->name('add_faqs');
 Route::post('/save_faqs',[App\Http\Controllers\Admin\AdminController::class,'save_faqs'])->name('save_faqs');
-Route::get('/sort_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_faqs'])->name('sort_faqs'); 
-Route::get('/view_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_faqs'])->name('view_faqs'); 
+Route::get('/sort_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_faqs'])->name('sort_faqs');
+Route::get('/view_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_faqs'])->name('view_faqs');
 Route::get('/edit_faqs/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_faqs'])->name('edit_faqs');
 Route::get('delete_faqs/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_faqs'])->name('delete_faqs');
 Route::post('/update_faqs',[App\Http\Controllers\Admin\AdminController::class,'update_faqs'])->name('update_faqs');
@@ -296,15 +300,15 @@ Route::post('/update_faqs',[App\Http\Controllers\Admin\AdminController::class,'u
 Route::get('/list_video_language', [App\Http\Controllers\Admin\AdminController::class, 'list_video_language'])->name('list_video_language');
 Route::get('/add_video_language', [App\Http\Controllers\Admin\AdminController::class, 'add_video_language'])->name('add_video_language');
 Route::post('/save_video_language',[App\Http\Controllers\Admin\AdminController::class,'save_video_language'])->name('save_video_language');
-Route::get('/view_video_language/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_video_language'])->name('view_video_language'); 
+Route::get('/view_video_language/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_video_language'])->name('view_video_language');
 Route::get('/edit_video_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_video_language'])->name('edit_video_language');
 Route::get('delete_video_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_video_language'])->name('delete_video_language');
 
 //Testimonial
 Route::get('/list_testimonial', [App\Http\Controllers\Admin\AdminController::class, 'list_testimonial'])->name('list_testimonial');
 Route::get('/add_testimonial', [App\Http\Controllers\Admin\AdminController::class, 'add_testimonial'])->name('add_testimonial');
-Route::get('/sort_testimonial/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_testimonial'])->name('sort_testimonial'); 
-Route::get('/view_testimonial/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_testimonial'])->name('view_testimonial'); 
+Route::get('/sort_testimonial/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_testimonial'])->name('sort_testimonial');
+Route::get('/view_testimonial/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_testimonial'])->name('view_testimonial');
 Route::get('/edit_testimonial/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_testimonial'])->name('edit_testimonial');
 Route::post('/save_testimonial',[App\Http\Controllers\Admin\AdminController::class,'save_testimonial'])->name('save_testimonial');
 Route::post('/update_testimonial',[App\Http\Controllers\Admin\AdminController::class,'update_testimonial'])->name('update_testimonial');
@@ -313,7 +317,7 @@ Route::get('delete_testimonial/{id}',[App\Http\Controllers\Admin\AdminController
 //Sliders
 Route::get('/list_slider', [App\Http\Controllers\Admin\AdminController::class, 'list_slider'])->name('list_slider');
 Route::get('/add_slider', [App\Http\Controllers\Admin\AdminController::class, 'add_slider'])->name('add_slider');
-Route::get('/view_Slider/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_Slider'])->name('view_Slider'); 
+Route::get('/view_Slider/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_Slider'])->name('view_Slider');
 Route::get('/edit_Slider/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_Slider'])->name('edit_Slider');
 Route::get('delete_Slider/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_Slider'])->name('delete_Slider');
 Route::post('/save_Slider',[App\Http\Controllers\Admin\AdminController::class,'save_Slider'])->name('save_Slider');
@@ -371,22 +375,22 @@ Route::get('delete_job_skills/{id}',[App\Http\Controllers\Admin\AdminController:
 // JOB TYPE
 Route::get('/list_job_types', [App\Http\Controllers\Admin\AdminController::class, 'list_job_types'])->name('list_job_types');
 Route::get('/sort_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'sort_jobtypes'])->name('sort_jobtypes');
-Route::post('/save_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'save_jobtypes'])->name('save_jobtypes'); 
+Route::post('/save_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'save_jobtypes'])->name('save_jobtypes');
 Route::get('/add_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'add_jobtypes'])->name('add_job_types');
-Route::post('/update_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'update_jobtypes'])->name('update_jobtypes'); 
-Route::get('/delete_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobtypes'])->name('delete_jobtypes'); 
+Route::post('/update_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'update_jobtypes'])->name('update_jobtypes');
+Route::get('/delete_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobtypes'])->name('delete_jobtypes');
 Route::get('/edit_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_jobtypes'])->name('edit_jobtypes');
-Route::get('/view_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobtypes'])->name('view_jobtypes'); 
+Route::get('/view_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobtypes'])->name('view_jobtypes');
 
 // JOB SHIFT
 Route::get('/sort_jobshifts', [App\Http\Controllers\Admin\AdminController::class, 'sort_jobshifts'])->name('sort_jobshifts');
-Route::post('/save_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'save_jobsshifts'])->name('save_jobsshifts'); 
+Route::post('/save_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'save_jobsshifts'])->name('save_jobsshifts');
 Route::post('/add_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'add_jobsshifts'])->name('add_jobsshifts');
 Route::get('/list_jobshifts', [App\Http\Controllers\Admin\AdminController::class, 'list_jobshifts'])->name('list_jobshifts');
-Route::post('/update_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'update_jobsshifts'])->name('update_jobsshifts'); 
-Route::get('/delete_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobsshifts'])->name('delete_jobsshifts'); 
+Route::post('/update_jobsshifts', [App\Http\Controllers\Admin\AdminController::class, 'update_jobsshifts'])->name('update_jobsshifts');
+Route::get('/delete_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobsshifts'])->name('delete_jobsshifts');
 Route::get('/edit_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_jobsshifts'])->name('edit_jobsshifts');
-Route::get('/view_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobsshifts'])->name('view_jobsshifts'); 
+Route::get('/view_jobsshifts/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_jobsshifts'])->name('view_jobsshifts');
 
 //DEGREE LEVEL
 Route::get('/add_degree_levels', [App\Http\Controllers\Admin\AdminController::class, 'add_degree_levels'])->name('add_degree_levels');
@@ -397,7 +401,7 @@ Route::post('/update_degree_levels',[App\Http\Controllers\Admin\AdminController:
 Route::get('/view_degree_levels/{id}',[App\Http\Controllers\Admin\AdminController::class,'view_degree_levels'])->name('view_degree_levels');
 Route::get('delete_degree_levels/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_degree_levels'])->name('delete_degree_levels');
 
-//  DEGREE TYPE 
+//  DEGREE TYPE
 Route::get('/add_degree_types', [App\Http\Controllers\Admin\AdminController::class, 'add_degree_types'])->name('add_degree_types');
 Route::get('/list_degree_types', [App\Http\Controllers\Admin\AdminController::class, 'list_degree_types'])->name('list_degree_types');
 Route::post('/save_degree_types',[App\Http\Controllers\Admin\AdminController::class,'save_degree_types'])->name('save_degree_types');
@@ -410,53 +414,53 @@ Route::get('delete_degree_types/{id}',[App\Http\Controllers\Admin\AdminControlle
 Route::get('/add_major_subject', [App\Http\Controllers\Admin\AdminController::class, 'add_major_subject'])->name('add_major_subject');
 Route::get('/list_major_subjects', [App\Http\Controllers\Admin\AdminController::class, 'list_major_subjects'])->name('list_major_subjects');
 Route::get('/sort_major_subject', [App\Http\Controllers\Admin\AdminController::class, 'sort_major_subject'])->name('sort_major_subject');
-Route::post('/save_major_subject', [App\Http\Controllers\Admin\AdminController::class, 'save_major_subject'])->name('save_major_subject'); 
+Route::post('/save_major_subject', [App\Http\Controllers\Admin\AdminController::class, 'save_major_subject'])->name('save_major_subject');
 Route::get('/edit_major_subject/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_major_subject'])->name('edit_major_subject');
-Route::post('/update_major_subject', [App\Http\Controllers\Admin\AdminController::class, 'update_major_subject'])->name('update_major_subject'); 
+Route::post('/update_major_subject', [App\Http\Controllers\Admin\AdminController::class, 'update_major_subject'])->name('update_major_subject');
 Route::get('/view_major_subject/{id}',[App\Http\Controllers\Admin\AdminController::class,'view_major_subject'])->name('view_major_subject');
-Route::get('/delete_major_subject/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_major_subject'])->name('delete_major_subject'); 
+Route::get('/delete_major_subject/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_major_subject'])->name('delete_major_subject');
 
 // RESULT TYPE
 Route::get('/list_result_types', [App\Http\Controllers\Admin\AdminController::class, 'list_result_types'])->name('list_result_types');
 Route::get('/add_new_type', [App\Http\Controllers\Admin\AdminController::class, 'add_new_type'])->name('add_new_type');
 Route::get('/sort_result_types', [App\Http\Controllers\Admin\AdminController::class, 'sort_result_types'])->name('sort_result_types');
-Route::post('/save_result_type', [App\Http\Controllers\Admin\AdminController::class, 'save_result_type'])->name('save_result_type'); 
+Route::post('/save_result_type', [App\Http\Controllers\Admin\AdminController::class, 'save_result_type'])->name('save_result_type');
 Route::get('/edit_result_type/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_result_type'])->name('edit_result_type');
-Route::get('/view_result_type/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_result_type'])->name('view_result_type'); 
-Route::post('/update_result_type', [App\Http\Controllers\Admin\AdminController::class, 'update_result_type'])->name('update_result_type'); 
-Route::get('/delete_result_type/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_result_type'])->name('delete_result_type'); 
+Route::get('/view_result_type/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_result_type'])->name('view_result_type');
+Route::post('/update_result_type', [App\Http\Controllers\Admin\AdminController::class, 'update_result_type'])->name('update_result_type');
+Route::get('/delete_result_type/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_result_type'])->name('delete_result_type');
 
 // MARITAL STATUS
 Route::get('/add_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'add_marital_status'])->name('add_marital_status');
 Route::get('/list_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'list_marital_status'])->name('list_marital_status');
 Route::get('/sort_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'sort_marital_status'])->name('sort_marital_status');
-Route::post('/save_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'save_marital_status'])->name('save_marital_status'); 
-Route::get('/view_marital_status/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_marital_status'])->name('view_marital_status'); 
+Route::post('/save_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'save_marital_status'])->name('save_marital_status');
+Route::get('/view_marital_status/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_marital_status'])->name('view_marital_status');
 Route::get('/edit_marital_status/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_marital_status'])->name('edit_marital_status');
-Route::post('/update_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'update_marital_status'])->name('update_marital_status'); 
-Route::get('/delete_marital_status/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_marital_status'])->name('delete_marital_status'); 
+Route::post('/update_marital_status', [App\Http\Controllers\Admin\AdminController::class, 'update_marital_status'])->name('update_marital_status');
+Route::get('/delete_marital_status/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_marital_status'])->name('delete_marital_status');
 
 
 // OWNERSHIP TYPE
 Route::get('/list_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'list_ownership_types'])->name('list_ownership_types');
 Route::get('/add_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'add_ownership_types'])->name('add_ownership_types');
 Route::get('/sort_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'sort_ownership_types'])->name('sort_ownership_types');
-Route::post('/save_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'save_ownership_types'])->name('save_ownership_types'); 
+Route::post('/save_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'save_ownership_types'])->name('save_ownership_types');
 Route::get('/edit_ownership_types/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_ownership_types'])->name('edit_ownership_types');
-Route::post('/update_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'update_ownership_types'])->name('update_ownership_types'); 
-Route::get('/delete_ownership_types/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_ownership_types'])->name('delete_ownership_types'); 
-Route::get('/view_ownership_types/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_ownership_types'])->name('view_ownership_types'); 
+Route::post('/update_ownership_types', [App\Http\Controllers\Admin\AdminController::class, 'update_ownership_types'])->name('update_ownership_types');
+Route::get('/delete_ownership_types/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_ownership_types'])->name('delete_ownership_types');
+Route::get('/view_ownership_types/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_ownership_types'])->name('view_ownership_types');
 
 
 // SALARY PERIOD
 Route::get('/list_salary_periods', [App\Http\Controllers\Admin\AdminController::class, 'list_salary_periods'])->name('list_salary_periods');
 Route::get('/add_salary_periods', [App\Http\Controllers\Admin\AdminController::class, 'add_salary_periods'])->name('add_salary_periods');
 Route::get('/sort_salary_periods', [App\Http\Controllers\Admin\AdminController::class, 'sort_salary_periods'])->name('sort_salary_periods');
-Route::post('/save_salary_periods', [App\Http\Controllers\Admin\AdminController::class, 'save_salary_periods'])->name('save_salary_periods'); 
+Route::post('/save_salary_periods', [App\Http\Controllers\Admin\AdminController::class, 'save_salary_periods'])->name('save_salary_periods');
 Route::get('/edit_salary_period/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_salary_period'])->name('edit_salary_period');
-Route::post('/updatesalaryperiod', [App\Http\Controllers\Admin\AdminController::class, 'updatesalaryperiod'])->name('updatesalaryperiod'); 
-Route::get('/deletesalaryperiod/{id}', [App\Http\Controllers\Admin\AdminController::class, 'deletesalaryperiod'])->name('deletesalaryperiod'); 
-Route::get('/view_salary_periods/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_salary_periods'])->name('view_salary_periods'); 
+Route::post('/updatesalaryperiod', [App\Http\Controllers\Admin\AdminController::class, 'updatesalaryperiod'])->name('updatesalaryperiod');
+Route::get('/deletesalaryperiod/{id}', [App\Http\Controllers\Admin\AdminController::class, 'deletesalaryperiod'])->name('deletesalaryperiod');
+Route::get('/view_salary_periods/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_salary_periods'])->name('view_salary_periods');
 
 Route::get('/sort_faqs', [App\Http\Controllers\Admin\AdminController::class, 'sort_faqs'])->name('sort_faqs');
 Route::get('/sort_testimonial', [App\Http\Controllers\Admin\AdminController::class, 'sort_testimonial'])->name('sort_testimonial');
@@ -467,52 +471,52 @@ Route::get('/sort_industries', [App\Http\Controllers\Admin\AdminController::clas
 Route::get('/sort_job_types', [App\Http\Controllers\Admin\AdminController::class, 'sort_job_types'])->name('sort_job_types');
 
 
-Route::get('/states', [App\Http\Controllers\Admin\AdminController::class, 'states'])->name('states'); 
-Route::post('/addstate', [App\Http\Controllers\Admin\AdminController::class, 'addstate'])->name('addstate'); 
-Route::post('/updatestate', [App\Http\Controllers\Admin\AdminController::class, 'updatestate'])->name('updatestate'); 
+Route::get('/states', [App\Http\Controllers\Admin\AdminController::class, 'states'])->name('states');
+Route::post('/addstate', [App\Http\Controllers\Admin\AdminController::class, 'addstate'])->name('addstate');
+Route::post('/updatestate', [App\Http\Controllers\Admin\AdminController::class, 'updatestate'])->name('updatestate');
 Route::get('/deletestate/{id}', [App\Http\Controllers\Admin\AdminController::class, 'deletestate'])->name('deletestate');
 
 
 Route::get('/cities', [App\Http\Controllers\Admin\AdminController::class, 'cities'])->name('cities');
-Route::post('/addcity', [App\Http\Controllers\Admin\AdminController::class, 'addcity'])->name('addcity'); 
-Route::post('/updatecity', [App\Http\Controllers\Admin\AdminController::class, 'updatecity'])->name('updatecity'); 
+Route::post('/addcity', [App\Http\Controllers\Admin\AdminController::class, 'addcity'])->name('addcity');
+Route::post('/updatecity', [App\Http\Controllers\Admin\AdminController::class, 'updatecity'])->name('updatecity');
 Route::get('/deletecity/{id}', [App\Http\Controllers\Admin\AdminController::class, 'deletecity'])->name('deletecity');
 
 
 //industries
 Route::get('/list_industries', [App\Http\Controllers\Admin\AdminController::class, 'list_industries'])->name('list_industries');
 Route::get('/sort_industries', [App\Http\Controllers\Admin\AdminController::class, 'sort_industries'])->name('sort_industries');
-Route::post('/save_industries', [App\Http\Controllers\Admin\AdminController::class, 'save_industries'])->name('save_industries'); 
+Route::post('/save_industries', [App\Http\Controllers\Admin\AdminController::class, 'save_industries'])->name('save_industries');
 Route::post('/add_industries', [App\Http\Controllers\Admin\AdminController::class, 'add_industries'])->name('add_industries');
-Route::post('/update_industries', [App\Http\Controllers\Admin\AdminController::class, 'update_industries'])->name('update_industries'); 
-Route::get('/delete_industries/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_industries'])->name('delete_industries'); 
+Route::post('/update_industries', [App\Http\Controllers\Admin\AdminController::class, 'update_industries'])->name('update_industries');
+Route::get('/delete_industries/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_industries'])->name('delete_industries');
 Route::get('/edit_industries/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_industries'])->name('edit_industries');
-Route::get('/view_industries/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_industries'])->name('view_industries'); 
+Route::get('/view_industries/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_industries'])->name('view_industries');
 //genders
 Route::get('/list_genders', [App\Http\Controllers\Admin\AdminController::class, 'list_genders'])->name('list_genders');
-Route::get('/view_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_genders'])->name('view_genders'); 
+Route::get('/view_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_genders'])->name('view_genders');
 Route::get('/sort_genders', [App\Http\Controllers\Admin\AdminController::class, 'sort_genders'])->name('sort_genders');
-Route::post('/save_genders', [App\Http\Controllers\Admin\AdminController::class, 'save_genders'])->name('save_genders'); 
+Route::post('/save_genders', [App\Http\Controllers\Admin\AdminController::class, 'save_genders'])->name('save_genders');
 Route::get('/add_genders', [App\Http\Controllers\Admin\AdminController::class, 'add_genders'])->name('add_genders');
-Route::post('/update_genders', [App\Http\Controllers\Admin\AdminController::class, 'update_genders'])->name('update_genders'); 
+Route::post('/update_genders', [App\Http\Controllers\Admin\AdminController::class, 'update_genders'])->name('update_genders');
 Route::get('/delete_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_genders'])->name('delete_genders');
-Route::get('/edit_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_genders'])->name('edit_genders'); 
+Route::get('/edit_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_genders'])->name('edit_genders');
 //packages
 Route::get('/list_packages', [App\Http\Controllers\Admin\AdminController::class, 'list_packages'])->name('list_packages');
 Route::get('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
-Route::get('/view_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_packages'])->name('view_packages'); 
-Route::get('/edit_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_packages'])->name('edit_packages'); 
+Route::get('/view_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_packages'])->name('view_packages');
+Route::get('/edit_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_packages'])->name('edit_packages');
 Route::get('/delete_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_packages'])->name('delete_packages');
-Route::post('/update_packages', [App\Http\Controllers\Admin\AdminController::class, 'update_packages'])->name('update_packages'); 
-Route::post('/save_packages', [App\Http\Controllers\Admin\AdminController::class, 'save_packages'])->name('save_packages'); 
+Route::post('/update_packages', [App\Http\Controllers\Admin\AdminController::class, 'update_packages'])->name('update_packages');
+Route::post('/save_packages', [App\Http\Controllers\Admin\AdminController::class, 'save_packages'])->name('save_packages');
 //Functional Areas
 Route::get('/list_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'list_functional_areas'])->name('list_functional_areas');
 Route::get('/add_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_areas'])->name('add_functional_areas');
-Route::get('/view_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_functional_areas'])->name('view_functional_areas'); 
-Route::get('/edit_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_functional_areas'])->name('edit_functional_areas'); 
+Route::get('/view_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_functional_areas'])->name('view_functional_areas');
+Route::get('/edit_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_functional_areas'])->name('edit_functional_areas');
 Route::get('/delete_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_functional_areas'])->name('delete_functional_areas');
-Route::post('/update_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'update_functional_areas'])->name('update_functional_areas'); 
-Route::post('/save_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'save_functional_areas'])->name('save_functional_areas'); 
+Route::post('/update_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'update_functional_areas'])->name('update_functional_areas');
+Route::post('/save_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'save_functional_areas'])->name('save_functional_areas');
 
 // <--AjaxController-->
 

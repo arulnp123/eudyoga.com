@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Hash;
+use users;
+use Illuminate\Support\Facades\Validator;
 
 class EmployerController extends Controller
 {
@@ -51,7 +53,8 @@ class EmployerController extends Controller
 
   public function addemployer(Request $request){
        // dd($request->all()); 
-    DB::table( 'companies' )->insert( [
+       
+    DB::table( 'users' )->insert( [
       'name'=>$request->name,
       'name'=>$request->c_name,
       'phone'=>$request->phone,
@@ -63,6 +66,8 @@ class EmployerController extends Controller
     ] );
     return view( 'employer/employer_index');
   } 
+
+ 
 
   public function employer_login(){
     return view( 'employer/employer_login');

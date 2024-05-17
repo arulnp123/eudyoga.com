@@ -129,7 +129,7 @@
     <script type="text/javascript"
         src="{{ URL::to('/') }}/public/assets/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
 
-    
+
 
     <script src="unpkg.com/sweetalert%402.1.2/dist/sweetalert.min.js"></script>
 
@@ -137,8 +137,8 @@
 
     <script src="cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js"></script>
 
-    <script async src="https://www.google.com/recaptcha/api.js">
-        < script type = "text/javascript" >
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
+        <script>
             $(document).ready(function() {
 
 
@@ -234,54 +234,100 @@
 
     <script src="public/js/script.js"></script>
 
-    <script type="text/JavaScript">
+    <script>
+        function duplicatephone(id){
+        var phone = $("#phone").val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            type: "post",
+            url: '{{ url('checkphone') }}',
+            data:{id:id,phone:phone,_token:_token},
+
+            success: function(res) {
+                if(res.exists){
+                    $("#registersave").prop('disabled', true);
+                    $("#dupmobile").html("Duplicate Mobile Number");
+                }else{
+                    $("#registersave").prop('disabled', false);
+                    $("#dupmobile").html("");
+                }
+            },
+
+            error: function (jqXHR, exception) {
+                console.log(exception);
+            }
+        });
+        }
+
+        function duplicateemail(id){
+		var email = $("#email").val();
+		var _token = $('input[name="_token"]').val();
+		$.ajax({
+			type: "post",
+			url: '{{ url('checkemail') }}',
+			data:{id:id,email:email,_token:_token},
+
+			success: function(res) {
+				if(res.exists){
+					$("#save").prop('disabled', true);
+					$("#dupemail").html("Duplicate Email");
+				}else{
+					$("#save").prop('disabled', false);
+					$("#dupemail").html("");
+				}
+			},
+
+			error: function (jqXHR, exception) {
+				console.log(exception);
+			}
+		});
+		}
 
         $(document).ready(function(){
-            
+
                       $(document).scrollTo('.has-error', 2000);
-            
+
                       });
-            
-                      function showProcessingForm(btn_id){		
-            
+
+                      function showProcessingForm(btn_id){
+
                       $("#"+btn_id).val( 'Processing .....' );
-            
-                      $("#"+btn_id).attr('disabled','disabled');		
-            
+
+                      $("#"+btn_id).attr('disabled','disabled');
+
                       }
-            
-              
-            
+
+
+
               setInterval("hide_savedAlert()",7000);
-            
+
                   function hide_savedAlert(){
-            
+
                     $(document).find('.svjobalert').hide();
-            
+
                   }
-            
-            
-            
+
+
+
                   $(document).ready(function(){
-            
+
                       $.ajax({
-            
+
                           type: 'get',
-            
+
                           url: "https://eudyoga.com/check-time",
-            
+
                           success: function(res) {
-            
+
                                   $('.notification').html(res);
-            
-                             
-            
+
+
+
                           }
-            
+
                       });
-            
+
                   });
-            
-              
-            
+
+
                   </script>
