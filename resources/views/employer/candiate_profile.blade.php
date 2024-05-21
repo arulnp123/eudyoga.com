@@ -9,7 +9,7 @@
                 <h1 class="page-heading">Job Seekers</h1>
             </div>
             <div class="col-md-6 col-sm-6">
-                <div class="breadCrumb"><a href="{{url('/')}}">Home</a> / <span>Job Seekers</span>
+                <div class="breadCrumb"><a href="{{ url('/') }}">Home</a> / <span>Job Seekers</span>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="col-lg-10">
                     <div class="searchform">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <input type="text" name="search" value="" class="form-control"
                                     placeholder="Enter Skills or job seeker details" />
                             </div>
@@ -46,19 +46,18 @@
 
 
 
-                            <div class="col-md-2 {{ $errors->has('state_id') ? ' has-error' : '' }}">
-                                <select name="state_id" id="state_id" required class="form-control">
+                            <div class="formrow">
+                                <select name="state_id" id="stateid" required class="form-control">
                                     <option value="">Select State</option>
                                     @foreach ($states as $key => $statelist)
                                         <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-2 {{ $errors->has('city_id') ? ' has-error' : '' }}">
-                                <select name="city_id" id="cityid" class="form-control"
-                                    onchange="changestae(this.value)">
+                            <div class="formrow">
+                                <select name="city_id" id="cityid" required class="form-control">
+                                    <option value="">select city </option>
                                 </select>
-
                             </div>
                             <div class="col-md-1">
                                 <button type="submit" class="btn"><i class="fa fa-search"
@@ -71,23 +70,31 @@
         </div>
     </div>
     <script>
-        $('#state_id').on('change', function() {
-            var stateid = this.value;
+        $('#stateid').on('change', function() {
+            var state_id = this.value;
             $("#cityid").html('');
             $.ajax({
                 url: "{{ url('/getcity') }}",
                 type: "POST",
                 data: {
-                    stateid: stateid,
+                    state_id: state_id,
                     _token: '{{ csrf_token() }}'
                 },
                 dataType: 'json',
                 success: function(result) {
-                    $('#cityid').html('<option value="">Select City Name</option>');
+                    $('#cityid').html('<option value="">Select City</option>');
                     $.each(result, function(key, value) {
                         $("#cityid").append('<option value="' + value
                             .id + '">' + value.city + '</option>');
                     });
+                }
+            });
+        });
+        $(document).ready(function() {
+            $(".txtOnly").keypress(function(e) {
+                var key = e.keyCode;
+                if (key >= 48 && key <= 57) {
+                    e.preventDefault();
                 }
             });
         });
@@ -109,25 +116,26 @@
                         <input type="hidden" name="search" value="" />
 
                         <!-- Jobs By Country -->
-                         <div class="widget">
+                        <div class="widget">
                             <h4 class="widget-title">Country</h4>
                             <ul class="optionlist view_more_ul">
-                                    @foreach ($countries as $key => $countrylist)
+                                @foreach ($countries as $key => $countrylist)
                                     <li>
-                                        <input type="checkbox" name="country" id="{{$countrylist->id}}"
-                                        value="{{$countrylist->country}}">
-                                        <label for="{{$countrylist->id}}"></label>
-                                        {{$countrylist->country}}
+                                        <input type="checkbox" name="country" id="{{ $countrylist->id }}"
+                                            value="{{ $countrylist->country }}">
+                                        <label for="{{ $countrylist->id }}"></label>
+                                        {{ $countrylist->country }}
                                     </li>
-                                    @endforeach
+                                @endforeach
                             </ul>
-                                     <span class="text text-primary view_more hide_vm" id="country" onclick="country()">View More</span>
+                            <span class="text text-primary view_more hide_vm" id="country"
+                                onclick="country()">View More</span>
 
-                        </div> 
+                        </div>
 
 
                         <!-- Jobs By State -->
-                      <div class="widget">
+                        <div class="widget">
                             <h4 class="widget-title">By State</h4>
                             <ul class="statelistt view_more_ul block">
                                 @foreach ($states as $key => $statelist)
@@ -142,7 +150,8 @@
 
                             </ul>
                             <!-- title end -->
-                            <span class="text text-primary view_more hide_vm" id="state" onclick="state()">View More</span>
+                            <span class="text text-primary view_more hide_vm" id="state"
+                                onclick="state()">View More</span>
                         </div>
 
 
@@ -167,9 +176,10 @@
 
                             </ul>
                             <!-- title end -->
-                            <span class="text text-primary view_more hide_vm" id="city" onclick="city()">View More</span>
-                            
-                        </div> 
+                            <span class="text text-primary view_more hide_vm" id="city"
+                                onclick="city()">View More</span>
+
+                        </div>
 
 
                         <!-- Jobs By City end-->
@@ -181,7 +191,8 @@
                             <ul class="job_experienceslistt view_more_ul">
                                 @foreach ($job_experiences as $key => $job_experienceslist)
                                     <li>
-                                        <input type="checkbox" name="job_experience" id="{{ $job_experienceslist->id }}"
+                                        <input type="checkbox" name="job_experience"
+                                            id="{{ $job_experienceslist->id }}"
                                             value="{{ $job_experienceslist->job_experience }}">
                                         <label for="{{ $job_experienceslist->id }}"></label>
                                         {{ $job_experienceslist->job_experience }}
@@ -368,47 +379,71 @@
                     {{-- <div class="topstatinfo">
                         Showing Jobs :  {{ $users->currentPage() * $users->perPage() }} - {{ $activeusers }}
                     </div> --}}
-
-                    <ul class="searchList">
-
-
-                        @foreach ($users as $user)
-                            <li class="">
-
-                                <div class="row">
+                    @if (count($users) > 0)
+                        <ul class="searchList">
 
 
-                                    <div class="col-lg-10 col-md-8">
-                                        <div class="jobimg"><img
-                                                src="http://localhost/eudyoga.in/public/assets/company_logos/guru-swamy-1702037951-933.jpg">
+
+                            @foreach ($users as $user)
+                                <li class="">
+
+                                    <div class="row">
+
+
+                                        <div class="col-lg-10 col-md-8">
+                                            <div class="jobimg"><img src="assets/images/favicon.png">
+                                            </div>
+                                            <div class="jobinfo">
+                                                <h3><a href="job/Relationship%20Manager.html"
+                                                        title="Relationship Manager">{{ $user->first_name }}</h3>
+                                                <div class="companyName"><a href="company/srinivas-92.html"
+                                                        title="Kalyani Motors">{{ $user->street_address }}</a></div>
+                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
-                                        <div class="jobinfo">
-                                            <h3><a href="job/Relationship%20Manager.html"
-                                                    title="Relationship Manager">{{ $user->first_name }}</h3>
-                                            <div class="companyName"><a href="company/srinivas-92.html"
-                                                    title="Kalyani Motors">{{ $user->street_address }}</a></div>
+                                        <div class="col-lg-2.5">
+                                            <div class="listbtn"><a
+                                                    href="{{ url('user_profile', $user->id) }}">ViewProfile</a>
+                                            </div>
                                         </div>
-                                        <div class="clearfix"></div>
                                     </div>
-                                    <div class="col-lg-2.5">
-                                        <div class="listbtn"><a
-                                                href="{{ url('user_profile', $user->id) }}">ViewProfile</a>
+                                    {{-- <p>{{ $user->description }}</p> --}}
+                                </li>
+                            @endforeach
+
+                        </ul>
+                        @else
+                        <!-- Error 404 Template 1 - Bootstrap Brain Component -->
+                        <section class="d-flex justify-content-center align-items-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <h2 class="d-flex justify-content-center align-items-center gap-2 mb-4">
+                                                {{-- <span class="display-1 fw-bold h1">4</span> --}}
+                                                <!-- <i class="bi bi-exclamation-circle-fill text-danger display-4"></i> -->
+                                                <i class="fa fa-exclamation-circle text-danger fa-2x"></i>
+                                                {{-- <span class="display-1 fw-bold bsb-flip-h h1">4</span> --}}
+                                            </h2>
+                                            <h3 class="h2">Oops! </h3>
+                                            <p class="mb-3" style="color: red">Sorry No Candidate Profile </p>
+                                            <a href="{{ url('employer_index') }}">
+                                                <Button class="btn btn-primary">Back</Button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <p>{{ $user->description }}</p> --}}
-                            </li>
-                        @endforeach
-
-                    </ul>
-
+                            </div>
+                            
+                        </section>
+                        @endif
                     <li class="pagination float-right mb-5">
                         {{ $users->links() }}
                     </li>
 
-                    <div class="topstatinfo">
+                    {{-- <div class="topstatinfo">
                         Showing Jobs : {{ $users->currentPage() * $users->perPage() }} Total {{ $activeusers }}
-                    </div>
+                    </div> --}}
 
 
                     </li>
@@ -504,7 +539,8 @@
                             aria-hidden="true"></i></a>
                     <a href="https://www.instagram.com/eudyoga/" target="_blank"><i class="fab fa-instagram"
                             aria-hidden="true"></i></a>
-                   <a href="https://www.linkedin.com/in/e-udyoga-25a2371b5/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/e-udyoga-25a2371b5/" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
                     <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"
                             aria-hidden="true"></i></a>
                 </div>
@@ -817,6 +853,7 @@
         });
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
+
     function job_experience() {
         var checkboxes = document.querySelectorAll('.job_experienceslistt input[type="checkbox"]');
         var loadBtn = document.getElementById('job_experience');

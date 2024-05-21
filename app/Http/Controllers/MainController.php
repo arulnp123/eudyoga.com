@@ -63,20 +63,24 @@ class MainController extends Controller{
                     'career_levels','genders','job_skills','degree_levels','functional_areas','industries','companies'));
     } 
 
-    public function view_detail($id){
-       // $jobs1 = DB::table('jobs')->where('id', '=', $id)->get();
-        $profile1 = DB::table('jobs')->select('jobs.*', 'companies.c_name','job_experiences.job_experience','degree_levels.degree_level','job_types.job_type','functional_areas.functional_area','career_levels.career_level')
-        ->join('companies','companies.id','=','jobs.company_id')
-        ->join('job_experiences','job_experiences.id','=','jobs.job_experience_id')
-        ->join('degree_levels','degree_levels.id','=','jobs.degree_level_id')
-        ->join('job_types','job_types.id','=','jobs.job_type_id')
-        ->join('functional_areas','functional_areas.functional_area_id','=','jobs.functional_area_id')
-        ->join('career_levels','career_levels.career_level_id','=','jobs.career_level_id')->where('jobs.id', '=', $id)->orderBy('jobs.id', 'Asc')->first();
-        // echo($jobs1);die;
+    public function view_detail($id) {
+        $userid = Session::get('id'); 
+        // dd($userid);
+    
+        $profile1 = DB::table('jobs')
+            ->select('jobs.*', 'companies.c_name', 'job_experiences.job_experience', 'degree_levels.degree_level', 'job_types.job_type', 'functional_areas.functional_area', 'career_levels.career_level')
+            ->join('companies', 'companies.id', '=', 'jobs.company_id')
+            ->join('job_experiences', 'job_experiences.id', '=', 'jobs.job_experience_id')
+            ->join('degree_levels', 'degree_levels.id', '=', 'jobs.degree_level_id')
+            ->join('job_types', 'job_types.id', '=', 'jobs.job_type_id')
+            ->join('functional_areas', 'functional_areas.functional_area_id', '=', 'jobs.functional_area_id')
+            ->join('career_levels', 'career_levels.career_level_id', '=', 'jobs.career_level_id')
+            ->where('jobs.id', '=', $id)
+            ->first();
         
-        
-        return view( 'view_detail',compact('id','profile1'));
-      }
+        return view('view_detail', compact('id', 'profile1', 'userid'));
+    }
+    
       
       public function add_to_favorite(Request $request){
       $userid = Session::get('id'); 

@@ -45,7 +45,7 @@ Route::get('/employer_register', [App\Http\Controllers\Employer\EmployerControll
 Route::post('/addemployer', [App\Http\Controllers\Employer\EmployerController::class, 'addemployer'])->name('addemployer');
 Route::get('/employer_login', [App\Http\Controllers\Employer\EmployerController::class, 'employer_login'])->name('employer_login');
 Route::post('/checklogin', [App\Http\Controllers\Employer\EmployerController::class, 'checklogin'])->name('checklogin');
-Route::post('/employerlogout', [App\Http\Controllers\Employer\EmployerController::class, 'employerlogout'])->name('employerlogout');
+Route::get('/employerlogout', [App\Http\Controllers\Employer\EmployerController::class, 'employerlogout'])->name('employerlogout');
 Route::get('/employer_profile', [App\Http\Controllers\Employer\EmployerController::class, 'employer_profile'])->name('employer_profile');
 Route::get('/employer_index', [App\Http\Controllers\Employer\EmployerController::class, 'employer_index'])->name('employer_index');
 Route::get('/employer_dashboard', [App\Http\Controllers\Employer\EmployerController::class, 'employer_dashboard'])->name('employer_dashboard');
@@ -59,11 +59,16 @@ Route::get('/edit_profile', [App\Http\Controllers\Employer\EmployerController::c
 Route::post('/editprofile', [App\Http\Controllers\Employer\EmployerController::class, 'editprofile'])->name('editprofile');
 Route::get('/employer_profile', [App\Http\Controllers\Employer\EmployerController::class, 'employer_profile'])->name('employer_profile');
 Route::get('/post_job', [App\Http\Controllers\Employer\EmployerController::class, 'post_job'])->name('post_job');
+Route::post('/upload_post_job', [App\Http\Controllers\Employer\EmployerController::class, 'upload_post_job'])->name('upload_post_job');
 Route::get('/unlocked_users', [App\Http\Controllers\Employer\EmployerController::class, 'unlocked_users'])->name('unlocked_users');
+Route::get('/delete_post_job/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'delete_post_job'])->name('delete_post_job');
+Route::get('/edit_post_job/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'edit_post_job'])->name('edit_post_job');
+Route::post('/update_post_job', [App\Http\Controllers\Employer\EmployerController::class, 'update_post_job'])->name('update_post_job');
 Route::get('/basic_detials', [App\Http\Controllers\Employer\EmployerController::class, 'basic_detials'])->name('basic_detials');
 
 Route::get('/candiate_profile', [App\Http\Controllers\Employer\EmployerController::class, 'candiate_profile'])->name('candiate_profile');
 Route::get('/user_profile/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'user_profile'])->name('user_profile');
+Route::post('/checkemail', [App\Http\Controllers\Employer\EmployerController::class, 'checkemail'])->name('checkemail');
 
 
 Route::get('/logout', [App\Http\Controllers\Frontend\EmployerController::class, 'logout'])->name('logout');
@@ -118,6 +123,7 @@ Route::post('/favorite-jobs/{job}', [App\Http\Controllers\Candidate\CandidateCon
 Route::get('/example', [App\Http\Controllers\Candidate\CandidateController::class, 'get_user_name'])->name('get_user_name');
 Route::get('/candidate/view_details/{id}', [App\Http\Controllers\Candidate\CandidateController::class, 'view_details'])->name('view_details');
 Route::get('/delete_fav_job/{id}', [App\Http\Controllers\Candidate\CandidateController::class, 'delete_fav_job'])->name('delete_fav_job');
+Route::post('/add_to_following', [App\Http\Controllers\Candidate\CandidateController::class, 'add_to_following'])->name('add_to_following');
 
 
 

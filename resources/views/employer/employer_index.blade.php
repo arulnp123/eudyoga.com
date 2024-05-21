@@ -3,14 +3,16 @@
 @yield('content')
 
      <div class="col-md-9 col-sm-8"> <ul class="row profilestat">
-    <li class="col-md-4 col-6">
-        <div class="inbox"> <i class="fas fa-clock" aria-hidden="true"></i>
-            <h6><a href="{{ url('') }}">0</a></h6>
-            <strong>Open Jobs</strong> </div>
-    </li>
+        <li class="col-md-4 col-6">
+            <div class="inbox">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                <h6><a href="{{ url('') }}">{{ $jobCount ?? ''}}</a></h6>
+                <strong>Open Jobs</strong>
+            </div>
+        </li>
     <li class="col-md-4 col-6">
         <div class="inbox"> <i class="fas fa-user" aria-hidden="true"></i>
-            <h6><a href="{{ url('') }}">0</a></h6>
+            <h6><a href="{{ url('') }}">{{$followersCount ?? ''}}</a></h6>
             <strong>Followers</strong> </div>
     </li>
      <li class="col-md-4 col-6">

@@ -20,7 +20,7 @@
                                     action="{{ url('/candidatepost') }} " method="POST">
                                     @csrf
 
-                                    <input type="hidden" name="candidate_or_employer" value="candidate" />
+                                    <input type="hidden" name="user_type_id" />
                                     <div class="formrow">
                                         <input type="text" id="name" name="name" class="form-control txtOnly"
                                             required="required" placeholder="Name" value="">
@@ -32,9 +32,9 @@
                                         <span id="phone" class="help-block"> </span>
                                     </div>
                                     <div class="formrow">
-                                        <input type="email" name="email" class="form-control" required="required"
-                                            placeholder="Email" value="">
-                                        <span id="email" class="help-block"> </span>
+                                        <input type="email" name="email" id="email" onkeyup="duplicateemail(0)"
+                                            class="form-control" required="required" placeholder="Email" value="">
+                                        <span id="dupemail" class="help-block" style="color: red"> </span>
                                     </div>
                                     <div class="formrow">
                                         <input type="password" name="password" class="form-control" required="required"
@@ -42,7 +42,7 @@
                                         <span id="password" class="help-block"> </span>
                                     </div>
                                     <div class="formrow">
-                                        <input type="password" name="password_confirmation" class="form-control"
+                                        <input type="password" name="c_password" class="form-control"
                                             required="required" placeholder="Password Confirmation" value="">
                                         <span id="password_confirmation" class="help-block"> </span>
                                     </div>
@@ -123,10 +123,10 @@
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="loginpageimg"><img
-                        src="{{ URL::to('/candidate_login') }}/assets/images/login-page-banner.png" alt="">
+                <div class="loginpageimg"><img src="./assets/images/login-page-banner.png" alt="">
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -153,6 +153,9 @@
                 </div>
             </div>
         </form>
+
     </div>
 </div>
+
+
 @push('page_scripts')

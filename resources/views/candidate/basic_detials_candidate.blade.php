@@ -6,18 +6,7 @@
         <div class="col-md-12">
             <div class="col-md-12 col-sm-12">
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+              
                 <center>
                     <h3>Basic Details</h3>
                 </center>

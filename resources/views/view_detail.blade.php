@@ -23,7 +23,7 @@
 
         <div class="usercoverimg mb-4">
 
-            <img src="../admin_assets/no-cover.jpg" alt="krishnamurthy" title="krishnamurthy">
+            <img src="../assets/images/background/8.png" alt="krishnamurthy" title="krishnamurthy">
 
 
             <div class="userMaininfo">
@@ -154,33 +154,85 @@
                                 <div class="col-md-6 col-xs-6">Expected Salary</div>
                                 <div class="col-md-6 col-xs-6"><span>{{ $profile1->salary_to }}</span></div>
                             </li>
-                            <li class="row">
+                            {{-- <li class="row">
                                 <div class="col-md-6 col-xs-6">Do You Want Add to Favorite</div>
-                                <div class="col-md-6 col-xs-6"><form method="POST" action="{{ route('add_to_favorite') }}">
-                                    @csrf
-                                    <input type="hidden" name="job_id" id="job_id" value="{{ $id }}">
-                                    <button type="submit" class="btn btn-primary">Add to Favorite</button>
-                                </form></div>
-                            </li>
+                                <div class="col-md-6 col-xs-6">
+                                    <form method="POST" action="{{ route('add_to_favorite') }}">
+                                        @csrf
+                                        <input type="hidden" name="job_id" id="job_id"
+                                            value="{{ $id }}">
+                                        @if ($userid)
+                                            <button type="submit" class="btn btn-primary">Add to Favorite</button>
+                                    </form>
+                                @else
+                                    <a href="{{url('/')}}">Login to Add to Favorite</a>
+                                    @endif
+                                </div>
+                            </li> --}}
                         </ul>
 
                     </div>
                 </div>
 
                 <!-- Education start -->
+                
                 <div class="job-header">
                     <div class="contentbox">
-                        <h3>Education</h3>
-                        <div class="" id="education_div"></div>
+                        <h3>Do You Want</h3>
+                        <div class="row">
+                            <div class="col-md-3 col-xs-6">
+                                <form method="POST" action="{{ route('add_to_favorite') }}">
+                                    @csrf
+                                    <input type="hidden" name="job_id" id="job_id"
+                                        value="{{ $id }}">
+                                    @if ($userid)
+                                        <button type="submit" class="btn btn-primary">Favorite</button>
+                                </form>
+                            @else
+                                <a href="{{url('/')}}">Login to Add to Favorite</a>
+                                @endif
+                            </div>
+                            <div class="col-md-3 col-xs-6">
+                                <form method="POST" action="{{ route('add_to_following') }}">
+                                    @csrf
+                                    <input type="hidden" name="company_follwers_id" id="job_id"
+                                        value="{{ $id }}">
+                                    @if ($userid)
+                                        <button type="submit" class="btn btn-success">Following</button>
+                                </form>
+                            @else
+                                <a href="{{url('/')}}">Login to Add to Favorite</a>
+                                @endif
+                            </div>
+                            {{-- <div class="col-md-2 col-xs-6">
+                                <form method="POST" action="{{ route('add_to_favorite') }}">
+                                    @csrf
+                                    <input type="hidden" name="job_id" id="job_id"
+                                        value="{{ $id }}">
+                                    @if ($userid)
+                                        <button type="submit" class="btn btn-info">Message</button>
+                                </form>
+                            @else
+                                <a href="{{url('/')}}">Login to Add to Favorite</a>
+                                @endif
+                            </div> --}}
+
+                        </div>
                     </div>
                 </div>
 
-                <div class="job-header">
+                {{-- <div class="job-header">
                     <div class="jobdetail">
                         <h3>Languages</h3>
                         <div id="language_div"></div>
                     </div>
                 </div>
+                <div class="job-header">
+                    <div class="jobdetail">
+                        <h3>Languages</h3>
+                        <div id="language_div"></div>
+                    </div>
+                </div> --}}
 
             </div>
         </div>

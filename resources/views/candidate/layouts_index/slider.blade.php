@@ -61,7 +61,8 @@
         <!--</li>-->
         <!--<li class=""><a href="{{url('/my_followings')}}"><i class="fas fa-user" aria-hidden="true"></i> My Followings</a>-->
         <!--</li>-->
-       <li><a href="{{url('/')}}"><i class="fas fa-sign-out" aria-hidden="true"></i> Logout</a>
+        <li><a href="{{ route('candidatelogout') }}"><i class="fas fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
           
         </li>
     </ul>

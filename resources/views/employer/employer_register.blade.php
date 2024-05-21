@@ -27,7 +27,7 @@
                                         <span id="name" class="help-block"> </span>
                                     </div>
                                     <div class="formrow">
-                                        <input type="text" name="name" class="form-control txtOnly"
+                                        <input type="text" name="c_name" class="form-control txtOnly"
                                             required="required" placeholder="Company Name" value="">
                                         <span id="c_name" class="help-block"> </span>
                                     </div>
@@ -47,7 +47,7 @@
                                         <span id="password" class="help-block"> </span>
                                     </div>
                                     <div class="formrow">
-                                        <input type="password" name="password_confirmation" class="form-control"
+                                        <input type="password" name="c_password" class="form-control"
                                             required="required" placeholder="Password Confirmation" value="">
                                         <span id="password_confirmation" class="help-block"> </span>
                                     </div>
@@ -138,7 +138,11 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-lg-7">
+                <div class="loginpageimg"><img
+                        src="./assets/images/login-page-banner.png" alt="">
+                </div>
+            </div>
             </form>
         </div>
     </div>

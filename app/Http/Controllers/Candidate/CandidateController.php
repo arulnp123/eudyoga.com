@@ -5,13 +5,38 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Hash;
+use Auth;
 
 class CandidateController extends Controller
 {
    public function  candidate_login(){
         return view( 'candidate/candidate_login');
     } 
+    
+       public function candidatepost( Request $request ) {
+        
+        DB::table( 'users' )->insert( [
+            'user_type_id'=>'3',
+            'name'=>$request->name,
+            'phone'=>$request->phone,
+            'email'=>$request->email,
+            'password'=> Hash::Make($request->password),
+            'c_password'=>$request->c_password,
+            'state_id'=>$request->state_id,
+            'city_id'=>$request->city_id,
+            'refrence'=>$request->refrence,
+        ] );
+        $user_id = DB::getPdo()->lastInsertId();
 
+        Session::put( 'id', $user_id );
+        return redirect( '/candidate_index');
+        }
+
+    
+      public function candidatelogout(){
+        Session::flush();
+        return redirect( '/candidate_login' );
+      }
   
 
   public function checkloginn( Request $request ){
@@ -27,6 +52,7 @@ class CandidateController extends Controller
             if ( Hash::check( $password, $hash ) ) {
                 if ( count( $result ) > 0 ) {
                     Session::put( 'id', $result[ 0 ]->id );
+                    Session::put( 'user_type_id', $result[ 0 ]->user_type_id );
 
                     return redirect( '/candidate_index' )->with( 'message', $message );
                 } else {
@@ -137,19 +163,6 @@ class CandidateController extends Controller
 //             return redirect('/candidatepost')->with('success', 'Register successfully');
 //  } 
 
-        public function candidatepost(Request $request){
-        // dd($request->all()); 
-        DB::table( 'users' )->insert( [
-        'name'=>$request->name,
-        'phone'=>$request->phone,
-        'email'=>$request->email,
-        'password'=> Hash::Make($request->password),
-        'state_id'=>$request->state_id,
-        'city_id'=>$request->city_id,
-        'refrence'=>$request->refrence,
-        ] );
-        return view( 'candidate/candidate_index');
-        } 
 
     public function getstate( Request $request )
     {
@@ -428,6 +441,7 @@ public function upload_cv(Request $request) {
     ->join('career_levels','career_levels.id','=','users.career_level_id')
     ->where('users.id', '=', $userid)
     ->first();
+    
     // print_r($view_puplic_profile);
     // //  echo($userid);
     // die;
@@ -463,31 +477,20 @@ public function  print_resume(){
     ->join('cities','cities.id','=','users.city_id')
     ->where('users.id', '=', $userid)->first();
     
-    // print_r($candidateprofile);
+    // print_r($userid);
     // die;
       
         return view( 'candidate/basic_detials_candidate', compact('candidateprofile'));
   } 
 
 
+  public function add_to_following(Request $request){
+    $userid = Session::get('id');
+    $following = DB::table('companies')->where('id' , '=' , $userid)->insert([
+      'company_follwers_id'=>$userid,
+      
+    ]);
+    return redirect('jobs')->with('success','Successfully Following...');
+  }
 
-
-  public function addcandidate(Request $request){
-       // dd($request->all()); 
-      DB::table( 'users' )->insert( [
-        'name'=>$request->name,
-        'phone'=>$request->phone,
-        'email'=>$request->email,
-        'password'=> Hash::Make($request->password),
-        'state_id'=>$request->state_id,
-        'city_id'=>$request->city_id,
-        'refrence'=>$request->refrence,
-        ] );
-    return view( 'candidate/candidate_index');
-    } 
-
-  public function candidatelogout(){
-    Session::flush();
-    return redirect( '/candidate_login' );
-  }  
  }

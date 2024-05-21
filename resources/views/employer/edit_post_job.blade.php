@@ -23,21 +23,22 @@
                 <div class="formpanel mt-0">
                     <!-- Personal Information -->
                     <h5>Job Details</h5>
-                    <form action="{{ url('/upload_post_job') }}" method="post">
+                    <form action="{{ url('/update_post_job') }}" method="post">
                         @csrf
-                        <input type="hidden" class="form-control" value="" id="id" name="id">
+                        <input type="hidden" class="form-control" id="id" value="{{ $JobPost->id }}" name="id">
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="formrow "> <input class="form-control" id="title"
-                                        placeholder="Job title" name="title" type="text" required>
+                                        placeholder="Job title" name="title" type="text" required
+                                        value="{{ $JobPost->title }}">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="formrow ">
                                     <label for="">Description</label>
                                     <textarea class="form-control" id="description" placeholder="Job description" name="description" cols="50"
-                                        rows="10" required></textarea>
+                                        rows="10" required>{{ $JobPost->description }}</textarea>
                                 </div>
                             </div>
 
@@ -45,7 +46,7 @@
                                 <div class="formrow ">
                                     <label for="">Benefits</label>
                                     <textarea class="form-control" id="benefits" placeholder="Job Benefits" name="benefits" cols="50" rows="10"
-                                        required></textarea>
+                                        required>{{ $JobPost->benefits }}</textarea>
                                 </div>
                             </div>
 
@@ -57,8 +58,10 @@
                                         required>
                                         <option value="1">Select Skills</option>
                                         @foreach ($get_job_skills as $job_skills_list)
-                                            <option value="{{ $job_skills_list->job_skill_id }}">
-                                                {{ $job_skills_list->job_skill }}</option>
+                                            <option @if ($JobPost->job_skill_id == $job_skills_list->job_skill_id) selected @endif
+                                                value="{{ $job_skills_list->job_skill_id }}">
+                                                {{ $job_skills_list->job_skill }}
+                                            </option>
                                         @endforeach
 
                                     </select>
@@ -69,7 +72,8 @@
                                         name="country_id" required>
                                         <option value="">Select Country</option>
                                         @foreach ($country as $country_list)
-                                            <option selected="selected" value="{{ $country_list->id }}">
+                                            <option @if ($JobPost->country_id == $country_list->country_id) selected @endif
+                                                value="{{ $country_list->country_id }}">
                                                 {{ $country_list->country }}</option>
                                         @endforeach
                                     </select>
@@ -80,7 +84,9 @@
                                             name="state_id" id="stateid" required class="form-control" required>
                                             <option value="">Select State</option>
                                             @foreach ($states as $key => $statelist)
-                                                <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
+                                                <option @if ($JobPost->state_id == $statelist->state_id) selected @endif
+                                                    value="{{ $statelist->state_id }}">{{ $statelist->state }}
+                                                </option>
                                             @endforeach
                                         </select> </span> </div>
                             </div>
@@ -91,13 +97,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="formrow " id="salary_from_div"> <input class="form-control" id="salary_from"
-                                        placeholder="Salary from" name="salary_from" type="number" required>
+                                        placeholder="Salary from" name="salary_from" type="number" required
+                                        value="{{ $JobPost->salary_from }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="formrow " id="salary_to_div">
                                     <input class="form-control" id="salary_to" placeholder="Salary to" name="salary_to"
-                                        type="number" required>
+                                        type="number" required value="{{ $JobPost->salary_to }}">
                                 </div>
                             </div>
 
@@ -106,7 +113,8 @@
                                         id="salary_period_id" name="salary_period_id" required>
                                         <option value="" selected="selected">Select Salary Period</option>
                                         @foreach ($get_salary_periods as $salary_periods_list)
-                                            <option value="{{ $salary_periods_list->salary_period_id }}">
+                                            <option @if ($JobPost->salary_period_id == $salary_periods_list->salary_period_id) selected @endif
+                                                value="{{ $salary_periods_list->salary_period_id }}">
                                                 {{ $salary_periods_list->salary_period }}</option>
                                         @endforeach
 
@@ -118,11 +126,12 @@
                                     <div class="radio-list">
                                         <label class="radio-inline">
                                             <input id="hide_salary_yes" name="hide_salary" type="radio"
-                                                value="1" required>
+                                                value="1" required value="{{ $JobPost->hide_salary }}">
                                             Yes </label>
                                         <label class="radio-inline">
                                             <input id="hide_salary_no" name="hide_salary" type="radio"
-                                                value="0" checked=&quot;checked&quot; required>
+                                                value="0" checked=&quot;checked&quot; required
+                                                value="{{ $JobPost->hide_salary }}">
                                             No </label>
                                     </div>
                                 </div>
@@ -132,7 +141,8 @@
                                         id="career_level_id" name="career_level_id" required>
                                         <option value="" selected="selected">Select Career level</option>
                                         @foreach ($get_career_levels as $get_career_levels_list)
-                                            <option value="{{ $get_career_levels_list->career_level_id }}">
+                                            <option @if ($JobPost->career_level_id == $get_career_levels_list->career_level_id) selected @endif
+                                                value="{{ $get_career_levels_list->career_level_id }}">
                                                 {{ $get_career_levels_list->career_level }}</option>
                                         @endforeach
 
@@ -145,7 +155,8 @@
                                         id="functional_area_id" name="functional_area_id" required>
                                         <option value="" selected="selected">Select Functional Area</option>
                                         @foreach ($get_functional_areas as $functional_areas_list)
-                                            <option value="{{ $functional_areas_list->functional_area_id }}">
+                                            <option @if ($JobPost->functional_area_id == $functional_areas_list->functional_area_id) selected @endif
+                                                value="{{ $functional_areas_list->functional_area_id }}">
                                                 {{ $functional_areas_list->functional_area }}</option>
                                         @endforeach
 
@@ -157,7 +168,8 @@
                                         id="job_type_id" name="job_type_id" required>
                                         <option value="" selected="selected">Select Job Type</option>
                                         @foreach ($get_job_types as $job_types_list)
-                                            <option value="{{ $job_types_list->job_type_id }}">
+                                            <option @if ($JobPost->job_type_id == $job_types_list->job_type_id) selected @endif
+                                                value="{{ $job_types_list->job_type_id }}">
                                                 {{ $job_types_list->job_type }}</option>
                                         @endforeach
 
@@ -169,7 +181,8 @@
                                         id="job_shift_id" name="job_shift_id" required>
                                         <option value="" selected="selected">Select Job Shift</option>
                                         @foreach ($get_job_shifts as $job_shifts_list)
-                                            <option value="{{ $job_shifts_list->job_shift_id }}">
+                                            <option @if ($JobPost->job_shift_id == $job_shifts_list->job_shift_id) selected @endif
+                                                value="{{ $job_shifts_list->job_shift_id }}">
                                                 {{ $job_shifts_list->job_shift }}</option>
                                         @endforeach
 
@@ -189,7 +202,8 @@
                                         id="gender_id" name="gender_id" required>
                                         <option value="" selected="selected">No preference</option>
                                         @foreach ($get_genders as $get_genders_list)
-                                            <option value="{{ $get_genders_list->gender_id }}">
+                                            <option @if ($JobPost->gender_id == $get_genders_list->gender_id) selected @endif
+                                                value="{{ $get_genders_list->gender_id }}">
                                                 {{ $get_genders_list->gender }}</option>
                                         @endforeach
                                     </select>
@@ -198,7 +212,7 @@
                             <div class="col-md-6">
                                 <div class="formrow "> <input class="form-control datepicker" id="expiry_date"
                                         placeholder="Job expiry date" autocomplete="off" name="expiry_date"
-                                        type="date" required>
+                                        type="date" required value="{{ $JobPost->expiry_date }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -207,7 +221,8 @@
                                         <option value="" selected="selected">Select Required Degree Level
                                         </option>
                                         @foreach ($get_degree_levels as $degree_levels_list)
-                                            <option value="{{ $degree_levels_list->degree_level_id }}">
+                                            <option @if ($JobPost->degree_level_id == $degree_levels_list->degree_level_id) selected @endif
+                                                value="{{ $degree_levels_list->degree_level_id }}">
                                                 {{ $degree_levels_list->degree_level }}</option>
                                         @endforeach
 
@@ -220,7 +235,8 @@
                                         <option value="" selected="selected">Select Required job experience
                                         </option>
                                         @foreach ($get_job_experiences as $job_experiences_list)
-                                            <option value="{{ $job_experiences_list->job_experience_id }}">
+                                            <option @if ($JobPost->job_experience_id == $job_experiences_list->job_experience_id) selected @endif
+                                                value="{{ $job_experiences_list->job_experience_id }}">
                                                 {{ $job_experiences_list->job_experience }}</option>
                                         @endforeach
 
@@ -502,51 +518,51 @@
 
                 $(document).ready(function(){
 
-                                                                                                                                                $(document).scrollTo('.has-error', 2000);
+                                                                                                                                                                                                            $(document).scrollTo('.has-error', 2000);
 
-                                                                                                                                                });
+                                                                                                                                                                                                            });
 
-                                                                                                                                                function showProcessingForm(btn_id){        
+                                                                                                                                                                                                            function showProcessingForm(btn_id){        
 
-                                                                                                                                                $("#"+btn_id).val( 'Processing .....' );
+                                                                                                                                                                                                            $("#"+btn_id).val( 'Processing .....' );
 
-                                                                                                                                                $("#"+btn_id).attr('disabled','disabled');      
+                                                                                                                                                                                                            $("#"+btn_id).attr('disabled','disabled');      
 
-                                                                                                                                                }
+                                                                                                                                                                                                            }
 
-                                                                                                                                            
+                                                                                                                                                                                                        
 
-                                                                                                                                            setInterval("hide_savedAlert()",7000);
+                                                                                                                                                                                                        setInterval("hide_savedAlert()",7000);
 
-                                                                                                                                            function hide_savedAlert(){
+                                                                                                                                                                                                        function hide_savedAlert(){
 
-                                                                                                                                              $(document).find('.svjobalert').hide();
+                                                                                                                                                                                                          $(document).find('.svjobalert').hide();
 
-                                                                                                                                            }
+                                                                                                                                                                                                        }
 
 
 
-                                                                                                                                            $(document).ready(function(){
+                                                                                                                                                                                                        $(document).ready(function(){
 
-                                                                                                                                                $.ajax({
+                                                                                                                                                                                                            $.ajax({
 
-                                                                                                                                                    type: 'get',
+                                                                                                                                                                                                                type: 'get',
 
-                                                                                                                                                    url: "https://eudyoga.com/check-time",
+                                                                                                                                                                                                                url: "https://eudyoga.com/check-time",
 
-                                                                                                                                                    success: function(res) {
+                                                                                                                                                                                                                success: function(res) {
 
-                                                                                                                                                            $('.notification').html(res);
+                                                                                                                                                                                                                        $('.notification').html(res);
 
-                                                                                                                                                       
+                                                                                                                                                                                                                   
 
-                                                                                                                                                    }
+                                                                                                                                                                                                                }
 
-                                                                                                                                                });
+                                                                                                                                                                                                            });
 
-                                                                                                                                            });
+                                                                                                                                                                                                        });
 
-                                                                                                                                            
+                                                                                                                                                                                                        
 
-                                                                                                                                            
-                        </script>
+                                                                                                                                                                                                        
+                                                                                    </script>
