@@ -12,8 +12,6 @@
 
                     <div class="userccount whitebg">
 
-
-
                         <div class="tab-content">
                             <div class="tab-content">
                                 <h4 class="text-center">Employer Login</h4>
@@ -40,7 +38,7 @@
                                     <!-- sign up form -->
                                     <div class="newuser"><i class="fas fa-user" aria-hidden="true"></i> New User? <a
                                             href="{{ url('employer_register') }}">Register Here</a></div>
-    
+
                                     <!-- sign up form end-->
                                 </div>
                             </div>
@@ -56,8 +54,8 @@
             </div>
 
             <div class="col-lg-7">
-                <div class="loginpageimg"><img src="https://eudyoga.com/public/assets/images/login-page-banner.png"
-                        alt=""></div>
+                <div class="loginpageimg"><img src="https://eudyoga.com/assets/images/login-page-banner.png"
+                    alt=""></div>
             </div>
 
         </div>
@@ -70,7 +68,7 @@
 <!--Footer-->
 <div class="largebanner shadow3">
     <div class="adin">
-        <img src="https://eudyoga.com/public/assets/images/banner1.jpg">.
+        <img src="https://eudyoga.com/assets/images/banner1.jpg">.
     </div>
     <div class="clearfix"></div>
 </div>
@@ -247,15 +245,15 @@
 
             });
 
-            function showProcessingForm(btn_id){		
+            function showProcessingForm(btn_id){
 
             $("#"+btn_id).val( 'Processing .....' );
 
-            $("#"+btn_id).attr('disabled','disabled');		
+            $("#"+btn_id).attr('disabled','disabled');
 
             }
 
-		
+
 
 		setInterval("hide_savedAlert()",7000);
 
@@ -279,7 +277,7 @@
 
                         $('.notification').html(res);
 
-                   
+
 
                 }
 
@@ -287,6 +285,6 @@
 
         });
 
-		
+
 
         </script>

@@ -1,4 +1,4 @@
-@include('user/layouts.app')
+@include('user/layouts.other_app')
 
 @yield('content')
 <div class="container">
@@ -16,7 +16,7 @@
                         @csrf
                         <div class="input-group">
                             <input type="text" name="search" id="search"  value="" class="form-control"
-                                placeholder="keywords e.g. &quot;npgroups&quot;" />
+                                placeholder="keywords e.g. &quot;eudyoga&quot;" />
                             <button type="submit" id="submit-form-top" class="btn"><i class="fa fa-search"
                                     aria-hidden="true"></i> Search Company</button>
                         </div>
@@ -91,9 +91,9 @@
     <div class="jobint text-center"><img src="{{ URL::to('/') }}/public/assets/images/banner1.jpg">.</div>
     <div class="clearfix"></div>
 </div>
-<div class="footerWrap"> 
+<div class="footerWrap">
     <div class="container">
-        <div class="row"> 
+        <div class="row">
 
             <!--Quick Links-->
             <div class="col-md-3 col-sm-6">
@@ -104,13 +104,13 @@
                     <li><a href="contact_us">Contact Us</a></li>
                     <li class="postad"><a href="login.html">Post a Job</a></li>
                     <li><a href="faq">FAQs</a></li>
-                                        
+
                     <li class=""><a href="about_us">About Us</a></li>
-                                        
+
                     <li class=""><a href="cms/Terms_And_Conditions.html">Terms &amp; Conditions</a></li>
-                                        
+
                     <!--<li class=""><a href="cms/Privacy_Policy.html">Privacy Policy</a></li>-->
-                                        
+
                     <!--<li class=""><a href="cms/Refund_Policy.html">Refund_Policy</a></li>-->
                     <!--                    <li><a href="https://103.154.233.105:2003/mail/" target="_blank">EMAIL ID LOGIN</a></li>-->
                 </ul>
@@ -133,7 +133,7 @@
                                         <li><a href="jobs099f.html?functional_area_id%5B%5D=13">Business Development</a></li>
                                     </ul>
             </div>
-            
+
              <div class="col-md-3 col-sm-12">
                 <h5>Jobs By Industry</h5>
                 <ul class="quicklinks">
@@ -145,20 +145,20 @@
                                 </li>
                                 <li><a href="#">Arul Rubbers pvt ltd</a></li>
                                 <li><a href="#">Kalyani Moters</a></li>
-                                
+
                             </ul>
                 <!--<div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>-->
                 <!--<div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>-->
             </div>
-            
 
-           
+
+
             <div class="col-md-3 col-sm-12">
                 <h5>Contact Us</h5>
                 <div class="phone"> <a href="tel:+91 888-444-2936">+91 888-444-2936</a></div>
                 <div class="email"> <a href="mailto:hrdesk@eudyoga.com">hrdesk@eudyoga.com</a> </div>
                 <div class="address">No 1088/1 K N Ext, Yeshwanthpur Bangalore Bangalore Karnataka – 560022 India</div>
-                
+
                 <!-- Social Icons -->
                 <div class="social"><a href="https://www.facebook.com/profile.php?id=100067114542067" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
 <a href="https://twitter.com/e_udyoga" target="_blank"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
@@ -166,10 +166,10 @@
  <a href="https://www.linkedin.com/in/e-udyoga-25a2371b5/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
 <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube-square" aria-hidden="true"></i></a>
 </div>
-                <!-- Social Icons end --> 
+                <!-- Social Icons end -->
 
             </div>
-            
+
 
         </div>
     </div>

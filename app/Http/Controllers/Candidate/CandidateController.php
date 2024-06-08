@@ -11,10 +11,10 @@ class CandidateController extends Controller
 {
    public function  candidate_login(){
         return view( 'candidate/candidate_login');
-    } 
-    
+    }
+
        public function candidatepost( Request $request ) {
-        
+
         DB::table( 'users' )->insert( [
             'user_type_id'=>'3',
             'name'=>$request->name,
@@ -32,12 +32,12 @@ class CandidateController extends Controller
         return redirect( '/candidate_index');
         }
 
-    
+
       public function candidatelogout(){
         Session::flush();
         return redirect( '/candidate_login' );
       }
-  
+
 
   public function checkloginn( Request $request ){
         // dd($request->all());
@@ -68,11 +68,11 @@ class CandidateController extends Controller
             return redirect( '/candidate_login' )->with( 'message', $message );
         }
   }
-       
+
   public function candidate_index(){
     return view( 'candidate/candidate_index');
-  }     
-  
+  }
+
   public function get_user_name()
   {
       $userId = Session::get('id');
@@ -86,19 +86,18 @@ class CandidateController extends Controller
   }
   public function abc(){
     return view( 'candidate/abc');
-  }  
+  }
 
   public function  candidate_register(){
 
     $states = DB::table('states')->orderBy('id', 'Asc')->get();
 
         $cities = DB::table('cities')->orderBy('id', 'Asc')->get();
-        return view( 'candidate/candidate_register' ,compact('cities','states'));   
-  } 
-  
-  
+        return view( 'candidate/candidate_register' ,compact('cities','states'));
+  }
+
   public function  edit_profile_candidate(){
-      $userid = Session::get('id'); 
+      $userid = Session::get('id');
       $gender = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
       $marital_statuses = DB::table('marital_statuses')->orderBy( 'id', 'Asc' )->get();
       $candidateprofile = DB::table('users')->where('id', '=', $userid)->first();
@@ -111,7 +110,7 @@ class CandidateController extends Controller
 
         return view( 'candidate/edit_profile_candidate', compact('candidateprofile','gender' ,'managecountries','marital_statuses','job_experiences','career_levels','industries'
       ,'functional_areas','getnationality'));
-  } 
+  }
   public function  editprofilecandidate(Request $request){
       $userid = $request->id;
       $updatecandidate = DB::table('users')->where('id',$userid)->update([
@@ -139,10 +138,10 @@ class CandidateController extends Controller
                     'current_salary'=>$request->current_salary,
                     'expected_salary'=>$request->expected_salary,
                     'salary_currency'=>$request->salary_currency,
-              ] ); 
+              ] );
            //dd($updatecandidate);
                 return redirect( 'edit_profile_candidate')->with('success', 'Profile updated successfully');
-   } 
+   }
 
 
 
@@ -157,29 +156,29 @@ class CandidateController extends Controller
 //                   'state_id'=>$request->state_id,
 //                   'city_id'=>$request->city_id,
 //                   'refrence'=>$request->refrence,
-                 
-//             ] ); 
-        
+
+//             ] );
+
 //             return redirect('/candidatepost')->with('success', 'Register successfully');
-//  } 
+//  }
 
 
     public function getstate( Request $request )
     {
         $getstate = DB::table( 'states' )->where( 'country_id', $request->country_id )->orderBy( 'id', 'Asc' )->get();
         return response()->json( $getstate );
-    } 
+    }
     public function getcity( Request $request ) {
       $getcity = DB::table( 'cities' )->where( 'state_id', $request->state_id )->orderBy( 'id', 'Asc' )->get();
-      
+
       return response()->json( $getcity );
     }
 
-              
+
   public function  manage_resume(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     // dd($userid);
-    
+
 
     $gender = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
     $candidateprofile = DB::table('users')->where('id', '=', $userid)->first();
@@ -191,7 +190,7 @@ class CandidateController extends Controller
     $functional_areas  = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     $getnationality =DB::table('nationality')->orderBy( 'id', 'Asc' )->get();
 
-  
+
     $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
@@ -206,7 +205,7 @@ class CandidateController extends Controller
     //  echo($userid);
     // die;
         return view( 'candidate/manage_resume',compact('view_puplic_profile' ,'gender','candidateprofile','marital_statuses','managecountries','job_experiences','career_levels','industries','functional_areas','getnationality'));
-  } 
+  }
 
 
   public function  updateresume(Request $request){
@@ -236,13 +235,13 @@ class CandidateController extends Controller
                   'current_salary'=>$request->current_salary,
                   'expected_salary'=>$request->expected_salary,
                   'salary_currency'=>$request->salary_currency,
-            ] ); 
+            ] );
          //dd($updatecandidate);
               return redirect( 'candidate/manage_resume')->with('success', 'Profile updated successfully');
  }
  public function resume_data(Request $request){
   if ($request->isMethod('post')) {
-      $userid = Session::get('id'); 
+      $userid = Session::get('id');
       $gender = DB::table('genders')->orderBy('id', 'asc')->get();
       $candidateprofile = DB::table('users')->where('id', '=', $userid)->first();
       $marital_statuses = DB::table('marital_statuses')->orderBy('id', 'asc')->get();
@@ -266,7 +265,7 @@ class CandidateController extends Controller
           ->first();
 
       if ($request->isMethod('post')) {
-        $userid = Session::get('id'); 
+        $userid = Session::get('id');
 
         if ($request->filled('project_name', 'project_client', 'project_description')) {
             $projectNames = $request->input('project_name');
@@ -284,7 +283,7 @@ class CandidateController extends Controller
         }
 
     }
-    
+
     if ($request->filled('company_name') && is_array($request->company_name)) {
         $experiences = [];
 
@@ -359,7 +358,7 @@ public function upload_cv(Request $request) {
   ]);
 
   $userId = Session::get('id');
-                                    
+
   if ($request->hasFile('cv_file')) {
       $file = $request->file('cv_file');
 
@@ -380,15 +379,15 @@ public function upload_cv(Request $request) {
 
 
 
- 
+
   public function  my_followings(){
         return view( 'candidate/my_followings');
-  } 
+  }
   public function  my_job_alerts(){
         return view( 'candidate/my_job_alerts');
-  } 
+  }
   public function  my_favourite_jobs(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     $fav = DB::table('jobs')->select('jobs.*','favourites_job.job_id', 'states.state', 'companies.c_name', 'cities.city')
     ->join('favourites_job','favourites_job.job_id' , '=' ,'jobs.id')
     ->join('companies', 'companies.id','=','jobs.company_id')
@@ -396,11 +395,11 @@ public function upload_cv(Request $request) {
         ->join('cities','cities.id','=' ,'jobs.city_id')
     ->where('favourites_job.user_id', '=', $userid)
     ->get();
-    
+
     //print_r($fav);
     // echo($FavoritesJobs);
     //die;
-      
+
         return view( 'candidate/my_favourite_jobs', compact('fav'));
   }
   public function view_details($id){
@@ -413,24 +412,24 @@ public function upload_cv(Request $request) {
      ->join('functional_areas','functional_areas.functional_area_id','=','jobs.functional_area_id')
      ->join('career_levels','career_levels.career_level_id','=','jobs.career_level_id')->where('jobs.id', '=', $id)->orderBy('jobs.id', 'Asc')->first();
      // echo($jobs1);die;
-     
-     
+
+
      return view( 'candidate/view_details',compact('id','profile1'));
    }
-   public function delete_fav_job( $id ){  
-    $userid = Session::get('id'); 
-    
-    $delete_fav_job = DB::table('jobs')->where( 'id', $id )->delete();    
+   public function delete_fav_job( $id ){
+    $userid = Session::get('id');
+
+    $delete_fav_job = DB::table('jobs')->where( 'id', $id )->delete();
    return redirect()->route('my_favourite_jobs')->withMessage('Delete Jobs Successfully Deleted !');
-} 
+}
   public function  my_job_application(){
         return view( 'candidate/my_job_application');
-  } 
+  }
   public function  my_mesages(){
         return view( 'candidate/my_mesages');
-  } 
+  }
   public function  view_public_profile(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
@@ -441,21 +440,21 @@ public function upload_cv(Request $request) {
     ->join('career_levels','career_levels.id','=','users.career_level_id')
     ->where('users.id', '=', $userid)
     ->first();
-    
+
     // print_r($view_puplic_profile);
     // //  echo($userid);
     // die;
-        return view( 'candidate/view_public_profile',compact('view_puplic_profile')); 
-  } 
+        return view( 'candidate/view_public_profile',compact('view_puplic_profile'));
+  }
 //   public function  print_resume(){
-//     $userid = Session::get('id'); 
+//     $userid = Session::get('id');
 //     $printresume = DB::table('users')->select('users.*', 'cities.city')->join('cities','cities.id','=','users.city_id')->where('users.id', '=', $userid)->first();
 //         return view( 'candidate/print_resume', compact('printresume'));
-//   } 
+//   }
 public function  print_resume(){
-       
 
-    $userid = Session::get('id'); 
+
+    $userid = Session::get('id');
     $printresume = DB::table('users')->select('users.*', 'states.state', 'cities.city','countries.country','genders.gender','marital_statuses.marital_status', 'job_experiences.job_experience','career_levels.career_level')
     ->join('countries','countries.id','=','users.country_id')
     ->join('cities','cities.id','=','users.city_id')
@@ -465,30 +464,30 @@ public function  print_resume(){
     ->join('genders','genders.id','=','users.gender_id')
     ->join('career_levels','career_levels.id','=','users.career_level_id')
     ->where('users.id', '=', $userid)->first();
-    
+
     // print_r($printresume);
     // die;
         return view( 'candidate/print_resume', compact('printresume'));
-  } 
+  }
   public function  basicdetialscandidate(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     $candidateprofile = DB::table('users')->select('users.*', 'cities.city', 'states.state')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
     ->where('users.id', '=', $userid)->first();
-    
+
     // print_r($userid);
     // die;
-      
+
         return view( 'candidate/basic_detials_candidate', compact('candidateprofile'));
-  } 
+  }
 
 
   public function add_to_following(Request $request){
     $userid = Session::get('id');
     $following = DB::table('companies')->where('id' , '=' , $userid)->insert([
       'company_follwers_id'=>$userid,
-      
+
     ]);
     return redirect('jobs')->with('success','Successfully Following...');
   }

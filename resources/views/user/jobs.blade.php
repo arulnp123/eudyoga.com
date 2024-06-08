@@ -1,9 +1,6 @@
-@include('user/layouts.app')
+@include('user/layouts.other_app')
 
 @yield('content')
-
-
-
 
 <form action="{{ url('job_search') }}" method="get">
     <!-- Page Title start -->
@@ -458,7 +455,7 @@
 
                                             <div class="companyName"><a href="company/srinivas-92.html"
                                                     title="Kalyani Motors">{{ $jobs2->c_name }}</a></div>
-                                            
+
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>

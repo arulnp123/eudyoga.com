@@ -73,7 +73,7 @@
 
         <![endif]-->
 
-    @include('user/layouts.header')
+    @include('user/layouts.headerother')
 
     @yield('content')
     </div>

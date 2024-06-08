@@ -87,6 +87,7 @@ Route::get('/candidate_index', [App\Http\Controllers\Candidate\CandidateControll
 Route::post('/checkloginn', [App\Http\Controllers\Candidate\CandidateController::class, 'checkloginn'])->name('checkloginn');
 Route::get('/candidate_register', [App\Http\Controllers\Candidate\CandidateController::class, 'candidate_register'])->name('candidate_register');
 Route::post('/candidatepost', [App\Http\Controllers\Candidate\CandidateController::class, 'candidatepost'])->name('candidatepost');
+Route::get('/candidatelogout', [App\Http\Controllers\Candidate\CandidateController::class, 'candidatelogout'])->name('candidatelogout');
 // Route::post('/candidate_post', [App\Http\Controllers\Candidate\CandidateController::class, 'candidate_post'])->name('candidate_post');
 
 
