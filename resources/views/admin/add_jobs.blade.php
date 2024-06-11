@@ -107,10 +107,9 @@
                                                 aria-labelledby="stepper2trigger1">
                                                 <h5 class="mb-1">Enter Your Details</h5>
 
-
                                                 <div class="row g-3">
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="Company" class="form-label">Company</label>
+                                                        <label for="company_id" class="form-label">Company</label>
                                                         <select name="company_id" id="company_id" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
@@ -122,14 +121,15 @@
 
                                                         </select>
                                                     </div>
+                                               
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="Job title" class="form-label">Job title</label>
+                                                        <label for="title" class="form-label">Job title</label>
                                                         <select name="job_title" id="job_title" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
                                                             <option value="" selected>Job title</option>
                                                             @foreach ($jobtitles as $key => $jobtitleslist)
-                                                                <option value="{{ $jobtitleslist->job_title_id }}">
+                                                                <option value="{{ $jobtitleslist->job_title}}">
                                                                     {{ $jobtitleslist->job_title }}</option>
                                                             @endforeach
 
@@ -165,7 +165,7 @@
                                                     <div class="col-12 col-lg-6">
                                                         <label for="InputUsername" class="form-label">Job
                                                             skills</label>
-                                                        <select name="jobskill" id="jobskill" class="form-select"
+                                                        <select name="job_skill" id="job_skill" class="form-select"
                                                             aria-label="Default select example">
                                                             <option selected value=""> Job skills</option>
                                                             @foreach ($jobskills as $key => $jobskillslist)
@@ -206,9 +206,15 @@
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="InputConfirmPassword"
-                                                            class="form-label">City</label>
-                                                        <select name="city_id" id="cityid" class="form-control"
-                                                            onchange="changestate(this.value)"aria-label="Default select example">
+                                                            class="form-label">Select City</label>
+                                                        <select name="city_id" id="city_id" class="form-control
+                                                            Default select example">
+                                                            <option selected value="">City</option>
+                                                            @foreach ($getcity as $key => $citylist)
+                                                                <option value="{{ $citylist->city_id }}">
+                                                                    {{ $citylist->city }}</option>
+                                                            @endforeach
+
                                                         </select>
 
                                                     </div>

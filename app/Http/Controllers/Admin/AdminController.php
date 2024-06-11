@@ -243,26 +243,26 @@ public function saveadmin(Request $request) {
     return redirect( '/create_admin_user');
 }  
 public function list_jobs(){
-    $jobs = DB::table('jobs')->orderBy( 'id', 'Desc' )->get();
+    $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_jobs', compact( 'jobs' ));
 }  
 
 public function add_jobs(){
-    $getcompanies = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $jobtitles = DB::table('job_titles')->orderBy( 'id', 'Desc' )->get();
-    $getstate = DB::table('states')->orderBy( 'id', 'Desc' )->get();
-    $jobskills = DB::table('job_skills')->orderBy( 'id', 'Desc' )->get();
-    $getcountry = DB::table('countries')->orderBy( 'id', 'Desc' )->get();
-    $getcity = DB::table('cities')->orderBy( 'id', 'Desc' )->get();
-    $careerlevels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
-    $salaryperiods = DB::table('salary_periods')->orderBy( 'id', 'Desc' )->get();
-    $functionalareas = DB::table('functional_areas')->orderBy( 'id', 'Desc' )->get();
-    $jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
-    $jobshifts = DB::table('job_shifts')->orderBy( 'id', 'Desc' )->get();
-    $roles = DB::table('roles')->orderBy( 'id', 'Desc' )->get();
-    $genders = DB::table('genders')->orderBy( 'id', 'Desc' )->get();
-    $degreelevels = DB::table('degree_levels')->orderBy( 'id', 'Desc' )->get();
-    $jobexperiences = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
+    $getcompanies = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $jobtitles = DB::table('job_titles')->orderBy( 'id', 'Asc' )->get();
+    $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
+    $jobskills = DB::table('job_skills')->orderBy( 'id', 'Asc' )->get();
+    $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
+    $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
+    $careerlevels = DB::table('career_levels')->orderBy( 'id', 'Asc' )->get();
+    $salaryperiods = DB::table('salary_periods')->orderBy( 'id', 'Asc' )->get();
+    $functionalareas = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
+    $jobtypes = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
+    $jobshifts = DB::table('job_shifts')->orderBy( 'id', 'Asc' )->get();
+    $roles = DB::table('roles')->orderBy( 'id', 'Asc' )->get();
+    $genders = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
+    $degreelevels = DB::table('degree_levels')->orderBy( 'id', 'Asc' )->get();
+    $jobexperiences = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_jobs',compact('getcompanies',
     'getstate' ,
     'jobtitles',
@@ -283,7 +283,7 @@ public function add_jobs(){
 public function addjobss(Request $request) {
     $addjobss = DB::table( 'jobs' )->insert( [
         'company_id'=>$request->company_id,
-        'title'=>$request->title,
+        'title'=>$request->job_title,
         'description'=>$request->description,
         'benefits'=>$request->benefits,
         'job_skill_id'=>$request->job_skills,
@@ -301,6 +301,7 @@ public function addjobss(Request $request) {
         'expiry_date'=>date('Y-m-d'),
         'degree_level_id'=>$request->degree_level_id,
         'job_experience_id'=>$request->job_experience_id,
+       
     ] );
     
    
@@ -344,32 +345,32 @@ public function delete_jobs( $id ){
    return redirect()->route('list_jobs')->withMessage('job Successfully Deleted !');
 } 
 public function employer_add(){
-    $companies=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $email=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $password=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $c_name=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $industry_id=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $ownership_type_id=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $description=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $location=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $map=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $no_of_offices=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $website=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $no_of_employees=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $established_in=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $fax=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $phone=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $facebook=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $twitter=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $linkedin=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $google_plus=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $pinterest=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $country_id=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $state_id=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $city_id=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $package_id=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $package_start_date=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    $package_end_date=DB::table('companies')->orderBy( 'id', 'Desc' )->get();
+    $companies=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $email=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $password=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $c_name=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $industry_id=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $ownership_type_id=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $description=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $location=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $map=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $no_of_offices=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $website=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $no_of_employees=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $established_in=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $fax=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $phone=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $facebook=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $twitter=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $linkedin=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $google_plus=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $pinterest=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $country_id=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $state_id=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $city_id=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $package_id=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $package_start_date=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $package_end_date=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/employer_add',compact('companies',
     'email',
     'password',

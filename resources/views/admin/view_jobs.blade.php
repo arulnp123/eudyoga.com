@@ -109,13 +109,13 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="company_id" class="form-label">Company</label>
                                                             <input type="text" class="form-control" name="company_id"
-                                                                id="Company" placeholder="Company"
+                                                                id="company_id" placeholder="Company"
                                                                 value="{{ $edit->company_id }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="Job title" class="form-label">Job title</label>
+                                                            <label for="Job_title" class="form-label">Job title</label>
                                                             <input type="text" class="form-control" name="title"
-                                                                id="Job title" placeholder="Job title"
+                                                                id="Job_title" placeholder="Job title"
                                                                 value="{{ $edit->title }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -148,27 +148,29 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="InputUsername" class="form-label">Job
+                                                            
+                                                            <label for="job_skill" class="form-label">Job
                                                                 skills</label>
                                                             <input type="text" class="form-control"
-                                                                name="job_skills" id="InputUsername"
+                                                                name="job_skill" id="job_skill"
                                                                 placeholder="Job skills" data-role="tagsinput"
-                                                                value="{{ $edit->job_skills }}" readonly>
+                                                                value="{{ $edit->job_skill_id }}" readonly>
                                                         </div>
 
 
+                                                        
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="InputEmail2"
+                                                            <label for="InputPassword"
                                                                 class="form-label">Country</label>
-                                                            <input type="text" class="form-control"
-                                                                name="country_id" id="InputEmail2"
+                                                            <input type="country" class="form-control"
+                                                                name="country_id" id="country_id"
                                                                 placeholder="Country" value="{{ $edit->country_id }}"
                                                                 readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputPassword"
                                                                 class="form-label">State</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="state" class="form-control"
                                                                 name="state_id" id="InputPassword"
                                                                 placeholder="State" value="{{ $edit->state_id }}"
                                                                 readonly>
@@ -176,7 +178,7 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputConfirmPassword"
                                                                 class="form-label">City</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="city" class="form-control"
                                                                 name="city_id" id="InputConfirmPassword"
                                                                 placeholder="City" value="{{ $edit->city_id }}"
                                                                 readonly>
