@@ -3,8 +3,6 @@
 @yield('content')
 <div class="container">
     <div class="pageSearch">
-
-
        <div class="row">
             <div class="col-lg-7">
                 <h3 class="mb-1">Browse Companies.</h3>
@@ -24,24 +22,15 @@
                 </section>
             </div>
         </div>
-
-
-
     </div>
 </div>
-
-
-
-
-
-
+sssssssssssssssssssssss
 <div class="listpgWraper">
     <div class="container">
         <div class="topstatinfo">
             Showing Jobs : 1 -  {{ $companies_count }}
         </div>
         <ul class="row compnaieslist">
-
             @foreach ($companies as $companies_list)
                  <li class="col-lg-3 col-md-6">
                     <div class="empint">
@@ -55,7 +44,6 @@
                                     <div class="emloc"><i class="fas fa-map-marker-alt"></i>
                                         {{ $companies_list->location }}</div>
                                 </div>
-
                             </div>
                             <div class="col-lg-10 col-md-10">
                                 <div class="btn"><a
@@ -70,9 +58,6 @@
                 </li>
             @endforeach
 
-
-
-
         </ul>
         <li class="pagination float-right">
             {{ $companies->links() }}
@@ -81,8 +66,6 @@
         <div class="topstatinfo">
             Showing Jobs : 1 -  {{ $companies_count }}
         </div>
-
-
     </div>
 </div>
 
