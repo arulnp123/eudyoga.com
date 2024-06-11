@@ -286,7 +286,7 @@ public function addjobss(Request $request) {
         'title'=>$request->title,
         'description'=>$request->description,
         'benefits'=>$request->benefits,
-        'job_skills'=>$request->job_skills,
+        'job_skill_id'=>$request->job_skills,
         'country_id'=>$request->country_id,
         'state_id'=>$request->state_id,
         'city_id'=>$request->city_id,
