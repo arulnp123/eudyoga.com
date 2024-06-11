@@ -24,7 +24,6 @@
         </div>
     </div>
 </div>
-sssssssssssssssssssssss
 <div class="listpgWraper">
     <div class="container">
         <div class="topstatinfo">
