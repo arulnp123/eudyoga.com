@@ -326,7 +326,7 @@ public function update_jobs(Request $request){
         'benefits'=>$request->benefits,
         'job_skills'=>$request->job_skills,
         'country_id'=>$request->country_id,
-        'state_id'=>$request->state_id,
+        'state_id'=>$request->state_name,
         'city_id'=>$request->city_id,
         'career_level_id'=>$request->career_level_id,
         'salary_from'=>$request->salary_from,

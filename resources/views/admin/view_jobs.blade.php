@@ -170,8 +170,8 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputPassword"
                                                                 class="form-label">State</label>
-                                                            <input type="state" class="form-control"
-                                                                name="state" id="state"
+                                                            <input type="state_name" class="form-control"
+                                                                name="state_name" id="state_name"
                                                                 placeholder="State" value="{{ $edit->state_id }}"
                                                                 readonly>
                                                         </div>
