@@ -60,10 +60,11 @@
                              @foreach($jobs as $key => $memb)
                              <tr>
                                  <td>{{ $key + 1 }}</td>
-                                 <td>{{ $memb->company_id }}</td>
+                                 <td>{{ $memb->c_name }}</td>
                                  <td>{{ $memb->title }}</td>
                                  <td>{{ $memb->description }}</td>
-                                 <td>{{ $memb->city_id }}</td>
+                                 <td>{{ $memb->city }}</td>
+                                 
                                  <td>
                                      <div class="col">
                                          <div class="btn-group" role="group" aria-label="Basic example">

@@ -193,13 +193,13 @@
                                                         <label for="InputPassword" class="form-label">State</label>
 
 
-                                                        <select name="state_id" id="state_id" required
+                                                        <select name="state" id="state" required
                                                             class="form-control form-select">
                                                             <option value="">Select State</option>
 
                                                             @foreach ($getstate as $key => $statelist)
                                                                 <option value="{{ $statelist->state_id }}">
-                                                                    {{ $statelist->state }}</option>
+                                                                    {{ $statelist->state_name }}</option>
                                                             @endforeach
                                                         </select>
 
@@ -258,18 +258,18 @@
                                                         <label for="salary_from" class="form-label">Salary
                                                             From</label>
                                                         <input type="text" class="form-control" name="salary_from"
-                                                            id="BoardName" placeholder="Board Name">
+                                                            id="salary_from" placeholder="Salary Form">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="salary_to" class="form-label">Salary To</label>
                                                         <input type="text" class="form-control" name="salary_to"
-                                                            id="UniversityName" placeholder="Salary To">
+                                                            id="salary_to" placeholder="Salary To">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="salary_currency" class="form-label">Salary
                                                             Currency</label>
                                                         <input type="text" class="form-control"
-                                                            name="salary_currency" id="UniversityName"
+                                                            name="salary_currency" id="salary_currency"
                                                             placeholder="Salary Currency">
                                                     </div>
                                                     <div class="col-12 col-lg-6">

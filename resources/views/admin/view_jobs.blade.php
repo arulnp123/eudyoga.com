@@ -108,9 +108,9 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="company_id" class="form-label">Company</label>
-                                                            <input type="text" class="form-control" name="company_id"
-                                                                id="company_id" placeholder="Company"
-                                                                value="{{ $edit->company_id }}" readonly>
+                                                            <input type="text" class="form-control" name="c_name"
+                                                                id="c_name" placeholder="Company"
+                                                                value="{{ $edit->c_name }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="Job_title" class="form-label">Job title</label>
@@ -171,16 +171,16 @@
                                                             <label for="InputPassword"
                                                                 class="form-label">State</label>
                                                             <input type="state" class="form-control"
-                                                                name="state_id" id="InputPassword"
+                                                                name="state" id="state"
                                                                 placeholder="State" value="{{ $edit->state_id }}"
                                                                 readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="InputConfirmPassword"
+                                                            <label for="city"
                                                                 class="form-label">City</label>
                                                             <input type="city" class="form-control"
-                                                                name="city_id" id="InputConfirmPassword"
-                                                                placeholder="City" value="{{ $edit->city_id }}"
+                                                                name="city" id="city"
+                                                                placeholder="City" value="{{ $edit->city }}"
                                                                 readonly>
                                                         </div>
                                                         <div class="col-12">
@@ -265,11 +265,11 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="functional_area_id"
+                                                            <label for="functional_area"
                                                                 class="form-label">Functional
                                                                 Area</label>
                                                             <input type="text" class="form-control"
-                                                                name="functional_area_id" id="Experience1"
+                                                                name="functional_area" id="functional_area"
                                                                 placeholder="Functional Area"
                                                                 value="{{ $edit->functional_area_id }}" readonly>
                                                         </div>

@@ -243,7 +243,13 @@ public function saveadmin(Request $request) {
     return redirect( '/create_admin_user');
 }  
 public function list_jobs(){
-    $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
+
+    $jobs = DB::table('jobs')->select('jobs.*','cities.*','companies.c_name','cities.city')
+    ->Join('companies', 'companies.id', '=', 'jobs.id')
+    ->Join('cities', 'cities.id', '=', 'jobs.id')
+    
+    ->orderBy('jobs.id','Asc')->get();
+    // $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_jobs', compact( 'jobs' ));
 }  
 
@@ -337,9 +343,16 @@ public function update_jobs(Request $request){
    return redirect()->route('list_jobs')->withMessage('job Successfully updated !');
 } 
 public function view_jobs($id){
-    $view_jobs = DB::table('jobs')->where('id', '=', $id)->get();
-    return view('admin/view_jobs', compact( 'view_jobs' ));
+   
+    $view_jobs = DB::table('jobs')->select('jobs.*','cities.*','companies.c_name','cities.city')
+    ->Join('companies', 'companies.id', '=', 'jobs.id')
+    ->Join('cities', 'cities.id', '=', 'jobs.id')
+    
+    ->orderBy('jobs.id','Asc')->where('jobs.id', '=', $id)->get();
+    //dd($jobs);
+    return view('admin/view_jobs', compact( 'view_jobs'));
 } 
+
 public function delete_jobs( $id ){  
     $delete_jobs = DB::table('jobs')->where( 'id', $id )->delete();    
    return redirect()->route('list_jobs')->withMessage('job Successfully Deleted !');
