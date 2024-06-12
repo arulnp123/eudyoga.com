@@ -247,7 +247,7 @@ public function list_jobs(){
     $jobs = DB::table('jobs')->select('jobs.*','cities.*','companies.c_name','cities.city')
     ->Join('companies', 'companies.id', '=', 'jobs.id')
     ->Join('cities', 'cities.id', '=', 'jobs.id')
-    
+    //->Join('job_skills', 'job_skills.id', '=', 'jobs.id')
     ->orderBy('jobs.id','Asc')->get();
     // $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_jobs', compact( 'jobs' ));
@@ -347,7 +347,6 @@ public function view_jobs($id){
     $view_jobs = DB::table('jobs')->select('jobs.*','cities.*','companies.c_name','cities.city')
     ->Join('companies', 'companies.id', '=', 'jobs.id')
     ->Join('cities', 'cities.id', '=', 'jobs.id')
-    
     ->orderBy('jobs.id','Asc')->where('jobs.id', '=', $id)->get();
     //dd($jobs);
     return view('admin/view_jobs', compact( 'view_jobs'));
