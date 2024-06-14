@@ -6,3 +6,9 @@ UPDATE `user_profile` SET `first_name` = 'Kavya' WHERE `user_profile`.`id` = 16;
 UPDATE `user_profile` SET `email` = 'kavya@eudyoga.com' WHERE `user_profile`.`id` = 16;
 UPDATE `user_profile` SET `password` = '$2y$10$g528hGLv0wwy/L5vN80HCe/6XVDpRatmun34qupxI5L/MY0LDSc22' WHERE `user_profile`.`id` = 16;
 
+alter table cities drop city_id;
+alter table states drop state_id;
+alter table countries drop country_id;
+
+select a.id,company_id,job_skill_id,a.country_id,a.state_id,a.city_id,title,b.state_name,c.city from jobs a,states b,cities c where a.state_id=b.id and a.city_id=c.id limit 10;
+

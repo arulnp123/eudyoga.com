@@ -64,7 +64,6 @@
                                  <td>{{ $memb->title }}</td>
                                  <td>{{ $memb->description }}</td>
                                  <td>{{ $memb->city }}</td>
-                                 
                                  <td>
                                      <div class="col">
                                          <div class="btn-group" role="group" aria-label="Basic example">
