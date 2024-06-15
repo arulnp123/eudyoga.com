@@ -244,10 +244,13 @@ public function saveadmin(Request $request) {
 }  
 public function list_jobs(){
 
-    $jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city')
-    ->Join('companies', 'companies.id', '=', 'jobs.id')
-    ->Join('cities', 'cities.id', '=', 'jobs.id')
-    // ->Join('job_skills', 'job_skills.id', '=', 'jobs.id')
+    $jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','states.state_name','job_skills.job_skill','job_titles.job_title')
+    ->Join('companies', 'companies.id', '=', 'jobs.company_id')
+    ->Join('job_titles', 'job_titles.id', '=', 'jobs.title')
+
+    ->Join('cities', 'cities.id', '=', 'jobs.city_id')
+    ->Join('states', 'states.id', '=', 'jobs.state_id')
+    ->Join('job_skills', 'job_skills.id', '=', 'jobs.job_skill_id')
     ->orderBy('jobs.id','Asc')->get();
     // dd($jobs);
     // $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
@@ -288,6 +291,7 @@ public function add_jobs(){
 }  
 
 public function addjobss(Request $request) {
+   
     $addjobss = DB::table( 'jobs' )->insert( [
         'company_id'=>$request->company_id,
         'title'=>$request->job_title,
@@ -327,7 +331,7 @@ public function update_jobs(Request $request){
         'benefits'=>$request->benefits,
         'job_skills'=>$request->job_skills,
         'country_id'=>$request->country_id,
-        'state_id'=>$request->state_name,
+        'state_id'=>$request->state_id,
         'city_id'=>$request->city_id,
         'career_level_id'=>$request->career_level_id,
         'salary_from'=>$request->salary_from,
@@ -345,10 +349,11 @@ public function update_jobs(Request $request){
 } 
 public function view_jobs($id){
    
-    $view_jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','countries.country')
-    ->Join('companies', 'companies.id', '=', 'jobs.id')
-    ->Join('cities', 'cities.id', '=', 'jobs.id')
-    ->Join('countries', 'countries.id', '=', 'jobs.id')
+    $view_jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','countries.country','job_titles.job_title')
+    ->Join('companies', 'companies.id', '=', 'jobs.company_id')
+    ->Join('cities', 'cities.id', '=', 'jobs.city_id')
+    ->Join('countries', 'countries.id', '=', 'jobs.country_id')
+    ->Join('job_titles', 'job_titles.id', '=', 'jobs.title')
     ->orderBy('jobs.id','Asc')->where('jobs.id', '=', $id)->get();
     // dd($view_jobs);
     return view('admin/view_jobs', compact( 'view_jobs'));

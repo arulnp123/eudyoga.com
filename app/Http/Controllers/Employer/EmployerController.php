@@ -369,7 +369,7 @@ public function update_post_job(Request $request){
   } 
   public function user_profile($id){
     $profile  = DB::table('users')->where('id', '=', $id)->get();
-    $profile1 = DB::table('users')->select('users.*', 'cities.city', 'states.state')->join('states','states.id','=','users.state_id')->join('cities','cities.id','=','users.city_id')->where('users.id', '=', $id)->first();
+    $profile1 = DB::table('users')->select('users.*', 'cities.city', 'states.state_name')->join('states','states.id','=','users.state_id')->join('cities','cities.id','=','users.city_id')->where('users.id', '=', $id)->first();
     // dd($profile);
     return view( 'employer/user_profile',compact('profile','profile1'));
   } 

@@ -9,6 +9,11 @@ UPDATE `user_profile` SET `password` = '$2y$10$g528hGLv0wwy/L5vN80HCe/6XVDpRatmu
 alter table cities drop city_id;
 alter table states drop state_id;
 alter table countries drop country_id;
+alter table job_types drop job_type_id;
+alter table job_titles drop job_title_id;
+alter table job_skills drop job_skill_id;
+alter table genders drop gender_id;
+
 
 select a.id,company_id,job_skill_id,a.country_id,a.state_id,a.city_id,title,b.state_name,c.city from jobs a,states b,cities c where a.state_id=b.id and a.city_id=c.id limit 10;
 

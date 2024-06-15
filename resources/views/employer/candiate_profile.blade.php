@@ -50,7 +50,7 @@
                                 <select name="state_id" id="stateid" required class="form-control">
                                     <option value="">Select State</option>
                                     @foreach ($states as $key => $statelist)
-                                        <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
+                                        <option value="{{ $statelist->id }}">{{ $statelist->state_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -141,9 +141,9 @@
                                 @foreach ($states as $key => $statelist)
                                     <li>
                                         <input type="checkbox" name="state" id="{{ $statelist->id }}"
-                                            value="{{ $statelist->state }}">
+                                            value="{{ $statelist->state_name }}">
                                         <label for="{{ $statelist->id }}"></label>
-                                        {{ $statelist->state }}
+                                        {{ $statelist->state_name }}
 
                                     </li>
                                 @endforeach

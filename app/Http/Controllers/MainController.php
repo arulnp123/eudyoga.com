@@ -53,7 +53,7 @@ class MainController extends Controller{
         $companies = DB::table('companies')->orderBy('id', 'Asc')->get();
 
 
-       $jobs1 = DB::table( 'jobs' )->select( 'jobs.*', 'states.state', 'companies.c_name', 'cities.city' )
+       $jobs1 = DB::table( 'jobs' )->select( 'jobs.*', 'states.state_name', 'companies.c_name', 'cities.city' )
         ->join('companies', 'companies.id','=','jobs.company_id')
         ->join('states','states.id','=','jobs.state_id')
         ->join('cities','cities.id','=' ,'jobs.city_id')

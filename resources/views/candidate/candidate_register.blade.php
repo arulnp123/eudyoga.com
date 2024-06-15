@@ -50,7 +50,7 @@
                                         <select name="state_id" id="stateid" required class="form-control">
                                             <option value="">Select State</option>
                                             @foreach ($states as $key => $statelist)
-                                                <option value="{{ $statelist->id }}">{{ $statelist->state }}</option>
+                                                <option value="{{ $statelist->id }}">{{ $statelist->state_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

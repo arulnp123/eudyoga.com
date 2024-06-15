@@ -37,10 +37,6 @@
 
                 <div id="stepper1" class="bs-stepper">
                     <div class="card">
-
-
-
-
                         <!--start stepper two-->
 
                         <div id="stepper2" class="bs-stepper">
@@ -95,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <input value="{{ $employer_list }}" type="hidden" name="employer_id" id="employer_id"/>
+                                    <input value="{{ $edit_jobs }}" type="hidden" name="employer_id" id="employer_id"/>
                                     <div class="bs-stepper-content">
                                         @foreach ($edit_jobs as $key => $edit)
                                             <form class="row g-3" method="post" action="{{ url('/update_jobs') }}"
@@ -109,10 +105,10 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="Company" class="form-label">Company</label>
-                                                            <input type="text" class="form-control" name="id"
-                                                                id="Company" placeholder="Company"
-                                                                value="{{ $edit->id }}">
+                                                            <label for="company_id" class="form-label">Company</label>
+                                                            <input type="text" class="form-control" name="c_name"
+                                                                id="c_name" placeholder="Company"
+                                                                value="{{ $edit->company_id }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="Job title" class="form-label">Job title</label>
@@ -154,13 +150,10 @@
                                                             <input type="text" class="form-control"
                                                                 name="job_skills" id="InputUsername"
                                                                 placeholder="Job skills" data-role="tagsinput"
-                                                                value="{{ $edit->job_skills }}">
-
-
+                                                                value="{{ $edit->job_skill_id }}">
                                                         </div>
 
-
-                                                        <div class="col-12 col-lg-6">
+                                                       <div class="col-12 col-lg-6">
                                                             <label for="InputEmail2"
                                                                 class="form-label">Country</label>
                                                             <input type="text" class="form-control"

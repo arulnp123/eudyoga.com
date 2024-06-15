@@ -114,9 +114,9 @@
                                 @foreach ($states as $key => $statelist)
                                     <li>
                                         <input type="checkbox" name="state" id="{{ $statelist->id }}"
-                                            value="{{ $statelist->state }}">
+                                            value="{{ $statelist->state_name }}">
                                         <label for="{{ $statelist->id }}"></label>
-                                        {{ $statelist->state }}
+                                        {{ $statelist->state_name }}
 
                                     </li>
                                 @endforeach
@@ -450,7 +450,7 @@
                                             <h3><a href="job/Relationship%20Manager.html"
                                                     title="Relationship Manager">{{ $jobs2->title }}</h3>
                                             <div class="desi"><i class="fa fa-map-marker"
-                                                    aria-hidden="true"></i>{{ $jobs2->state }},{{ $jobs2->city }}
+                                                    aria-hidden="true"></i>{{ $jobs2->state_name }},{{ $jobs2->city }}
                                             </div>
 
                                             <div class="companyName"><a href="company/srinivas-92.html"

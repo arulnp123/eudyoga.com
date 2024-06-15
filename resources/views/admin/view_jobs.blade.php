@@ -32,15 +32,8 @@
                 <!--end breadcrumb-->
 
                 <!--start stepper one-->
-
-
-
                 <div id="stepper1" class="bs-stepper">
                     <div class="card">
-
-
-
-
                         <!--start stepper two-->
 
                         <div id="stepper2" class="bs-stepper">
@@ -77,7 +70,6 @@
                                                 <div class="bs-stepper-circle"><i class='bx bx-user fs-4'></i></div>
                                                 <div class="">
                                                     <h5 class="mb-0 steper-title">3</h5>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +108,7 @@
                                                             <label for="Job_title" class="form-label">Job title</label>
                                                             <input type="text" class="form-control" name="title"
                                                                 id="Job_title" placeholder="Job title"
-                                                                value="{{ $edit->title }}" readonly>
+                                                                value="{{ $edit->job_title }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="description" class="form-label">Job
@@ -128,9 +120,6 @@
                                                             <label for="benefits" class="form-label">Benefits</label>
                                                             <textarea class="form-control" name="benefits" id="benefits" placeholder="Job Benefits" rows="3" readonly>{{ $edit->benefits }}</textarea>
                                                         </div>
-
-
-
                                                         <div class="col-12 col-lg-6">
                                                             <button class="btn btn-light px-4" type="button"
                                                                 onclick="stepper2.next()">Next<i
@@ -138,7 +127,6 @@
                                                         </div>
                                                     </div>
                                                     <!---end row-->
-
                                                 </div>
 
                                                 <div id="test-nl-2" role="tabpanel" class="bs-stepper-pane"
@@ -155,10 +143,7 @@
                                                                 name="job_skill" id="job_skill"
                                                                 placeholder="Job skills" data-role="tagsinput"
                                                                 value="{{ $edit->job_skill_id }}" readonly>
-                                                        </div>
-
-
-                                                        
+                                                        </div>                                                       
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputPassword"
                                                                 class="form-label">Country</label>
@@ -170,8 +155,8 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputPassword"
                                                                 class="form-label">State</label>
-                                                            <input type="state_name" class="form-control"
-                                                                name="state_name" id="state_name"
+                                                            <input type="state_id" class="form-control"
+                                                                name="state_id" id="state_id"
                                                                 placeholder="State" value="{{ $edit->state_id }}"
                                                                 readonly>
                                                         </div>
@@ -300,7 +285,7 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="gender_id" class="form-label">Gender</label>
                                                             <input type="text" class="form-control"
-                                                                name="gender_id" id="Experience3"
+                                                                name="gender_id" id="gender_id"
                                                                 placeholder="Gender" value="{{ $edit->gender_id }}"
                                                                 readonly>
                                                         </div>
