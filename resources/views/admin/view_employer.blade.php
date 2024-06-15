@@ -159,14 +159,14 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="description"
                                                                 class="form-label">Company details</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="description" class="form-control"
                                                                 name="description" id="description"
                                                                 placeholder="Company details" value="{{ $edit->description }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="location"
                                                                 class="form-label">Location</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="location" class="form-control"
                                                                 name="location" id="location"
                                                                 placeholder="location" value="{{ $edit->location }}"readonly>
                                                         </div>
@@ -191,7 +191,7 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="map" class="form-label">Google Map</label>
-                                                            <input type="text" class="form-control" name="map" id="SchoolName" placeholder="Google Map">
+                                                            <input type="text" class="form-control" name="map" id="SchoolName" placeholder="Google Map"
                                                                 value="{{ $edit->map }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">

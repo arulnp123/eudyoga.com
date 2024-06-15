@@ -211,7 +211,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="description" class="form-label">Company
                                                              details</label>
-                                                             <input type="text" class="form-control" name="name"
+                                                             <input type="text" class="form-control" name="description"
                                                             id="description" placeholder="Company Details">
                                                         <!--<select name="description" id="description" required
                                                              class="form-control form-select"
