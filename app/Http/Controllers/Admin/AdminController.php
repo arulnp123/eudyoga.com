@@ -402,7 +402,7 @@ public function employer_add(){
 
 
 public function employer_list(){
-    $employer_list = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
+    $employer_list = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
     return view('admin/employer_list', compact( 'employer_list' ));
 }  
 

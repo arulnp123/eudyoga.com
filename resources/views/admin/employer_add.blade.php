@@ -209,10 +209,10 @@
                                                          </select>-->
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="inputAddress2" class="form-label">Company
+                                                         <label for="description" class="form-label">Company
                                                              details</label>
                                                              <input type="text" class="form-control" name="name"
-                                                            id="name" placeholder="Company Details">
+                                                            id="description" placeholder="Company Details">
                                                         <!--<select name="description" id="description" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
