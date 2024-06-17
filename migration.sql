@@ -20,3 +20,52 @@ alter table functional_areas drop functional_area_id;
 
 select a.id,company_id,job_skill_id,a.country_id,a.state_id,a.city_id,title,b.state_name,c.city from jobs a,states b,cities c where a.state_id=b.id and a.city_id=c.id limit 10;
 
+CREATE TABLE `states` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `state_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `country_id` int(11) NOT NULL DEFAULT 1,
+  `is_default` int(11) DEFAULT 0,
+  `is_active` int(11) NOT NULL DEFAULT 1,
+  `sort_order` int(11) NOT NULL DEFAULT 9999,
+  `lang` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'en',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `status` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB;
+
+INSERT INTO `states` (`id`, `state_name`, `country_id`, `is_default`, `is_active`, `sort_order`, `lang`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'ANDHRA PRADESH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:43', NULL),
+(2, 'ASSAM', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:28', NULL),
+(3, 'ARUNACHAL PRADESH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:33', NULL),
+(4, 'BIHAR', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:37', NULL),
+(5, 'GUJRAT', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:40', NULL),
+(6, 'HARYANA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:45', NULL),
+(7, 'HIMACHAL PRADESH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:53', NULL),
+(8, 'JAMMU & KASHMIR', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:58', NULL),
+(9, 'KARNATAKA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:03', NULL),
+(10, 'KERALA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:07', NULL),
+(11, 'MADHYA PRADESH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:11', NULL),
+(12, 'MAHARASHTRA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:15', NULL),
+(13, 'MANIPUR', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:24', NULL),
+(14, 'MEGHALAYA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:20', NULL),
+(15, 'MIZORAM', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:28', NULL),
+(16, 'NAGALAND', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:32', NULL),
+(17, 'ORISSA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:37', NULL),
+(18, 'PUNJAB', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:41', NULL),
+(19, 'RAJASTHAN', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:45', NULL),
+(20, 'SIKKIM', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:49', NULL),
+(21, 'TAMIL NADU', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:52', NULL),
+(22, 'TRIPURA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:00', NULL),
+(23, 'UTTAR PRADESH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:08', NULL),
+(24, 'WEST BENGAL', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:11', NULL),
+(25, 'DELHI', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:10:16', NULL),
+(26, 'GOA', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:48', NULL),
+(27, 'PONDICHERY', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:54', NULL),
+(28, 'LAKSHDWEEP', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:11:58', NULL),
+(29, 'DAMAN & DIU', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:07', NULL),
+(30, 'DADRA & NAGAR', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:16', NULL),
+(31, 'CHANDIGARH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:21', NULL),
+(32, 'ANDAMAN & NICOBAR', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:27', NULL),
+(33, 'UTTARANCHAL', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:31', NULL),
+(34, 'JHARKHAND', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:52', NULL),
+(35, 'CHATTISGARH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:21', NULL);

@@ -62,8 +62,8 @@
                     <td>{{ $memb->name }}</td>
                     <td>{{ $memb->phone }}</td>
                     <td>{{ $memb->email }}</td>
-                    <td>{{ $memb->state_id }}</td>
-                    <td>{{ $memb->city_id }}</td>
+                    <td>{{ $memb->state_name }}</td>
+                    <td>{{ $memb->city }}</td>
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">

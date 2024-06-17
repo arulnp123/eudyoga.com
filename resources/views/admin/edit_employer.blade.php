@@ -167,7 +167,7 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="location"
                                                                 class="form-label">Location</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="location" class="form-control"
                                                                 name="location" id="location"
                                                                 placeholder="location" value="{{ $edit_employer->location }}">
                                                         </div>
