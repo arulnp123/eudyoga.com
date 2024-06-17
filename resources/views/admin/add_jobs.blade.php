@@ -109,7 +109,7 @@
                                                     </div>
                                                    <div class="col-12 col-lg-6">
                                                         <label for="title" class="form-label">Job title</label>
-                                                        <select name="job_title" id="title" required
+                                                        <select name="title" id="title" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
                                                             <option value="" selected>Job title</option>
@@ -143,9 +143,9 @@
                                                 <h5 class="mb-1">Enter Your Details</h5>
                                                 <div class="row g-3">
                                                    <div class="col-12 col-lg-6">
-                                                        <label for="job_skill_id" class="form-label">Job
+                                                        <label for="job_skill" class="form-label">Job
                                                             skills</label>
-                                                        <select name="job_skills" id="job_skill_id" required
+                                                        <select name="job_skill_id" id="job_skill" required
                                                         class="form-control form-select" class="form-select"
                                                             aria-label="Default select example">
                                                             <option selected value=""> Job skills</option>
@@ -244,9 +244,9 @@
                                                             placeholder="Salary Currency">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="salary_period_id" class="form-label">Salary
+                                                        <label for="salary_period" class="form-label">Salary
                                                             Period</label>
-                                                        <select name="salary_period_id" id="salary_period_id" required
+                                                        <select name="salary_period_id" id="salary_period" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
                                                             <option value="" selected>Salary Period</option>
@@ -277,9 +277,9 @@
 
                                                 <div class="row g-3">
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="functional_area_id" class="form-label">Functional
+                                                        <label for="functional_area" class="form-label">Functional
                                                             Area</label>
-                                                        <select name="functional_area_id" id="functional_area_id" required
+                                                        <select name="functional_area_id" id="functional_area" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
                                                             <option value="" selected>Functional Area</option>
@@ -292,7 +292,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="job_type_id" class="form-label">Job Type</label>
+                                                        <label for="job_type" class="form-label">Job Type</label>
                                                         <select name="job_type_id" id="job_type_id" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
@@ -304,8 +304,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="job_shift_id" class="form-label">Job Shift</label>
-                                                        <select name="job_shift_id" id="job_shift_id" required
+                                                        <label for="job_shift" class="form-label">Job Shift</label>
+                                                        <select name="job_shift_id" id="job_shift" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
                                                             <option value="" selected>Job Shift</option>
@@ -318,7 +318,7 @@
                                                     <div class="col-12 col-lg-6">
                                                         <label for="num_of_positions"
                                                             class="form-label">Position</label>
-                                                        <select name="roles" id="roles" required
+                                                        <select name="num_of_positions" id="num_of_positions" required
                                                             class="form-control form-select"
                                                             aria-label="Default select example">
                                                             <option value="" selected>Position</option>

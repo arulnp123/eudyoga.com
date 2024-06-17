@@ -61,7 +61,7 @@
                              <tr>
                                  <td>{{ $key + 1 }}</td>
                                  <td>{{ $memb->c_name }}</td>
-                                 <td>{{ $memb->title }}</td>
+                                 <td>{{ $memb->job_title }}</td>
                                  <td>{{ $memb->description }}</td>
                                  <td>{{ $memb->city }}</td>
                                  <td>

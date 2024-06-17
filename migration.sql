@@ -13,6 +13,9 @@ alter table job_types drop job_type_id;
 alter table job_titles drop job_title_id;
 alter table job_skills drop job_skill_id;
 alter table genders drop gender_id;
+alter table career_levels drop career_level_id;
+alter table salary_periods drop salary_period_id;
+alter table functional_areas drop functional_area_id;
 
 
 select a.id,company_id,job_skill_id,a.country_id,a.state_id,a.city_id,title,b.state_name,c.city from jobs a,states b,cities c where a.state_id=b.id and a.city_id=c.id limit 10;

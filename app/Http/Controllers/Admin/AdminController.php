@@ -244,13 +244,24 @@ public function saveadmin(Request $request) {
 }  
 public function list_jobs(){
 
-    $jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','states.state_name','job_skills.job_skill','job_titles.job_title')
+    $jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','states.state_name','countries.country',
+    'career_levels.career_level','salary_periods.salary_period','functional_areas.functional_area','job_titles.job_title','job_skills.job_skill',
+    'job_types.job_type','roles.role_name','job_shifts.job_shift','genders.gender','job_experiences.job_experience','degree_levels.degree_level')
     ->Join('companies', 'companies.id', '=', 'jobs.company_id')
     ->Join('job_titles', 'job_titles.id', '=', 'jobs.title')
-
+    ->Join('job_skills', 'job_skills.id', '=', 'jobs.job_skill_id')
     ->Join('cities', 'cities.id', '=', 'jobs.city_id')
     ->Join('states', 'states.id', '=', 'jobs.state_id')
-    ->Join('job_skills', 'job_skills.id', '=', 'jobs.job_skill_id')
+    ->Join('countries', 'countries.id', '=', 'jobs.country_id')
+    ->Join('career_levels', 'career_levels.id', '=', 'jobs.career_level_id')
+    ->Join('salary_periods', 'salary_periods.id', '=', 'jobs.salary_period_id')
+    ->Join('functional_areas', 'functional_areas.id', '=', 'jobs.functional_area_id')
+    ->Join('job_types', 'job_types.id', '=', 'jobs.job_type_id')
+    ->Join('roles', 'roles.id', '=', 'jobs.num_of_positions')
+    ->Join('job_shifts', 'job_shifts.id', '=', 'jobs.job_shift_id')
+    ->Join('genders', 'genders.id', '=', 'jobs.gender_id')
+    ->Join('job_experiences', 'job_experiences.id', '=', 'jobs.job_experience_id')
+    ->Join('degree_levels', 'degree_levels.id', '=', 'jobs.degree_level_id')
     ->orderBy('jobs.id','Asc')->get();
     // dd($jobs);
     // $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
@@ -294,16 +305,18 @@ public function addjobss(Request $request) {
    
     $addjobss = DB::table( 'jobs' )->insert( [
         'company_id'=>$request->company_id,
-        'title'=>$request->job_title,
+        'title'=>$request->title,
         'description'=>$request->description,
         'benefits'=>$request->benefits,
-        'job_skill_id'=>$request->job_skills,
+        'job_skill_id'=>$request->job_skill_id,
         'country_id'=>$request->country_id,
         'state_id'=>$request->state_id,
         'city_id'=>$request->city_id,
         'career_level_id'=>$request->career_level_id,
         'salary_from'=>$request->salary_from,
         'salary_to'=>$request->salary_to,
+        'salary_period_id'=>$request->salary_period_id,
+        'salary_currency'=>$request->salary_currency,
         'functional_area_id'=>$request->functional_area_id,
         'job_type_id'=>$request->job_type_id,
         'job_shift_id'=>$request->job_shift_id,
@@ -315,7 +328,6 @@ public function addjobss(Request $request) {
        
     ] );
     
-   
    return redirect()->route('list_jobs')->withMessage('job Successfully Added !');
 
 }
@@ -326,10 +338,10 @@ public function edit_jobs($id){
 public function update_jobs(Request $request){
     $update_jobs = DB::table('jobs')->where('id', $request->id)->update([
         'company_id'=>$request->company_id,
-        'title'=>$request->title,
+        'title'=>$request->job_title,
         'description'=>$request->description,
         'benefits'=>$request->benefits,
-        'job_skills'=>$request->job_skills,
+        'job_skill'=>$request->job_skills,
         'country_id'=>$request->country_id,
         'state_id'=>$request->state_id,
         'city_id'=>$request->city_id,
@@ -349,13 +361,26 @@ public function update_jobs(Request $request){
 } 
 public function view_jobs($id){
    
-    $view_jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','countries.country','job_titles.job_title')
+    $view_jobs = DB::table('jobs')->select('jobs.*','companies.c_name','cities.city','states.state_name','countries.country',
+    'career_levels.career_level','salary_periods.salary_period','functional_areas.functional_area','job_titles.job_title','job_skills.job_skill',
+    'job_types.job_type','roles.role_name','job_shifts.job_shift','genders.gender','job_experiences.job_experience','degree_levels.degree_level')
     ->Join('companies', 'companies.id', '=', 'jobs.company_id')
     ->Join('cities', 'cities.id', '=', 'jobs.city_id')
     ->Join('countries', 'countries.id', '=', 'jobs.country_id')
     ->Join('job_titles', 'job_titles.id', '=', 'jobs.title')
+    ->Join('job_skills', 'job_skills.id', '=', 'jobs.job_skill_id')
+    ->Join('states', 'states.id',  '=', 'jobs.state_id')
+    ->Join('career_levels', 'career_levels.id', '=', 'jobs.career_level_id')
+    ->Join('salary_periods', 'salary_periods.id', '=', 'jobs.salary_period_id')
+    ->Join('functional_areas', 'functional_areas.id', '=', 'jobs.functional_area_id')
+    ->Join('job_types', 'job_types.id', '=', 'jobs.job_type_id')
+    ->Join('roles', 'roles.id', '=', 'jobs.num_of_positions')
+    ->Join('job_shifts', 'job_shifts.id', '=', 'jobs.job_shift_id')
+    ->Join('genders', 'genders.id', '=', 'jobs.gender_id')
+    ->Join('job_experiences', 'job_experiences.id', '=', 'jobs.job_experience_id')
+    ->Join('degree_levels', 'degree_levels.id', '=', 'jobs.degree_level_id')
     ->orderBy('jobs.id','Asc')->where('jobs.id', '=', $id)->get();
-    // dd($view_jobs);
+    //dd($view_jobs);
     return view('admin/view_jobs', compact( 'view_jobs'));
 } 
 

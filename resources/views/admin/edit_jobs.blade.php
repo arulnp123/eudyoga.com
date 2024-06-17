@@ -148,7 +148,7 @@
                                                             <label for="InputUsername" class="form-label">Job
                                                                 skills</label>
                                                             <input type="text" class="form-control"
-                                                                name="job_skills" id="InputUsername"
+                                                                name="job_skill_id" id="InputUsername"
                                                                 placeholder="Job skills" data-role="tagsinput"
                                                                 value="{{ $edit->job_skill_id }}">
                                                         </div>
@@ -163,14 +163,14 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputPassword"
                                                                 class="form-label">State</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 name="state_id" id="InputPassword"
                                                                 placeholder="State" value="{{ $edit->state_id }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="InputConfirmPassword"
                                                                 class="form-label">City</label>
-                                                            <input type="password" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 name="city_id" id="InputConfirmPassword"
                                                                 placeholder="City" value="{{ $edit->city_id }}">
                                                         </div>
