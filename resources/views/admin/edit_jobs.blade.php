@@ -23,7 +23,7 @@
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Edit Jobs</li>
+                                <li class="breadcrumb-item active" aria-current="page">edit_jobs Jobs</li>
                             </ol>
                         </nav>
                     </div>
@@ -91,11 +91,12 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <input value="{{ $edit_jobs }}" type="hidden" name="employer_id" id="employer_id"/>
                                     <div class="bs-stepper-content">
-                                        @foreach ($edit_jobs as $key => $edit)
+                                        {{-- @foreach ($edit_jobs_jobs as $key => $edit_jobs) --}}
                                             <form class="row g-3" method="post" action="{{ url('/update_jobs') }}"
                                                 enctype="multipart/form-data">
+                                                <input value="{{ $edit_jobs->id }}" type="hidden" name="employer_id" id="employer_id"/>
+
                                                 @csrf
 
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
@@ -106,25 +107,41 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="company_id" class="form-label">Company</label>
-                                                            <input type="text" class="form-control" name="c_name"
-                                                                id="c_name" placeholder="Company"
-                                                                value="{{ $edit->company_id }}">
+                                                            <select name="company_id" id="company_id" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Company</option>
+                                                                @foreach ($getcompanies as $companieslist)
+                                                                <option @if ($edit_jobs->company_id == $companieslist->id) selected @endif
+                                                                    value="{{ $companieslist->id }}">
+                                                                    {{ $companieslist->c_name }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="Job title" class="form-label">Job title</label>
-                                                            <input type="text" class="form-control" name="title"
-                                                                id="Job title" placeholder="Job title"
-                                                                value="{{ $edit->title }}">
+                                                                <label for="title" class="form-label">Job title</label>
+                                                                <select name="job_title" id="job_title" required
+                                                                    class="form-control form-select"
+                                                                    aria-label="Default select example">
+                                                                    <option value="" selected>Job title</option>
+                                                                    @foreach ($jobtitles as $jobtitleslist)
+                                                                    <option @if ($edit_jobs->title == $jobtitleslist->id) selected @endif
+                                                                        value="{{ $jobtitleslist->id }}">
+                                                                        {{ $jobtitleslist->job_title }}
+                                                                    </option>
+                                                                @endforeach
+                                                                </select>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="inputAddress2" class="form-label">Job
                                                                 description</label>
-                                                            <textarea class="form-control" name="description" id="native_place" placeholder="Job description" rows="3">{{ $edit->description }}</textarea>
+                                                            <textarea class="form-control" name="description" id="native_place" placeholder="Job description" rows="3">{{ $edit_jobs->description }}</textarea>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="inputAddress2"
                                                                 class="form-label">Benefits</label>
-                                                            <textarea class="form-control" name="benefits" id="native_place" placeholder="Job Benefits" rows="3">{{ $edit->benefits }}</textarea>
+                                                            <textarea class="form-control" name="benefits" id="native_place" placeholder="Job Benefits" rows="3">{{ $edit_jobs->benefits }}</textarea>
                                                         </div>
 
 
@@ -145,34 +162,66 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="InputUsername" class="form-label">Job
+                                                            <label for="job_skill" class="form-label">Job
                                                                 skills</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_skill_id" id="InputUsername"
-                                                                placeholder="Job skills" data-role="tagsinput"
-                                                                value="{{ $edit->job_skill_id }}">
+                                                                <select name="job_skills" id="job_skill" required
+                                                                    class="form-control form-select"
+                                                                    aria-label="Default select example">
+                                                                    <option value="" selected>Job Skill</option>
+                                                                    @foreach ($jobskills as $jobskillslist)
+                                                                    <option @if ($edit_jobs->job_skill_id == $jobskillslist->id) selected @endif
+                                                                        value="{{ $jobskillslist->id }}">
+                                                                        {{ $jobskillslist->job_skill }}
+                                                                    </option>
+                                                                @endforeach
+                                                                </select>
+                                                            
                                                         </div>
 
                                                        <div class="col-12 col-lg-6">
-                                                            <label for="InputEmail2"
-                                                                class="form-label">Country</label>
-                                                            <input type="text" class="form-control"
-                                                                name="country_id" id="InputEmail2"
-                                                                placeholder="Country" value="{{ $edit->country_id }}">
+                                                        <label for="country" class="form-label">Country</label>
+                                                            <select name="country_id" id="country" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Country</option>
+                                                                @foreach ($getcountry as $countrylist)
+                                                                <option @if ($edit_jobs->country_id == $countrylist->id) selected @endif
+                                                                    value="{{ $countrylist->id }}">
+                                                                    {{ $countrylist->country }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                            
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="InputPassword"
-                                                                class="form-label">State</label>
-                                                            <input type="text" class="form-control"
-                                                                name="state_id" id="InputPassword"
-                                                                placeholder="State" value="{{ $edit->state_id }}">
+                                                            <label for="state" class="form-label">State</label>
+                                                            <select name="state_id" id="state_name" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>State</option>
+                                                                @foreach ($getstate as $statelist)
+                                                                <option @if ($edit_jobs->state_id == $statelist->id) selected @endif
+                                                                    value="{{ $statelist->id }}">
+                                                                    {{ $statelist->state_name }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                           
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="InputConfirmPassword"
-                                                                class="form-label">City</label>
-                                                            <input type="text" class="form-control"
-                                                                name="city_id" id="InputConfirmPassword"
-                                                                placeholder="City" value="{{ $edit->city_id }}">
+                                                            <label for="city" class="form-label">City</label>
+                                                            <select name="city_id" id="city" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>City</option>
+                                                                @foreach ($getcity as $citylist)
+                                                                <option @if ($edit_jobs->city_id == $citylist->id) selected @endif
+                                                                    value="{{ $citylist->id }}">
+                                                                    {{ $citylist->city }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                            
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
@@ -194,20 +243,27 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="career_level_id" class="form-label">Career
-                                                                level</label>
-                                                            <input type="text" class="form-control"
-                                                                name="career_level_id" id="SchoolName"
-                                                                placeholder="Career level"
-                                                                value="{{ $edit->career_level_id }}">
+                                                            <label for="career_level" class="form-label">Career Level</label>
+                                                            <select name="career_level_id" id="career_level" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Career Level</option>
+                                                                @foreach ($careerlevels as $careerlevelslist)
+                                                                <option @if ($edit_jobs->career_level_id == $careerlevelslist->id) selected @endif
+                                                                    value="{{ $careerlevelslist->id }}">
+                                                                    {{ $careerlevelslist->career_level }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                            
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="salary_from" class="form-label">Salary
                                                                 From</label>
                                                             <input type="text" class="form-control"
-                                                                name="salary_from" id="BoardName"
-                                                                placeholder="Board Name"
-                                                                value="{{ $edit->salary_from }}">
+                                                                name="salary_from" id="salary_from"
+                                                                placeholder="salary from"
+                                                                value="{{ $edit_jobs->salary_from }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="salary_to" class="form-label">Salary
@@ -215,7 +271,7 @@
                                                             <input type="text" class="form-control"
                                                                 name="salary_to" id="UniversityName"
                                                                 placeholder="Salary To"
-                                                                value="{{ $edit->salary_to }}">
+                                                                value="{{ $edit_jobs->salary_to }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="salary_currency" class="form-label">Salary
@@ -223,15 +279,22 @@
                                                             <input type="text" class="form-control"
                                                                 name="salary_currency" id="UniversityName"
                                                                 placeholder="Salary Currency"
-                                                                value="{{ $edit->salary_currency }}">
+                                                                value="{{ $edit_jobs->salary_currency }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="salary_period_id" class="form-label">Salary
-                                                                Period</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_period_id" id="UniversityName"
-                                                                placeholder="Salary Period"
-                                                                value="{{ $edit->salary_period_id }}">
+                                                            <label for="salary_period" class="form-label">Salary Period</label>
+                                                            <select name="salary_period_id" id="salary_period" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Salary Period</option>
+                                                                @foreach ($salaryperiods as $salaryperiodslist)
+                                                                <option @if ($edit_jobs->salary_period_id == $salaryperiodslist->id) selected @endif
+                                                                    value="{{ $salaryperiodslist->id }}">
+                                                                    {{ $salaryperiodslist->salary_period }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                           
                                                         </div>
 
                                                         <div class="col-12">
@@ -254,41 +317,83 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="functional_area_id"
-                                                                class="form-label">Functional Area</label>
-                                                            <input type="text" class="form-control"
-                                                                name="functional_area_id" id="Experience1"
-                                                                placeholder="Functional Area">
+                                                            <label for="functional_area" class="form-label">Functional Area</label>
+                                                            <select name="functional_area_id" id="functional_area" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Functional Area</option>
+                                                                @foreach ($functionalareas as $functionalareaslist)
+                                                                <option @if ($edit_jobs->functional_area_id == $functionalareaslist->id) selected @endif
+                                                                    value="{{ $functionalareaslist->id }}">
+                                                                    {{ $functionalareaslist->functional_area }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                           
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="job_type_id" class="form-label">Job
+                                                            <label for="job_type" class="form-label">Job
                                                                 Type</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_type_id" id="Position1"
-                                                                placeholder="Job Type"
-                                                                value="{{ $edit->salary_period_id }}">
+                                                            <select name="job_type_id" id="job_type" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Job
+                                                                    Type</option>
+                                                                @foreach ($jobtypes as $jobtypeslist)
+                                                                <option @if ($edit_jobs->job_type_id == $jobtypeslist->id) selected @endif
+                                                                    value="{{ $jobtypeslist->id }}">
+                                                                    {{ $jobtypeslist->job_type }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                            
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="job_shift_id" class="form-label">Job
+                                                            <label for="job_shift" class="form-label">Job
                                                                 Shift</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_shift_id" id="Experience2"
-                                                                placeholder="Job Shift"
-                                                                value="{{ $edit->job_shift_id }}">
+                                                            <select name="job_shift_id" id="job_shift" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Job
+                                                                    Shift</option>
+                                                                @foreach ($jobshifts as $jobshiftslist)
+                                                                <option @if ($edit_jobs->job_shift_id == $jobshiftslist->id) selected @endif
+                                                                    value="{{ $jobshiftslist->id }}">
+                                                                    {{ $jobshiftslist->job_shift }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                           
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="num_of_positions"
-                                                                class="form-label">Position</label>
-                                                            <input type="text" class="form-control"
-                                                                name="num_of_positions" id="PhoneNumber"
-                                                                placeholder="Position"
-                                                                value="{{ $edit->num_of_positions }}">
+                                                            <label for="num_of_positions" class="form-label">Position</label>
+                                                            <select name="num_of_positions" id="num_of_positions" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Position</option>
+                                                                @foreach ($roles as $roleslist)
+                                                                <option @if ($edit_jobs->num_of_positions == $roleslist->id) selected @endif
+                                                                    value="{{ $roleslist->id }}">
+                                                                    {{ $roleslist->role_name }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                            
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="gender_id" class="form-label">Gender</label>
-                                                            <input type="text" class="form-control"
-                                                                name="gender_id" id="Experience3"
-                                                                placeholder="Gender" value="{{ $edit->gender_id }}">
+                                                            <label for="gender" class="form-label">Gender</label>
+                                                            <select name="gender_id" id="gender" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Gender</option>
+                                                                @foreach ($genders as $genderslist)
+                                                                <option @if ($edit_jobs->gender_id == $genderslist->id) selected @endif
+                                                                    value="{{ $genderslist->id }}">
+                                                                    {{ $genderslist->gender }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                           
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="expiry_date" class="form-label">Job expiry
@@ -296,23 +401,38 @@
                                                             <input type="text" class="form-control"
                                                                 name="expiry_date" id="PhoneNumber"
                                                                 placeholder="Job expiry date"
-                                                                value="{{ $edit->expiry_date }}">
+                                                                value="{{ $edit_jobs->expiry_date }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="degree_level_id" class="form-label">Required
-                                                                Degree Level</label>
-                                                            <input type="text" class="form-control"
-                                                                name="degree_level_id" id="PhoneNumber"
-                                                                placeholder="Required Degree Level"
-                                                                value="{{ $edit->degree_level_id }}">
+                                                            <label for="degree_level" class="form-label">Required Degree Level</label>
+                                                            <select name="degree_level_id" id="degree_level" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Required Degree Level</option>
+                                                                @foreach ($degreelevels as $degreelevelslist)
+                                                                <option @if ($edit_jobs->degree_level_id == $degreelevelslist->id) selected @endif
+                                                                    value="{{ $degreelevelslist->id }}">
+                                                                    {{ $degreelevelslist->degree_level }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                            
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="PhoneNumber" class="form-label">Required job
+                                                            <label for="job_experience" class="form-label">Required job
                                                                 experience</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_experience_id" id="PhoneNumber"
-                                                                placeholder="Required job experience"
-                                                                value="{{ $edit->job_experience_id }}">
+                                                            <select name="job_experience_id" id="job_experience" required
+                                                                class="form-control form-select"
+                                                                aria-label="Default select example">
+                                                                <option value="" selected>Functional Area</option>
+                                                                @foreach ($jobexperiences as $jobexperienceslist)
+                                                                <option @if ($edit_jobs->job_experience_id == $jobexperienceslist->id) selected @endif
+                                                                    value="{{ $jobexperienceslist->id }}">
+                                                                    {{ $jobexperienceslist->job_experience }}
+                                                                </option>
+                                                            @endforeach
+                                                            </select>
+                                                           
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
@@ -328,7 +448,7 @@
                                                 </div>
 
                                             </form>
-                                        @endforeach
+                                        {{-- @endforeach --}}
                                     </div>
 
                                 </div>

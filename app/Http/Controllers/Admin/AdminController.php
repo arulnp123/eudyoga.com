@@ -332,22 +332,57 @@ public function addjobss(Request $request) {
 
 }
 public function edit_jobs($id){  
-    $edit_jobs = DB::table('jobs')->where('id', '=', $id)->get();
-    return view( 'admin/edit_jobs', compact('edit_jobs'));   
+    $edit_jobs = DB::table('jobs')->where('id', '=', $id)->first();
+    $getcompanies=DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $jobtitles=DB::table('job_titles')->orderBy( 'id', 'Asc' )->get();
+    // dd($getcompanies);
+    $jobskills = DB::table('job_skills')->orderBy( 'id', 'Asc' )->get();
+    $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
+    $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
+    $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
+    $careerlevels = DB::table('career_levels')->orderBy( 'id', 'Asc' )->get();
+    $salaryperiods = DB::table('salary_periods')->orderBy( 'id', 'Asc' )->get();
+    $functionalareas = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
+    $jobtypes = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
+    $jobshifts = DB::table('job_shifts')->orderBy( 'id', 'Asc' )->get();
+    $roles = DB::table('roles')->orderBy( 'id', 'Asc' )->get();
+    $genders = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
+    $degreelevels = DB::table('degree_levels')->orderBy( 'id', 'Asc' )->get();
+    $jobexperiences = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
+    
+    return view( 'admin/edit_jobs', compact('edit_jobs',
+    'getcompanies',
+    'jobtitles',
+    'jobskills',
+    'getstate',
+    'getcity',
+    'getcountry',
+    'careerlevels',
+    'salaryperiods',
+    'functionalareas',
+    'jobtypes' ,
+    'jobshifts',
+    'roles',
+    'genders',
+    'degreelevels',
+    'jobexperiences'));   
 }
 public function update_jobs(Request $request){
-    $update_jobs = DB::table('jobs')->where('id', $request->id)->update([
+    //echo $request->job_title;die;
+    $update_jobs = DB::table('jobs')->where('id', $request->employer_id)->update([
         'company_id'=>$request->company_id,
         'title'=>$request->job_title,
         'description'=>$request->description,
         'benefits'=>$request->benefits,
-        'job_skill'=>$request->job_skills,
+        'job_skill_id'=>$request->job_skills,
         'country_id'=>$request->country_id,
         'state_id'=>$request->state_id,
         'city_id'=>$request->city_id,
         'career_level_id'=>$request->career_level_id,
         'salary_from'=>$request->salary_from,
         'salary_to'=>$request->salary_to,
+        'salary_period_id'=>$request->salary_period_id,
+        'salary_currency'=>$request->salary_currency,
         'functional_area_id'=>$request->functional_area_id,
         'job_type_id'=>$request->job_type_id,
         'job_shift_id'=>$request->job_shift_id,
@@ -357,6 +392,7 @@ public function update_jobs(Request $request){
         'degree_level_id'=>$request->degree_level_id,
         'job_experience_id'=>$request->job_experience_id,
    ]);
+   //dd($update_jobs);
    return redirect()->route('list_jobs')->withMessage('job Successfully updated !');
 } 
 public function view_jobs($id){
