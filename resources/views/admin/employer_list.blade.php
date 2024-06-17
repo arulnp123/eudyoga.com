@@ -43,7 +43,7 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Reference</th>
+                    <!--<th>Reference</th>-->
                     <th>Company Name</th>
                     <th>HR Name</th>
                     <th>Whatsapp Number</th>
@@ -57,13 +57,13 @@
                   @foreach($employer_list as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->refrence }}</td>
+                    {{ $memb->refrence }}
                     <td>{{ $memb->c_name }}</td>
                     <td>{{ $memb->name }}</td>
                     <td>{{ $memb->phone }}</td>
                     <td>{{ $memb->email }}</td>
-                    <td>{{ $memb->state_name }}</td>
-                    <td>{{ $memb->city }}</td>
+                    <td>{{ $memb->state_id }}</td>
+                    <td>{{ $memb->city_id }}</td>
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">

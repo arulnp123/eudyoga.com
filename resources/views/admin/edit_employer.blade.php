@@ -111,8 +111,8 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="Company" class="form-label">Company Name</label>
-                                                            <input type="text" class="form-control" name="name" id="FisrtName" placeholder="Company Name"
-                                                                value="{{ $edit_employer->name }}">
+                                                            <input type="text" class="form-control" name="c_name" id="FisrtName" placeholder="Company Name"
+                                                                value="{{ $edit_employer->c_name }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="email" class="form-label">Company Email</label>
@@ -125,9 +125,9 @@
                                                                 value="{{ $edit_employer->password }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="c_name" class="form-label">HR Recruiter Name</label>
-                                                            <input type="text" class="form-control" name="c_name" id="InputEmail" placeholder="HR Recruiter Name"
-                                                                value="{{ $edit_employer->c_name }}">
+                                                            <label for="name" class="form-label">HR Recruiter Name</label>
+                                                            <input type="text" class="form-control" name="name" id="InputEmail" placeholder="HR Recruiter Name"
+                                                                value="{{ $edit_employer->name }}">
                                                         </div>
 
 

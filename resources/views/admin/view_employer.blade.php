@@ -110,8 +110,8 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="Company" class="form-label">Company Name</label>
-                                                            <input type="text" class="form-control" name="name" id="FisrtName" placeholder="Company Name"
-                                                                value="{{ $edit->name }}"readonly>
+                                                            <input type="text" class="form-control" name="c_name" id="FisrtName" placeholder="Company Name"
+                                                                value="{{ $edit->c_name }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="email" class="form-label">Company Email</label>
@@ -124,9 +124,9 @@
                                                                 value="{{ $edit->password }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="c_name" class="form-label">HR Recruiter Name</label>
-                                                            <input type="text" class="form-control" name="c_name" id="InputEmail" placeholder="HR Recruiter Name"
-                                                                value="{{ $edit->c_name }}"readonly>
+                                                            <label for="name" class="form-label">HR Recruiter Name</label>
+                                                            <input type="text" class="form-control" name="name" id="InputEmail" placeholder="HR Recruiter Name"
+                                                                value="{{ $edit->name }}"readonly>
                                                         </div>
 
 
@@ -147,13 +147,13 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="industry_id" class="form-label">Industry</label>
-                                                            <input type="text" class="form-control" name="industry_id" id="InputUsername" placeholder="Industry"data-role="tagsinput"
+                                                            <input type="text" class="form-control" name="industry_id" id="InputUsername" maxlength="100" placeholder="Industry"data-role="tagsinput"
                                                                 value="{{ $edit->industry_id }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="ownership_type_id"
                                                                 class="form-label">Ownership Type</label>
-                                                                <input type="text" class="form-control" name="ownership_type_id" id="InputEmail2" placeholder="Ownership Type"
+                                                                <input type="text" class="form-control" name="ownership_type_id" id="InputEmail2" maxlength="100" placeholder="Ownership Type"
                                                                 value="{{ $edit->ownership_type_id }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -206,12 +206,12 @@
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="no_of_employees" class="form-label">Number of employees</label>
-                                                            <input type="text" class="form-control" name="no_of_employees" id="Experience1" placeholder="Number of employees"
+                                                            <input type="text" class="form-control number" name="no_of_employees" id="Experience1" placeholder="Number of employees"
                                                                 value="{{ $edit->no_of_employees }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="established_in" class="form-label">Established in</label>
-                                                            <input type="text" class="form-control" name="established_in" id="Position1" placeholder="Established in"
+                                                            <input type="text" class="form-control number" name="established_in" id="Position1" placeholder="Established in"
                                                                 value="{{ $edit->established_in }}"readonly>
                                                         </div>
 
@@ -236,12 +236,12 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="fax"class="form-label">Fax </label>
-                                                                <input type="text" class="form-control" name="fax" id="Experience2" placeholder="Fax #"
+                                                                <input type="text" class="form-control" name="fax" id="Experience2" placeholder="Fax"
                                                                 value="{{ $edit->fax }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="phone" class="form-label">Phone</label>
-                                                            <input type="text" class="form-control" name="phone" id="PhoneNumber" placeholder="Phone #"
+                                                            <input type="text" class="form-control number" name="phone" id="PhoneNumber" placeholder="Phone"
                                                                 value="{{ $edit->phone }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -261,8 +261,8 @@
                                                              value="{{ $edit->linkedin }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="google_plus" class="form-label">Google+</label>
-                                                            <input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google+"
+                                                            <label for="google_plus" class="form-label">Google</label>
+                                                            <input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google"
                                                                 value="{{ $edit->google_plus }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -272,22 +272,22 @@
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="country_id" class="form-label">Country</label>
-                                                            <input type="text" class="form-control" name="country_id" id="PhoneNumber" placeholder="Country"
+                                                            <input type="text" class="form-control" name="country_id" id="PhoneNumber" maxlength="100" placeholder="Country"
                                                                 value="{{ $edit->country_id }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="state_id" class="form-label">State</label>
-                                                            <input type="text" class="form-control" name="state_id" id="PhoneNumber" placeholder="State"
+                                                            <input type="text" class="form-control" name="state_id" id="PhoneNumber" maxlength="100" placeholder="State"
                                                                 value="{{ $edit->state_id }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="city_id" class="form-label">City</label>
-                                                            <input type="text" class="form-control" name="city_id" id="PhoneNumber" placeholder="City"
+                                                            <input type="text" class="form-control" name="city_id" id="PhoneNumber" maxlength="100" placeholder="City"
                                                                 value="{{ $edit->city_id }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="package_id" class="form-label">Package ID</label>
-                                                            <input type="text" class="form-control" name="package_id" id="PhoneNumber" placeholder="Package ID"
+                                                            <input type="text" class="form-control number" name="package_id" id="PhoneNumber" placeholder="Package ID"
                                                                 value="{{ $edit->package_id }}"readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">

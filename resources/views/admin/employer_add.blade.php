@@ -195,7 +195,7 @@
                                                          <label for="InputEmail2" class="form-label">Ownership
                                                              Type</label>
                                                              <input type="text" class="form-control" name="ownership_type_id"
-                                                            id="ownership_type_id" placeholder="Ownership Type">
+                                                            id="ownership_type_id" maxlength="100" placeholder="Ownership Type">
                                                          <!--<select name="ownership_type_id" id="InputEmail2" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
@@ -278,7 +278,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="BoardName" class="form-label">Number of
                                                              offices</label>
-                                                          <input type="text" class="form-control" name="no_of_offices" id="BoardName" placeholder="Number of offices"> 
+                                                          <input type="text" class="form-control number" name="no_of_offices" id="BoardName" placeholder="Number of offices"> 
                                                          
                                                          <!--<select name="no_of_offices" id="BoardName" required
                                                              class="form-control form-select"
@@ -295,7 +295,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="UniversityName"
                                                              class="form-label">Website</label>
-                                                          <input type="text" class="form-control" name="website" id="UniversityName" placeholder="Website"> 
+                                                          <input type="text" class="form-control number" name="website" id="UniversityName" placeholder="Website"> 
                                                         
                                                          <!--<select name="website" id="UniversityName" required
                                                              class="form-control form-select"
@@ -311,7 +311,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="Experience1" class="form-label">Number of
                                                              employees</label>
-                                                         <input type="text" class="form-control" name="no_of_employees" id="Experience1" placeholder="Number of employees">
+                                                         <input type="text" class="form-control number" name="no_of_employees" id="Experience1" placeholder="Number of employees">
                                                         
                                                          <!--<select name="name" id="name" required
                                                              class="form-control form-select"
@@ -351,7 +351,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="Position1" class="form-label">Established
                                                              in</label>
-                                                          <input type="text" class="form-control" name="established_in" id="Position1" placeholder="Established in">
+                                                          <input type="text" class="form-control number" name="established_in" id="Position1" placeholder="Established in">
                                                          
                                                          <!--<select name="established_in" id="Position1" required
                                                              class="form-control form-select"
@@ -381,7 +381,7 @@
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Phone </label>
-                                                         <input type="text" class="form-control" name="phone" id="PhoneNumber" placeholder="Phone "> 
+                                                         <input type="text" class="form-control number" name="phone" id="PhoneNumber" placeholder="Phone "> 
                                                          <!--<select name="phone" id="PhoneNumber" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
@@ -437,8 +437,8 @@
                                                          </select>-->
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Google+</label>
-                                                          <input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google+"> 
+                                                         <label for="PhoneNumber" class="form-label">Google</label>
+                                                          <input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google"> 
                                                          <!--<select name="google_plus" id="PhoneNumber" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
@@ -466,7 +466,7 @@
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Country</label>
-                                                         <input type="text" class="form-control" name="country_id" id="PhoneNumber" placeholder="Country">
+                                                         <input type="text" class="form-control" name="country_id" id="PhoneNumber" maxlength="100" placeholder="Country">
                                                          <!--<select name="country_id" id="PhoneNumber" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
@@ -480,7 +480,7 @@
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">State</label>
-                                                        <input type="text" class="form-control" name="state_id" id="PhoneNumber" placeholder="State"> 
+                                                        <input type="text" class="form-control" name="state_id" id="PhoneNumber" maxlength="100" placeholder="State"> 
                                                          <!--<select name="state_id" id="PhoneNumber" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
@@ -494,7 +494,7 @@
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">City</label>
-                                                         <input type="text" class="form-control" name="city_id" id="PhoneNumber" placeholder="City">
+                                                         <input type="text" class="form-control" name="city_id" id="PhoneNumber" maxlength="100" placeholder="City">
                                                          <!--<select name="city_id" id="PhoneNumber" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
@@ -509,7 +509,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Package
                                                              ID</label>
-                                                         <input type="text" class="form-control" name="package_id" id="PhoneNumber" placeholder="Package ID">
+                                                         <input type="text" class="form-control number" name="package_id" id="PhoneNumber" placeholder="Package ID">
                                                          <!--<select name="package_id" id="PhoneNumber" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">

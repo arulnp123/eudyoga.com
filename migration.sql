@@ -18,7 +18,7 @@ alter table salary_periods drop salary_period_id;
 alter table functional_areas drop functional_area_id;
 
 
-select a.id,company_id,job_skill_id,a.country_id,a.state_id,a.city_id,title,b.state_name,c.city from jobs a,states b,cities c where a.state_id=b.id and a.city_id=c.id limit 10;
+select a.id,company_id,job_skill_id,a.country_id,a.state_id,a.city_id,title,b.state_name,c.city,d.industry_id from jobs a,states b,cities c,companies d where a.state_id=b.id and a.city_id=c.id limit 10;
 
 CREATE TABLE `states` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -69,3 +69,11 @@ INSERT INTO `states` (`id`, `state_name`, `country_id`, `is_default`, `is_active
 (33, 'UTTARANCHAL', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:31', NULL),
 (34, 'JHARKHAND', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:12:52', NULL),
 (35, 'CHATTISGARH', 101, 0, 1, 9999, 'en', '2024-04-03 07:36:34', '2024-04-03 09:09:21', NULL);
+
+alter table jobs add
+
+ALTER TABLE `companies` CHANGE `state_id` `state_id` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `companies` CHANGE `country_id` `country_id` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `companies` CHANGE `city_id` `city_id` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `companies` CHANGE `ownership_type_id` `ownership_type_id` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `companies` CHANGE `industry_id` `industry_id` VARCHAR(100) NULL DEFAULT NULL;

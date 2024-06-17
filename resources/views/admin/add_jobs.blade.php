@@ -225,20 +225,20 @@
                                                     <div class="col-12 col-lg-6">
                                                         <label for="salary_from" class="form-label">Salary
                                                             From</label>
-                                                        <input type="text" class="form-control" name="salary_from"
+                                                        <input type="text" class="form-control number" name="salary_from"
                                                             id="salary_from" required
                                                             class="form-control form-select" placeholder="Salary Form">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="salary_to" class="form-label">Salary To</label>
-                                                        <input type="text" class="form-control" name="salary_to"
+                                                        <input type="text" class="form-control number" name="salary_to"
                                                             id="salary_to" required
                                                             class="form-control form-select" placeholder="Salary To">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="salary_currency" class="form-label">Salary
                                                             Currency</label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="text" class="form-control number"
                                                             name="salary_currency" id="salary_currency" required
                                                             class="form-control form-select"
                                                             placeholder="Salary Currency">
