@@ -237,12 +237,12 @@
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
                                                             <label for="fax"class="form-label">Fax </label>
-                                                                <input type="text" class="form-control" name="fax" id="Experience2" placeholder="Fax #"
+                                                                <input type="text" class="form-control" name="fax" id="Experience2" placeholder="Fax"
                                                                 value="{{ $edit_employer->fax }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="phone" class="form-label">Phone</label>
-                                                            <input type="text" class="form-control" name="phone" id="PhoneNumber" placeholder="Phone #"
+                                                            <input type="text" class="form-control" name="phone" id="PhoneNumber" placeholder="Phone"
                                                                 value="{{ $edit_employer->phone }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -263,7 +263,7 @@
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="google_plus" class="form-label">Google+</label>
-                                                            <input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google+"
+                                                            <input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google"
                                                                 value="{{ $edit_employer->google_plus }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
