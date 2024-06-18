@@ -95,7 +95,7 @@
 
             </div>
             <div class="col-lg-5">
-                <div class="searchtpimg"><img src="https://eudyoga.com/public/assets/images/recruiting.png" alt="">
+                <div class="searchtpimg"><img src="https://eudyoga.com/assets/images/recruiting.png" alt="">
                 </div>
             </div>
         </div>
@@ -205,7 +205,7 @@
 
     <div class="largebanner shadow3">
         <div class="adin">
-            <img src="https://eudyoga.com/public/assets/images/banner1.jpg">.
+            <img src="https://eudyoga.com/assets/images/banner1.jpg">.
         </div>
         <div class="clearfix"></div>
     </div>
@@ -434,7 +434,7 @@
 <!--Footer-->
 <div class="largebanner shadow3">
     <div class="adin">
-        <img src="https://eudyoga.com/public/assets/images/banner1.jpg">.
+        <img src="https://eudyoga.com/assets/images/banner1.jpg">.
     </div>
     <div class="clearfix"></div>
 </div>
