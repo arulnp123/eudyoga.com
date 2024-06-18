@@ -57,7 +57,7 @@
                                         required>
                                         <option value="1">Select Skills</option>
                                         @foreach ($get_job_skills as $job_skills_list)
-                                            <option value="{{ $job_skills_list->job_skill_id }}">
+                                            <option value="{{ $job_skills_list->id }}">
                                                 {{ $job_skills_list->job_skill }}</option>
                                         @endforeach
 
@@ -106,7 +106,7 @@
                                         id="salary_period_id" name="salary_period_id" required>
                                         <option value="" selected="selected">Select Salary Period</option>
                                         @foreach ($get_salary_periods as $salary_periods_list)
-                                            <option value="{{ $salary_periods_list->salary_period_id }}">
+                                            <option value="{{ $salary_periods_list->id }}">
                                                 {{ $salary_periods_list->salary_period }}</option>
                                         @endforeach
 
@@ -132,7 +132,7 @@
                                         id="career_level_id" name="career_level_id" required>
                                         <option value="" selected="selected">Select Career level</option>
                                         @foreach ($get_career_levels as $get_career_levels_list)
-                                            <option value="{{ $get_career_levels_list->career_level_id }}">
+                                            <option value="{{ $get_career_levels_list->id }}">
                                                 {{ $get_career_levels_list->career_level }}</option>
                                         @endforeach
 
@@ -145,7 +145,7 @@
                                         id="functional_area_id" name="functional_area_id" required>
                                         <option value="" selected="selected">Select Functional Area</option>
                                         @foreach ($get_functional_areas as $functional_areas_list)
-                                            <option value="{{ $functional_areas_list->functional_area_id }}">
+                                            <option value="{{ $functional_areas_list->id }}">
                                                 {{ $functional_areas_list->functional_area }}</option>
                                         @endforeach
 
@@ -157,7 +157,7 @@
                                         id="job_type_id" name="job_type_id" required>
                                         <option value="" selected="selected">Select Job Type</option>
                                         @foreach ($get_job_types as $job_types_list)
-                                            <option value="{{ $job_types_list->job_type_id }}">
+                                            <option value="{{ $job_types_list->id }}">
                                                 {{ $job_types_list->job_type }}</option>
                                         @endforeach
 
@@ -169,7 +169,7 @@
                                         id="job_shift_id" name="job_shift_id" required>
                                         <option value="" selected="selected">Select Job Shift</option>
                                         @foreach ($get_job_shifts as $job_shifts_list)
-                                            <option value="{{ $job_shifts_list->job_shift_id }}">
+                                            <option value="{{ $job_shifts_list->id }}">
                                                 {{ $job_shifts_list->job_shift }}</option>
                                         @endforeach
 
@@ -189,7 +189,7 @@
                                         id="gender_id" name="gender_id" required>
                                         <option value="" selected="selected">No preference</option>
                                         @foreach ($get_genders as $get_genders_list)
-                                            <option value="{{ $get_genders_list->gender_id }}">
+                                            <option value="{{ $get_genders_list->id }}">
                                                 {{ $get_genders_list->gender }}</option>
                                         @endforeach
                                     </select>
@@ -207,7 +207,7 @@
                                         <option value="" selected="selected">Select Required Degree Level
                                         </option>
                                         @foreach ($get_degree_levels as $degree_levels_list)
-                                            <option value="{{ $degree_levels_list->degree_level_id }}">
+                                            <option value="{{ $degree_levels_list->id }}">
                                                 {{ $degree_levels_list->degree_level }}</option>
                                         @endforeach
 
@@ -220,7 +220,7 @@
                                         <option value="" selected="selected">Select Required job experience
                                         </option>
                                         @foreach ($get_job_experiences as $job_experiences_list)
-                                            <option value="{{ $job_experiences_list->job_experience_id }}">
+                                            <option value="{{ $job_experiences_list->id }}">
                                                 {{ $job_experiences_list->job_experience }}</option>
                                         @endforeach
 

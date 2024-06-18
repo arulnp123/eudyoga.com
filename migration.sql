@@ -77,3 +77,6 @@ ALTER TABLE `companies` CHANGE `country_id` `country_id` VARCHAR(100) NULL DEFAU
 ALTER TABLE `companies` CHANGE `city_id` `city_id` VARCHAR(100) NULL DEFAULT NULL;
 ALTER TABLE `companies` CHANGE `ownership_type_id` `ownership_type_id` VARCHAR(100) NULL DEFAULT NULL;
 ALTER TABLE `companies` CHANGE `industry_id` `industry_id` VARCHAR(100) NULL DEFAULT NULL;
+
+ALTER TABLE `companies` CHANGE `package_start_date` `package_start_date` DATE NULL DEFAULT NULL;
+ALTER TABLE `companies` CHANGE `package_end_date` `package_end_date` DATE NULL DEFAULT NULL;

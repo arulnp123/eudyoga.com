@@ -524,35 +524,13 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Package Start
                                                              Date</label>
-                                                         <input type="text" class="form-control" name="package_start_date" id="package_start_date" placeholder="Package Duration"> 
-                                                         <!--<select name="package_start_date" id="package_start_date"
-                                                             required class="form-control form-select"
-                                                             aria-label="Default select example">
-                                                             <option value="" selected>Package Start Date
-                                                             </option>
-                                                             @foreach ($package_start_date as $key => $package_start_datelist)
-                                                                 <option value="{{ $package_start_datelist->id }}">
-                                                                     {{ $package_start_datelist->package_start_date }}
-                                                                 </option>
-                                                             @endforeach
-
-                                                         </select>-->
+                                                         <input type="date" class="form-control" name="package_start_date" id="package_start_date" placeholder="Package Duration"> 
+                             
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Package End
                                                              Date</label>
-                                                        <input type="text" class="form-control" name="package_end_date" id="PhoneNumber" placeholder="Package Quota"> 
-                                                         <!--<select name="package_end_date" id="PhoneNumber" required
-                                                             class="form-control form-select"
-                                                             aria-label="Default select example">
-                                                             <option value="" selected>Package End Date</option>
-                                                             @foreach ($package_end_date as $key => $package_end_datelist)
-                                                                 <option value="{{ $package_end_datelist->id }}">
-                                                                     {{ $package_end_datelist->package_end_date }}
-                                                                 </option>
-                                                             @endforeach
-
-                                                         </select>-->
+                                                        <input type="date" class="form-control" name="package_end_date" id="PhoneNumber" placeholder="Package Quota"> 
                                                      </div>
 
                                                      <div class="col-12">

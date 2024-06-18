@@ -245,7 +245,7 @@
                                     <li>
                                         <input type="checkbox" name="gender" id="{{ $genderlist->id }}"
                                             value="{{ $genderlist->gender }}">
-                                        <label for="{{ $genderlist->gender_id }}"></label>
+                                        <label for="{{ $genderlist->id }}"></label>
                                         {{ $genderlist->gender }}
 
                                     </li>
