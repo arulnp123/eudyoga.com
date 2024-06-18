@@ -98,7 +98,7 @@
                                                                                 class="form-label mb-2">state</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="state"
-                                                                                value="{{ $candidateprofile->state }}"
+                                                                                value="{{ $candidateprofile->state_name }}"
                                                                                 id="state" placeholder="state">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">

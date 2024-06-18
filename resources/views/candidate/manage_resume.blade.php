@@ -102,8 +102,8 @@
                                             class="form-control form-select" aria-label="Default select example">
                                             <option value=""selected>Gender</option>
                                             @foreach ($gender as $key => $gender_list)
-                                                <option @if ($gender_list->gender_id == $candidateprofile->gender_id) selected @endif
-                                                    value="{{ $gender_list->gender_id }}">
+                                                <option @if ($gender_list->id == $candidateprofile->id) selected @endif
+                                                    value="{{ $gender_list->id }}">
                                                     {{ $gender_list->gender }}</option>
                                             @endforeach
 
@@ -261,8 +261,8 @@
                                             <option value=""selected> Career Level
                                             </option>
                                             @foreach ($career_levels as $key => $career_levels_list)
-                                                <option @if ($career_levels_list->career_level_id == $candidateprofile->career_level_id) selected @endif
-                                                    value="{{ $career_levels_list->career_level_id }}">
+                                                <option @if ($career_levels_list->id == $candidateprofile->id) selected @endif
+                                                    value="{{ $career_levels_list->id }}">
                                                     {{ $career_levels_list->career_level }}
                                                 </option>
                                             @endforeach
@@ -291,8 +291,8 @@
                                             <option value=""selected> Functional Area
                                             </option>
                                             @foreach ($functional_areas as $key => $functional_areas_list)
-                                                <option @if ($functional_areas_list->functional_area_id == $candidateprofile->functional_area_id) selected @endif
-                                                    value="{{ $functional_areas_list->functional_area_id }}">
+                                                <option @if ($functional_areas_list->id == $candidateprofile->id) selected @endif
+                                                    value="{{ $functional_areas_list->id }}">
                                                     {{ $functional_areas_list->functional_area }}
                                                 </option>
                                             @endforeach

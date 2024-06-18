@@ -191,7 +191,7 @@ class CandidateController extends Controller
     $getnationality =DB::table('nationality')->orderBy( 'id', 'Asc' )->get();
 
 
-    $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
+    $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state_name','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
     ->join('countries','countries.id','=','users.country_id')
@@ -388,7 +388,7 @@ public function upload_cv(Request $request) {
   }
   public function  my_favourite_jobs(){
     $userid = Session::get('id');
-    $fav = DB::table('jobs')->select('jobs.*','favourites_job.job_id', 'states.state', 'companies.c_name', 'cities.city')
+    $fav = DB::table('jobs')->select('jobs.*','favourites_job.job_id', 'states.state_name', 'companies.c_name', 'cities.city')
     ->join('favourites_job','favourites_job.job_id' , '=' ,'jobs.id')
     ->join('companies', 'companies.id','=','jobs.company_id')
         ->join('states','states.id','=','jobs.state_id')
@@ -430,7 +430,7 @@ public function upload_cv(Request $request) {
   }
   public function  view_public_profile(){
     $userid = Session::get('id');
-    $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
+    $view_puplic_profile = DB::table('users')->select('users.*','cities.city','states.state_name','countries.country','marital_statuses.marital_status', 'job_experiences.job_experience','genders.gender','career_levels.career_level')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
     ->join('countries','countries.id','=','users.country_id')
@@ -471,7 +471,7 @@ public function  print_resume(){
   }
   public function  basicdetialscandidate(){
     $userid = Session::get('id');
-    $candidateprofile = DB::table('users')->select('users.*', 'cities.city', 'states.state')
+    $candidateprofile = DB::table('users')->select('users.*', 'cities.city', 'states.state_name')
     ->join('states','states.id','=','users.state_id')
     ->join('cities','cities.id','=','users.city_id')
     ->where('users.id', '=', $userid)->first();
