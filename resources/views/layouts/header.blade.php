@@ -60,7 +60,7 @@
                                     <li class="nav-item">
                                         <a id="Viewcandidate_login" href="{{ route('candidate_index') }}"
                                             class="nav-link {{ request()->is('candidate_login') ? 'active' : '' }}">
-                                            <p>Profile</p>
+                                            <p>Candidate Login</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -73,7 +73,7 @@
                                     <li class="nav-item">
                                         <a id="Viewemployer_login" href="{{ route('employer_index') }}"
                                             class="nav-link {{ request()->is('employer_login') ? 'active' : '' }}">
-                                            <p>Profile</p>
+                                            <p>Employer Login</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
