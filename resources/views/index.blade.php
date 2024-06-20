@@ -44,12 +44,6 @@
 </form>
 
 
-
-
-
-
-
-
                 <div class="popularind">
                     <h4>Popular Industries</h4>
                     <ul class="hmindlist">
@@ -105,17 +99,9 @@
     </div>
 </div>
 
-
-
-
-
-
 <!-- Search End -->
 <!-- Top Employers start -->
 <div class="section">
-
-
-
     <div class="container">
         <!-- title start -->
         <div class="titleTop">

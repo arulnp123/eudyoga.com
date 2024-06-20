@@ -1,6 +1,6 @@
-@include('user/layouts.other_app')
-
+@include('user/layouts.app')
 @yield('content')
+
 <div class="container">
     <div class="pageSearch">
        <div class="row">
