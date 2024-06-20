@@ -109,7 +109,7 @@
                                                 <div class="row g-3">
                                                     <div class="col-12 col-lg-6">
                                                         <label for="FisrtName" class="form-label">Name</label>
-                                                        <input type="text" class="form-control" name="name"
+                                                        <input type="text" class="form-control" name="first_name"
                                                             id="name" placeholder="Name"
                                                             value="{{ $edit_candidate->name }}">
                                                     </div>
@@ -129,13 +129,13 @@
                                                     <div class="col-12 col-lg-6">
                                                         <label for="PhoneNumber" class="form-label">Phone
                                                             Number</label>
-                                                        <input type="number" class="form-control" id="mobile_num"
+                                                        <input type="number" class="form-control" name="mobile_num" id="mobile_num"
                                                             placeholder="Phone Number"value="{{ $edit_candidate->mobile_num }}">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="PhoneNumber" class="form-label">Alternate
                                                             Number</label>
-                                                        <input type="number" class="form-control" id="phone"
+                                                        <input type="number" class="form-control" name="phone" id="phone"
                                                             placeholder="Alternate Number"value="{{ $edit_candidate->phone }}">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
@@ -191,14 +191,14 @@
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="InputPassword" class="form-label">City</label>
-                                                        <input type="password" class="form-control" name="city_id"
+                                                        <input type="text" class="form-control" name="city_id"
                                                             id="InputPassword" placeholder="City"
                                                             value="{{ $edit_candidate->city_id }}">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="InputConfirmPassword"
                                                             class="form-label">Nationality</label>
-                                                        <input type="password" class="form-control"
+                                                        <input type="text" class="form-control"
                                                             name="nationality_id" id="InputConfirmPassword"
                                                             placeholder="Nationality"
                                                             value="{{ $edit_candidate->marital_status_id }}">

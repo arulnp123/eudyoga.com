@@ -102,7 +102,7 @@
 				  <div class="col-12 col-lg-6">
 					  <label for="FisrtName" class="form-label">
 						Company Name</label>
-					  <input type="text" class="form-control" name="name" id="FisrtName" placeholder="Company Name">
+					  <input type="text" class="form-control" name="c_name" id="FisrtName" placeholder="Company Name">
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="LastName" class="form-label">Company Email</label>

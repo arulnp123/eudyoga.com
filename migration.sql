@@ -80,3 +80,6 @@ ALTER TABLE `companies` CHANGE `industry_id` `industry_id` VARCHAR(100) NULL DEF
 
 ALTER TABLE `companies` CHANGE `package_start_date` `package_start_date` DATE NULL DEFAULT NULL;
 ALTER TABLE `companies` CHANGE `package_end_date` `package_end_date` DATE NULL DEFAULT NULL;
+
+alter table nationality drop nationality_id;
+alter table marital_statuses drop marital_status_id;

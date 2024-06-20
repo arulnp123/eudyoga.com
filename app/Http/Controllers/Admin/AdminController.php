@@ -561,23 +561,30 @@ public function employer_payment_history(){
 // CANDIDATE
 
 public function candidate_list(){
-    $candidate_list = DB::table('users')->orderBy( 'id', 'Desc' )->get();
+    //$candidate_list = DB::table('users')->select('users.*','cities.city')
+    //->Join('cities', 'cities.id', '=', 'users.city_id')
+    //->orderBy('users.id','Asc')->where('users.id', '=', $id)->get();
+    //dd($view_jobs);
+    //return view('admin/candidate_list', compact( 'candidate_list'));
+   
+    $candidate_list = DB::table('users')->orderBy( 'id', 'Asc' )->get();
     return view('admin/candidate_list', compact( 'candidate_list' ));
 }  
 
 public function candidate_add(){
-    $get_users = DB::table('users')->orderBy( 'id', 'Desc' )->get();
-    $get_marital_statuses = DB::table('marital_statuses')->orderBy( 'id', 'Desc' )->get();
-    $getcountry = DB::table('countries')->orderBy( 'id', 'Desc' )->get();
-    $getcity = DB::table('cities')->orderBy( 'id', 'Desc' )->get();
-    $getstate = DB::table('states')->orderBy( 'id', 'Desc' )->get();
-    $getjob_experiences = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
-    $getindustries= DB::table('industries')->orderBy( 'id', 'Desc' )->get();
-    $getfunctionalareas = DB::table('functional_areas')->orderBy( 'id', 'Desc' )->get();
-    $getpackages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
+    $get_users = DB::table('users')->orderBy( 'id', 'Asc' )->get();
+    $get_marital_statuses = DB::table('marital_statuses')->orderBy( 'id', 'Asc' )->get();
+    $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
+    $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
+    $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
+    $getjob_experiences = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
+    $getindustries= DB::table('industries')->orderBy( 'id', 'Asc' )->get();
+    $getfunctionalareas = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
+    $getpackages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
 
     
-    return view( 'admin/candidate_add',compact('get_users','get_marital_statuses','getcountry','getcity','getstate','getjob_experiences' ,'getindustries','getfunctionalareas','getpackages'));
+    return view( 'admin/candidate_add',compact('get_users','get_marital_statuses','getcountry','getcity','getstate',
+    'getjob_experiences' ,'getindustries','getfunctionalareas','getpackages'));
 }   
 
 
@@ -585,6 +592,7 @@ public function candidate_add(){
 public function savecandidate(Request $request) {
     $addcandidate = DB::table( 'users' )->insert( [
                 'name'=>$request->name,
+                'last_name'=>$request->last_name,
                 'email'=>$request->email,
                 'mother_name'=>$request->mother_name,
                 'father_name'=>$request->father_name,
@@ -619,6 +627,7 @@ return redirect()->route('candidate_list')->withMessage('Candidate Successfully 
 public function update_candidate(Request $request){
     $update_candidate = DB::table('users')->where('id', $request->id)->update([
         'name'=>$request->name,
+        'last_name'=>$request->last_name,
          'email'=>$request->email,
          'mother_name'=>$request->mother_name,
          'father_name'=>$request->father_name,
@@ -647,8 +656,15 @@ public function update_candidate(Request $request){
 }
 
 public function view_candidate($id){
-    $view_candidate = DB::table('users')->where('id', '=', $id)->first();
-    return view('admin/view_candidate', compact( 'view_candidate' ));
+    //$view_candidate = DB::table('users')->select('users.*','cities.city')
+    //->Join('cities', 'cities.id', '=', 'users.city_id')
+    
+    //->orderBy('users.id','Asc')->where('users.id', '=', $id)->get();
+    //dd($view_jobs);
+   // return view('admin/view_candidate', compact( 'view_candidate'));
+    
+   $view_candidate = DB::table('users')->where('id', '=', $id)->first();
+   return view('admin/view_candidate', compact( 'view_candidate' ));
 } 
 
 public function edit_candidate($id){  

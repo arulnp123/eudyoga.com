@@ -1,5 +1,6 @@
 @include('user/layouts.app')
 
+
 @yield('content')
 
 <form action="{{ url('job_search') }}" method="get">

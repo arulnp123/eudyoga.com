@@ -1,6 +1,6 @@
 @include('user/layouts.app')
-@yield('content')
 
+@yield('content')
 <div class="container">
     <div class="pageSearch">
        <div class="row">

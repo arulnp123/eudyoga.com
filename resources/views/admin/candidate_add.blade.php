@@ -124,13 +124,13 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Phone
                                                              Number</label>
-                                                         <input type="number" class="form-control" id="mobile_num"
+                                                         <input type="number" class="form-control" name="mobile_num" id="mobile_num"
                                                              placeholder="Phone Number">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Alternate
                                                              Number</label>
-                                                         <input type="number" class="form-control" id="phone"
+                                                         <input type="number" class="form-control" name="phone" id="phone"
                                                              placeholder="Alternate Number">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
@@ -150,7 +150,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Marital
                                                              Status</label>
-                                                         <select name="marital_status" id="marital_status" required
+                                                         <select name="marital_status_id" id="marital_status" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
                                                              <option value="" selected>Marital Status</option>
@@ -182,11 +182,11 @@
                                                  <div class="row g-3">
                                                      <div class="col-12 col-lg-6">
                                                          <label for="InputUsername" class="form-label">Country</label>
-                                                         <select name="country" id="country" class="form-select"
+                                                         <select name="country_id" id="country" class="form-select"
                                                              aria-label="Default select example">
                                                              <option selected value="">Country</option>
                                                              @foreach ($getcountry as $key => $countylist)
-                                                                 <option value="{{ $countylist->country_id }}">
+                                                                 <option value="{{ $countylist->id }}">
                                                                      {{ $countylist->country }}</option>
                                                              @endforeach
 
@@ -201,16 +201,23 @@
                                                              <option value="">Select State</option>
 
                                                              @foreach ($getstate as $key => $statelist)
-                                                                 <option value="{{ $statelist->state_id }}">
-                                                                     {{ $statelist->state }}</option>
+                                                                 <option value="{{ $statelist->id }}">
+                                                                     {{ $statelist->state_name }}</option>
                                                              @endforeach
                                                          </select>
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="InputPassword" class="form-label">City</label>
-                                                         <select name="city_id" id="cityid" class="form-control"
-                                                             onchange="changestate(this.value)">
-                                                         </select>
+                                                        <label for="city_id"
+                                                            class="form-label">Select City</label>
+                                                        <select name="city_id" id="city_id" required
+                                                        class="form-control form-select" class="form-control
+                                                           form-select">
+                                                            <option selected value="">City</option>
+                                                            @foreach ($getcity as $key => $citylist)
+                                                                <option value="{{ $citylist->id }}">
+                                                                    {{ $citylist->city }}</option>
+                                                            @endforeach
+                                                        </select>
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="InputConfirmPassword"
@@ -270,7 +277,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="BoardName" class="form-label">Job
                                                              Experiance</label>
-                                                         <select name="package_title " id="package_title " required
+                                                         <select name="job_experience " id="job_experience " required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
                                                              <option value="" selected>Job Experiance</option>
@@ -286,7 +293,7 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="UniversityName"
                                                              class="form-label">Industry</label>
-                                                         <select name="industry" id="industry" required
+                                                         <select name="industry_id" id="industry" required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
                                                              <option value="" selected>Industry</option>
@@ -302,13 +309,13 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="UniversityName" class="form-label">Functional
                                                              Area</label>
-                                                         <select name="functional_alarea" id="functional_alarea"
+                                                         <select name="functional_area_id" id="functional_alarea"
                                                              required class="form-control form-select"
                                                              aria-label="Default select example">
                                                              <option value="" selected>Functional Area</option>
                                                              @foreach ($getfunctionalareas as $key => $function_areas_list)
                                                                  <option
-                                                                     value="{{ $function_areas_list->functional_area_id }}">
+                                                                     value="{{ $function_areas_list->id }}">
                                                                      {{ $function_areas_list->functional_area }}
                                                                  </option>
                                                              @endforeach
@@ -360,7 +367,7 @@
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="Position1" class="form-label">Package</label>
-                                                         <select name="package_title " id="package_title " required
+                                                         <select name="package_id " id="package_title " required
                                                              class="form-control form-select"
                                                              aria-label="Default select example">
                                                              <option value="" selected>Package</option>
