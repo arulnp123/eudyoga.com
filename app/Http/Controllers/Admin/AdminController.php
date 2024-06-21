@@ -561,14 +561,22 @@ public function employer_payment_history(){
 // CANDIDATE
 
 public function candidate_list(){
-    //$candidate_list = DB::table('users')->select('users.*','cities.city')
-    //->Join('cities', 'cities.id', '=', 'users.city_id')
-    //->orderBy('users.id','Asc')->where('users.id', '=', $id)->get();
-    //dd($view_jobs);
-    //return view('admin/candidate_list', compact( 'candidate_list'));
+    $candidate_list = DB::table('users')->select('users.*','cities.city','countries.country','states.state_name','functional_areas.functional_area','industries.industry','nationality.nationality','job_experiences.job_experience','packages.package_title','marital_statuses.marital_status')
+    ->Join('cities', 'cities.id', '=', 'users.city_id')
+    ->Join('countries', 'countries.id', '=', 'users.country_id')
+    ->Join('states', 'states.id', '=', 'users.state_id')    
+    ->Join('job_experiences', 'job_experiences.id', '=', 'users.job_experience_id')    
+    ->Join('functional_areas', 'functional_areas.id', '=', 'users.functional_area_id')
+    ->Join('industries', 'industries.id', '=', 'users.industry_id')
+    ->Join('nationality', 'nationality.id', '=', 'users.nationality_id')
+    ->Join('packages', 'packages.id', '=', 'users.package_id')
+    ->Join('marital_statuses', 'marital_statuses.id', '=', 'users.marital_status')
+    ->orderBy('users.id','Asc')->get();
+    
+    return view('admin/candidate_list', compact( 'candidate_list'));
    
-    $candidate_list = DB::table('users')->orderBy( 'id', 'Asc' )->get();
-    return view('admin/candidate_list', compact( 'candidate_list' ));
+    //$candidate_list = DB::table('users')->orderBy( 'id', 'Asc' )->get();
+    //return view('admin/candidate_list', compact( 'candidate_list' ));
 }  
 
 public function candidate_add(){
@@ -581,10 +589,11 @@ public function candidate_add(){
     $getindustries= DB::table('industries')->orderBy( 'id', 'Asc' )->get();
     $getfunctionalareas = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     $getpackages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
+    $national = DB::table('nationality')->orderBy( 'id', 'Asc' )->get();
 
     
     return view( 'admin/candidate_add',compact('get_users','get_marital_statuses','getcountry','getcity','getstate',
-    'getjob_experiences' ,'getindustries','getfunctionalareas','getpackages'));
+    'getjob_experiences' ,'getindustries','getfunctionalareas','getpackages','national'));
 }   
 
 
@@ -607,19 +616,19 @@ public function savecandidate(Request $request) {
                 'mobile_num'=>$request->mobile_num,
                 'phone'=>$request->phone,
                 'street_address'=>$request->street_address,
-                'job_experience_id'=>$request->job_experience_id,
+                'job_experience_id'=>$request->job_experience,
                 'industry_id'=>$request->industry_id,
                 'functional_area_id'=>$request->functional_area_id,
                 'current_salary'=>$request->current_salary,  
                 'expected_salary'=>$request->expected_salary,
                 'salary_currency'=>$request->salary_currency,
-                'package_id'=>$request->package_id 	,
+                'package_id'=>$request->package_id,
                 'package_start_date'=>$request->package_start_date,
                 'package_end_date'=>$request->package_end_date,
     ] );
     // echo($addemployers);
     // die;
-//    dd($addemployers);
+//    dd($addcandidate);
 return redirect()->route('candidate_list')->withMessage('Candidate Successfully Added !');
 
 }  
@@ -648,7 +657,7 @@ public function update_candidate(Request $request){
          'current_salary'=>$request->current_salary,  
          'expected_salary'=>$request->expected_salary,
          'salary_currency'=>$request->salary_currency,
-         'package_id'=>$request->package_id 	,
+         'package_id'=>$request->package_id,
          'package_start_date'=>$request->package_start_date,
          'package_end_date'=>$request->package_end_date,
    ]);
@@ -656,20 +665,38 @@ public function update_candidate(Request $request){
 }
 
 public function view_candidate($id){
-    //$view_candidate = DB::table('users')->select('users.*','cities.city')
-    //->Join('cities', 'cities.id', '=', 'users.city_id')
+    $view_candidate = DB::table('users')->select('users.*','cities.city','countries.country','states.state_name','functional_areas.functional_area','industries.industry','nationality.nationality','job_experiences.job_experience','packages.package_title','marital_statuses.marital_status')
+    ->Join('cities', 'cities.id', '=', 'users.city_id')
+    ->Join('countries', 'countries.id', '=', 'users.country_id')
+    ->Join('states', 'states.id', '=', 'users.state_id')
+    ->Join('job_experiences', 'job_experiences.id', '=', 'users.job_experience_id')
+    ->Join('nationality', 'nationality.id', '=', 'users.nationality_id')
+    ->Join('functional_areas', 'functional_areas.id', '=', 'users.functional_area_id')
+    ->Join('industries', 'industries.id', '=', 'users.industry_id')
+    ->Join('packages', 'packages.id', '=', 'users.package_id')
+    ->Join('marital_statuses', 'marital_statuses.id', '=', 'users.marital_status_id')
+    ->orderBy('users.id', )->where('users.id', '=', $id)->get();
+
+    // dd($view_candidate);
+    return view('admin/view_candidate', compact( 'view_candidate'));
     
-    //->orderBy('users.id','Asc')->where('users.id', '=', $id)->get();
-    //dd($view_jobs);
-   // return view('admin/view_candidate', compact( 'view_candidate'));
-    
-   $view_candidate = DB::table('users')->where('id', '=', $id)->first();
-   return view('admin/view_candidate', compact( 'view_candidate' ));
+   //$view_candidate = DB::table('users')->where('id', '=', $id)->first();
+   //return view('admin/view_candidate', compact( 'view_candidate' ));
 } 
 
 public function edit_candidate($id){  
     $edit_candidate = DB::table('users')->where('id', '=', $id)->first();
-    return view( 'admin/edit_candidate', compact('edit_candidate'));   
+    $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
+    $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
+    $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
+    $functionalareas = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
+    $jobexperiences = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
+    $national = DB::table('nationality')->orderBy( 'id', 'Asc' )->get();
+    $getindustries= DB::table('industries')->orderBy( 'id', 'Asc' )->get();
+    $getpackages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
+    $get_marital_statuses = DB::table('marital_statuses')->orderBy( 'id', 'Asc' )->get();
+
+    return view( 'admin/edit_candidate', compact('edit_candidate','getcountry','getstate','getcity','jobexperiences','functionalareas','national','getindustries','getpackages','get_marital_statuses'));   
 }
 
 public function delete_candidate( $id ){  
