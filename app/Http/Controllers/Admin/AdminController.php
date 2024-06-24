@@ -750,7 +750,7 @@ public function delete_cms($id){
     $get_cms = DB::table('cms')->where('id' , '=' , $id)->delete();
     return redirect()->route('list_cms')->withMessage('C.M.S successfully deleted');
 }
-public function add_translated_pages(Request $request){
+public function savetranslatedpages(Request $request){
     $add_translated_pages = DB::table( 'companies' )->insert( [
        'name'=>$request->name,
         'email'=>$request->email,

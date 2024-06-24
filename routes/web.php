@@ -191,6 +191,7 @@ Route::get('/delete_candidate/{id}', [App\Http\Controllers\Admin\AdminController
 Route::get('/add_cms', [App\Http\Controllers\Admin\AdminController::class, 'add_cms'])->name('add_cms');
 Route::get('/list_cms', [App\Http\Controllers\Admin\AdminController::class, 'list_cms'])->name('list_cms');
 Route::get('/list_translated_pages', [App\Http\Controllers\Admin\AdminController::class, 'list_translated_pages'])->name('list_translated_pages');
+Route::get('/savetranslatedpages', [App\Http\Controllers\Admin\AdminController::class, 'savetranslatedpages'])->name('savetranslatedpages');
 Route::get('/add_translated_pages', [App\Http\Controllers\Admin\AdminController::class, 'add_translated_pages'])->name('add_translated_pages');
 Route::get('/view_translated_pages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_translated_pages'])->name('view_translated_pages');
 Route::get('/edit_translated_pages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_translated_pages'])->name('edit_translated_pages');

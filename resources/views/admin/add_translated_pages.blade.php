@@ -92,7 +92,7 @@
 	  <div class="card-body">
 	  
 		<div class="bs-stepper-content">
-		  <form method="post" action="{{url('/saveemployer')}}" enctype="multipart/form-data">
+		  <form method="post" action="{{url('/savetranslatedpages')}}" enctype="multipart/form-data">
 			@csrf
 			<div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
 				<h5 class="mb-1">Enter Your Details</h5>
