@@ -750,8 +750,8 @@ public function delete_cms($id){
     $get_cms = DB::table('cms')->where('id' , '=' , $id)->delete();
     return redirect()->route('list_cms')->withMessage('C.M.S successfully deleted');
 }
-public function savetranslatedpages(Request $request){
-    $add_translated_pages = DB::table( 'companies' )->insert( [
+public function savetranslated(Request $request){
+    $savetranslated = DB::table( 'companies' )->insert( [
        'name'=>$request->name,
         'email'=>$request->email,
         'password'=>$request->password,
@@ -779,18 +779,29 @@ public function savetranslatedpages(Request $request){
         'package_start_date'=>$request->package_start_date,
         'package_end_date'=>$request->package_end_date,
     ]);
-        return redirect()->route('list_translated_pages')->withMessage('Translated Pages Successfully Added !');
-
+        return redirect()->route('list_translated_pages')->withMessage('Translated Added Successfully !');
 }
+
 public function list_translated_pages(){
     $list_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_translated_pages', compact( 'list_translated_pages' ));
 }
+
+public function add_translated_pages(){
+    $industry = DB::table('industries')->orderBy( 'id', 'Asc' )->get();
+    $ownership = DB::table('ownership_types')->orderBY( 'id', 'Asc')->get();
+    $country = DB::table('countries')->orderBY( 'id', 'Asc')->get();
+    $state = DB::table('states')->orderBY( 'id', 'Asc')->get();
+    $citys = DB::table('cities')->orderBY( 'id', 'Asc')->get();
+    $package = DB::table('packages')->orderBY( 'id', 'Asc')->get();
+    return view('admin/add_translated_pages',compact('industry','ownership','country','state','citys','package'));
+}
+
 public function view_translated_pages($id){
 
     $view_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
     return view('admin/view_translated_pages', compact( 'view_translated_pages' ));
-} 
+}
 public function edit_translated_pages($id){
     $edit_translated_pages = DB::table('companies')->where('id', '=', $id)->first();
     return view('admin/edit_translated_pages', compact('edit_translated_pages'));
