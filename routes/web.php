@@ -310,6 +310,7 @@ Route::post('/update_faqs',[App\Http\Controllers\Admin\AdminController::class,'u
 Route::get('/list_video_language', [App\Http\Controllers\Admin\AdminController::class, 'list_video_language'])->name('list_video_language');
 Route::get('/add_video_language', [App\Http\Controllers\Admin\AdminController::class, 'add_video_language'])->name('add_video_language');
 Route::post('/save_video_language',[App\Http\Controllers\Admin\AdminController::class,'save_video_language'])->name('save_video_language');
+Route::post('/update_video',[App\Http\Controllers\Admin\AdminController::class,'update_video'])->name('update_video');
 Route::get('/view_video_language/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_video_language'])->name('view_video_language');
 Route::get('/edit_video_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_video_language'])->name('edit_video_language');
 Route::get('delete_video_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_video_language'])->name('delete_video_language');

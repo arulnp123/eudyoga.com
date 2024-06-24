@@ -4,7 +4,6 @@
 <body class="bg-theme bg-theme2">
     <!--wrapper-->
     <div class="wrapper">
-
         <!--start header -->
 
         <!--start page wrapper -->
@@ -18,21 +17,17 @@
                             <ol class="breadcrumb mb-0 p-0">
 
                                 <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{{ url('list_video_language') }}"> Video languages 
+                                        href="{{ url('list_video_language') }}"> Video languages
                                     </a></li>
                                 <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;">Add
-									Video languages </li>
+                                        Video languages </li>
                             </ol>
                         </nav>
                     </div>
-
                 </div>
                 <!--end breadcrumb-->
 
-
-
                 <div class="card pb-3" style="width: 100%">
-                    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                     <div class="card-body d-flex align-items-center ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-gear" viewBox="0 0 16 16">
@@ -61,74 +56,43 @@
                     <form action="{{ url('save_video_language') }}" method="POST">
                         @csrf
                         <div class="input-group mb-2 p-2">
-							<select name="lang" id="lang" required class="form-control form-select"
-								aria-label="Default select example">
-								<option value=""> Select Language </option>
-								@foreach ($get_lang_list as $key => $get_lang_list)
-									<option value="{{ $get_lang_list->lang }}">
-										{{ $get_lang_list->lang }}</option>
-								@endforeach
-	
-							</select>
-							
-						</div>
+                            <input name="lang" type="text" required class="form-control"
+                                aria-label="Default select example">
+                        </div>
 
                         <div class=" ps-3 pt-3">
                             <p class="h6">video title</p>
                         </div>
-						<div class="input-group mb-2 p-2">
-                        <select name="video_title" id="video_title" required class="form-control form-select mt-3">
-                            <option value="">video title</option>
-
-                            @foreach ($get_video_title_list as $key => $get_video_title_list)
-                                <option value="{{ $get_video_title_list->video_title}}">
-                                    {{ $get_video_title_list->video_title}}</option>
-                            @endforeach
-                        </select>
-						</div>
+                        <div class="input-group mb-2 p-2">
+                            <input name="video_title" id="video_title" type="text" required class="form-control">
+                        </div>
 
                         <div class=" ps-3 pt-3">
-                            <p class="h6">Video Text </p>
+                            <p class="h6">Video Text</p>
                         </div>
 
                         <div class="input-group mb-2 p-2">
-                            <select name="video_text" id="video_text" required class="form-control form-select"
+                            <input name="video_text" type="text" required class="form-control"
                                 aria-label="Default select example">
-                                <option value="">Video Text </option>
-                                @foreach ($get_video_text_list as $key => $get_video_text_list)
-                                    <option value="{{ $get_video_text_list->video_text}}">
-                                        {{ $get_video_text_list->video_text}}</option>
-                                @endforeach
-
-                            </select>
                         </div>
 
-						<div class=" ps-3 pt-3">
+                        <div class=" ps-3 pt-3">
                             <p class="h6">Video Link</p>
                         </div>
-
                         <div class="input-group mb-2 p-2">
-                            <select name="company" id="company" required class="form-control form-select"
+                            <input name="video_link" type="text" required class="form-control"
                                 aria-label="Default select example">
-                                <option value="">Video Link</option>
-                                @foreach ($get_video_link_list as $key => $get_video_link_list)
-                                    <option value="{{ $get_video_link_list->video_link}}">
-                                        {{ $get_video_link_list->video_link}}</option>
-                                @endforeach
-
-                            </select>
                         </div>
-						
 
                         <div>
                             <p class="h6 ps-3">is default ?</p>
                         </div>
 
-                        <div class=" d-flex">
+                        <div class="d-flex">
                             <div class="form-check ms-3 ">
                                 <input class="form-check-input" type="radio" name="is_default" id="is_default2"
                                     value="1" checked>
-                                <label class="form-check-label " for="is_defult">
+                                <label class="form-check-label" for="is_defult">
                                     Yes
                                 </label>
                             </div>
@@ -166,14 +130,13 @@
 
                         <div class="ms-3 mt-4">
                             <button name="submit" type="submit" class="btn btn-secondary">
-                                Add
+                                Submit
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-arrow-right-circle-fill ps-1"
                                     viewBox="0 0 16 16">
                                     <path
                                         d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
                                 </svg>
-
                             </button>
                         </div>
                     </form>
