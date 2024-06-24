@@ -750,9 +750,37 @@ public function delete_cms($id){
     $get_cms = DB::table('cms')->where('id' , '=' , $id)->delete();
     return redirect()->route('list_cms')->withMessage('C.M.S successfully deleted');
 }
-public function add_translated_pages(){
-    $add_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
-    return view( 'admin/add_translated_pages', compact('add_translated_pages'));
+public function add_translated_pages(Request $request){
+    $add_translated_pages = DB::table( 'companies' )->insert( [
+       'name'=>$request->name,
+        'email'=>$request->email,
+        'password'=>$request->password,
+        'c_name'=>$request->c_name,
+        'industry_id'=>$request->industry_id,
+        'ownership_type_id'=>$request->ownership_type_id,
+        'description'=>$request->description,
+        'location'=>$request->location,
+        'map'=>$request->map,
+        'no_of_offices'=>$request->no_of_offices,
+        'website'=>$request->website,
+        'no_of_employees'=>$request->no_of_employees,
+        'established_in'=>$request->established_in,
+        'fax'=>$request->fax,
+        'phone'=>$request->phone,
+        'facebook'=>$request->facebook,
+        'twitter'=>$request->twitter,
+        'linkedin'=>$request->linkedin,
+        'google_plus'=>$request->google_plus,
+        'pinterest'=>$request->pinterest,
+        'country_id'=>$request->country_id,
+        'state_id'=>$request->state_id,
+        'city_id'=>$request->city_id,
+        'package_id'=>$request->package_id,
+        'package_start_date'=>$request->package_start_date,
+        'package_end_date'=>$request->package_end_date,
+    ]);
+        return redirect()->route('list_translated_pages')->withMessage('Translated Pages Successfully Added !');
+
 }
 public function list_translated_pages(){
     $list_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
