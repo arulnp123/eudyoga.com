@@ -30,7 +30,6 @@
              </div>
          @endif
 
-
          <h6 class="mb-0 text-uppercase">Companies</h6>
          <hr/>
          <div class="card">

@@ -29,13 +29,10 @@
                  <strong> {{ session('error') }} </strong>
              </div>
          @endif
-
-
          <!--end breadcrumb-->
 
          <div class="row">
              <div class=" col-md-12">
-                 <!-- Begin: life time stats -->
                  <div class="portlet light portlet-fit portlet-datatable bordered">
                      <div class="portlet-title d-flex justify-content-between">
                          <div class="caption"> <i class="icon-settings font-dark"></i></div>
@@ -44,7 +41,6 @@
                          </div>
                      </div>
                  </div>
-
              </div>
          </div>
          <div class="card">
@@ -59,7 +55,6 @@
                                  <th>Video Text</th>
                                  <th>Video Link</th>
                                  <th>Action</th>
-
                              </tr>
                          </thead>
                          <tbody>
