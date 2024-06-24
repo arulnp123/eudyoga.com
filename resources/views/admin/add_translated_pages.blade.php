@@ -70,7 +70,7 @@
                                  </div>
                                  <div class="card-body">
                                      <div class="bs-stepper-content">
-                                         <form method="post" action="{{ url('/savetranslatedpages') }}"
+                                        <form method="post" action="{{ url('/savetranslated') }}"
                                              enctype="multipart/form-data">
                                              @csrf
                                              <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
@@ -97,8 +97,8 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="InputEmail" class="form-label">HR Recruiter
                                                              Name</label>
-                                                         <input type="text" class="form-control" name="hr_name"
-                                                             id="InputEmail" placeholder="HR Recruiter Name">
+                                                         <input type="text" class="form-control" name="name"
+                                                          placeholder="HR Recruiter Name">
                                                      </div>
 
                                                      <div class="col-12 col-lg-6">

@@ -38,6 +38,7 @@
                             <tr>
                                 <th>S.No</th>
                                 <th>Company Name</th>
+                                <th>HR Name</th>
                                 <th>Email</th>
                                 <th>Location</th>
                                 <th>Action</th>
@@ -48,6 +49,7 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $memb->c_name }}</td>
+                                    <td>{{ $memb->name }}</td>
                                     <td>{{ $memb->email }}</td>
                                     <td>{{ $memb->location }}</td>
                                     <td>
