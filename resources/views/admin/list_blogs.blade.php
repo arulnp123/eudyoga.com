@@ -45,7 +45,7 @@
                     <th>S.No</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Role</th>
+                    <th>Location</th>
                     <th>Action</th>
                     
                   </tr>
@@ -56,7 +56,7 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $memb->name }}</td>
                     <td>{{ $memb->email }}</td>
-                    <td>{{ $memb->email }}</td>
+                    <td>{{ $memb->location }}</td>
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">

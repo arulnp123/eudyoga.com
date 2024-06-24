@@ -98,7 +98,7 @@
                                  <div class="card-body">
 
                                      <div class="bs-stepper-content">
-                                         <form method="post" action="{{url('/saveemployer')}}"
+                                         <form method="post" action="{{url('/add_blogs')}}"
                                              enctype="multipart/form-data">
                                              @csrf
                                              <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
