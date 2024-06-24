@@ -5,6 +5,7 @@
 
 
  </head>
+
  <body class="bg-theme bg-theme2">
 	<!--wrapper-->
 	<div class="wrapper">
@@ -22,7 +23,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Add Employer</li>
+								<li class="breadcrumb-item active" aria-current="page">View Translated Pages</li>
 							</ol>
 						</nav>
 					</div>
@@ -92,29 +93,38 @@
 	  <div class="card-body">
 	  
 		<div class="bs-stepper-content">
-		  <form method="post" action="{{url('/saveemployer')}}" enctype="multipart/form-data">
-			@csrf
-			<div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
-				<h5 class="mb-1">Enter Your Details</h5>
-			  {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
+			<form class="row g-3" action="#" enctype="multipart/form-data">
+				@csrf
+				@foreach ($view_translated_pages as $key => $edit)
+					<div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
+						aria-labelledby="stepper2trigger1">
+						<h5 class="mb-1">Enter Your Details</h5>
+						{{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
+
+		
 
 			  <div class="row g-3">
-				  <div class="col-12 col-lg-6">
-					  <label for="c_name" class="form-label">
-						Company Name</label>
-					  <input type="text" class="form-control" name="c_name" id="FisrtName" placeholder="Company Name">
-				  </div>
+				<div class="col-12 col-lg-6">
+					<label for="company_id" class="form-label"> Company Name</label>
+					<input type="text" class="form-control" name="company_id"
+						id="c_name" placeholder="Company Name"
+						value="{{ $edit->c_name }}" readonly>
+				</div>
+				
 				  <div class="col-12 col-lg-6">
 					  <label for="LastName" class="form-label">Company Email</label>
-					  <input type="text" class="form-control" name="email" id="LastName" placeholder="Company Email">
+					  <input type="text" class="form-control" name="email" id="LastName" placeholder="Company Email"
+					  value="{{ $edit->email }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="PhoneNumber" class="form-label">Password</label>
-					  <input type="password" class="form-control" name="password" id="PhoneNumber" placeholder="Password">
+					  <input type="password" class="form-control" name="password" id="PhoneNumber" placeholder="Password"
+					  value="{{ $edit->password }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="InputEmail" class="form-label">HR Recruiter Name</label>
-					  <input type="text" class="form-control" name="c_name" id="InputEmail" placeholder="HR Recruiter Name">
+					  <input type="text" class="form-control" name="name" id="InputEmail" placeholder="HR Recruiter Name"
+					  value="{{ $edit->name }}" readonly>
 				  </div>
 				  
 				  <div class="col-12 col-lg-6">
@@ -132,19 +142,23 @@
 			  <div class="row g-3">
 				  <div class="col-12 col-lg-6">
 					  <label for="InputUsername" class="form-label">Industry</label>
-					  <input type="text" class="form-control" name="industry_id" id="InputUsername" placeholder="Industry">
+					  <input type="text" class="form-control" name="industry_id" id="InputUsername" placeholder="Industry"
+					  value="{{ $edit->industry_id }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="InputEmail2" class="form-label">Ownership Type</label>
-					  <input type="text" class="form-control" name="ownership_type_id" id="InputEmail2" placeholder="Ownership Type">
+					  <input type="text" class="form-control" name="ownership_type_id" id="InputEmail2" placeholder="Ownership Type"
+					  value="{{ $edit->ownership_type_id }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					<label for="inputAddress2" class="form-label">Company details</label>
-					<textarea class="form-control" name="description"   id="description"  placeholder="Company details" rows="3" ></textarea>
+					<textarea class="form-control" name="description"   id="description"  placeholder="Company details" rows="3"
+					readonly>{{ $edit->description }}</textarea>
 				</div>
 				  <div class="col-12 col-lg-6">
 					  <label for="InputConfirmPassword" class="form-label">Location</label>
-					  <textarea class="form-control" name="location"   id="location"  placeholder="Location" rows="3" ></textarea>
+					  <textarea class="form-control" name="location"   id="location"  placeholder="Location" rows="3" 
+					  readonly>{{ $edit->location }}</textarea>
 				  </div>
 				  <div class="col-12">
 					  <div class="d-flex align-items-center gap-3">
@@ -163,19 +177,23 @@
 			  <div class="row g-3">
 				  <div class="col-12 col-lg-6">
 					  <label for="SchoolName" class="form-label">Google Map</label>
-					  <input type="text" class="form-control" name="map" id="SchoolName" placeholder="Google Map">
+					  <input type="text" class="form-control" name="map" id="SchoolName" placeholder="Google Map"
+					  value="{{ $edit->map }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="BoardName" class="form-label">Number of offices</label>
-					  <input type="text" class="form-control" name="no_of_offices" id="BoardName" placeholder="Number of offices">
+					  <input type="text" class="form-control" name="no_of_offices" id="BoardName" placeholder="Number of offices"
+					  value="{{ $edit->no_of_offices }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="UniversityName" class="form-label">Website</label>
-					  <input type="text" class="form-control" name="website" id="UniversityName" placeholder="Website">
+					  <input type="text" class="form-control" name="website" id="UniversityName" placeholder="Website"
+					  value="{{ $edit->website }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					<label for="Experience1" class="form-label">Number of employees</label>
-					<input type="text" class="form-control" name="no_of_employees" id="Experience1" placeholder="Number of employees">
+					<input type="text" class="form-control" name="no_of_employees" id="Experience1" placeholder="Number of employees"
+					value="{{ $edit->no_of_employees }}" readonly>
 				</div>
 				  
 				  <div class="col-12">
@@ -196,58 +214,72 @@
 				
 				  <div class="col-12 col-lg-6">
 					  <label for="Position1" class="form-label">Established in</label>
-					  <input type="text" class="form-control" name="established_in" id="Position1" placeholder="Established in">
+					  <input type="text" class="form-control" name="established_in" id="Position1" placeholder="Established in"
+					  value="{{ $edit->established_in }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="Experience2" class="form-label">Fax </label>
-					  <input type="text" class="form-control" name="fax" id="Experience2" placeholder="Fax #">
+					  <input type="text" class="form-control" name="fax" id="Experience2" placeholder="Fax"
+					  value="{{ $edit->fax }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="PhoneNumber" class="form-label">Phone </label>
-					  <input type="text" class="form-control" name="phone" id="PhoneNumber" placeholder="Phone #">
+					  <input type="text" class="form-control" name="phone" id="PhoneNumber" placeholder="Phone"
+					  value="{{ $edit->phone }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="Experience3" class="form-label">Facebook Address</label>
-					  <input type="text" class="form-control" name="facebook" id="Experience3" placeholder="Facebook Address">
+					  <input type="text" class="form-control" name="facebook" id="Experience3" placeholder="Facebook Address"
+					  value="{{ $edit->facebook }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					  <label for="PhoneNumber" class="form-label">Twitter</label>
-					  <input type="text" class="form-control" name="twitter" id="PhoneNumber" placeholder="Twitter">
+					  <input type="text" class="form-control" name="twitter" id="PhoneNumber" placeholder="Twitter"
+					  value="{{ $edit->twitter }}" readonly>
 				  </div>
 				  <div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Linkedin</label>
-					<input type="text" class="form-control" name="linkedin" id="PhoneNumber" placeholder="Linkedin">
+					<input type="text" class="form-control" name="linkedin" id="PhoneNumber" placeholder="Linkedin"
+					value="{{ $edit->linkedin }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Google+</label>
-					<input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google+">
+					<input type="text" class="form-control" name="google_plus" id="PhoneNumber" placeholder="Google+"
+					value="{{ $edit->google_plus }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Pinterest</label>
-					<input type="text" class="form-control" name="pinterest" id="PhoneNumber" placeholder="Pinterest">
+					<input type="text" class="form-control" name="pinterest" id="PhoneNumber" placeholder="Pinterest"
+					value="{{ $edit->pinterest }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Country</label>
-					<input type="text" class="form-control" name="country_id" id="PhoneNumber" placeholder="Country">
+					<input type="text" class="form-control" name="country_id" id="PhoneNumber" placeholder="Country"
+					value="{{ $edit->country_id }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">State</label>
-					<input type="text" class="form-control" name="state_id" id="PhoneNumber" placeholder="Twitter">
+					<input type="text" class="form-control" name="state_id" id="PhoneNumber" placeholder="Twitter"
+					value="{{ $edit->state_id }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">City</label>
-					<input type="text" class="form-control" name="city_id" id="PhoneNumber" placeholder="City">
+					<input type="text" class="form-control" name="city_id" id="PhoneNumber" placeholder="City"
+					value="{{ $edit->city_id }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Package ID</label>
-					<input type="text" class="form-control" name="package_id" id="PhoneNumber" placeholder="Package ID">
+					<input type="text" class="form-control" name="package_id" id="PhoneNumber" placeholder="Package ID"
+					value="{{ $edit->package_id }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Package Start Date</label>
-					<input type="date" class="form-control" name="package_start_date" id="package_start_date" placeholder="Package Duration">
+					<input type="date" class="form-control" name="package_start_date" id="package_start_date" placeholder="Package Duration"
+					value="{{ $edit->package_start_date }}" readonly>
 				</div><div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Package End Date</label>
-					<input type="date" class="form-control" name="package_end_date" id="PhoneNumber" placeholder="Package Quota">
+					<input type="date" class="form-control" name="package_end_date" id="PhoneNumber" placeholder="Package Quota"
+					value="{{ $edit->package_end_date }}" readonly>
 				</div>
 
 				  <div class="col-12">
@@ -260,6 +292,7 @@
 			  
 			</div>
 		  </form>
+		  @endforeach
 		</div>
 		 
 	  </div>
@@ -269,19 +302,28 @@
   <!--end stepper two--> 
 
 
+  <link href="{{ URL::to('/') }}/public/assets1/plugins/input-tags/css/tagsinput.css"
+  rel="stylesheet" />
 
-
-
-{{-- <script src="{{ URL::to('/') }}/public/assets1/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script> --}}
+{{-- <script src="{{ URL::to('/') }}/public/assets1/plugins/perfect-scrollbar/js/perfect-scrollbar.js">
+</script> --}}
 <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/bs-stepper.min.js"></script>
 <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/main.js"></script>
-<link href="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/css/bs-stepper.css" rel="stylesheet" />
+<link href="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/css/bs-stepper.css"
+  rel="stylesheet" />
+<script src="{{ URL::to('/') }}/public/assets1/plugins/input-tags/js/tagsinput.js"></script>
 <!--app JS-->
+</div>
 
-
+</div>
+</div>
+</body>
 
 
 
 <div>
-  @include('admin.layouts.footer')
+@include('admin.layouts.footer')
 </div>
+
+
+

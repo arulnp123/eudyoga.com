@@ -561,7 +561,9 @@ public function employer_payment_history(){
 // CANDIDATE
 
 public function candidate_list(){
-    $candidate_list = DB::table('users')->select('users.*','cities.city','countries.country','states.state_name','functional_areas.functional_area','industries.industry','nationality.nationality','job_experiences.job_experience','packages.package_title','marital_statuses.marital_status')
+    $candidate_list = DB::table('users')->select('users.*','cities.city','countries.country','states.state_name',
+    'functional_areas.functional_area','industries.industry','nationality.nationality','job_experiences.job_experience',
+    'packages.package_title','marital_statuses.marital_status')
     ->Join('cities', 'cities.id', '=', 'users.city_id')
     ->Join('countries', 'countries.id', '=', 'users.country_id')
     ->Join('states', 'states.id', '=', 'users.state_id')    
@@ -570,7 +572,7 @@ public function candidate_list(){
     ->Join('industries', 'industries.id', '=', 'users.industry_id')
     ->Join('nationality', 'nationality.id', '=', 'users.nationality_id')
     ->Join('packages', 'packages.id', '=', 'users.package_id')
-    ->Join('marital_statuses', 'marital_statuses.id', '=', 'users.marital_status')
+    ->Join('marital_statuses', 'marital_statuses.id', '=', 'users.marital_status_id')
     ->orderBy('users.id','Asc')->get();
     
     return view('admin/candidate_list', compact( 'candidate_list'));
@@ -747,13 +749,22 @@ public function delete_cms($id){
     return redirect()->route('list_cms')->withMessage('C.M.S successfully deleted');
 }
 public function add_translated_pages(){
+    $companies = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_translated_pages');
 } 
 public function list_translated_pages(){
-    $companies = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
+    $companies = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_translated_pages', compact( 'companies' ));
 } 
+public function view_translated_pages($id){
 
+    $view_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    return view('admin/view_translated_pages', compact( 'view_translated_pages' ));
+} 
+public function edit_translated_pages($id){
+    $edit_translated_pages = DB::table('companies')->where('id', '=', $id)->first();
+    return view('admin/edit_translated_pages', compact('edit_translated_pages'));
+}
 
 
 // BLOGS

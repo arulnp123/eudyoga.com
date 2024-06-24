@@ -192,6 +192,9 @@ Route::get('/add_cms', [App\Http\Controllers\Admin\AdminController::class, 'add_
 Route::get('/list_cms', [App\Http\Controllers\Admin\AdminController::class, 'list_cms'])->name('list_cms');
 Route::get('/list_translated_pages', [App\Http\Controllers\Admin\AdminController::class, 'list_translated_pages'])->name('list_translated_pages');
 Route::get('/add_translated_pages', [App\Http\Controllers\Admin\AdminController::class, 'add_translated_pages'])->name('add_translated_pages');
+Route::get('/view_translated_pages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_translated_pages'])->name('view_translated_pages');
+Route::get('/edit_translated_pages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_translated_pages'])->name('edit_translated_pages');
+Route::get('/update_translated_pages', [App\Http\Controllers\Admin\AdminController::class, 'update_translated_pages'])->name('update_translated_pages');
 Route::post('/save_cms',[App\Http\Controllers\Admin\AdminController::class,'save_cms'])->name('save_cms');
 Route::get('/edit_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_cms'])->name('edit_cms');
 Route::post('/update_cms',[App\Http\Controllers\Admin\AdminController::class,'update_cms'])->name('update_cms');

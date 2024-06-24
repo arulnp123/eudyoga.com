@@ -22,7 +22,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Add Employer</li>
+								<li class="breadcrumb-item active" aria-current="page">Edit Translated Pages</li>
 							</ol>
 						</nav>
 					</div>
@@ -90,16 +90,23 @@
 			  </div>
 		</div>
 	  <div class="card-body">
-	  
 		<div class="bs-stepper-content">
-		  <form method="post" action="{{url('/saveemployer')}}" enctype="multipart/form-data">
-			@csrf
+			
+
+	  {{-- @foreach ($edit_translated_pages as $key => $edit_translated_pages) --}}
+	  <form class="row g-3" method="post" action="{{ url('/update_translated_pages') }}"
+	  enctype="multipart/form-data">
+	  <input value="{{ $edit_translated_pages->id }}" type="hidden" name="id" id="id"/>
+
+	  @csrf
+		
 			<div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
 				<h5 class="mb-1">Enter Your Details</h5>
 			  {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
 
 			  <div class="row g-3">
 				  <div class="col-12 col-lg-6">
+					
 					  <label for="c_name" class="form-label">
 						Company Name</label>
 					  <input type="text" class="form-control" name="c_name" id="FisrtName" placeholder="Company Name">
