@@ -5,7 +5,7 @@
      <div class="page-content">
          <!--breadcrumb-->
          <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-               <div class="ps-3">
+             <div class="ps-3">
                  <nav aria-label="breadcrumb">
                      <ol class="breadcrumb mb-0 p-0">
                          <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
@@ -37,7 +37,8 @@
                      <div class="portlet-title d-flex justify-content-between">
                          <div class="caption"> <i class="icon-settings font-dark"></i></div>
                          <div class="actions"> <a href="{{ url('add_video_language') }}"
-                                 class="btn btn-xs btn-success mb-2"><i class="glyphicon glyphicon-plus "></i> Add Video</a>
+                                 class="btn btn-xs btn-success mb-2"><i class="glyphicon glyphicon-plus "></i> Add
+                                 Video</a>
                          </div>
                      </div>
                  </div>
@@ -84,8 +85,8 @@
                                          </div>
                                      </td>
                                  </tr>
+                             @endforeach
                          </tbody>
-                         @endforeach
                      </table>
                  </div>
              </div>
@@ -111,6 +112,6 @@
              .appendTo('#example2_wrapper .col-md-6:eq(0)');
      });
  </script>
-<!--app JS-->
-<script src="{{ URL::to('/') }}/assets1/assets/js/app.js"></script>
+ <!--app JS-->
+ <script src="{{ URL::to('/') }}/assets1/assets/js/app.js"></script>
  </body>

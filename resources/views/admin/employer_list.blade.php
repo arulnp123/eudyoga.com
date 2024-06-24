@@ -1,4 +1,4 @@
- @include('admin.layouts.app')
+@include('admin.layouts.app')
  @yield('content')
 
  <div class="page-wrapper">
