@@ -303,15 +303,15 @@
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Package Start
                                                              Date</label>
-                                                         <input type="text" class="form-control"
+                                                         <input type="date" class="form-control"
                                                              name="package_start_date" id="package_start_date"
-                                                             placeholder="Package Duration">
+                                                             placeholder="Package Start Date">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
                                                          <label for="PhoneNumber" class="form-label">Package End
                                                              Date</label>
-                                                         <input type="text" class="form-control" name="package_end_date"
-                                                             id="PhoneNumber" placeholder="Package Quota">
+                                                         <input type="date" class="form-control" name="package_end_date"
+                                                             id="PhoneNumber" placeholder="Package End Date">
                                                      </div>
 
                                                      <div class="col-12">

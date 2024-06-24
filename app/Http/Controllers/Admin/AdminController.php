@@ -505,8 +505,10 @@ public function saveemployer(Request $request) {
     ] );
     // echo($addemployers);
     // die;
-//    dd($addemployers);
-    return redirect( '/employer_add');
+    // dd($addemployers);
+    return redirect()->route('employer_list')->withMessage('Employer Successfully Added !');
+
+    //return redirect( 'admin/employer_list', compact('employer_list'));
 }
 public function edit_employer($id){
     $edit_employer = DB::table('companies')->where('id', '=', $id)->first();
@@ -749,12 +751,12 @@ public function delete_cms($id){
     return redirect()->route('list_cms')->withMessage('C.M.S successfully deleted');
 }
 public function add_translated_pages(){
-    $companies = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
-    return view( 'admin/add_translated_pages');
+    $add_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    return view( 'admin/add_translated_pages', compact('add_translated_pages'));
 }
 public function list_translated_pages(){
-    $companies = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
-    return view('admin/list_translated_pages', compact( 'companies' ));
+    $list_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    return view('admin/list_translated_pages', compact( 'list_translated_pages' ));
 }
 public function view_translated_pages($id){
 

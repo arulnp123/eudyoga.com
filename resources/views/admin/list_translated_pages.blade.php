@@ -51,7 +51,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($companies as $key => $memb)
+                  @foreach($list_translated_pages as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $memb->c_name }}</td>
