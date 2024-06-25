@@ -31,21 +31,16 @@
                 <div class="userPic"><img src="../assets/no-image.jpg" alt="krishnamurthy" title="krishnamurthy"></div>
 
                 <div class="title">
-                    <h3>{{ $profile1->title }}</h3>
+                <h3>Skills</h3>
                     <div class="desi"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
                             <path
                                 d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
                             <path
                                 d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z" />
-                        </svg><i class="bi bi-building" aria-hidden="true"></i>{{ $profile1->c_name }}
-
-
-
-
+                        </svg><i class="bi bi-building" aria-hidden="true"></i>
 
                     </div>
-
                     {{-- <div class="membersinc"><i class="fa fa-history" aria-hidden="true"></i> Member Since, Dec 14, 2023</div>
 						 --}}
                 </div>
@@ -81,7 +76,7 @@
                         <li class="row">
                             {{-- <div class="col-md-6 col-xs-6">Expected Salary</div> --}}
                             <div class="col-md-12 col-xs-6 ">
-                                <p class="h-6">{{ $profile1->description }}</p>
+                                <p class="h-6"></p>
                             </div>
                         </li>
 
@@ -119,40 +114,40 @@
 
                             {{-- <li class="row">
                                 <div class="col-md-6 col-xs-6">Is Email Verified</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $pro->email}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li> --}}
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Immediate Available</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $profile1->job_experience }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li>
 
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Job Shift</div>
-                                <div class="col-md-6 col-xs-6"><span> {{ $profile1->degree_level }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span> </span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Job Type</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $profile1->job_type }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Functional Area</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $profile1->functional_area }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li>
                             {{-- <li class="row">
                                 <div class="col-md-6 col-xs-6">Job Skill</div>
-                                <div class="col-md-6 col-xs-6"><span>{{$profile1->job_skills}}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li> --}}
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Career Level</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $profile1->career_level }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Current Salary</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $profile1->salary_from }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li>
                             <li class="row">
                                 <div class="col-md-6 col-xs-6">Expected Salary</div>
-                                <div class="col-md-6 col-xs-6"><span>{{ $profile1->salary_to }}</span></div>
+                                <div class="col-md-6 col-xs-6"><span></span></div>
                             </li>
                             {{-- <li class="row">
                                 <div class="col-md-6 col-xs-6">Do You Want Add to Favorite</div>

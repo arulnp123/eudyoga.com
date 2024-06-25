@@ -102,7 +102,7 @@
                                             class="form-control form-select" aria-label="Default select example">
                                             <option value=""selected>Gender</option>
                                             @foreach ($gender as $key => $gender_list)
-                                                <option @if ($gender_list->id == $candidateprofile->id) selected @endif
+                                                <option @if ($gender_list->id == $candidateprofile) selected @endif
                                                     value="{{ $gender_list->id }}">
                                                     {{ $gender_list->gender }}</option>
                                             @endforeach
@@ -118,8 +118,8 @@
                                             <option value=""selected>Marital Status
                                             </option>
                                             @foreach ($marital_statuses as $key => $marital_statuses_list)
-                                                <option @if ($marital_statuses_list->marital_status_id == $candidateprofile->marital_status_id) selected @endif
-                                                    value="{{ $marital_statuses_list->marital_status_id }}">
+                                                <option @if ($marital_statuses_list->id == $candidateprofile) selected @endif
+                                                    value="{{ $marital_statuses_list->id }}">
                                                     {{ $marital_statuses_list->marital_status }}
                                                 </option>
                                             @endforeach
@@ -165,8 +165,8 @@
                                             <option>Select Nationality</option>
                                             @foreach ($getnationality as $getnationality_list)
                                                 <option
-                                                    {{ $getnationality_list->nationality_id == 100 ? 'selected' : '' }}
-                                                    value="{{ $getnationality_list->nationality_id }}">
+                                                    {{ $getnationality_list->id == 100 ? 'selected' : '' }}
+                                                    value="{{ $getnationality_list->id }}">
                                                     {{ $getnationality_list->nationality }}
                                                 </option>
                                             @endforeach
@@ -245,8 +245,8 @@
                                             <option value=""selected>Job Experiences
                                             </option>
                                             @foreach ($job_experiences as $key => $job_experiences_list)
-                                                <option @if ($job_experiences_list->job_experience_id == $candidateprofile->job_experience_id) selected @endif
-                                                    value="{{ $job_experiences_list->job_experience_id }}">
+                                                <option @if ($job_experiences_list->id == $candidateprofile) selected @endif
+                                                    value="{{ $job_experiences_list->id }}">
                                                     {{ $job_experiences_list->job_experience }}
                                                 </option>
                                             @endforeach
@@ -261,7 +261,7 @@
                                             <option value=""selected> Career Level
                                             </option>
                                             @foreach ($career_levels as $key => $career_levels_list)
-                                                <option @if ($career_levels_list->id == $candidateprofile->id) selected @endif
+                                                <option @if ($career_levels_list->id == $candidateprofile) selected @endif
                                                     value="{{ $career_levels_list->id }}">
                                                     {{ $career_levels_list->career_level }}
                                                 </option>
@@ -276,8 +276,8 @@
                                             class="form-control form-select" aria-label="Default select example">
                                             <option value=""selected> Industry </option>
                                             @foreach ($industries as $key => $industries_list)
-                                                <option @if ($industries_list->industry_id == $candidateprofile->industry_id) selected @endif
-                                                    value="{{ $industries_list->industry_id }}">
+                                                <option @if ($industries_list->id == $candidateprofile) selected @endif
+                                                    value="{{ $industries_list->id }}">
                                                     {{ $industries_list->industry }}</option>
                                             @endforeach
                                         </select>
@@ -291,7 +291,7 @@
                                             <option value=""selected> Functional Area
                                             </option>
                                             @foreach ($functional_areas as $key => $functional_areas_list)
-                                                <option @if ($functional_areas_list->id == $candidateprofile->id) selected @endif
+                                                <option @if ($functional_areas_list->id == $candidateprofile) selected @endif
                                                     value="{{ $functional_areas_list->id }}">
                                                     {{ $functional_areas_list->functional_area }}
                                                 </option>
@@ -425,7 +425,7 @@
                                 <div class="col-md-12">
                                     <form action="{{ url('/candidate_project') }}" method="POST" id="projectForm">
                                         <input type="hidden" class="form-control"
-                                            value="{{ $candidateprofile->id }}" name="id">
+                                            value="{{ $candidateprofile }}" name="id">
                                         @csrf
                                         <div id="projectFields">
                                             <!-- Initially, only one set of input fields -->
@@ -477,7 +477,7 @@
                                     <form action="{{ url('/candidate_experience') }}" method="POST"
                                         id="projectForm_two">
                                         <input type="hidden" class="form-control"
-                                            value="{{ $candidateprofile->id }}" name="id">
+                                            value="{{ $candidateprofile }}" name="id">
                                         @csrf
                                         <div class="projectFields">
                                             <!-- Initially, only one set of input fields -->
@@ -542,7 +542,7 @@
                                     <form action="{{ url('/candidate_education') }}" method="POST"
                                         id="educationForm">
                                         <input type="hidden" class="form-control"
-                                            value="{{ $candidateprofile->id }}" name="id">
+                                            value="{{ $candidateprofile }}" name="id">
                                         @csrf
                                         <div id="educationFields">
                                             <!-- Initially, only one set of input fields -->
@@ -592,7 +592,7 @@
                                 <div class="col-md-12">
                                     <form action="{{ url('/candidate_skill') }}" method="POST" id="skillForm">
                                         <input type="hidden" class="form-control"
-                                            value="{{ $candidateprofile->id }}" name="id">
+                                            value="{{ $candidateprofile }}" name="id">
                                         @csrf
                                         <div id="skillFields">
                                             <!-- Initially, only one set of input fields -->
@@ -638,7 +638,7 @@
                                     <form action="{{ url('/candidate_language') }}" method="POST"
                                         id="languageForm">
                                         <input type="hidden" class="form-control"
-                                            value="{{ $candidateprofile->id }}" name="id">
+                                            value="{{ $candidateprofile }}" name="id">
                                         @csrf
                                         <div id="languageFields">
                                             <!-- Initially, only one set of input fields -->
