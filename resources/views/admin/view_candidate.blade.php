@@ -97,48 +97,48 @@
            <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
                <h5 class="mb-1">Enter Your Details</h5>
              {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
-
+             @foreach ($view_candidate as $can)
              <div class="row g-3">
                  <div class="col-12 col-lg-6">
                      <label for="FisrtName" class="form-label">Name</label>
                      <input type="text" class="form-control" name="name" id="name" placeholder="Name"
-                      value="{{$view_candidate->name}}" readonly>
+                      value="{{$can->name}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="LastName" class="form-label">Last Name</label>
                      <input type="text" class="form-control" name="last_name" id="LastName" placeholder="Last Name"
-                     value="{{$view_candidate->last_name}}"readonly>
+                     value="{{$can->last_name}}"readonly>
                  </div>
                 
                  <div class="col-12 col-lg-6">
                    <label for="InputEmail" class="form-label">E-mail Id</label>
                    <input type="text" class="form-control" name="email" id="InputEmail" placeholder="E-mail Id"
-                   value="{{$view_candidate->email}}"readonly>
+                   value="{{$can->email}}"readonly>
                </div>
                  <div class="col-12 col-lg-6">
                      <label for="PhoneNumber" class="form-label">Phone Number</label>
                      <input type="number" class="form-control" name="mobile_num" id="mobile_num" placeholder="Phone Number"
-                     value="{{$view_candidate->mobile_num}}"readonly>
+                     value="{{$can->mobile_num}}"readonly>
                  </div> 
                  <div class="col-12 col-lg-6">
                    <label for="PhoneNumber" class="form-label">Alternate Number</label>
                    <input type="number" class="form-control" name="phone" id="phone" placeholder="Alternate Number"
-                   value="{{$view_candidate->phone}}"readonly>
+                   value="{{$can->phone}}"readonly>
                </div>
                <div class="col-12 col-lg-6">
                    <label for="PhoneNumber" class="form-label">Mother Name</label>
                    <input type="text" class="form-control" name="mother_name" id="phone" placeholder="Mother Name"
-                   value="{{$view_candidate->mother_name}}"readonly>
+                   value="{{$can->mother_name}}"readonly>
                </div>
                <div class="col-12 col-lg-6">
                    <label for="PhoneNumber" class="form-label">Father Name</label>
                    <input type="text" class="form-control" name="father_name" id="phone" placeholder="Father Name"
-                    value="{{$view_candidate->father_name}}"readonly>
+                    value="{{$can->father_name}}"readonly>
                </div>
                <div class="col-12 col-lg-6">
                    <label for="PhoneNumber" class="form-label">Marital Status</label>
                    <input type="text" class="form-control" name="marital_status_id" id="phone" placeholder="Marital Status" 
-                   value="{{$view_candidate->marital_status_id}}"readonly>
+                   value="{{$can->marital_status}}"readonly>
                </div>
                  <div class="col-12 col-lg-6">
                      <button class="btn btn-light px-4" type="button" onclick="stepper2.next()">Next<i class='bx bx-right-arrow-alt ms-2'></i></button>
@@ -157,32 +157,32 @@
                  <div class="col-12 col-lg-6">
                      <label for="InputUsername" class="form-label">Country</label>
                      <input type="text" class="form-control" name="country_id" id="InputUsername" placeholder="Country"
-                      value="{{$view_candidate->country_id}}" readonly>
+                      value="{{$can->country}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="InputEmail2" class="form-label">State</label>
                      <input type="text" class="form-control" name="state_id" id="InputEmail2" placeholder="State"
-                      value="{{$view_candidate->state_id}}" readonly>
+                      value="{{$can->state_name}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="InputPassword" class="form-label">City</label>
                      <input type="text" class="form-control" name="city_id" id="InputPassword" placeholder="City" 
-                     value="{{$view_candidate->city_id}}" readonly>
+                     value="{{$can->city}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="InputConfirmPassword" class="form-label">Nationality</label>
                      <input type="text" class="form-control" name="nationality_id" id="InputConfirmPassword" placeholder="Nationality" 
-                     value="{{$view_candidate->nationality_id}}" readonly>
+                     value="{{$can->nationality}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                    <label for="InputConfirmPassword" class="form-label">Date Of Birth</label>
                    <input type="date" class="form-control" name="date_of_birth" id="InputConfirmPassword" placeholder="Date Of Birth"
-                    value="{{$view_candidate->date_of_birth}}" readonly>
+                    value="{{$can->date_of_birth}}" readonly>
                </div>
                <div class="col-12 col-lg-6">
                    <label for="InputConfirmPassword" class="form-label">Age</label>
                    <input type="number" class="form-control" name="age" id="InputConfirmPassword" placeholder="Age" 
-                   value="{{$view_candidate->age}}" readonly>
+                   value="{{$can->age}}" readonly>
                </div>
                  <div class="col-12">
                      <div class="d-flex align-items-center gap-3">
@@ -203,32 +203,32 @@
                  <div class="col-12 col-lg-6">
                      <label for="SchoolName" class="form-label">Street Address</label>
                      <input type="text" class="form-control" name="street_address" id="street_address" placeholder="Street Address" 
-                     value="{{$view_candidate->street_address}}" readonly>
+                     value="{{$can->street_address}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="BoardName" class="form-label">Job Experiance</label>
                      <input type="text" class="form-control" name="job_experience_id" id="job_experience_id" placeholder="Job Experiance"
-                      value="{{$view_candidate->job_experience_id}}" readonly>
+                      value="{{$can->job_experience}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="UniversityName" class="form-label">Industry</label>
                      <input type="text" class="form-control" name="industry_id" id="industry_id" placeholder="Industry" 
-                     value="{{$view_candidate->industry_id}}" readonly>
+                     value="{{$can->industry}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                    <label for="UniversityName" class="form-label">Functional Area</label>
                    <input type="text" class="form-control" name="functional_area_id" id="functional_area_id" placeholder="Functional Area"
-                    value="{{$view_candidate->functional_area_id}}" readonly>
+                    value="{{$can->functional_area}}" readonly>
                </div>
                <div class="col-12 col-lg-6">
                    <label for="UniversityName" class="form-label">Current Salary</label>
                    <input type="number" class="form-control" name="current_salary" id="current_salary" placeholder="Current Salary" 
-                   value="{{$view_candidate->current_salary}}" readonly>
+                   value="{{$can->current_salary}}" readonly>
                </div>
                <div class="col-12 col-lg-6">
                    <label for="UniversityName" class="form-label">Expected Salary</label>
                    <input type="number" class="form-control" name="expected_salary" id="expected_salary" placeholder="Expected Salary"
-                    value="{{$view_candidate->expected_salary}}" readonly>
+                    value="{{$can->expected_salary}}" readonly>
                </div>
                  <div class="col-12">
                      <div class="d-flex align-items-center gap-3">
@@ -250,22 +250,22 @@
                  <div class="col-12 col-lg-6">
                      <label for="Experience1" class="form-label">Salary Currency</label>
                      <input type="text" class="form-control" name="salary_currency" id="salary_currency" placeholder="Salary Currency"
-                      value="{{$view_candidate->salary_currency}}" readonly>
+                      value="{{$can->salary_currency}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
-                     <label for="Position1" class="form-label">Package</label>
+                     <label for="package_title" class="form-label">Package</label>
                      <input type="text" class="form-control" name="package_id" id="package_id" placeholder="Package"
-                      value="{{$view_candidate->package_id}}" readonly>
+                      value="{{$can->package_title}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="Experience2" class="form-label">Package Start Date</label>
                      <input type="text" class="form-control" name="package_start_date" id="package_start_date" placeholder="Package Start Date"
-                      value="{{$view_candidate->package_start_date}}" readonly>
+                      value="{{$can->package_start_date}}" readonly>
                  </div>
                  <div class="col-12 col-lg-6">
                      <label for="PhoneNumber" class="form-label">Package End Date</label>
                      <input type="text" class="form-control" name="package_end_date" id="package_end_date" placeholder="Package End Date"
-                      value="{{$view_candidate->package_end_date}}" readonly>
+                      value="{{$can->package_end_date}}" readonly>
                  </div>
                 
                  <div class="col-12">
@@ -278,6 +278,7 @@
              
            </div>
          </form>
+         @endforeach
        </div>
         
      </div>

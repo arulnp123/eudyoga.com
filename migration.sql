@@ -83,3 +83,9 @@ ALTER TABLE `companies` CHANGE `package_end_date` `package_end_date` DATE NULL D
 
 alter table nationality drop nationality_id;
 alter table marital_statuses drop marital_status_id;
+alter table job_experiences drop job_experience_id;
+alter table industries drop industry_id;
+
+24/06/2024
+
+ALTER TABLE `companies` ADD `hr_name` VARCHAR(50) NULL DEFAULT NULL AFTER `c_name`;

@@ -18,10 +18,10 @@
                             <ol class="breadcrumb mb-0 p-0">
 
                                 <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{{ url('list_video_language') }}"> Video languages 
+                                        href="{{ url('list_video_language') }}"> Video languages
                                     </a></li>
                                 <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;">Add
-									Video languages </li>
+                                        Video</li>
                             </ol>
                         </nav>
                     </div>
@@ -51,75 +51,43 @@
                                 Deatails
                             </a>
                         </li>
-
                     </ul>
 
                     <div class="ps-4 pt-4">
-
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{ url('save_video_language') }}" method="POST">
+                    <form action="{{ url('update_video') }}" method="POST">
                         @csrf
+                        <input type="hidden" value="{{ $edit_video_language->id }}" name="video_id">
                         <div class="input-group mb-2 p-2">
-							<select name="lang" id="lang" required class="form-control form-select"
-								aria-label="Default select example">
-								<option value=""> Select Language </option>
-								@foreach ($get_lang_list as $key => $get_lang_list)
-									<option value="{{ $get_lang_list->lang }}">
-										{{ $get_lang_list->lang }}</option>
-								@endforeach
-	
-							</select>
-							
-						</div>
+                            <input name="lang" value="{{ $edit_video_language->lang }}" class="form-control"
+                                aria-label="Default select example">
+                        </div>
 
                         <div class=" ps-3 pt-3">
                             <p class="h6">video title</p>
                         </div>
-						<div class="input-group mb-2 p-2">
-                        <select name="video_title" id="video_title" required class="form-control form-select mt-3">
-                            <option value="">video title</option>
-
-                            @foreach ($get_video_title_list as $key => $get_video_title_list)
-                                <option value="{{ $get_video_title_list->video_title}}">
-                                    {{ $get_video_title_list->video_title}}</option>
-                            @endforeach
-                        </select>
-						</div>
+                        <div class="input-group mb-2 p-2">
+                            <input name="video_title" value="{{ $edit_video_language->video_title }}" class="form-control">
+                        </div>
 
                         <div class=" ps-3 pt-3">
                             <p class="h6">Video Text </p>
                         </div>
 
                         <div class="input-group mb-2 p-2">
-                            <select name="video_text" id="video_text" required class="form-control form-select"
+                            <input name="video_text" value="{{ $edit_video_language->video_text }}" class="form-control"
                                 aria-label="Default select example">
-                                <option value="">Video Text </option>
-                                @foreach ($get_video_text_list as $key => $get_video_text_list)
-                                    <option value="{{ $get_video_text_list->video_text}}">
-                                        {{ $get_video_text_list->video_text}}</option>
-                                @endforeach
-
-                            </select>
                         </div>
 
-						<div class=" ps-3 pt-3">
+                        <div class=" ps-3 pt-3">
                             <p class="h6">Video Link</p>
                         </div>
 
                         <div class="input-group mb-2 p-2">
-                            <select name="company" id="company" required class="form-control form-select"
+                            <input name="video_link" value="{{ $edit_video_language->video_link }}" class="form-control"
                                 aria-label="Default select example">
-                                <option value="">Video Link</option>
-                                @foreach ($get_video_link_list as $key => $get_video_link_list)
-                                    <option value="{{ $get_video_link_list->video_link}}">
-                                        {{ $get_video_link_list->video_link}}</option>
-                                @endforeach
-
-                            </select>
                         </div>
-						
-
                         <div>
                             <p class="h6 ps-3">is default ?</p>
                         </div>
@@ -133,7 +101,7 @@
                                 </label>
                             </div>
                             <div class="form-check ms-3">
-                                <input class="form-check-input " type="radio" name="is_default" id="is_default2"
+                                <input class="form-check-input" type="radio" name="is_default" id="is_default2"
                                     value="0">
                                 <label class="form-check-label" for="is_defult">
                                     No
@@ -166,7 +134,7 @@
 
                         <div class="ms-3 mt-4">
                             <button name="submit" type="submit" class="btn btn-secondary">
-                                Add
+                                Submit
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-arrow-right-circle-fill ps-1"
                                     viewBox="0 0 16 16">

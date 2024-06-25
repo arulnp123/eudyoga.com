@@ -23,11 +23,8 @@
             </div>
         @endif
 
-
-
         <div class="row">
             <div class=" col-md-12">
-                <!-- Begin: life time stats -->
                 <div class="portlet light portlet-fit portlet-datatable bordered">
                     <div class="portlet-title d-flex justify-content-between">
                         <div class=" caption"> <i class="icon-settings font-dark"></i> <span
@@ -38,10 +35,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
 
         <div class="card-body ">
             <div class=" table-responsive">
@@ -51,22 +46,16 @@
                             <th>Id</th>
                             <th>Page Slug</th>
                             <th>Action</th>
-
                         </tr>
                     </thead>
                     <tbody>
-
-
                         @foreach ($get_cms as $key => $get_cms_list)
                             <tr">
-
-                                <td class=""> {{ $get_cms_list->id }}</td>
-                                <td class=""> {{ $get_cms_list->page_slug }}</td>
-                                <td class="">
-                                    <!-- Example single danger button -->
+                                <td> {{ $get_cms_list->id }}</td>
+                                <td> {{ $get_cms_list->page_slug }}</td>
+                                <td>
 
                                     <div class="col">
-
                                         <button type="button" class="btn btn-light"><a
                                                 href="{{ url('view_cms', $get_cms_list->id) }}"><i
                                                     class="lni lni-eye"></i>
@@ -80,23 +69,13 @@
                                                 href="{{ url('/delete_cms', $get_cms_list->id) }}"><i
                                                     class="lni lni-trash"></i></a>
                                         </button>
-
-
                                     </div>
-
                                 </td>
-
                                 </tr>
                         @endforeach
-
-
                     </tbody>
-
                 </table>
-
-
             </div>
-
         </div>
     </div>
 </div>
