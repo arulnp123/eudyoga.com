@@ -409,10 +409,10 @@ public function upload_cv(Request $request) {
      ->join('job_experiences','job_experiences.id','=','jobs.job_experience_id')
      ->join('degree_levels','degree_levels.id','=','jobs.degree_level_id')
      ->join('job_types','job_types.id','=','jobs.job_type_id')
-     ->join('functional_areas','functional_areas.functional_area_id','=','jobs.functional_area_id')
-     ->join('career_levels','career_levels.career_level_id','=','jobs.career_level_id')->where('jobs.id', '=', $id)->orderBy('jobs.id', 'Asc')->first();
+     ->join('functional_areas','functional_areas.id','=','jobs.functional_area_id')
+     ->join('career_levels','career_levels.id','=','jobs.career_level_id')->where('jobs.id', '=', $id)->orderBy('jobs.id', 'Asc')->first();
      // echo($jobs1);die;
-
+    //dd($profile1);
 
      return view( 'candidate/view_details',compact('id','profile1'));
    }
@@ -455,7 +455,7 @@ public function  print_resume(){
 
 
     $userid = Session::get('id');
-    $printresume = DB::table('users')->select('users.*', 'states.state', 'cities.city','countries.country','genders.gender','marital_statuses.marital_status', 'job_experiences.job_experience','career_levels.career_level')
+    $printresume = DB::table('users')->select('users.*', 'states.state_name', 'cities.city','countries.country','genders.gender','marital_statuses.marital_status', 'job_experiences.job_experience','career_levels.career_level')
     ->join('countries','countries.id','=','users.country_id')
     ->join('cities','cities.id','=','users.city_id')
     ->join('states','states.id','=','users.state_id')

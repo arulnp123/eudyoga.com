@@ -26,7 +26,7 @@
                                         <h3><a href="job/Relationship%20Manager.html"
                                                 title="Relationship Manager">{{ $favList->title }}</h3>
                                         <div class="desi"><i class="fa fa-map-marker"
-                                                aria-hidden="true"></i>{{ $favList->state }},{{ $favList->city }}</div>
+                                                aria-hidden="true"></i></div>
 
                                         <div class="companyName"><a href="company/srinivas-92.html"
                                                 title="Kalyani Motors">{{ $favList->c_name }}</a></div>

@@ -113,7 +113,7 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" class="form-control"
-                                                        value="{{ $candidateprofile->id }}" name="id">
+                                                        value="{{ $candidateprofile }}" name="id">
                                                     <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                         aria-labelledby="stepper2trigger1">
                                                         <h5 class="mb-1">Enter Your Details</h5>
@@ -123,7 +123,7 @@
                                                             <div class="col-12 col-lg-6">
                                                                 <label for="email" class="form-label">Email</label>
                                                                 <input type="text" class="form-control"
-                                                                    value="{{ $candidateprofile->email }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     name="email" id="email" placeholder="Email">
                                                             </div>
 
@@ -132,7 +132,7 @@
                                                                 <label for="image" class="form-label">User
                                                                     Images</label>
                                                                 <input class="form-control form-control-sm"
-                                                                    value="{{ $candidateprofile->image }}" value
+                                                                    value="{{ $candidateprofile }}" value
                                                                     id="image" type="file">
                                                             </div>
                                                             <div class="col-12 col-lg-6">
@@ -140,7 +140,7 @@
                                                                     Name</label>
                                                                 <input type="text" class="form-control"
                                                                     name="first_name"
-                                                                    value="{{ $candidateprofile->first_name }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="first_name" placeholder="First Name">
                                                             </div>
                                                             <div class="col-12 col-lg-6">
@@ -148,7 +148,7 @@
                                                                     Name</label>
                                                                 <input type="text" class="form-control"
                                                                     name="name"
-                                                                    value="{{ $candidateprofile->name }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="name" placeholder="Full Name">
                                                             </div>
                                                             <div class="col-12 col-lg-6">
@@ -156,7 +156,7 @@
                                                                     Name</label>
                                                                 <input type="text" class="form-control"
                                                                     name="father_name"
-                                                                    value="{{ $candidateprofile->father_name }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="father_name" placeholder="Father Name">
                                                             </div>
                                                             <div class="col-12 col-lg-6">
@@ -164,7 +164,7 @@
                                                                     Name</label>
                                                                 <input type="text" class="form-control"
                                                                     name="mother_name"
-                                                                    value="{{ $candidateprofile->mother_name }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="mother_name" placeholder="Mother Name">
                                                             </div>
 
@@ -194,7 +194,7 @@
                                                                     <option value=""selected>Gender</option>
                                                                     @foreach ($gender as $key => $gender_list)
                                                                         <option
-                                                                            @if ($gender_list->id == $candidateprofile->id) selected @endif
+                                                                            @if ($gender_list->id == $candidateprofile) selected @endif
                                                                             value="{{ $gender_list->id }}">
                                                                             {{ $gender_list->gender }}</option>
                                                                     @endforeach
@@ -212,8 +212,8 @@
                                                                     </option>
                                                                     @foreach ($marital_statuses as $key => $marital_statuses_list)
                                                                         <option
-                                                                            @if ($marital_statuses_list->marital_status_id == $candidateprofile->marital_status_id) selected @endif
-                                                                            value="{{ $marital_statuses_list->marital_status_id }}">
+                                                                            @if ($marital_statuses_list->id == $candidateprofile) selected @endif
+                                                                            value="{{ $marital_statuses_list->id }}">
                                                                             {{ $marital_statuses_list->marital_status }}
                                                                         </option>
                                                                     @endforeach
@@ -254,8 +254,8 @@
                                                                 <select class="form-control" name="nationality_id" id="nationality_id">
                                                                     <option>Select Nationality</option>
                                                                     @foreach ($getnationality as $getnationality_list)
-                                                                        <option {{ $getnationality_list->nationality_id == 100 ? 'selected' : '' }}
-                                                                            value="{{ $getnationality_list->nationality_id }}">
+                                                                        <option {{ $getnationality_list->id == 100 ? 'selected' : '' }}
+                                                                            value="{{ $getnationality_list->id }}">
                                                                             {{ $getnationality_list->nationality }}
                                                                         </option>
                                                                     @endforeach
@@ -286,14 +286,14 @@
                                                                     Birth</label>
                                                                 <input type="date" class="form-control"
                                                                     name="date_of_birth"
-                                                                    value="{{ $candidateprofile->date_of_birth }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="date_of_birth" placeholder="Date Of Birth">
                                                             </div>
                                                             <div class="col-12 col-lg-2">
                                                                 <label for="age" class="form-label">Age</label>
                                                                 <input type="number" class="form-control"
                                                                     name="age"
-                                                                    value="{{ $candidateprofile->age }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="age" placeholder="Age">
                                                             </div>
                                                             <div class="col-12 col-lg-6">
@@ -301,7 +301,7 @@
                                                                     Number</label>
                                                                 <input type="number" class="form-control"
                                                                     name="phone"
-                                                                    value="{{ $candidateprofile->phone }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="phone" placeholder="Mobile Number">
                                                             </div>
                                                             <div class="col-12 col-lg-6">
@@ -309,7 +309,7 @@
                                                                     Mobile Number</label>
                                                                 <input type="number" class="form-control"
                                                                     name="mobile_num"
-                                                                    value="{{ $candidateprofile->mobile_num }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     id="mobile_num"
                                                                     placeholder="Alternative Mobile Number">
                                                             </div>
@@ -324,8 +324,8 @@
                                                                     </option>
                                                                     @foreach ($job_experiences as $key => $job_experiences_list)
                                                                         <option
-                                                                            @if ($job_experiences_list->job_experience_id == $candidateprofile->job_experience_id) selected @endif
-                                                                            value="{{ $job_experiences_list->job_experience_id }}">
+                                                                            @if ($job_experiences_list->id == $candidateprofile) selected @endif
+                                                                            value="{{ $job_experiences_list->id }}">
                                                                             {{ $job_experiences_list->job_experience }}
                                                                         </option>
                                                                     @endforeach
@@ -335,7 +335,7 @@
                                                             <div class="col-12 col-lg-6">
                                                                 <label for="inputAddress2" class="form-label">Street
                                                                     Address</label>
-                                                                <textarea class="form-control" name="street_address" value="{{ $candidateprofile->street_address }}"
+                                                                <textarea class="form-control" name="street_address" value="{{ $candidateprofile }}"
                                                                     id="street_address" placeholder="Street Address" rows="3"></textarea>
                                                             </div>
 
@@ -371,7 +371,7 @@
                                                                     </option>
                                                                     @foreach ($career_levels as $key => $career_levels_list)
                                                                         <option
-                                                                            @if ($career_levels_list->id == $candidateprofile->id) selected @endif
+                                                                            @if ($career_levels_list->id == $candidateprofile) selected @endif
                                                                             value="{{ $career_levels_list->id }}">
                                                                             {{ $career_levels_list->career_level }}
                                                                         </option>
@@ -387,8 +387,8 @@
                                                                     <option value=""selected> Industry </option>
                                                                     @foreach ($industries as $key => $industries_list)
                                                                         <option
-                                                                            @if ($industries_list->industry_id == $candidateprofile->industry_id) selected @endif
-                                                                            value="{{ $industries_list->industry_id }}">
+                                                                            @if ($industries_list->id == $candidateprofile) selected @endif
+                                                                            value="{{ $industries_list->id }}">
                                                                             {{ $industries_list->industry }}</option>
                                                                     @endforeach
                                                                 </select>
@@ -404,7 +404,7 @@
                                                                     </option>
                                                                     @foreach ($functional_areas as $key => $functional_areas_list)
                                                                         <option
-                                                                            @if ($functional_areas_list->id == $candidateprofile->id) selected @endif
+                                                                            @if ($functional_areas_list->id == $candidateprofile) selected @endif
                                                                             value="{{ $functional_areas_list->id }}">
                                                                             {{ $functional_areas_list->functional_area }}
                                                                         </option>
@@ -416,7 +416,7 @@
                                                                 <label for="current_salary" class="form-label">Current
                                                                     Salary</label>
                                                                 <input type="text" class="form-control"
-                                                                    value="{{ $candidateprofile->current_salary }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     name="current_salary" id="current_salary"
                                                                     placeholder="Current Salary">
                                                             </div>
@@ -424,7 +424,7 @@
                                                                 <label for="expected_salary"
                                                                     class="form-label">Expected Salary</label>
                                                                 <input type="text" class="form-control"
-                                                                    value="{{ $candidateprofile->expected_salary }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     name="expected_salary" id="expected_salary"
                                                                     placeholder="Expected Salary">
                                                             </div>
@@ -432,7 +432,7 @@
                                                                 <label for="salary_currency" class="form-label">Salary
                                                                     Currency</label>
                                                                 <input type="text" class="form-control"
-                                                                    value="{{ $candidateprofile->salary_currency }}"
+                                                                    value="{{ $candidateprofile }}"
                                                                     name="salary_currency" id="salary_currency"
                                                                     placeholder="Salary Currency">
                                                             </div>
