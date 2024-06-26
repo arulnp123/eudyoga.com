@@ -893,8 +893,8 @@ public function advertisement(){
 //Seo
 
 public function list_seo(){
-    $list_seo = DB::table('seo')->orderBy( 'id', 'Asc' )->get();
-    return view('admin/list_seo', compact( 'list_seo' ));
+    $view_seo = DB::table('seo')->orderBy( 'id', 'Asc' )->get();
+    return view('admin/list_seo', compact( 'view_seo' ));
 }
 
 public function view_seo($id){

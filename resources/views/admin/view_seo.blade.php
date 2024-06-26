@@ -23,7 +23,7 @@
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">view Seo</li>
+                                <li class="breadcrumb-item active" aria-current="page">View Seo</li>
                             </ol>
                         </nav>
                     </div>
@@ -97,25 +97,25 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="page_title" class="form-label">Page Title</label>
-                                                            <input type="text" class="form-control" name="page_title"
-                                                                id="page_title" placeholder="page_title"
-                                                                value="{{ $seo->page_title }}" readonly>
+                                                            <label for="heading" class="form-label">Heading</label>
+                                                            <input type="text" class="form-control" name="heading"
+                                                                id="heading" placeholder="Heading"
+                                                                value="{{ $seo->heading }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="seo_title" class="form-label">Seo Title</label>
-                                                            <input type="text" class="form-control" name="seo_title"
-                                                                id="seo_title" placeholder="Seo Title"
-                                                                value="{{ $seo->seo_title }}" readonly>
+                                                            <label for="slug" class="form-label">Slug</label>
+                                                            <input type="text" class="form-control" name="slug"
+                                                                id="slug" placeholder="Slug"
+                                                                value="{{ $seo->slug }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="seo_description" class="form-label">Seo Description</label>
-                                                            <textarea class="form-control" name="seo_description" id="seo_description" placeholder="Seo Description" rows="3"
-                                                                readonly>{{ $seo->seo_description }}</textarea>
+                                                            <label for="Content" class="form-label">Content</label>
+                                                            <textarea class="form-control" name="content" id="content" placeholder="Content" rows="3"
+                                                                readonly>{{ $seo->content }}</textarea>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="seo_keywords" class="form-label">Seo Keywords</label>
-                                                            <textarea class="form-control" name="seo_keywords" id="seo_keywords" placeholder="Seo Keywords" rows="3" readonly>{{ $edit->seo_keywords }}</textarea>
+                                                            <label for="benefits" class="form-label">Benefits</label>
+                                                            <textarea class="form-control" name="benefits" id="benefits" placeholder="Job Benefits" rows="3" readonly>{{ $edit->benefits }}</textarea>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <button class="btn btn-light px-4" type="button"

@@ -51,7 +51,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($companies as $key => $memb)
+                  @foreach($view_seo as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $memb->page_title }}</td>
