@@ -43,9 +43,9 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>Page Title</th>
+                    <th>Seo Title</th>
+                    <th>Seo Description</th>
                     <th>Action</th>
                     
                   </tr>
@@ -54,18 +54,18 @@
                   @foreach($companies as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->name }}</td>
-                    <td>{{ $memb->email }}</td>
-                    <td>{{ $memb->email }}</td>
+                    <td>{{ $memb->page_title }}</td>
+                    <td>{{ $memb->seo_title }}</td>
+                    <td>{{ $memb->seo_description }}</td>
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class="lni lni-eye"></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/view_seo', $memb->id) }}"><i class="lni lni-eye"></i>
                           </button>
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class='bx bx-edit me-0'></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/edit_seo', $memb->id) }}"><i class='bx bx-edit me-0'></i>
                           </button>
                           <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
-                            href="{{ url('/deleteuser') }}"><i class="lni lni-trash"></i></a></button>
+                            href="{{ url('/delete_seo', $memb->id) }}"><i class="lni lni-trash"></i></a></button>
                          
                         
                         </div>
