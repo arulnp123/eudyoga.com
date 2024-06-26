@@ -58,7 +58,7 @@
                                                                 enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input type="hidden" class="form-control"
-                                                                    value="{{ $employerprofile->id }}" name="id">
+                                                                    value="{{ $employerprofile}}" name="id">
                                                                 <div id="test-nl-1" role="tabpanel"
                                                                     class="bs-stepper-pane"
                                                                     aria-labelledby="stepper2trigger1">
@@ -72,7 +72,7 @@
                                                                                 class="form-label mb-2">Hr Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="name"
-                                                                                value="{{ $employerprofile->name }}"
+                                                                                value="{{ $employerprofile }}"
                                                                                 id="name" placeholder="Full Name">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
@@ -81,7 +81,7 @@
                                                                                 Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="name"
-                                                                                value="{{ $employerprofile->c_name }}"
+                                                                                value="{{ $employerprofile }}"
                                                                                 id="name" placeholder="Full Name">
                                                                         </div>
 
@@ -91,7 +91,7 @@
                                                                                 class="form-label mb-2">Whatsapp
                                                                                 Number</label>
                                                                             <input class="form-control form-control-sm"
-                                                                                value="{{ $employerprofile->phone }}"
+                                                                                value="{{ $employerprofile }}"
                                                                                 id="image" type="text">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
@@ -99,7 +99,7 @@
                                                                                 class="form-label mb-2">Email</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="email"
-                                                                                value="{{ $employerprofile->email }}"
+                                                                                value="{{ $employerprofile }}"
                                                                                 id="email" placeholder="email">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
@@ -107,7 +107,7 @@
                                                                                 class="form-label mb-2">state</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="state"
-                                                                                value="{{ $employerprofile->state }}"
+                                                                                value="{{ $employerprofile }}"
                                                                                 id="state" placeholder="state">
                                                                             
                                                                         </div>
@@ -116,7 +116,7 @@
                                                                                 class="form-label mb-2">City</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="city"
-                                                                                value="{{ $employerprofile->city }}"
+                                                                                value="{{ $employerprofile }}"
                                                                                 id="city" placeholder="city">
                                                                         </div>
 

@@ -33,11 +33,11 @@
                 </div>
 
                 <div class="title">
-                    <h3>{{ $profile1->name }}
+                    <h3>{{ $profile1 }}
                         <span>Immediate Available For Work</span>
                     </h3>
                     <div class="desi"><i class="fa fa-map-marker"
-                            aria-hidden="true"></i>{{ $profile1->state }},{{ $profile1->city }}</div>
+                            aria-hidden="true"></i>{{ $profile1 }},{{ $profile1 }}</div>
 
                     {{-- <div class="membersinc"><i class="fa fa-history" aria-hidden="true"></i> Member Since, Dec 14, 2023</div>
 						 --}}

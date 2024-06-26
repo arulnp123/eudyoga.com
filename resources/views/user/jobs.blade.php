@@ -52,7 +52,7 @@
                             <i class="fa fa-bell" style="font-size:1.125rem;"></i> Save Job Alert</a>
 
 
-                        <a href="login.html#cvs" class="btn"><i class="fa fa-file-text" aria-hidden="true"></i>
+                        <a href="#" class="btn"><i class="fa fa-file-text" aria-hidden="true"></i>
                             Upload Your Resume</a>
                     </div>
                     <!-- Side Bar start -->
