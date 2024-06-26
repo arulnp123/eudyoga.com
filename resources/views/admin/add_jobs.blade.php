@@ -226,8 +226,7 @@
                                                         <label for="salary_from" class="form-label">Salary
                                                             From</label>
                                                         <input type="text" class="form-control number" name="salary_from"
-                                                            id="salary_from" required
-                                                            class="form-control form-select" placeholder="Salary Form">
+                                                            id="salary_from" required class="form-control form-select" placeholder="Salary Form">
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <label for="salary_to" class="form-label">Salary To</label>

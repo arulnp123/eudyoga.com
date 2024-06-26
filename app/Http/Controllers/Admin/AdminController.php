@@ -809,14 +809,65 @@ public function edit_translated_pages($id){
 
 
 // BLOGS
-public function add_blogs(){
 
-    return view( 'admin/add_blogs');
+public function saveblogs(Request $request){
+    $add_blogs = DB::table( 'blogs' )->insert( [
+        'heading'=>$request->heading,
+        'slug'=>$request->slug,
+        'cate_id'=>$request->cate_id,
+        'content'=>$request->content,
+        'image'=>$request->image,
+        'featured'=>$request->featured,
+        'meta_title'=>$request->meta_title,
+        'lang'=>$request->lang,
+        'meta_keywords'=>$request->meta_keywords,
+        'meta_descriptions'=>$request->meta_descriptions,
+        'remember_token'=>$request->remember_token,
+        'created_at'=>$request->created_at,
+        'updated_at'=>$request->updated_at,
+    ]);
+        return redirect()->route('list_blogs')->withMessage('Blogs Successfully Added !');
+}
+public function update_blogs(Request $request){
+    $update_blogs = DB::table('blogs')->where('id', $request->id)->update([
+        'heading'=>$request->heading,
+        'slug'=>$request->slug,
+        'cate_id'=>$request->cate_id,
+        'content'=>$request->content,
+        'image'=>$request->image,
+        'featured'=>$request->featured,
+        'meta_title'=>$request->meta_title,
+        'lang'=>$request->lang,
+        'meta_keywords'=>$request->meta_keywords,
+        'meta_descriptions'=>$request->meta_descriptions,
+        'remember_token'=>$request->remember_token,
+        'created_at'=>$request->created_at,
+        'updated_at'=>$request->updated_at,
+    ]);
+        return redirect()->route('list_blogs')->withMessage('Blogs Successfully Update !');
+}
+public function view_blogs($id){
+    //$view_blogs = DB::table('blogs')->where('id', '=', $id)->get();
+    $sql="select * from blogs where id=$id";
+    $view_blogs=DB::select($sql);
+    //dd($view_blogs);
+    return view('admin/view_blogs',compact('view_blogs'));
+    //dd($view_blogs);
+}
+public function edit_blogs($id){
+    $edit_blogs = DB::table('blogs')->where('id', '=', $id)->first();
+    return view('admin/edit_blogs', compact('edit_blogs'));
 }
 public function list_blogs(){
-    $companies = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
-    return view('admin/list_blogs', compact( 'companies' ));
+    $blogs = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    return view('admin/list_blogs', compact( 'blogs' ));
 }
+
+public function delete_blogs($id){
+    $blogs = DB::table('blogs')->where('id' , '=' , $id)->delete();
+    return redirect()->route('list_blogs')->withMessage('Blogs successfully deleted');
+}
+
 public function categories(){
     return view( 'admin/categories');
 }
@@ -830,7 +881,7 @@ public function advertisement(){
 
 
 public function list_seo(){
-    $companies = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
+    $companies = DB::table('seo')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_seo', compact( 'companies' ));
 }
 

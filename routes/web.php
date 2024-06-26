@@ -204,7 +204,12 @@ Route::get('delete_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,
 
 // BLOGS
 Route::get('/add_blogs', [App\Http\Controllers\Admin\AdminController::class, 'add_blogs'])->name('add_blogs');
+Route::post('/saveblogs', [App\Http\Controllers\Admin\AdminController::class, 'saveblogs'])->name('saveblogs');
+Route::get('/view_blogs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_blogs'])->name('view_blogs');
+Route::get('/edit_blogs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_blogs'])->name('edit_blogs');
+Route::post('/update_blogs', [App\Http\Controllers\Admin\AdminController::class, 'update_blogs'])->name('update_blogs');
 Route::get('/list_blogs', [App\Http\Controllers\Admin\AdminController::class, 'list_blogs'])->name('list_blogs');
+Route::get('/delete_blogs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_blogs'])->name('delete_blogs');
 Route::get('/categories', [App\Http\Controllers\Admin\AdminController::class, 'categories'])->name('categories');
 
 Route::get('/view_companies', [App\Http\Controllers\Admin\AdminController::class, 'view_companies'])->name('view_companies');

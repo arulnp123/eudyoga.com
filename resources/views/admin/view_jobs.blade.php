@@ -89,8 +89,6 @@
                                 <div class="card-body">
 
                                     <div class="bs-stepper-content">
-                                        <form class="row g-3" action="#" enctype="multipart/form-data">
-                                            @csrf
                                             @foreach ($view_jobs as $key => $edit)
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                     aria-labelledby="stepper2trigger1">
@@ -323,10 +321,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!---end row-->
-
                                                 </div>
-                                        </form>
                                         @endforeach
                                     </div>
 

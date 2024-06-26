@@ -75,10 +75,8 @@
                     </td>
                   
                   </tr>
-                 
-                  
-                </tbody>
                 @endforeach
+              </tbody>
               </table>
             </div>
           </div>

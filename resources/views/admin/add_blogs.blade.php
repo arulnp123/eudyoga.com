@@ -98,7 +98,7 @@
                                  <div class="card-body">
 
                                      <div class="bs-stepper-content">
-                                         <form method="post" action="{{url('/add_blogs')}}"
+                                         <form class="row g-3" method="post" action="{{url('/saveblogs')}}"
                                              enctype="multipart/form-data">
                                              @csrf
                                              <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
@@ -108,26 +108,25 @@
 
                                                  <div class="row g-3">
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="FisrtName" class="form-label">
-                                                             Company Name</label>
-                                                         <input type="text" class="form-control" name="name"
-                                                             id="FisrtName" placeholder="Company Name">
+                                                         <label for="heading" class="form-label">
+                                                            Heading</label>
+                                                         <input type="text" class="form-control" name="heading"
+                                                             id="heading" required class="form-control form-select" placeholder="Heading">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="LastName" class="form-label">Company Email</label>
-                                                         <input type="text" class="form-control" name="email"
-                                                             id="LastName" placeholder="Company Email">
+                                                         <label for="Slug" class="form-label">Slug</label>
+                                                         <input type="text" class="form-control" name="slug"
+                                                             id="slug" required class="form-control form-select" placeholder="Slug">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Password</label>
-                                                         <input type="password" class="form-control" name="password"
-                                                             id="PhoneNumber" placeholder="Password">
+                                                         <label for="cate_id" class="form-label">Cate Id</label>
+                                                         <input type="text" class="form-control" name="cate_id"
+                                                             id="cate_id" required class="form-control form-select" placeholder="Cate Id">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="InputEmail" class="form-label">HR Recruiter
-                                                             Name</label>
-                                                         <input type="text" class="form-control" name="c_name"
-                                                             id="InputEmail" placeholder="HR Recruiter Name">
+                                                         <label for="InputEmail" class="form-label">Content</label>
+                                                         <input type="text" class="form-control" name="content"
+                                                             id="InputEmail" required class="form-control form-select" placeholder="Content">
                                                      </div>
 
                                                      <div class="col-12 col-lg-6">
@@ -148,29 +147,21 @@
 
                                                  <div class="row g-3">
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="InputUsername" class="form-label">Industry</label>
-                                                         <input type="text" class="form-control" name="industry_id"
-                                                             id="InputUsername" placeholder="Industry">
+                                                         <label for="InputUsername" class="form-label">Image</label>
+                                                         <input type="text" class="form-control" name="image"
+                                                             id="InputUsername" required class="form-control form-select" placeholder="image">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="InputEmail2" class="form-label">Ownership
-                                                             Type</label>
+                                                         <label for="featured" class="form-label">Featured</label>
                                                          <input type="text" class="form-control"
-                                                             name="ownership_type_id" id="InputEmail2"
-                                                             placeholder="Ownership Type">
+                                                             name="featured" id="InputEmail2" required class="form-control form-select"
+                                                             placeholder="Featured">
                                                      </div>
+                                                     
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="inputAddress2" class="form-label">Company
-                                                             details</label>
-                                                         <textarea class="form-control" name="description"
-                                                             id="description" placeholder="Company details"
-                                                             rows="3"></textarea>
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="InputConfirmPassword"
-                                                             class="form-label">Location</label>
-                                                         <textarea class="form-control" name="location" id="location"
-                                                             placeholder="Location" rows="3"></textarea>
+                                                         <label for="meta_title" class="form-label">Meta Title</label>
+                                                         <textarea class="form-control" name="meta_title" id="meta_title" required class="form-control form-select"
+                                                             placeholder="meta_title" rows="3"></textarea>
                                                      </div>
                                                      <div class="col-12">
                                                          <div class="d-flex align-items-center gap-3">
@@ -194,27 +185,36 @@
 
                                                  <div class="row g-3">
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="SchoolName" class="form-label">Google Map</label>
-                                                         <input type="text" class="form-control" name="map"
-                                                             id="SchoolName" placeholder="Google Map">
+                                                         <label for="lang" class="form-label">Lang</label>
+                                                         <input type="text" class="form-control" name="lang"
+                                                             id="lang" required class="form-control form-select" placeholder="Lang">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="BoardName" class="form-label">Number of
-                                                             offices</label>
-                                                         <input type="text" class="form-control" name="no_of_offices"
-                                                             id="BoardName" placeholder="Number of offices">
+                                                         <label for="meta_keywords" class="form-label">Meta Keywords</label>
+                                                         <input type="text" class="form-control number" name="meta_keywords"
+                                                             id="meta_keywords" required class="form-control form-select" placeholder="Meta Keywords">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="UniversityName" class="form-label">Website</label>
-                                                         <input type="text" class="form-control" name="website"
-                                                             id="UniversityName" placeholder="Website">
+                                                         <label for="meta_descriptions" class="form-label">Meta Descriptions</label>
+                                                         <input type="text" class="form-control" name="meta_descriptions"
+                                                             id="meta_descriptions" required class="form-control form-select" placeholder="Meta Descriptions">
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="Experience1" class="form-label">Number of
-                                                             employees</label>
-                                                         <input type="text" class="form-control" name="no_of_employees"
-                                                             id="Experience1" placeholder="Number of employees">
+                                                         <label for="remember_token" class="form-label">Remember Token</label>
+                                                         <input type="text" class="form-control number" name="remember_token"
+                                                             id="remember_token" required class="form-control form-select" placeholder="Remember Token">
                                                      </div>
+                                                     <div class="col-12 col-lg-6">
+                                                        <label for="created_at" class="form-label">Created At</label>
+                                                        <input type="date" class="form-control"
+                                                            name="created_at" id="created_at" required class="form-control form-select"
+                                                            placeholder="Created At">
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="updated_at" class="form-label">Updated At</label>
+                                                        <input type="date" class="form-control" name="updated_at"
+                                                            id="updated_at" required class="form-control form-select" placeholder="Updated At">
+                                                    </div>
 
                                                      <div class="col-12">
                                                          <div class="d-flex align-items-center gap-3">
@@ -230,101 +230,6 @@
                                                  <!---end row-->
 
                                              </div>
-
-                                             <div id="test-nl-4" role="tabpanel" class="bs-stepper-pane"
-                                                 aria-labelledby="stepper2trigger4">
-                                                 <h5 class="mb-1">Enter Your Details</h5>
-                                                 {{-- <p class="mb-4">Can you talk about your past work experience?</p> --}}
-
-                                                 <div class="row g-3">
-
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="Position1" class="form-label">Established
-                                                             in</label>
-                                                         <input type="text" class="form-control" name="established_in"
-                                                             id="Position1" placeholder="Established in">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="Experience2" class="form-label">Fax </label>
-                                                         <input type="text" class="form-control" name="fax"
-                                                             id="Experience2" placeholder="Fax #">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Phone </label>
-                                                         <input type="text" class="form-control" name="phone"
-                                                             id="PhoneNumber" placeholder="Phone #">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="Experience3" class="form-label">Facebook
-                                                             Address</label>
-                                                         <input type="text" class="form-control" name="facebook"
-                                                             id="Experience3" placeholder="Facebook Address">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Twitter</label>
-                                                         <input type="text" class="form-control" name="twitter"
-                                                             id="PhoneNumber" placeholder="Twitter">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Linkedin</label>
-                                                         <input type="text" class="form-control" name="linkedin"
-                                                             id="PhoneNumber" placeholder="Linkedin">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Google+</label>
-                                                         <input type="text" class="form-control" name="google_plus"
-                                                             id="PhoneNumber" placeholder="Google+">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Pinterest</label>
-                                                         <input type="text" class="form-control" name="pinterest"
-                                                             id="PhoneNumber" placeholder="Pinterest">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Country</label>
-                                                         <input type="text" class="form-control" name="country_id"
-                                                             id="PhoneNumber" placeholder="Country">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">State</label>
-                                                         <input type="text" class="form-control" name="state_id"
-                                                             id="PhoneNumber" placeholder="Twitter">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">City</label>
-                                                         <input type="text" class="form-control" name="city_id"
-                                                             id="PhoneNumber" placeholder="City">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Package ID</label>
-                                                         <input type="text" class="form-control" name="package_id"
-                                                             id="PhoneNumber" placeholder="Package ID">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Package Start
-                                                             Date</label>
-                                                         <input type="date" class="form-control"
-                                                             name="package_start_date" id="package_start_date"
-                                                             placeholder="Package Start Date">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="PhoneNumber" class="form-label">Package End
-                                                             Date</label>
-                                                         <input type="date" class="form-control" name="package_end_date"
-                                                             id="PhoneNumber" placeholder="Package End Date">
-                                                     </div>
-
-                                                     <div class="col-12">
-                                                         <div class="d-flex align-items-center gap-3">
-                                                             <button class="btn btn-light px-4" type="button"
-                                                                 onclick="stepper2.previous()"><i
-                                                                     class='bx bx-left-arrow-alt me-2'></i>Previous</button>
-                                                             <button class="btn btn-white px-4"
-                                                                 onclick="stepper2.next()">Submit</button>
-                                                         </div>
-                                                     </div>
-                                                 </div>
-                                                 <!---end row-->
 
                                              </div>
                                          </form>

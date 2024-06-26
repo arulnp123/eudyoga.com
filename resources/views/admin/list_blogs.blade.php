@@ -34,7 +34,7 @@
 
         <!--end breadcrumb-->
         
-        <h6 class="mb-0 text-uppercase">ADMIN USERS</h6>
+        <h6 class="mb-0 text-uppercase">BLOG USERS</h6>
         <hr/>
         <div class="card">
           <div class="card-body">
@@ -43,29 +43,29 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Location</th>
+                    <th>Heading</th>
+                    <th>Slug</th>
+                    <th>meta_title</th>
                     <th>Action</th>
                     
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($companies as $key => $memb)
+                  @foreach($blogs as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->name }}</td>
-                    <td>{{ $memb->email }}</td>
-                    <td>{{ $memb->location }}</td>
+                    <td>{{ $memb->heading }}</td>
+                    <td>{{ $memb->slug }}</td>
+                    <td>{{ $memb->meta_title }}</td>
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class="lni lni-eye"></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/view_blogs', $memb->id) }}"><i class="lni lni-eye"></i>
                           </button>
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class='bx bx-edit me-0'></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/edit_blogs', $memb->id) }}"><i class='bx bx-edit me-0'></i>
                           </button>
                           <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
-                            href="{{ url('/deleteuser') }}"><i class="lni lni-trash"></i></a></button>
+                            href="{{ url('/delete_blogs', $memb->id) }}"><i class="lni lni-trash"></i></a></button>
                          
                         
                         </div>
@@ -76,9 +76,9 @@
                   
                   </tr>
                  
-                  
+                  @endforeach
                 </tbody>
-                @endforeach
+               
               </table>
             </div>
           </div>
