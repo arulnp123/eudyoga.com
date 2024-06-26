@@ -108,7 +108,7 @@
                                                             enctype="multipart/form-data">
                                                             @csrf
                                                             <input type="hidden" class="form-control"
-                                                                value="{{ $employerprofile->id }} " name="id">
+                                                                value="{{ $employerprofile }} " name="id">
 
                                                             <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                                 aria-labelledby="stepper2trigger1">
@@ -120,21 +120,21 @@
                                                                         <label for="logo" class="form-label">Company
                                                                             Logo</label>
                                                                         <input type="logo" class="form-control"
-                                                                            value="{{$employerprofile->logo}}" name="logo" id="logo"
+                                                                            value="{{$employerprofile}}" name="logo" id="logo"
                                                                             placeholder="Company Logo">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="hr_name" class="form-label">HR
                                                                             Recruiter Name</label>
                                                                         <input type="text" class="form-control"
-                                                                            value="{{ $employerprofile->name }}"
+                                                                            value="{{ $employerprofile }}"
                                                                             name="name" id="name"
                                                                             placeholder="HR Recruiter Name">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="name"
                                                                             class="form-label">Company Name</label>
-                                                                        <textarea class="form-control" name="c_name" id="c_name" placeholder="Company Name" rows="3">{{ $employerprofile->c_name }}</textarea>
+                                                                        <textarea class="form-control" name="c_name" id="c_name" placeholder="Company Name" rows="3">{{ $employerprofile }}</textarea>
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="industry_id"
@@ -146,8 +146,8 @@
                                                                                 </option>
                                                                             @foreach ($getindustries as $key => $getindustries_list)
                                                                                 <option
-                                                                                    @if ($employerprofile->industry_id == $getindustries_list->industry_id) selected @endif
-                                                                                    value="{{ $getindustries_list->industry_id }}">
+                                                                                    @if ($employerprofile == $getindustries_list->industry) selected @endif
+                                                                                    value="{{ $getindustries_list->industry }}">
                                                                                     {{ $getindustries_list->industry }}
                                                                                 </option>
                                                                             @endforeach
@@ -160,7 +160,7 @@
                                                                             class="form-label">Mobile Number</label>
                                                                         <input type="number" class="form-control"
                                                                             name="phone"
-                                                                            value="{{ $employerprofile->phone }}"
+                                                                            value="{{ $employerprofile }}"
                                                                             id="phone"
                                                                             placeholder="Mobile Number">
                                                                     </div>
@@ -307,8 +307,8 @@
                                                                                 </option>
                                                                             @foreach ($getcountry as $key => $getcountry_list)
                                                                                 <option
-                                                                                    @if ($employerprofile->country_id == $getcountry_list->country_id) selected @endif
-                                                                                    value="{{ $getcountry_list->country_id }}">
+                                                                                    @if ($employerprofile == $getcountry_list->country) selected @endif
+                                                                                    value="{{ $getcountry_list->country }}">
                                                                                     {{ $getcountry_list->country }}
                                                                                 </option>
                                                                             @endforeach
@@ -325,9 +325,9 @@
                                                                                 Level</option>
                                                                             @foreach ($getstate as $key => $getstate_list)
                                                                                 <option
-                                                                                    @if ($employerprofile->state_id == $getstate_list->state_id) selected @endif
-                                                                                    value="{{ $getstate_list->state_id }}">
-                                                                                    {{ $getstate_list->state }}
+                                                                                    @if ($employerprofile == $getstate_list) selected @endif
+                                                                                    value="{{ $getstate }}">
+                                                                                    {{ $getstate }}
                                                                                 </option>
                                                                             @endforeach
 
@@ -343,8 +343,8 @@
                                                                                 Level</option>
                                                                             @foreach ($getcity as $key => $getcity_list)
                                                                                 <option
-                                                                                    @if ($employerprofile->city_id == $getcity_list->city_id) selected @endif
-                                                                                    value="{{ $getcity_list->city_id }}">
+                                                                                    @if ($employerprofile == $getcity_list) selected @endif
+                                                                                    value="{{ $getcity }}">
                                                                                     {{ $getcity_list->city }}
                                                                                 </option>
                                                                             @endforeach
@@ -360,7 +360,7 @@
                                                                             <option value=""selected>Ownership</option>
                                                                             @foreach ($getownership_types as $key => $getownership_types)
                                                                                 <option
-                                                                                    @if ($employerprofile->ownership_type_id == $getownership_types->ownership_type_id) selected @endif
+                                                                                    @if ($employerprofile == $getownership_types->ownership_type_id) selected @endif
                                                                                     value="{{ $getownership_types->ownership_type_id }}">
                                                                                     {{ $getownership_types->ownership_type }}
                                                                                 </option>

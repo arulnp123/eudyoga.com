@@ -58,7 +58,7 @@
                                                                 enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input type="hidden" class="form-control"
-                                                                    value="{{ $candidateprofile }}" name="id">
+                                                                    value
                                                                 <div id="test-nl-1" role="tabpanel"
                                                                     class="bs-stepper-pane"
                                                                     aria-labelledby="stepper2trigger1">
@@ -72,7 +72,7 @@
                                                                                 class="form-label mb-2">Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="name"
-                                                                                value="{{ $candidateprofile}}"
+                                                                                value
                                                                                 id="name" placeholder="Full Name">
                                                                         </div>
 
@@ -82,7 +82,7 @@
                                                                                 class="form-label mb-2">Whatsapp
                                                                                 Number</label>
                                                                             <input class="form-control form-control-sm"
-                                                                                value="{{ $candidateprofile }}"
+                                                                            
                                                                                 id="image" type="text">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
@@ -90,7 +90,7 @@
                                                                                 class="form-label mb-2">Email</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="email"
-                                                                                value="{{ $candidateprofile }}"
+                                                                                
                                                                                 id="email" placeholder="email">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
@@ -98,7 +98,7 @@
                                                                                 class="form-label mb-2">state</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="state"
-                                                                                value="{{ $candidateprofile }}"
+                                                                                
                                                                                 id="state" placeholder="state">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
@@ -106,7 +106,7 @@
                                                                                 class="form-label mb-2">City</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="city"
-                                                                                value="{{ $candidateprofile }}"
+                                                                                
                                                                                 id="city" placeholder="city">
                                                                         </div>
 

@@ -36,7 +36,7 @@ class EmployerController extends Controller
   public function  basic_detials(){
     $userid = Session::get('id'); 
     // echo $userid;die;
-    $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state')
+    $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state_name')
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
     ->where('companies.id', '=', $userid)->first();
@@ -201,7 +201,7 @@ class EmployerController extends Controller
     $getcity = DB::table('cities')->orderBy( 'id', 'Desc' )->get();
     $getindustries = DB::table('industries')->orderBy( 'id', 'Desc' )->get();
     $getownership_types = DB::table('ownership_types')->orderBy( 'id', 'Desc' )->get();
-    $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state')
+    $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state_name')
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
     ->where('companies.id', '=', $userid)->first();
