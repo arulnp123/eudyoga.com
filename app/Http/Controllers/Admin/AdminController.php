@@ -902,6 +902,10 @@ public function view_seo($id){
     return view('admin/view_seo', compact('view_seo'));
 
 }
+public function edit_seo(){
+    $edit_seo = DB::table('seo')->orderBy('id', 'Asc')->get();
+    return view('admin/edit_seo', compact('edit_seo'));
+}
 
 //Countries
 public function list_countries(){
