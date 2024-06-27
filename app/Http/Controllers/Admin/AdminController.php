@@ -264,7 +264,6 @@ public function list_jobs(){
     ->Join('degree_levels', 'degree_levels.id', '=', 'jobs.degree_level_id')
     ->orderBy('jobs.id','Asc')->get();
     // dd($jobs);
-    // $jobs = DB::table('jobs')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_jobs', compact( 'jobs' ));
 }
 
@@ -461,7 +460,6 @@ public function employer_add(){
     'location','map',
     'no_of_offices','website','no_of_employees','established_in','fax','phone','facebook','twitter','linkedin','google_plus',
     'pinterest','country_id','state_id','city_id','package_id','package_start_date','package_end_date'
-
 ));
 }
 
@@ -507,8 +505,6 @@ public function saveemployer(Request $request) {
     // die;
     // dd($addemployers);
     return redirect()->route('employer_list')->withMessage('Employer Successfully Added !');
-
-    //return redirect( 'admin/employer_list', compact('employer_list'));
 }
 public function edit_employer($id){
     $edit_employer = DB::table('companies')->where('id', '=', $id)->first();
@@ -578,9 +574,6 @@ public function candidate_list(){
     ->orderBy('users.id','Asc')->get();
 
     return view('admin/candidate_list', compact( 'candidate_list'));
-
-    //$candidate_list = DB::table('users')->orderBy( 'id', 'Asc' )->get();
-    //return view('admin/candidate_list', compact( 'candidate_list' ));
 }
 
 public function candidate_add(){
@@ -683,9 +676,6 @@ public function view_candidate($id){
 
     // dd($view_candidate);
     return view('admin/view_candidate', compact( 'view_candidate'));
-
-   //$view_candidate = DB::table('users')->where('id', '=', $id)->first();
-   //return view('admin/view_candidate', compact( 'view_candidate' ));
 }
 
 public function edit_candidate($id){
@@ -809,9 +799,31 @@ public function edit_translated_pages($id){
 
 
 // BLOGS
+public function add_blogs(){
+    $add_blogs = DB::table('blogs')->orderby('id' , 'Asc')->get();
+    //dd($add_blogs);
+    return view('admin/add_blogs', compact('add_blogs'));
+
+    //$heading = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$slug = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$cate_id = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$content = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$image = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$featured = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$meta_title = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$lang = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$meta_keywords = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$meta_descriptions = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$remember_token = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$created_at = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+    //$updated_at = DB::table('blogs')->orderBy( 'id', 'Asc' )->get();
+
+    //return view( 'admin/add_blogs',compact('heading','slug','cate_id','content','image','featured','meta_title',
+    //'lang','meta_keywords','meta_descriptions','remember_token','created_at','updated_at'));
+}
 
 public function saveblogs(Request $request){
-    $add_blogs = DB::table( 'blogs' )->insert( [
+    $addblogs = DB::table( 'blogs' )->insert( [
         'heading'=>$request->heading,
         'slug'=>$request->slug,
         'cate_id'=>$request->cate_id,
@@ -847,12 +859,12 @@ public function update_blogs(Request $request){
         return redirect()->route('list_blogs')->withMessage('Blogs Successfully Update !');
 }
 public function view_blogs($id){
-    //$view_blogs = DB::table('blogs')->where('id', '=', $id)->get();
-    $sql="select * from blogs where id=$id";
-    $view_blogs=DB::select($sql);
+    $view_blogs = DB::table('blogs')->where('id', '=', $id)->get();
+    //$sql="select * from blogs where id=$id";
+    //$view_blogs=DB::select($sql);
     //dd($view_blogs);
     return view('admin/view_blogs',compact('view_blogs'));
-    //dd($view_blogs);
+    
 }
 public function edit_blogs($id){
     $edit_blogs = DB::table('blogs')->where('id', '=', $id)->first();
@@ -878,13 +890,22 @@ public function advertisement(){
 }
 
 
-
+//Seo
 
 public function list_seo(){
-    $companies = DB::table('seo')->orderBy( 'id', 'Desc' )->get();
-    return view('admin/list_seo', compact( 'companies' ));
+    $view_seo = DB::table('seo')->orderBy( 'id', 'Asc' )->get();
+    return view('admin/list_seo', compact( 'view_seo' ));
 }
 
+public function view_seo($id){
+    $view_seo = DB::table('seo')->orderBy('id', 'Asc')->get();
+    return view('admin/view_seo', compact('view_seo'));
+
+}
+public function edit_seo(){
+    $edit_seo = DB::table('seo')->orderBy('id', 'Asc')->get();
+    return view('admin/edit_seo', compact('edit_seo'));
+}
 
 //Countries
 public function list_countries(){

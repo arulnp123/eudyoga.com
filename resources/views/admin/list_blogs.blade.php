@@ -45,7 +45,7 @@
                     <th>S.No</th>
                     <th>Heading</th>
                     <th>Slug</th>
-                    <th>meta_title</th>
+                    <th>Meta Title</th>
                     <th>Action</th>
                     
                   </tr>

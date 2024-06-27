@@ -248,7 +248,13 @@ Route::get('/candidate_add', [App\Http\Controllers\Admin\AdminController::class,
 Route::post('/savecandidate', [App\Http\Controllers\Admin\AdminController::class, 'savecandidate'])->name('savecandidate');
 Route::get('/advertisement', [App\Http\Controllers\Admin\AdminController::class, 'advertisement'])->name('advertisement');
 
+//SEO
+
 Route::get('/list_seo', [App\Http\Controllers\Admin\AdminController::class, 'list_seo'])->name('list_seo');
+Route::get('/view_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_seo'])->name('view_seo');
+Route::get('/edit_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_seo'])->name('edit_seo');
+Route::get('/delete_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_seo'])->name('delete_seo');
+
 Route::get('/list_language', [App\Http\Controllers\Admin\AdminController::class, 'list_language'])->name('list_language');
 Route::get('/list_countries', [App\Http\Controllers\Admin\AdminController::class, 'list_countries'])->name('list_countries');
 Route::get('/list_states', [App\Http\Controllers\Admin\AdminController::class, 'list_states'])->name('list_states');
