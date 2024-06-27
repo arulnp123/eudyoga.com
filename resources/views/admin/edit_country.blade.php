@@ -58,7 +58,7 @@
 
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{ url('save_country') }}" method="POST">
+                    <form action="{{ url('update_country') }}" method="POST">
                         @csrf
                         <div class="input-group mb-2 p-2">
 							<select name="lang" id="lang" required class="form-control form-select"

@@ -891,7 +891,19 @@ public function advertisement(){
 
 
 //Seo
-
+public function update_seo(Request $request){
+        $update_seo = DB::table('seo')->where('id', $request->id)->update([
+            'page_title'=>$request->page_title,
+            'seo_title'=>$request->seo_title,
+            'seo_description'=>$request->seo_description,
+            'seo_keywords'=>$request->seo_keywords,
+            'seo_other'=>$request->seo_other,
+            'created_at'=>$request->created_at,
+            'updated_at'=>$request->updated_at,
+        ]);
+            return redirect()->route('list_seo')->withMessage('Seo Successfully Update !');
+    }
+ 
 public function list_seo(){
     $view_seo = DB::table('seo')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_seo', compact( 'view_seo' ));
@@ -902,10 +914,11 @@ public function view_seo($id){
     return view('admin/view_seo', compact('view_seo'));
 
 }
-public function edit_seo(){
-    $edit_seo = DB::table('seo')->orderBy('id', 'Asc')->get();
+public function edit_seo($id){
+    $edit_seo = DB::table('seo')->where('id', '=', $id)->first();
     return view('admin/edit_seo', compact('edit_seo'));
 }
+
 
 //Countries
 public function list_countries(){
@@ -955,11 +968,11 @@ public function update_country(Request $request){
 
 // FAQs
 public function list_faqs(){
-    $faqs = DB::table('faqs')->orderBy( 'id', 'Desc' )->get();
+    $faqs = DB::table('faqs')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_faqs', compact( 'faqs' ));
 }
 public function add_faqs(){
-    $add_faqs = DB::table('faqs')->orderBy( 'id', 'Desc' )->get();
+    $add_faqs = DB::table('faqs')->orderBy( 'id', 'Asc' )->get();
     $get_lang_list = DB::table('faqs')->get();
     $get_faq_question_list = DB::table('faqs')->get();
     $get_faq_answer_list = DB::table('faqs')->get();
@@ -974,7 +987,7 @@ public function save_faqs(Request $request) {
    return redirect()->route('list_faqs')->withMessage('faqs Successfully Added !');
 }
 public function sort_faqs(){
-    $sort_faqs = DB::table('faqs')->orderBy( 'id', 'Desc' )->get();
+    $sort_faqs = DB::table('faqs')->orderBy( 'id', 'Asc' )->get();
     $get_faq_question_list = DB::table('faqs')->get();
         return view( 'admin/sort_faqs',compact('sort_faqs','get_faq_question_list'));
 }
@@ -1005,7 +1018,7 @@ public function update_faqs(Request $request){
 
 //Video_language
 public function list_video_language(){
-    $videos = DB::table('videos')->orderBy( 'id', 'Desc' )->get();
+    $videos = DB::table('videos')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_video_language', compact( 'videos' ));
 }
 public function add_video_language(){
@@ -1054,12 +1067,12 @@ public function update_video(Request $request){
 
 //Testimonial
 public function list_testimonial(){
-    $testimonials = DB::table('testimonials')->orderBy( 'id', 'Desc' )->get();
+    $testimonials = DB::table('testimonials')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_testimonial', compact( 'testimonials' ));
 
 }
 public function add_testimonial(){
-    $add_testimonial = DB::table('testimonials')->orderBy( 'id', 'Desc' )->get();
+    $add_testimonial = DB::table('testimonials')->orderBy( 'id', 'Asc' )->get();
     $get_lang_list = DB::table('testimonials')->get();
     $get_testimonial_by_list = DB::table('testimonials')->get();
     $get_testimonial_list = DB::table('testimonials')->get();
@@ -1079,7 +1092,7 @@ public function save_testimonial(Request $request) {
    return redirect()->route('list_testimonial')->withMessage('testimonials Successfully Added !');
 }
 public function sort_testimonial(){
-    $sort_testimonial = DB::table('testimonials')->orderBy( 'id', 'Desc' )->get();
+    $sort_testimonial = DB::table('testimonials')->orderBy( 'id', 'Asc' )->get();
     $get_testimonial_list = DB::table('testimonials')->get();
         return view( 'admin/sort_testimonial',compact('sort_testimonial','get_testimonial_list'));
 }
@@ -1201,19 +1214,10 @@ public function list_cities(){
     return view('admin/list_cities', compact( 'companies' ));
 }
 
-
-
-
-
-
-
 public function list_carrer(){
     $companies = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_carrer', compact( 'companies' ));
 }
-
-
-
 
 
 //Country details
@@ -1542,6 +1546,7 @@ public function site_settings(){
 public function add_state(){
     return view( 'admin/add_state');
 }
+
 public function add_city(){
     return view( 'admin/add_city');
 }

@@ -23,7 +23,7 @@
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Testimonial</li>
+                                <li class="breadcrumb-item active" aria-current="page">View Testimonial</li>
                             </ol>
                         </nav>
                     </div>
@@ -81,20 +81,46 @@
                                                                         value="{{ $edit->lang }}" readonly>
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="testimonial_by	" class="form-label">Slider </label>
+                                                                    <label for="testimonial_by" class="form-label">Testimonial By</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="testimonial_by	" id="testimonial_by	 "
+                                                                        name="testimonial_by" id="testimonial_by"
                                                                         placeholder="testimonial_by	 "
-                                                                        value="{{ $edit->testimonial_by	 }}" readonly>
+                                                                        value="{{ $edit->testimonial_by }}" readonly>
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="testimonial	" class="form-label">Slider </label>
+                                                                    <label for="testimonial" class="form-label">Testimonial</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="testimonial	" id="testimonial	 "
-                                                                        placeholder="testimonial	 "
-                                                                        value="{{ $edit->testimonial	 }}" readonly>
+                                                                        name="testimonial" id="testimonial"
+                                                                        placeholder="testimonial"
+                                                                        value="{{ $edit->testimonial }}" readonly>
                                                                 </div>
-                                                               
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="company" class="form-label">Company and Designation</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="company" id="company"
+                                                                        placeholder="Company and Designation"
+                                                                        value="{{ $edit->company }}" readonly>
+                                                                </div>
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="is_default" class="form-label">Is Default</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="is_default" id="is_default"
+                                                                        placeholder="Is Default"
+                                                                        value="{{ $edit->is_default }}" readonly>
+                                                                </div>
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="is_active" class="form-label">Is Active</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="is_active" id="is_active"
+                                                                        placeholder="Is Active"
+                                                                        value="{{ $edit->is_active }}" readonly>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="d-flex align-items-center gap-3">
+                                                                        <button class="btn btn-secondary px-4">
+                                                                            <a href="{{ url('list_testimonial') }}">Back to Testimonial list</a></button>
+                                                                    </div> 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!---end row-->

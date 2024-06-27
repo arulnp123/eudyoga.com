@@ -77,7 +77,7 @@
                             <p class="h6">Question</p>
                         </div>
 						<div class="input-group mb-2 p-2">
-                        <select name="	faq_question" id="	faq_question" required class="form-control form-select mt-3">
+                        <select name="faq_question" id="faq_question" required class="form-control form-select mt-3">
                             <option value="">Question</option>
 
                             @foreach ($get_faq_question_list as $key => $get_faq_question_list)
@@ -102,8 +102,7 @@
 
                             </select>
                         </div>
-
-
+                        
 
                         <div class="ms-3 mt-4">
                             <button name="submit" type="submit" class="btn btn-secondary">
