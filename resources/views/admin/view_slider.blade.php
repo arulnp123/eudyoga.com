@@ -70,34 +70,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="bs-stepper-line"></div>
-                                        <div class="step" data-target="#test-nl-3">
-                                            <div class="step-trigger" role="tab" id="stepper2trigger3"
-                                                aria-controls="test-nl-3">
-                                                <div class="bs-stepper-circle"><i class='bx bx-user fs-4'></i></div>
-                                                <div class="">
-                                                    <h5 class="mb-0 steper-title">3</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bs-stepper-line"></div>
-                                        <div class="step" data-target="#test-nl-4">
-                                            <div class="step-trigger" role="tab" id="stepper2trigger4"
-                                                aria-controls="test-nl-4">
-                                                <div class="bs-stepper-circle"><i class='bx bx-user fs-4'></i></div>
-                                                <div class="">
-                                                    <h5 class="mb-0 steper-title">4</h5>
-                                                    {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
+                                        
                                     </div>
                                 </div>
-                                        <div class="card-body">
+                                <div class="card-body">
 
                                             <div class="bs-stepper-content">
-                                                <form class="row g-3" action="#" enctype="multipart/form-data">
-                                                    @csrf
+                                                
                                                     @foreach ($view_Slider as $key => $edit)
                                                         <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                             aria-labelledby="stepper2trigger1">
@@ -113,23 +93,32 @@
                                                                         placeholder="lang"
                                                                         value="{{ $edit->lang }}" readonly>
                                                                 </div>
-                                                                
-                                                        <div class="col-12 col-lg-6">
-                                                                    <label for="slider_image"
-                                                                        class="form-label">slider_image</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="slider_image" id="slider_image"
-                                                                        placeholder="slider_image"
-                                                                        value="{{ $edit->slider_image }}" readonly>
-                                                                </div>
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="slider_heading"
-                                                                        class="form-label">slider_heading</label>
+                                                                    <label for="slider_heading	"
+                                                                        class="form-label">slider_heading	</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="slider_heading" id="slider_heading"
-                                                                        placeholder="slider_heading"
+                                                                        name="slider_heading	" id="slider_heading	"
+                                                                        placeholder="slider_heading	"
                                                                         value="{{ $edit->slider_heading }}" readonly>
-                                                                </div>
+                                                                </div> 
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="slider_description	"
+                                                                        class="form-label">slider_description</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="slider_description	" id="slider_description	"
+                                                                        placeholder="slider_description	"
+                                                                        value="{{ $edit->slider_description }}" readonly>
+                                                                </div>   
+                                                                <div class="col-12 col-lg-6">
+                                                            <label for="slider_link"
+                                                                class="form-label">slider_link</label>
+                                                            <input type="text" class="form-control"
+                                                                name="slider_link" id="slider_link"
+                                                                placeholder="slider_link" value="{{ $edit->slider_link }}"
+                                                                readonly>
+                                                        </div>          
+                                                                       
+                                                     
                                                         <div class="col-12 col-lg-6">
                                                             <button class="btn btn-light px-4" type="button"
                                                                 onclick="stepper2.next()">Next<i
@@ -145,55 +134,40 @@
                                                     <h5 class="mb-1">Enter Your Details</h5>
 
                                                     <div class="row g-3">
-                                                    <div class="col-12 col-lg-6">
-                                                                    <label for="slider_description"
-                                                                        class="form-label">slider_description</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="slider_description" id="slider_description"
-                                                                        placeholder="slider_description"
-                                                                        value="{{ $edit->slider_description }}" readonly>
-                                                                </div>                                             
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="slider_link"
-                                                                        class="form-label">slider_link</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="slider_link" id="slider_link"
-                                                                        placeholder="slider_link"
-                                                                        value="{{ $edit->slider_link }}" readonly>
-                                                                </div>           
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="slider_link_text"
+                                                                                                  
+                                                                
+                                                         
+                                                        <div class="col-12 col-lg-6">
+                                                                    <label for="slider_link_text	"
                                                                         class="form-label">slider_link_text</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="slider_link_text" id="slider_link_text"
-                                                                        placeholder="slider_link_text"
+                                                                        name="slider_link_text	" id="slider_link_text	"
+                                                                        placeholder="slider_link_text	"
                                                                         value="{{ $edit->slider_link_text }}" readonly>
                                                                 </div>      
-                                                        
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="is_default"
-                                                                class="form-label">is_default</label>
-                                                            <input type="is_default" class="form-control"
-                                                                name="is_default" id="is_default"
-                                                                placeholder="is_default" value="{{ $edit->is_default }}"
-                                                                readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="is_active"
-                                                                class="form-label">	is_active</label>
-                                                            <input type="is_active" class="form-control"
-                                                                name="is_active" id="is_active"
-                                                                placeholder="is_active" value="{{ $edit->is_active }}"
-                                                                readonly>
-                                                        </div>
-                                                        <div class="col-12">
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="is_default	"
+                                                                        class="form-label">is_default</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="is_default	" id="is_default	"
+                                                                        placeholder="is_default	"
+                                                                        value="{{ $edit->is_default }}" readonly>
+                                                                </div>    
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="active	"
+                                                                        class="form-label">active</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="active	" id="active	"
+                                                                        placeholder="active	"
+                                                                        value="{{ $edit->is_active }}" readonly>
+                                                                </div>    
+                                                                <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
-                                                                <button class="btn btn-outline-light px-4"
-                                                                    type="button" onclick="stepper2.previous()"><i
-                                                                        class='bx bx-left-arrow-alt me-2'></i>Previous</button>
                                                                 <button class="btn btn-light px-4" type="button"
-                                                                    onclick="stepper2.next()">Next<i
-                                                                        class='bx bx-right-arrow-alt ms-2'></i></button>
+                                                                    onclick="stepper2.previous()"><i
+                                                                        class='bx bx-left-arrow-alt me-2'></i>Previous</button>
+                                                                <button class="btn btn-secondary px-4"><a
+                                                                        href="{{ url('list_slider') }}">Back to Sliderlist</a></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -205,47 +179,10 @@
                                                     aria-labelledby="stepper2trigger3">
                                                     <h5 class="mb-1">Enter Your Details</h5>
 
-                                                    <div class="row g-3">
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="career_level" class="form-label">Career
-                                                                level</label>
-                                                            <input type="text" class="form-control"
-                                                                name="career_level_id" id="career_level"
-                                                                placeholder="Career level"
-                                                                value="{{ $edit->career_level }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_from" class="form-label">Salary
-                                                                From</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_from" id="salary_from"
-                                                                placeholder="Salary From"
-                                                                value="{{ $edit->salary_from }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_to" class="form-label">Salary
-                                                                To</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_to" id="UniversityName"
-                                                                placeholder="Salary To"
-                                                                value="{{ $edit->salary_to }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_currency" class="form-label">Salary
-                                                                Currency</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_currency_id" id="UniversityName"
-                                                                placeholder="Salary Currency"
-                                                                value="{{ $edit->salary_currency }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_period" class="form-label">Salary
-                                                                Period</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_period_id" id="salary_period"
-                                                                placeholder="Salary Period"
-                                                                value="{{ $edit->salary_period }}" readonly>
-                                                        </div>
+                                                    
+                                                       
+                                                        
+                                                       
 
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
@@ -266,70 +203,15 @@
                                                     aria-labelledby="stepper2trigger4">
                                                     <h5 class="mb-1">Enter Your Details</h5>
 
-                                                    <div class="row g-3">
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="functional_area"
-                                                                class="form-label">Functional
-                                                                Area</label>
-                                                            <input type="text" class="form-control"
-                                                                name="functional_area_id" id="functional_area"
-                                                                placeholder="Functional Area"
-                                                                value="{{ $edit->functional_area }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="job_type_id" class="form-label">Job
-                                                                Type</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_type_id" id="job_type"
-                                                                placeholder="Job Type"
-                                                                value="{{ $edit->job_type }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="job_shift_id" class="form-label">Job
-                                                                Shift</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_shift_id" id="Experience2"
-                                                                placeholder="Job Shift"
-                                                                value="{{ $edit->job_shift }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="num_of_positions"
-                                                                class="form-label">Position</label>
-                                                            <input type="text" class="form-control"
-                                                                name="num_of_positions" id="role_name"
-                                                                placeholder="Position"
-                                                                value="{{ $edit->role_name }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="gender_id" class="form-label">Gender</label>
-                                                            <input type="text" class="form-control"
-                                                                name="gender_id" id="gender"
-                                                                placeholder="Gender" value="{{ $edit->gender }}"
-                                                                readonly>
-                                                        </div>
+                                                    <
+                                                      
                                                         <!-- <div class="col-12 col-lg-6">
                                                         <label for="expiry_date" class="form-label">Job expiry
                                                             date</label>
                                                         <input type="date" class="form-control" name="expiry_date"
                                                             id="PhoneNumber" placeholder="Job expiry date">
                                                     </div> -->
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="degree_level_id" class="form-label">Required
-                                                                Degree
-                                                                Level</label>
-                                                            <input type="text" class="form-control"
-                                                                name="degree_level_id" id="PhoneNumber"
-                                                                placeholder="Required Degree Level"
-                                                                value="{{ $edit->degree_level }}" readonly>
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="PhoneNumber" class="form-label">Required job
-                                                                experience</label>
-                                                            <input type="text" class="form-control"
-                                                                name="job_experience_id" id="PhoneNumber"
-                                                                placeholder="Required job experience"
-                                                                value="{{ $edit->job_experience }}" readonly>
-                                                        </div>
+                                                       
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
                                                                 <button class="btn btn-light px-4" type="button"

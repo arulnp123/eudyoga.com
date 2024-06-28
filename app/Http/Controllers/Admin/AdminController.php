@@ -1226,6 +1226,20 @@ public function list_country_details(){
     return view('admin/list_country_details', compact( 'countries_details' ));
 }
 
+public function view_list_country_details($id){
+    $view_list_country_detail = DB::table('list_country_details')->where('id', '=', $id)->get();
+    $get_lang_list = DB::table('list_country_details')->get();
+    $get_slider_heading_list = DB::table('sliders')->get();
+    $get_slider_image_list = DB::table('sliders')->get();
+    $get_slider_description_list = DB::table('sliders')->get();
+    $get_slider_link_list = DB::table('sliders')->get();
+    $get_slider_link_text_list = DB::table('sliders')->get();
+
+    return view( 'admin/edit_Slider', compact('edit_Slider','get_slider_heading_list','get_lang_list','get_slider_image_list','get_slider_description_list','get_slider_link_list','get_slider_link_text_list'));
+}
+
+
+
 
 
 
