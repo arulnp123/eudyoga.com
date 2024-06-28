@@ -282,8 +282,9 @@ Route::get('/list_new_types', [App\Http\Controllers\Admin\AdminController::class
 Route::get('/site_settings', [App\Http\Controllers\Admin\AdminController::class, 'site_settings'])->name('site_settings');
 Route::post('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
 Route::get('/add_state', [App\Http\Controllers\Admin\AdminController::class, 'add_state'])->name('add_state');
+
 Route::get('/add_city', [App\Http\Controllers\Admin\AdminController::class, 'add_city'])->name('add_city');
-Route::get('/add_package', [App\Http\Controllers\Admin\AdminController::class, 'add_package'])->name('add_package');
+Route::post('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
 Route::get('/add_functional_area', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_area'])->name('add_functional_area');
 Route::get('/add_gender', [App\Http\Controllers\Admin\AdminController::class, 'add_gender'])->name('add_gender');
 Route::get('/add_industries', [App\Http\Controllers\Admin\AdminController::class, 'add_industries'])->name('add_industries');
@@ -530,7 +531,8 @@ Route::get('/delete_genders/{id}', [App\Http\Controllers\Admin\AdminController::
 Route::get('/edit_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_genders'])->name('edit_genders');
 //packages
 Route::get('/list_packages', [App\Http\Controllers\Admin\AdminController::class, 'list_packages'])->name('list_packages');
-Route::get('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
+Route::get('/add_package', [App\Http\Controllers\Admin\AdminController::class, 'add_package'])->name('add_package');
+
 Route::get('/view_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_packages'])->name('view_packages');
 Route::get('/edit_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_packages'])->name('edit_packages');
 Route::get('/delete_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_packages'])->name('delete_packages');

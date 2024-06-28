@@ -54,13 +54,13 @@
 
                         <li class="nav-item">
                             <a class="nav-link active " aria-current="page" href="#">
-                                Deatails
+                                Details
                             </a>
                         </li>
 
                     </ul>
 
-                    <form action="{{ url('add_packages') }}" method="POST">
+                    <form action="{{ url('add_packages') }}" method="post">
                         @csrf
                         <input type="hidden"name="id" id="id">
                         <div>
@@ -128,7 +128,7 @@
                         </div>
 
                         <div>
-                            <p class="h6 ps-3">package for ?</p>
+                            <p class="h6 ps-3">Package Type</p>
                         </div>
 
                         <div class=" d-flex">
@@ -180,7 +180,7 @@
 
                         <div class="ms-3 mt-4">
                             <button name="submit" type="submit" class="btn btn-secondary">
-                                Update
+                                Submit
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-arrow-right-circle-fill ps-1"
                                     viewBox="0 0 16 16">

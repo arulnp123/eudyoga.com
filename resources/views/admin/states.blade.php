@@ -49,7 +49,7 @@
                                  <div class="modal-dialog modal-md">
                                     <div class="modal-content">
                                        <div class="modal-header">
-                                          <h4 class="modal-title">Edit Zones Details</h4>
+                                          <h4 class="modal-title">Edit States Details</h4>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                           </button>
@@ -61,7 +61,7 @@
 
                                              <div class="form-group">
                                                 <label for="state_name">State Name</label>
-                                                <input type="text" value="{{ $stateslist->state_name }}" class="form-control"  name="state" id="state" placeholder="State Name">
+                                                <input type="text" value="{{ $stateslist->state_name }}" class="form-control"  name="state_name" id="state_name" placeholder="State Name">
                                              </div>
                                              <div class="form-group">
                                                 <label>Status</label>
@@ -71,6 +71,7 @@
                                                 </select>
                                              </div>
                                           </div>
+                                          
                                           <div class="modal-footer justify-content-between">
                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                              <button id="save" type="submit" class="btn btn-primary">Submit</button>
@@ -111,18 +112,17 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"> States</h5>
+            <h5 class="modal-title" id="exampleModalLabel"> States </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <form action="{{ url('/addstate') }}" method="post">
             {{ csrf_field() }}
-    <div class="modal-body">
-                                             <div class="form-group">
-                                                <label for="state_name">State Name</label>
-                                                <input type="text" class="form-control"  name="state_name" id="state_name" placeholder="State Name">
-                                             </div>
-                                           
-                                          </div>
+                      <div class="modal-body">
+                          <div class="form-group">
+                          <label for="state_name">State Name</label>
+                          <input type="text" class="form-control" name="state_name" id="state_name" placeholder="State Name">
+                          </div>
+                      </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                <button type="submit" class="btn btn-primary">Save changes</button>
