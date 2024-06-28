@@ -296,8 +296,8 @@ Route::get('/add_jobshifts', [App\Http\Controllers\Admin\AdminController::class,
 //Country
 Route::get('/list_country_details', [App\Http\Controllers\Admin\AdminController::class, 'list_country_details'])->name('list_country_details');
 Route::get('/view_country_details/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country_details'])->name('view_country_details');
-Route::get('/edit_country_details/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_country_details'])->name('edit_country_details');
-
+Route::get('/edit_country_details/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_country_details'])->name('edit_country_details');
+Route::get('delete_country_details/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_country_details'])->name('delete_country_details');
 Route::get('/add_country', [App\Http\Controllers\Admin\AdminController::class, 'add_country'])->name('add_country');
 Route::post('/save_country',[App\Http\Controllers\Admin\AdminController::class,'save_country'])->name('save_country');
 Route::get('/view_country/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country'])->name('view_country');
