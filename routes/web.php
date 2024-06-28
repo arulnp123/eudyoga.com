@@ -279,7 +279,7 @@ Route::get('/list_new_types', [App\Http\Controllers\Admin\AdminController::class
 
 
 Route::get('/site_settings', [App\Http\Controllers\Admin\AdminController::class, 'site_settings'])->name('site_settings');
-Route::get('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
+Route::post('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
 Route::get('/add_state', [App\Http\Controllers\Admin\AdminController::class, 'add_state'])->name('add_state');
 Route::get('/add_city', [App\Http\Controllers\Admin\AdminController::class, 'add_city'])->name('add_city');
 Route::get('/add_package', [App\Http\Controllers\Admin\AdminController::class, 'add_package'])->name('add_package');
@@ -293,6 +293,9 @@ Route::get('/add_jobshifts', [App\Http\Controllers\Admin\AdminController::class,
 
 //Country
 Route::get('/list_country_details', [App\Http\Controllers\Admin\AdminController::class, 'list_country_details'])->name('list_country_details');
+Route::get('/view_country_details/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country_details'])->name('view_country_details');
+Route::get('/edit_country_details/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_country_details'])->name('edit_country_details');
+
 Route::get('/add_country', [App\Http\Controllers\Admin\AdminController::class, 'add_country'])->name('add_country');
 Route::post('/save_country',[App\Http\Controllers\Admin\AdminController::class,'save_country'])->name('save_country');
 Route::get('/view_country/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country'])->name('view_country');
