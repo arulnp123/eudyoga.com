@@ -79,7 +79,7 @@
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="id" class="form-label">Title</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="id" id="package_title"
+                                                                        name="package_title" id="package_title"
                                                                         placeholder="package_title"
                                                                         value="{{ $edit->package_title }}">
                                                                 </div>
@@ -87,7 +87,7 @@
                                                                     <label for="package_price" class="form-label">Price
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_price"
+                                                                        name="package_price" id="package_price"
                                                                         placeholder=" package_price"
                                                                         value="{{ $edit->package_price }}">
                                                                 </div>
@@ -95,7 +95,7 @@
                                                                     <label for="package_num_days" class="form-label">Num Days
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_num_days"
+                                                                        name="package_num_days" id="package_num_days"
                                                                         placeholder=" package_num_days"
                                                                         value="{{ $edit->package_num_days }}">
                                                                 </div>
@@ -103,7 +103,7 @@
                                                                     <label for="package_num_listings" class="form-label">Num Listening
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_num_listings"
+                                                                        name="package_num_listings" id="package_num_listings"
                                                                         placeholder=" package_num_listings"
                                                                         value="{{ $edit->package_num_listings }}">
                                                                 </div>
@@ -111,7 +111,7 @@
                                                                     <label for="package_for" class="form-label">Packages For
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_for"
+                                                                        name="package_for" id="package_for"
                                                                         placeholder=" package_for"
                                                                         value="{{ $edit->package_for }}">
                                                                 </div>

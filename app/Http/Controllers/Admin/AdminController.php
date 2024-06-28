@@ -1344,8 +1344,6 @@ public function add_packages(Request $request) {
             'Package_num_listings'=>$request->Package_num_listings
 
     ] );
-
-
    return redirect()->route('list_packages')->withMessage('Package Successfully Added !');
     }
 public function view_packages($id){
@@ -1356,6 +1354,15 @@ public function edit_packages($id){
         $edit_packages = DB::table('packages')->where('id', '=', $id)->get();
         return view( 'admin/edit_packages', compact('edit_packages'));
     }
+public function update_packages(Request $request){
+        $update_packages = DB::table('packages')->where('id', $request->id)->update([
+            'package_title'=>$request->package_title,
+            'package_price'=>$request->package_price,
+            'Package_num_days'=>$request->Package_num_days,
+            'Package_num_listings'=>$request->Package_num_listings,
+       ]);
+       return redirect()->route('list_packages')->withMessage('Package Successfully updated !');
+}
 public function delete_packages( $id ){
         $delete_packages = DB::table('packages')->where( 'id', $id )->delete();
        return redirect()->route('list_packages')->withMessage('packages Successfully Deleted !');

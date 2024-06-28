@@ -59,7 +59,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link active " aria-current="page" href="#">
-                                Deatails
+                                Details
                             </a>
                         </li>
 
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="input-group  p-2">
-                            <select name="lang" id="lang" required class="form-control form-select"
+                            <select name="language_level" id="language_level" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value="" selected>Select Career Level</option>
                                 @foreach ($get_language_levels as $key => $get_language_levels_list)
@@ -105,9 +105,9 @@
                             <p class="h6 ps-3">is default ?</p>
 
                         </div>
-                        <div class=" d-flex">
-                            <div class="form-check ms-3 ">
-                                <label class="form-check-label " for="is_default">
+                        <div class="d-flex">
+                            <div class="form-check ms-3">
+                                <label class="form-check-label" for="is_default">
                                     <input type="radio" @if ($get_language_level->is_default == 1) checked @endif
                                         name="is_default" id="is_default2" value="1">
                                     Yes

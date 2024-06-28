@@ -111,7 +111,14 @@
                                                                         placeholder="package_for " value="{{ $edit->package_for }}"
                                                                         readonly>
                                                                 </div>
-
+                                                                <div class="col-12">
+                                                                    <div class="d-flex align-items-center gap-3">
+                                                                        
+                                                                        <button class="btn btn-secondary px-4"><a
+                                                                                href="{{ url('list_packages') }}">Back to
+                                                                                Packages list</a></button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!---end row-->
