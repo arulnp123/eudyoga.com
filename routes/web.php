@@ -252,6 +252,7 @@ Route::get('/advertisement', [App\Http\Controllers\Admin\AdminController::class,
 
 Route::get('/list_seo', [App\Http\Controllers\Admin\AdminController::class, 'list_seo'])->name('list_seo');
 Route::get('/view_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_seo'])->name('view_seo');
+Route::post('/update_seo', [App\Http\Controllers\Admin\AdminController::class, 'update_seo'])->name('update_seo');
 Route::get('/edit_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_seo'])->name('edit_seo');
 Route::get('/delete_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_seo'])->name('delete_seo');
 

@@ -20,7 +20,7 @@
                                 <li class="breadcrumb-item active" aria-current="page"><a
                                         href="{{ url('list_testimonial') }}"> Testimonial 
                                     </a></li>
-                                <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;">Add
+                                <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;">Edit
 									Testimonial </li>
                             </ol>
                         </nav>
@@ -58,7 +58,7 @@
 
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{ url('save_testimonial') }}" method="POST">
+                    <form action="{{ url('update_testimonial') }}" method="POST">
                         @csrf
                         <div class="input-group mb-2 p-2">
 							<select name="lang" id="lang" required class="form-control form-select"

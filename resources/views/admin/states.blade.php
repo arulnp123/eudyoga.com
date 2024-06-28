@@ -39,7 +39,7 @@
                      @foreach ($states as $stateslist)
                      <tr>
                         <td>{{ $stateslist->id }}</td>
-                        <td>{{ $stateslist->state }}</td>
+                        <td>{{ $stateslist->state_name }}</td>
                         <td>
 						  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#Editstate{{ $stateslist->id }}">Edit</button>
 
@@ -61,13 +61,13 @@
 
                                              <div class="form-group">
                                                 <label for="state_name">State Name</label>
-                                                <input type="text" value="{{ $stateslist->state }}" class="form-control"  name="state" id="state" placeholder="State Name">
+                                                <input type="text" value="{{ $stateslist->state_name }}" class="form-control"  name="state" id="state" placeholder="State Name">
                                              </div>
                                              <div class="form-group">
                                                 <label>Status</label>
                                                 <select name="status" class="form-control select2" style="width: 100%;">
-                                                <option @if($stateslist->state == "Active") selected @endif value="Active">Active</option>
-                                                <option @if($stateslist->state == "Inactive") selected @endif value="Inactive">Inactive</option>
+                                                <option @if($stateslist->state_name == "Active") selected @endif value="Active">Active</option>
+                                                <option @if($stateslist->state_name == "Inactive") selected @endif value="Inactive">Inactive</option>
                                                 </select>
                                              </div>
                                           </div>

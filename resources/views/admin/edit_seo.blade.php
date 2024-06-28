@@ -78,255 +78,43 @@
                                                         <div class="col-12 col-lg-6">
                                                             <label for="page_title" class="form-label">Page Title</label>
                                                             <input type="text" class="form-control" name="page_title"
-                                                                id="page_title" placeholder="page title"
-                                                                value="{{ $seo->page_title }}" readonly>
+                                                                id="page_title" placeholder="page title" value="{{ $edit_seo->page_title }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="seo_title" class="form-label">Seo Title</label>
                                                             <input type="text" class="form-control" name="seo_title"
                                                                 id="seo_title" placeholder="seo title"
-                                                                value="{{ $seo->seo_title }}" readonly>
+                                                                value="{{ $edit_seo->seo_title }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <div class="col-12 col-lg-6">
                                                                 <label for="seo_description" class="form-label">Seo Description</label>
-                                                                <textarea class="form-control" name="seo_description" id="seo_description" placeholder="seo description" rows="3"
-                                                                    readonly>{{ $seo->seo_description }}</textarea>
+                                                                <textarea class="form-control" name="seo_description" id="seo_description" placeholder="seo description" rows="3">{{ $edit_seo->seo_description }}</textarea>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="seo_keywords" class="form-label">Seo Keywords</label>
-                                                            <input type="text" class="form-control" name="seo_title"
-                                                                id="seo_keywords" placeholder="seo keywords"
-                                                                value="{{ $seo->seo_keywords }}" readonly>
+                                                            <textarea class="form-control" name="seo_keywords" id="seo_keywords" placeholder="seo keywords" rows="3">{{ $edit_seo->seo_keywords }}</textarea>
+
                                                         </div>
 
                                                         <div class="col-12 col-lg-6">
                                                             <label for=" seo_other" class="form-label">Seo Other</label>
                                                             <input type="text" class="form-control" name="seo_title"
                                                                 id=" seo_other" placeholder=" seo other"
-                                                                value="{{ $seo-> seo_other }}" readonly>
+                                                                value="{{ $edit_seo->seo_other }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="created_at" class="form-label">created at</label>
                                                             <input type="text" class="form-control" name="created_at"
                                                                 id="created_at" placeholder="created_at"
-                                                                value="{{ $seo->created_at }}" readonly>
+                                                                value="{{ $edit_seo->created_at }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="updated_at" class="form-label">updated_at</label>
                                                             <input type="text" class="form-control" name="updated_at"
                                                                 id="updated_at" placeholder="updated at"
-                                                                value="{{ $seo->updated_at }}" readonly>
+                                                                value="{{ $edit_seo->updated_at }}">
                                                         </div>
 
-                                                        <div class="col-12 col-lg-6">
-                                                            <button class="btn btn-light px-4" type="button"
-                                                                onclick="stepper2.next()">Next<i
-                                                                    class='bx bx-right-arrow-alt ms-2'></i></button>
-                                                        </div>
-                                                    </div><!---end row-->
-
-                                                </div>
-
-                                                
-
-                                                <div id="test-nl-3" role="tabpanel" class="bs-stepper-pane"
-                                                    aria-labelledby="stepper2trigger3">
-                                                    <h5 class="mb-1">Enter Your Details</h5>
-
-                                                    <div class="row g-3">
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="career_level" class="form-label">Career Level</label>
-                                                            <select name="career_level_id" id="career_level" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Career Level</option>
-                                                                @foreach ($careerlevels as $careerlevelslist)
-                                                                <option @if ($edit_jobs->career_level_id == $careerlevelslist->id) selected @endif
-                                                                    value="{{ $careerlevelslist->id }}">
-                                                                    {{ $careerlevelslist->career_level }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                            
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_from" class="form-label">Salary
-                                                                From</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_from" id="salary_from"
-                                                                placeholder="salary from"
-                                                                value="{{ $edit_jobs->salary_from }}">
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_to" class="form-label">Salary
-                                                                To</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_to" id="UniversityName"
-                                                                placeholder="Salary To"
-                                                                value="{{ $edit_jobs->salary_to }}">
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_currency" class="form-label">Salary
-                                                                Currency</label>
-                                                            <input type="text" class="form-control"
-                                                                name="salary_currency" id="UniversityName"
-                                                                placeholder="Salary Currency"
-                                                                value="{{ $edit_jobs->salary_currency }}">
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="salary_period" class="form-label">Salary Period</label>
-                                                            <select name="salary_period_id" id="salary_period" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Salary Period</option>
-                                                                @foreach ($salaryperiods as $salaryperiodslist)
-                                                                <option @if ($edit_jobs->salary_period_id == $salaryperiodslist->id) selected @endif
-                                                                    value="{{ $salaryperiodslist->id }}">
-                                                                    {{ $salaryperiodslist->salary_period }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                           
-                                                        </div>
-
-                                                        <div class="col-12">
-                                                            <div class="d-flex align-items-center gap-3">
-                                                                <button class="btn btn-outline-light px-4"
-                                                                    type="button" onclick="stepper2.previous()"><i
-                                                                        class='bx bx-left-arrow-alt me-2'></i>Previous</button>
-                                                                <button class="btn btn-light px-4" type="button"
-                                                                    onclick="stepper2.next()">Next<i
-                                                                        class='bx bx-right-arrow-alt ms-2'></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div><!---end row-->
-
-                                                </div>
-
-                                                <div id="test-nl-4" role="tabpanel" class="bs-stepper-pane"
-                                                    aria-labelledby="stepper2trigger4">
-                                                    <h5 class="mb-1">Enter Your Details</h5>
-
-                                                    <div class="row g-3">
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="functional_area" class="form-label">Functional Area</label>
-                                                            <select name="functional_area_id" id="functional_area" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Functional Area</option>
-                                                                @foreach ($functionalareas as $functionalareaslist)
-                                                                <option @if ($edit_jobs->functional_area_id == $functionalareaslist->id) selected @endif
-                                                                    value="{{ $functionalareaslist->id }}">
-                                                                    {{ $functionalareaslist->functional_area }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                           
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="job_type" class="form-label">Job
-                                                                Type</label>
-                                                            <select name="job_type_id" id="job_type" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Job
-                                                                    Type</option>
-                                                                @foreach ($jobtypes as $jobtypeslist)
-                                                                <option @if ($edit_jobs->job_type_id == $jobtypeslist->id) selected @endif
-                                                                    value="{{ $jobtypeslist->id }}">
-                                                                    {{ $jobtypeslist->job_type }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                            
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="job_shift" class="form-label">Job
-                                                                Shift</label>
-                                                            <select name="job_shift_id" id="job_shift" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Job
-                                                                    Shift</option>
-                                                                @foreach ($jobshifts as $jobshiftslist)
-                                                                <option @if ($edit_jobs->job_shift_id == $jobshiftslist->id) selected @endif
-                                                                    value="{{ $jobshiftslist->id }}">
-                                                                    {{ $jobshiftslist->job_shift }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                           
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="num_of_positions" class="form-label">Position</label>
-                                                            <select name="num_of_positions" id="num_of_positions" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Position</option>
-                                                                @foreach ($roles as $roleslist)
-                                                                <option @if ($edit_jobs->num_of_positions == $roleslist->id) selected @endif
-                                                                    value="{{ $roleslist->id }}">
-                                                                    {{ $roleslist->role_name }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                            
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="gender" class="form-label">Gender</label>
-                                                            <select name="gender_id" id="gender" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Gender</option>
-                                                                @foreach ($genders as $genderslist)
-                                                                <option @if ($edit_jobs->gender_id == $genderslist->id) selected @endif
-                                                                    value="{{ $genderslist->id }}">
-                                                                    {{ $genderslist->gender }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                           
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="expiry_date" class="form-label">Job expiry
-                                                                date</label>
-                                                            <input type="text" class="form-control"
-                                                                name="expiry_date" id="PhoneNumber"
-                                                                placeholder="Job expiry date"
-                                                                value="{{ $edit_jobs->expiry_date }}">
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="degree_level" class="form-label">Required Degree Level</label>
-                                                            <select name="degree_level_id" id="degree_level" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Required Degree Level</option>
-                                                                @foreach ($degreelevels as $degreelevelslist)
-                                                                <option @if ($edit_jobs->degree_level_id == $degreelevelslist->id) selected @endif
-                                                                    value="{{ $degreelevelslist->id }}">
-                                                                    {{ $degreelevelslist->degree_level }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                            
-                                                        </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="job_experience" class="form-label">Required job
-                                                                experience</label>
-                                                            <select name="job_experience_id" id="job_experience" required
-                                                                class="form-control form-select"
-                                                                aria-label="Default select example">
-                                                                <option value="" selected>Functional Area</option>
-                                                                @foreach ($jobexperiences as $jobexperienceslist)
-                                                                <option @if ($edit_jobs->job_experience_id == $jobexperienceslist->id) selected @endif
-                                                                    value="{{ $jobexperienceslist->id }}">
-                                                                    {{ $jobexperienceslist->job_experience }}
-                                                                </option>
-                                                            @endforeach
-                                                            </select>
-                                                           
-                                                        </div>
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
                                                                 <button class="btn btn-light px-4" type="button"
@@ -339,6 +127,7 @@
                                                     </div><!---end row-->
 
                                                 </div>
+    
 
                                             </form>
                                         {{-- @endforeach --}}
