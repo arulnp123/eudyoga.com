@@ -70,11 +70,11 @@
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class="lni lni-eye"></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('view_country_details', $memb->id) }}"><i class="lni lni-eye"></i>
                           </button>
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class='bx bx-edit me-0'></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/editcountry__details') }}"><i class='bx bx-edit me-0'></i>
                           </button>
-                          <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
+                           <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
                             href="{{ url('/deleteuser') }}"><i class="lni lni-trash"></i></a></button>
                          
                         
