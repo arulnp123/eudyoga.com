@@ -1318,11 +1318,11 @@ public function list_packages(){
     $packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_packages', compact( 'packages' ));
 }
-public function add_packages(){
+public function add_package(){
     $add_packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_packages',compact('add_packages'));
 }
-public function add_package(Request $request) {
+public function add_packages(Request $request) {
     $add_packages = DB::table( 'packages' )->insert( [
         'package_title'=>$request->package_title,
             'package_price'=>$request->package_price,
@@ -1332,7 +1332,7 @@ public function add_package(Request $request) {
     ] );
 
 
-   return redirect()->route('list_packages')->withMessage('packages Successfully Added !');
+   return redirect()->route('list_packages')->withMessage('Package Successfully Added !');
     }
 public function view_packages($id){
         $view_packages = DB::table('packages')->where('id', '=', $id)->get();

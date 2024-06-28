@@ -43,7 +43,41 @@
 					    <td>
 						  <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#Editcity{{ $citylist->id }}">Edit</button>
 
+                    <div class="modal fade" id="Editstate{{ $citylist->id }}">
+                     <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h4 class="modal-title">Edit City Details</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                           </div>
+                           <form action="{{url('/updatecity')}}" method="post">
+                              {{ csrf_field() }}
+                              <div class="modal-body">
+                                <input type="hidden" value="{{ $citylist->id }}" name="city_id">
 
+                                 <div class="form-group">
+                                    <label for="city">City Name</label>
+                                    <input type="text" value="{{ $citylist->city }}" class="form-control"  name="city" id="city" placeholder="city">
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control select2" style="width: 100%;">
+                                    <option @if($citylist->city == "Active") selected @endif value="Active">Active</option>
+                                    <option @if($citylist->city == "Inactive") selected @endif value="Inactive">Inactive</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              
+                              <div class="modal-footer justify-content-between">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                 <button id="save" type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
 						  
                               
 
@@ -78,7 +112,7 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"> States</h5>
+            <h5 class="modal-title" id="exampleModalLabel"> City </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <form action="{{ url('/addcity') }}" method="post">
@@ -88,7 +122,7 @@
 			     {{-- <input type="hidden" value="{{ $city_id }}" name="state_id"> --}}
                <div class="form-group">
                 <label for="city_name">City Name</label>
-                   <input type="text" class="form-control"  name="city" placeholder="City">
+                   <input type="text" class="form-control" name="city" placeholder="City">
                   </div>
                </div>
             <div class="modal-footer">
