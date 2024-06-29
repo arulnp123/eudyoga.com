@@ -65,11 +65,12 @@
                                             <div class="bs-stepper-content">
                                                 @foreach ($edit_packages as $key => $edit)
                                                     <form class="row g-3" method="post"
-                                                        action="{{ url('/update_packages') }}"
-                                                        enctype="multipart/form-data">
+                                                        action="{{ url('/update_packages') }}" enctype="multipart/form-data">
+                                                        <input value="{{ $edit->id }}" type="hidden" name="id" id="id"/>
+
                                                         @csrf
-                                                        {{-- <input type="hidden" id="id"
-                                                            name="id"value="{{ $edit->id }}"> --}}
+                                                        
+                                                       
                                                         <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                             aria-labelledby="stepper2trigger1">
                                                             <h5 class="mb-1">Enter Your Details</h5>
@@ -88,16 +89,14 @@
                                                                         </label>
                                                                     <input type="text" class="form-control"
                                                                         name="package_price" id="package_price"
-                                                                        placeholder=" package_price"
+                                                                        placeholder="package_price"
                                                                         value="{{ $edit->package_price }}">
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="package_num_days" class="form-label">Num Days
                                                                         </label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_num_days" id="package_num_days"
-                                                                        placeholder=" package_num_days"
-                                                                        value="{{ $edit->package_num_days }}">
+                                                                    <input type="text" class="form-control" name="package_num_days" id="package_num_days"
+                                                                        placeholder="package_num_days" value="{{ $edit->package_num_days }}">
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="package_num_listings" class="form-label">Num Listening

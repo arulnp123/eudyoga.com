@@ -61,7 +61,6 @@ public function updatestate(Request $request)
 public function addcity(Request $request)
 {
     DB::table('cities')->insert([
-        'state_id' => $request->state_id,
         'city' => $request->city,
         'status' => 'Active'
     ]);
@@ -70,18 +69,18 @@ public function addcity(Request $request)
 
 public function updatecity(Request $request)
 {
-    DB::table('cities')->where('id',$request->id)->update([
+    DB::table('cities')->where('id',$request->city_id)->update([
         'city' => $request->city,
         'status' => $request->status,
     ]);
-    return redirect()->back()->with('success', 'update cities Successfully ... !');
+    return redirect()->back()->with('success', 'update cities Successfully...!');
 }
 
 
     public function deletecity($id)
     {
         $deleteimage = DB::table('cities')->where('id', $id)->delete();
-    	return redirect()->back()->with('success', 'delete cities Successfully ... !');
+    	return redirect()->back()->with('success', 'delete cities Successfully... !');
     }
 
 public function checkadminlogin(Request $request){
@@ -1592,6 +1591,7 @@ public function add_language_level(){
 public function sort_language_level(){
     return view( 'admin/sort_language_level');
 }
+
 public function list_language_level(){
     $get_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_language_level', compact( 'get_language_level' ));
