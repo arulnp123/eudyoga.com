@@ -31,8 +31,7 @@
                         <div class=" caption"> <i class="icon-settings font-dark"></i> <span
                                 class="caption-subject font-dark sbold uppercase">Language Level</span> </div>
                         <div class="actions"> <a href="{{ url('add_language_level') }}"
-                                class="btn btn-xs btn-success mb-2"><i class="glyphicon glyphicon-plus "></i> Add New
-                                Language Level</a>
+                                class="btn btn-xs btn-success mb-2"><i class="glyphicon glyphicon-plus "></i> List Language Level</a>
                         </div>
                     </div>
                 </div>
@@ -83,10 +82,8 @@
                                     </td>
 
                                 </tr>
-
-
-                        </tbody>
                         @endforeach
+                    </tbody>
                     </table>
                 </div>
             </div>

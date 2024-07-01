@@ -89,3 +89,6 @@ alter table industries drop industry_id;
 24/06/2024
 
 ALTER TABLE `companies` ADD `hr_name` VARCHAR(50) NULL DEFAULT NULL AFTER `c_name`;
+
+alter table cities drop state_id;
+ALTER TABLE `cities` ADD `state_id` int(10) NULL DEFAULT NULL AFTER `id`;

@@ -97,9 +97,9 @@
                                                         </div>
 
                                                         <div class="col-12 col-lg-6">
-                                                            <label for=" seo_other" class="form-label">Seo Other</label>
+                                                            <label for="seo_other" class="form-label">Seo Other</label>
                                                             <input type="text" class="form-control" name="seo_title"
-                                                                id=" seo_other" placeholder=" seo other"
+                                                                id="seo_other" placeholder=" seo other"
                                                                 value="{{ $edit_seo->seo_other }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">

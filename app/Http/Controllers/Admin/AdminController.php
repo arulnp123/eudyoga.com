@@ -61,7 +61,6 @@ public function updatestate(Request $request)
 public function addcity(Request $request)
 {
     DB::table('cities')->insert([
-        'state_id' => $request->state_id,
         'city' => $request->city,
         'status' => 'Active'
     ]);
@@ -70,18 +69,18 @@ public function addcity(Request $request)
 
 public function updatecity(Request $request)
 {
-    DB::table('cities')->where('id',$request->id)->update([
+    DB::table('cities')->where('id',$request->city_id)->update([
         'city' => $request->city,
         'status' => $request->status,
     ]);
-    return redirect()->back()->with('success', 'update cities Successfully ... !');
+    return redirect()->back()->with('success', 'update cities Successfully...!');
 }
 
 
     public function deletecity($id)
     {
         $deleteimage = DB::table('cities')->where('id', $id)->delete();
-    	return redirect()->back()->with('success', 'delete cities Successfully ... !');
+    	return redirect()->back()->with('success', 'delete cities Successfully... !');
     }
 
 public function checkadminlogin(Request $request){
@@ -1343,8 +1342,6 @@ public function add_packages(Request $request) {
             'Package_num_listings'=>$request->Package_num_listings
 
     ] );
-
-
    return redirect()->route('list_packages')->withMessage('Package Successfully Added !');
     }
 public function view_packages($id){
@@ -1355,6 +1352,15 @@ public function edit_packages($id){
         $edit_packages = DB::table('packages')->where('id', '=', $id)->get();
         return view( 'admin/edit_packages', compact('edit_packages'));
     }
+public function update_packages(Request $request){
+        $update_packages = DB::table('packages')->where('id', $request->id)->update([
+            'package_title'=>$request->package_title,
+            'package_price'=>$request->package_price,
+            'Package_num_days'=>$request->Package_num_days,
+            'Package_num_listings'=>$request->Package_num_listings,
+       ]);
+       return redirect()->route('list_packages')->withMessage('Package Successfully updated !');
+}
 public function delete_packages( $id ){
         $delete_packages = DB::table('packages')->where( 'id', $id )->delete();
        return redirect()->route('list_packages')->withMessage('packages Successfully Deleted !');
@@ -1582,6 +1588,7 @@ public function sort_language_level(){
     $sort_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/sort_language_level',compact('sort_language_level'));
 }
+
 public function list_language_level(){
     $list_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_language_level',compact('list_language_level'));

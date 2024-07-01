@@ -65,11 +65,12 @@
                                             <div class="bs-stepper-content">
                                                 @foreach ($edit_packages as $key => $edit)
                                                     <form class="row g-3" method="post"
-                                                        action="{{ url('/update_packages') }}"
-                                                        enctype="multipart/form-data">
+                                                        action="{{ url('/update_packages') }}" enctype="multipart/form-data">
+                                                        <input value="{{ $edit->id }}" type="hidden" name="id" id="id"/>
+
                                                         @csrf
-                                                        {{-- <input type="hidden" id="id"
-                                                            name="id"value="{{ $edit->id }}"> --}}
+                                                        
+                                                       
                                                         <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                             aria-labelledby="stepper2trigger1">
                                                             <h5 class="mb-1">Enter Your Details</h5>
@@ -79,7 +80,7 @@
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="id" class="form-label">Title</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="id" id="package_title"
+                                                                        name="package_title" id="package_title"
                                                                         placeholder="package_title"
                                                                         value="{{ $edit->package_title }}">
                                                                 </div>
@@ -87,23 +88,21 @@
                                                                     <label for="package_price" class="form-label">Price
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_price"
-                                                                        placeholder=" package_price"
+                                                                        name="package_price" id="package_price"
+                                                                        placeholder="package_price"
                                                                         value="{{ $edit->package_price }}">
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="package_num_days" class="form-label">Num Days
                                                                         </label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="title" id="package_num_days"
-                                                                        placeholder=" package_num_days"
-                                                                        value="{{ $edit->package_num_days }}">
+                                                                    <input type="text" class="form-control" name="package_num_days" id="package_num_days"
+                                                                        placeholder="package_num_days" value="{{ $edit->package_num_days }}">
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="package_num_listings" class="form-label">Num Listening
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_num_listings"
+                                                                        name="package_num_listings" id="package_num_listings"
                                                                         placeholder=" package_num_listings"
                                                                         value="{{ $edit->package_num_listings }}">
                                                                 </div>
@@ -111,7 +110,7 @@
                                                                     <label for="package_for" class="form-label">Packages For
                                                                         </label>
                                                                     <input type="text" class="form-control"
-                                                                        name="title" id="package_for"
+                                                                        name="package_for" id="package_for"
                                                                         placeholder=" package_for"
                                                                         value="{{ $edit->package_for }}">
                                                                 </div>
