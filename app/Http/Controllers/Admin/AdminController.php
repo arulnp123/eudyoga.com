@@ -1229,6 +1229,19 @@ public function view_country_details($id){
     $view_country_details = DB::table('countries_details')->where('id', '=', $id)->get();
     return view('admin/view_country_details', compact( 'view_country_details' ));
 }
+public function edit_country_details($id){
+    $edit_country_details = DB::table('countries_details')->where('id', '=', $id)->get();
+    $get_country_id = DB::table('countries_details')->get();
+    $get_sort_name = DB::table('countries_details')->get();
+    $get_phone_code = DB::table('countries_details')->get();
+    $get_currency = DB::table('countries_details')->get();
+    $get_code = DB::table('countries_details')->get();
+    $get_symbol = DB::table('countries_details')->get();
+    $get_thousand_separator = DB::table('countries_details')->get();
+    $get_decimal_separator= DB::table('countries_details')->get();
+
+    return view( 'admin/edit_country_details', compact('edit_country_details','get_country_id','get_sort_name','get_phone_code','get_currency','get_code','get_symbol','get_thousand_separator','get_decimal_separator'));
+}
 
 
 
@@ -1310,12 +1323,6 @@ public function delete_functional_areas( $id ){
         $delete_functional_areas = DB::table('functional_areas')->where( 'id', $id )->delete();
        return redirect()->route('list_functional_areas')->withMessage('Functional Areas Successfully Deleted !');
     }
-
-
-
-
-
-
 
 
 
@@ -1526,17 +1533,6 @@ public function sort_job_types(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 public function site_settings(){
     return view( 'admin/site_settings');
 }
@@ -1579,44 +1575,47 @@ public function add_job_skill(){
 
 // LANGUAGE LEVEL START
 public function add_language_level(){
-    $get_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
-    return view( 'admin/add_language_level',compact('get_language_level'));
+    $add_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
+    return view( 'admin/add_language_level',compact('add_language_level'));
 }
 public function sort_language_level(){
-    return view( 'admin/sort_language_level');
+    $sort_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
+    return view( 'admin/sort_language_level',compact('sort_language_level'));
 }
 public function list_language_level(){
-    $get_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
-    return view('admin/list_language_level', compact( 'get_language_level' ));
+    $list_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
+    return view('admin/list_language_level',compact('list_language_level'));
 }
-public function save_language_level(Request $request){
-    $get_language_level = DB::table('language_levels')->insert([
+public function view_language_level($id){
+    $view_language_level = DB::table('languages')->where('id', '=', $id)->get();
+    return view('admin/view_language_level', compact( 'view_language_level' ));
+}
+
+  public  function save_language_level(Request $request){
+    $add_language_level = DB::table('language_levels')->insert([
         'lang'            => $request -> lang,
         'language_level'  => $request -> language_level,
         'is_default'      => $request -> is_default,
-        'is_active'       => $request -> is_active
+        'is_active'       => $request -> is_active,
     ]);
     return redirect()->route('list_language_level')->withMessage('Language Level Successfully Added...!');
 }
-public function edit_language_level($id){
-    $get_language_level = DB::table('language_levels')->where('id', '=', $id)->first();
+ public function edit_language_level($id){
+    $edit_language_level = DB::table('language_levels')->where('id', '=', $id)->first();
     $get_language_levels = DB::table('language_levels')->get();
-    return view( 'admin/edit_language_level', compact('get_language_level','get_language_levels'));
+    return view( 'admin/edit_language_level', compact('edit_language_level','get_language_levels'));
 }
-public function update_language_level(Request $request){
-    $get_language_level = DB::table('language_levels')->where('id', $request->id)->update([
+ public function update_language_level(Request $request){
+    $update_language_level = DB::table('language_levels')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
         'language_level'  => $request -> language_level,
         'is_default'      => $request -> is_default,
-        'is_active'       => $request -> is_active
+        'is_active'       => $request -> is_active,
     ]);
     return redirect()->route('list_language_level')->withMessage('Language Level Successfully updated...!');
 }
-public function view_language_level($id){
-    $get_language_level = DB::table('language_levels')->where('id' , '=' , $id)->get();
-    return view('admin/view_language_level',compact('get_language_level'));
-}
-public function delete_language_level($id){
+
+ function delete_language_level($id){
     $get_language_level = DB::table('language_levels')->where('id' , $id)->delete();
     return redirect()->route('list_language_level')->withMessage('Language Level Successfully Deleted...!');
 }
@@ -1625,19 +1624,19 @@ public function delete_language_level($id){
 
 
 // CARRER LEVEL START
-public function add_carrer_level(){
+ function add_carrer_level(){
     $get_career_levels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_carrer_level',compact('get_career_levels'));
 }
-public function sort_carrer_level(){
+ function sort_carrer_level(){
     $get_career_levels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/sort_carrer_level',compact('get_career_levels'));
 }
-public function list_carrer_level(){
+ function list_carrer_level(){
     $get_career_levels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_carrer_level', compact( 'get_career_levels' ));
 }
-public function save_carrer_level(Request $request){
+ function save_carrer_level(Request $request){
     $get_career_levels = DB::table('career_levels')->insert([
         'lang'            => $request -> lang,
         'career_level'    => $request -> career_level,
@@ -1646,12 +1645,12 @@ public function save_carrer_level(Request $request){
     ]);
     return redirect()->route('list_carrer_level')->withMessage('Carrer Level Successfully Added...!');
 }
-public function edit_carrer_level($id){
+ function edit_carrer_level($id){
     $get_career_levels = DB::table('career_levels')->where('id', '=', $id)->first();
     $get_career = DB::table('career_levels')->get();
     return view( 'admin/edit_carrer_level', compact('get_career_levels','get_career'));
 }
-public function update_carrer_level(Request $request){
+ function update_carrer_level(Request $request){
     $get_career_levels = DB::table('career_levels')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
         'career_level'    => $request -> career_level,
@@ -1660,11 +1659,11 @@ public function update_carrer_level(Request $request){
     ]);
     return redirect()->route('list_carrer_level')->withMessage('Carrer Level Successfully updated...!');
 }
-public function view_carrer_level($id){
+ function view_carrer_level($id){
     $get_career_levels = DB::table('career_levels')->where('id' , '=' , $id)->get();
     return view('admin/view_carrer_level',compact('get_career_levels'));
 }
-public function delete_carrer_level($id){
+ function delete_carrer_level($id){
     $get_career_levels = DB::table('career_levels')->where('id' , $id)->delete();
     return redirect()->route('list_carrer_level')->withMessage('Carrer Levele Successfully Deleted...!');
 }
@@ -1676,8 +1675,8 @@ public function delete_carrer_level($id){
 
 
 
-// JOB EXPERIANCE START
-public function add_job_experiance(){
+// JOB EXPERIANCE START function add_job_experiance(){
+    public function add_job_experiance(){
     $add_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_job_experiance',compact('add_job_experiance'));
 

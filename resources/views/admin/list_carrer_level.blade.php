@@ -49,10 +49,11 @@
                                  <th>LANGUAGE</th>
                                  <th>Carrer Level</th>
                                  <th>Action</th>
-
+                                 
                              </tr>
+                             <tbody>
                          </thead>
-                         <tbody>
+                         
                              @foreach ($get_career_levels as $key => $career_levels_list)
                                  <tr>
                                      <td>{{ $key + 1 }}</td>

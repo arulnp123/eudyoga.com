@@ -71,8 +71,8 @@
                                 aria-label="Default select example">
                                 <option value=""> Select Id </option>
                                 @foreach ($job_types as $key => $job_typeslist)
-                                    <option value="{{ $job_typeslist->job_type_id }}">
-                                        {{ $job_typeslist->job_type_id }}</option>
+                                    <option value="{{ $job_typeslist->job_type }}">
+                                        {{ $job_typeslist->job_type }}</option>
                                 @endforeach
 
                             </select>
