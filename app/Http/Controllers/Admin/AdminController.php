@@ -1510,24 +1510,31 @@ public function sort_job_types(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 public function site_settings(){
-    return view( 'admin/site_settings');
+    $site_settings = DB::table('site_settings')->orderBy( 'id', 'Asc' )->get();
+    return view( 'admin/site_settings',compact('site_settings'));
 }
 
 
+public function view_site_settings($id){
+    $view_site_settings= DB::table('site_settings')->where('id', '=', $id)->get();
+    return view('admin/view_site_settings', compact( 'view_site_settings' ));
+}
+
+public function edit_site_settings(){
+    $edit_site_settings = DB::table('site_settings')->orderBy( 'id', 'Asc' )->get();
+    return view( 'admin/edit_site_settings',compact('edit_site_settings'));
+}
+
+public function update_site_settings(Request $request){
+    $update_site_settings = DB::table('site_settings')->where('id', $request->id)->update([
+    'industry_id'=>$request->industry_id,
+    'industry'=>$request->industry,
+    'lang'=>$request->lang
+
+   ]);
+   return redirect()->route('list_industries')->withMessage('industries Successfully updated !');
+}
 
 
 
