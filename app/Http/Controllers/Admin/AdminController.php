@@ -1496,7 +1496,7 @@ public function add_jobtypes(){
     return view( 'admin/add_jobtypes',compact('job_types'));
 }
 public function sort_jobtypes(){
-    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
+    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
             return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
 }
 
@@ -1519,7 +1519,7 @@ public function save_jobtypes(Request $request) {
     return redirect()->route('list_job_types')->withMessage('job types Successfully Added !');
         }
 public function sort_job_types(){
-    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
+    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
             return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
 }
 
@@ -1536,19 +1536,35 @@ public function view_site_settings($id){
     return view('admin/view_site_settings', compact( 'view_site_settings' ));
 }
 
-public function edit_site_settings(){
-    $edit_site_settings = DB::table('site_settings')->orderBy( 'id', 'Asc' )->get();
-    return view( 'admin/edit_site_settings',compact('edit_site_settings'));
+public function edit_site_settings(){    
+    $edit_site_settings = DB::table('site_settings')->where( 'id', '=', $id )->get();
+    return view('admin/edit_site_settings',compact('edit_site_settings'));
 }
 
 public function update_site_settings(Request $request){
     $update_site_settings = DB::table('site_settings')->where('id', $request->id)->update([
-    'industry_id'=>$request->industry_id,
-    'industry'=>$request->industry,
-    'lang'=>$request->lang
+    'site_name'=>$request->site_name,
+    'site_slogan'=>$request->site_slogan,
+    'site_phone_primary'=>$request->site_phone_primary,
+    'default_country_id'=>$request->default_country_id,
+    'default_currency_code'=>$request->default_currency_code,
+    'site_street_address'=>$request->site_street_address,
+    'site_google_map'=>$request->site_google_map,
+    'mail_driver'=>$request->mail_driver,
+    'mail_host'=>$request->mail_host,
+    'mail_port'=>$request->mail_port,
+    'mail_from_address'=>$request->mail_from_address,
+    'mail_from_name'=>$request->mail_from_name,
+    'mail_to_address'=>$request->mail_to_address,
+    'mail_to_name'=>$request->mail_to_name,
+    'mail_encryption'=>$request->mail_encryption,
+    'mail_username'=>$request->mail_username,
+    'mail_password'=>$request->mail_password,
+    'mail_sendmail'=>$request->mail_sendmail,
+    'mail_pretend'=>$request->mail_pretend,
 
    ]);
-   return redirect()->route('list_industries')->withMessage('industries Successfully updated !');
+   return redirect()->route('site_settings')->withMessage('Site Settings Successfully updated !');
 }
 
 

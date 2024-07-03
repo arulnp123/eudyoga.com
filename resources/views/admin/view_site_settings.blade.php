@@ -315,8 +315,8 @@
                                                                     onclick="stepper2.previous()"><i
                                                                         class='bx bx-left-arrow-alt me-2'></i>Previous</button>
                                                                 <button class="btn btn-secondary px-4"><a
-                                                                        href="{{ url('list_jobs') }}">Back to
-                                                                        Jobs list</a></button>
+                                                                        href="{{ url('site_settings') }}">Back to
+                                                                        Site Settings list</a></button>
                                                             </div>
                                                         </div>
                                                     </div>
