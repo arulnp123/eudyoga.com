@@ -82,14 +82,14 @@
                                                                 id="lang"
                                                                 value="{{ $view_degree_type_list->lang }}" readonly>
                                                         </div>
-                                                        <div class="col-12 col-lg-6">
+                                                       <!-- <div class="col-12 col-lg-6">
                                                             <label for="degree_level" class="form-label">Degree
                                                                 Level</label>
                                                             <input type="text" class="form-control"
                                                                 name="degree_level" id="degree_level"
-                                                                value="{{ $view_degree_type_list->degree_level }}"
+                                                                value=""
                                                                 readonly>
-                                                        </div>
+                                                        </div>-->
 
                                                         <div class="col-12 col-lg-6">
                                                             <label for="degree_type" class="form-label">Degree

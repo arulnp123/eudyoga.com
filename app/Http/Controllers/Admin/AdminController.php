@@ -1512,6 +1512,11 @@ public function add_jobtypes(){
     $job_types = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_jobtypes',compact('job_types'));
 }
+public function sort_jobtypes(){
+    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
+            return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
+}
+
 public function add_job_types(Request $request) {
     $add_jobs_types = DB::table( 'job_types' )->insert( [
         'job_type_id'=>$request->job_type_id,
@@ -1530,10 +1535,6 @@ public function save_jobtypes(Request $request) {
         ] );
     return redirect()->route('list_job_types')->withMessage('job types Successfully Added !');
         }
-public function sort_job_types(){
-    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
-            return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
-}
 
 
 
@@ -1784,6 +1785,7 @@ public function delete_job_skills($id){
 
 // JOB SKILL END
 
+
 // JOB SHIFT
 
 public function add_jobshifts(){
@@ -1905,7 +1907,6 @@ public function list_degree_types(){
 public function save_degree_types(Request $request){
     $save_degree_types = DB::table('degree_types')->insert([
         'lang'            => $request -> lang,
-        'degree_level'    => $request -> degree_level,
         'degree_type'     => $request -> degree_type,
         'is_default'      => $request -> is_default,
         'is_active'       => $request -> is_active
@@ -1924,10 +1925,9 @@ public function edit_degree_types($id){
 public function update_degree_types(Request $request){
     $update_degree_types = DB::table('degree_types')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
-        'degree_level'    => $request -> degree_level,
         'degree_type'     => $request -> degree_type,
         'is_default'      => $request -> is_default,
-        'is_active'       => $request -> is_active
+        'is_active'       => $request -> is_active,
     ]);
 
     return redirect()->route('list_degree_types')->withMessage('Degree Type Successfully updated...!');
@@ -1997,8 +1997,8 @@ public function list_result_types(){
     return view('admin/list_result_types', compact( 'listresult' ));
 }
 public function add_new_type(){
-    $addresult = DB::table('result_types')->orderBy('id','ASC')->get();
-    return view( 'admin/add_new_type',compact('addresult'));
+    $add_new_type = DB::table('result_types')->orderBy('id','ASC')->get();
+    return view( 'admin/add_new_type',compact('add_new_type'));
 }
 public function sort_result_types(){
 
