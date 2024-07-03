@@ -51,18 +51,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($companies as $key => $memb)
+                  @foreach($site_settings as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->name }}</td>
-                    <td>{{ $memb->email }}</td>
-                    <td>{{ $memb->email }}</td>
+                    <td>{{ $memb->site_name }}</td>
+                    <td>{{ $memb->mail_to_address }}</td>
+                    <td>{{ $memb->mail_to_name }}</td>
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class="lni lni-eye"></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/view_site_settings', $memb->id) }}"><i class="lni lni-eye"></i>
                           </button>
-                          <button type="button" class="btn btn-light"><a href="{{ url('/;') }}"><i class='bx bx-edit me-0'></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/edit_site_settings', $memb->id) }}"><i class='bx bx-edit me-0'></i>
                           </button>
                           <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
                             href="{{ url('/deleteuser') }}"><i class="lni lni-trash"></i></a></button>

@@ -280,11 +280,17 @@ Route::get('/list_new_types', [App\Http\Controllers\Admin\AdminController::class
 
 
 Route::get('/site_settings', [App\Http\Controllers\Admin\AdminController::class, 'site_settings'])->name('site_settings');
-//Route::post('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
+Route::get('/view_site_settings/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_site_settings'])->name('view_site_settings');
+Route::get('/edit_site_settings/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_site_settings'])->name('edit_site_settings');
+Route::post('/update_site_settings', [App\Http\Controllers\Admin\AdminController::class, 'update_site_settings'])->name('update_site_settings');
+
+
+
+
 Route::get('/add_state', [App\Http\Controllers\Admin\AdminController::class, 'add_state'])->name('add_state');
 
 Route::get('/add_city', [App\Http\Controllers\Admin\AdminController::class, 'add_city'])->name('add_city');
-Route::post('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
+Route::post('/save_packages', [App\Http\Controllers\Admin\AdminController::class, 'save_packages'])->name('save_packages');
 Route::get('/add_functional_area', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_area'])->name('add_functional_area');
 Route::get('/add_industries', [App\Http\Controllers\Admin\AdminController::class, 'add_industries'])->name('add_industries');
 Route::get('/add_job_types', [App\Http\Controllers\Admin\AdminController::class, 'add_job_types'])->name('add_job_types');
@@ -311,7 +317,7 @@ Route::post('/update_country',[App\Http\Controllers\Admin\AdminController::class
 
 
 // FAQs
-Route::get('/list_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
+Route::get('/adlist_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
 Route::get('/add_faqs', [App\Http\Controllers\Admin\AdminController::class, 'add_faqs'])->name('add_faqs');
 Route::post('/save_faqs',[App\Http\Controllers\Admin\AdminController::class,'save_faqs'])->name('save_faqs');
 Route::get('/sort_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_faqs'])->name('sort_faqs');

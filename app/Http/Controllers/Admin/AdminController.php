@@ -1320,15 +1320,15 @@ public function delete_functional_areas( $id ){
 
 //packages
 public function list_packages(){
-    $packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
+    $packages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_packages', compact( 'packages' ));
 }
 public function add_package(){
-    $add_packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
+    $add_packages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_packages',compact('add_packages'));
 }
-public function add_packages(Request $request) {
-    $add_packages = DB::table( 'packages' )->insert( [
+public function save_packages(Request $request) {
+    $save_packages = DB::table( 'packages' )->insert( [
         'package_title'=>$request->package_title,
             'package_price'=>$request->package_price,
             'Package_num_days'=>$request->Package_num_days,
@@ -1343,9 +1343,8 @@ public function view_packages($id){
         return view('admin/view_packages', compact( 'view_packages' ));
     }
 public function edit_packages($id){
-        $edit_packages = DB::table('packages')->where('id', '=', $id)->get();
-        $get_packages = DB::table('industries')->get();
-        return view( 'admin/edit_packages', compact('edit_packages','get_packages'));
+        $edit_packages = DB::table('packages')->where('id', '=', $id)->first();
+        return view( 'admin/edit_packages', compact('edit_packages'));
     }
 public function update_packages(Request $request){
         $update_packages = DB::table('packages')->where('id', $request->id)->update([
@@ -1497,7 +1496,7 @@ public function add_jobtypes(){
     return view( 'admin/add_jobtypes',compact('job_types'));
 }
 public function sort_jobtypes(){
-    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
+    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
             return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
 }
 
@@ -1519,16 +1518,54 @@ public function save_jobtypes(Request $request) {
         ] );
     return redirect()->route('list_job_types')->withMessage('job types Successfully Added !');
         }
-
-
+public function sort_job_types(){
+    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
+            return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
+}
 
 
 
 public function site_settings(){
-    return view( 'admin/site_settings');
+    $site_settings = DB::table('site_settings')->orderBy( 'id', 'Asc' )->get();
+    return view( 'admin/site_settings',compact('site_settings'));
 }
 
 
+public function view_site_settings($id){
+    $view_site_settings= DB::table('site_settings')->where('id', '=', $id)->get();
+    return view('admin/view_site_settings', compact( 'view_site_settings' ));
+}
+
+public function edit_site_settings(){    
+    $edit_site_settings = DB::table('site_settings')->where( 'id', '=', $id )->get();
+    return view('admin/edit_site_settings',compact('edit_site_settings'));
+}
+
+public function update_site_settings(Request $request){
+    $update_site_settings = DB::table('site_settings')->where('id', $request->id)->update([
+    'site_name'=>$request->site_name,
+    'site_slogan'=>$request->site_slogan,
+    'site_phone_primary'=>$request->site_phone_primary,
+    'default_country_id'=>$request->default_country_id,
+    'default_currency_code'=>$request->default_currency_code,
+    'site_street_address'=>$request->site_street_address,
+    'site_google_map'=>$request->site_google_map,
+    'mail_driver'=>$request->mail_driver,
+    'mail_host'=>$request->mail_host,
+    'mail_port'=>$request->mail_port,
+    'mail_from_address'=>$request->mail_from_address,
+    'mail_from_name'=>$request->mail_from_name,
+    'mail_to_address'=>$request->mail_to_address,
+    'mail_to_name'=>$request->mail_to_name,
+    'mail_encryption'=>$request->mail_encryption,
+    'mail_username'=>$request->mail_username,
+    'mail_password'=>$request->mail_password,
+    'mail_sendmail'=>$request->mail_sendmail,
+    'mail_pretend'=>$request->mail_pretend,
+
+   ]);
+   return redirect()->route('site_settings')->withMessage('Site Settings Successfully updated !');
+}
 
 
 
@@ -2182,27 +2219,6 @@ public function sort_language(){
 public function sort_gender(){
     return view( 'admin/sort_gender');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 public function adminlogout()
