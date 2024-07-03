@@ -1339,11 +1339,13 @@ public function add_packages(Request $request) {
     }
 public function view_packages($id){
         $view_packages = DB::table('packages')->where('id', '=', $id)->get();
+       
         return view('admin/view_packages', compact( 'view_packages' ));
     }
 public function edit_packages($id){
         $edit_packages = DB::table('packages')->where('id', '=', $id)->get();
-        return view( 'admin/edit_packages', compact('edit_packages'));
+        $get_packages = DB::table('industries')->get();
+        return view( 'admin/edit_packages', compact('edit_packages','get_packages'));
     }
 public function update_packages(Request $request){
         $update_packages = DB::table('packages')->where('id', $request->id)->update([

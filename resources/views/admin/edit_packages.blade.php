@@ -119,10 +119,10 @@
                             class="form-control form-select"
                             aria-label="Default select example">
                             <option value="" selected>Package num listings</option>
-                            @foreach ($packages as $job_shifts_list)
-                            <option @if ($edit_packages->package_num_listings == $job_shifts_list->id) selected @endif
-                                value="{{ $job_shifts_list->job_shift }}">
-                                {{ $job_shifts_list->job_shift }}
+                            @foreach ($get_packages as $get_packages_list)
+                            <option @if ($edit_packages->package_num_listings == $get_packages_list->id) selected @endif
+                                value="{{ $get_packages_list->package_num_listings }}">
+                                {{ $get_packages_list->package_num_listings }}
                             </option>
                         @endforeach
                         </select>
@@ -131,8 +131,8 @@
                                 aria-label="Default select example">
                                 <option value=""> Package num listings </option>
                                 @foreach ($edit_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_num_listings }}">
-                                        {{ $packageslist->package_num_listings }}</option>
+                                    <option value="{{ $get_packages_list->package_num_listings }}">
+                                        {{ $get_packages_list->package_num_listings }}</option>
                                 @endforeach
 
                             </select>
