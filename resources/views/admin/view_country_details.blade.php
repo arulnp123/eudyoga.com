@@ -87,7 +87,7 @@
                 <div class="row g-3">
                     <div class="col-12 col-lg-6">
                         <label for="country_id	"
-                            class="form-label">country_id	</label>
+                            class="form-label">Country Id	</label>
                         <input type="text" class="form-control"
                             name="country_id	" id="country_id	"
                             placeholder="country_id	"
@@ -95,7 +95,7 @@
                     </div> 
                     <div class="col-12 col-lg-6">
                         <label for="sort_name"
-                            class="form-label">sort_name</label>
+                            class="form-label">Sort Name</label>
                         <input type="text" class="form-control"
                             name="sort_name" id="sort_name"
                             placeholder="sort_name" value="{{ $edit->sort_name }}"
@@ -105,7 +105,7 @@
                     
                     <div class="col-12 col-lg-6">
                 <label for="phone_code"
-                    class="form-label">phone_code</label>
+                    class="form-label">Phone Code</label>
                 <input type="text" class="form-control"
                     name="phone_code" id="phone_code"
                     placeholder="phone_code" value="{{ $edit->phone_code }}"
@@ -157,7 +157,7 @@
                                                                 </div>    
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="thousand_separator	"
-                                                                        class="form-label">thousand_separator</label>
+                                                                        class="form-label">Thousand Separator</label>
                                                                     <input type="text" class="form-control"
                                                                         name="thousand_separator	" id="thousand_separator	"
                                                                         placeholder="thousand_separator	"
@@ -182,7 +182,7 @@
                                                     <h5 class="mb-1">Enter Your Details</h5>
                                                     <div class="col-12 col-lg-6">
                                                                     <label for="decimal_separator"
-                                                                        class="form-label">decimal_separator</label>
+                                                                        class="form-label">Decimal Separator</label>
                                                                     <input type="text" class="form-control"
                                                                         name="decimal_separato" id="decimal_separator"
                                                                         placeholder="decimal_separator"

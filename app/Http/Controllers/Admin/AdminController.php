@@ -946,7 +946,7 @@ public function save_country(Request $request) {
 public function edit_country($id){
     $edit_country = DB::table('countries')->where('id', '=', $id)->get();
     $get_lang_list = DB::table('countries')->get();
-    $get_country_list = DB::table('countries')->get();
+    $untrt = DB::table('countries')->get();
     $get_nationality_list = DB::table('countries')->get();
     return view( 'admin/edit_country', compact('edit_country','get_lang_list','get_country_list','get_nationality_list'));
 }
@@ -1221,7 +1221,7 @@ public function view_country_details($id){
     return view('admin/view_country_details', compact( 'view_country_details' ));
 }
 public function edit_country_details($id){
-    $edit_country_details = DB::table('countries_details')->where('id', '=', $id)->get();
+    $edit_country_details = DB::table('countries_details')->where('id', '=', $id)->first();
     $get_country_id = DB::table('countries_details')->get();
     $get_sort_name = DB::table('countries_details')->get();
     $get_phone_code = DB::table('countries_details')->get();
