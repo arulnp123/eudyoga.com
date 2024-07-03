@@ -311,7 +311,7 @@ Route::post('/update_country',[App\Http\Controllers\Admin\AdminController::class
 
 
 // FAQs
-Route::get('/adlist_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
+Route::get('/list_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
 Route::get('/add_faqs', [App\Http\Controllers\Admin\AdminController::class, 'add_faqs'])->name('add_faqs');
 Route::post('/save_faqs',[App\Http\Controllers\Admin\AdminController::class,'save_faqs'])->name('save_faqs');
 Route::get('/sort_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_faqs'])->name('sort_faqs');

@@ -99,6 +99,17 @@
                         </div>
 
                         <div class="input-group mb-3 p-2">
+                            <select name="Package_num_listings" id="Package_num_listings" required
+                            class="form-control form-select"
+                            aria-label="Default select example">
+                            <option value="" selected>Package num listings</option>
+                            @foreach ($get_packages as $get_packages_list)
+                            <option @if ($edit_packages->package_num_listings == $get_packages_list->id) selected @endif
+                                value="{{ $get_packages_list->package_num_listings }}">
+                                {{ $get_packages_list->package_num_listings }}
+                            </option>
+                        @endforeach
+                        </select>
                             <select name="Package_num_days" id="Package_num_days" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value=""> Package num days </option>
@@ -126,17 +137,6 @@
                             </option>
                         @endforeach
                         </select>
-                        
-                            <select name="Package_num_listings" id="Package_num_listings" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value=""> Package num listings </option>
-                                @foreach ($edit_packages as $key => $packageslist)
-                                    <option value="{{ $get_packages_list->package_num_listings }}">
-                                        {{ $get_packages_list->package_num_listings }}</option>
-                                @endforeach
-
-                            </select>
-                            
                         </div>
 
                         <div>
