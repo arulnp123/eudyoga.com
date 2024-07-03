@@ -59,19 +59,25 @@
                         </li>
 
                     </ul>
-
-                    <div class="ps-4 pt-4">
+                     <div class="ps-4 pt-4">
+                    <form action="{{ url('save_ownership_types') }}" method="POST">
+                        @csrf
+                   
 
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{ url('save_ownership_types') }}" method="POST">
-                        @csrf
-
-                        <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
-                            <option selected='Select Langauge'>Select Langauge</option>
-                            <option name="lang" id="lang" value="en">English</option>
+                    <div class="input-group mb-3 p-2">
+                        <select name="lang" id="lang" required class="form-control form-select"
+                            aria-label="Default select example">
+                            <option value=""> Select Language </option>
+                            @foreach ($add_ownership_types as $key => $add_ownership_types_list)
+                                <option value="{{ $add_ownership_types_list->lang }}">
+                                    {{ $add_ownership_types_list->lang }}</option>
+                            @endforeach
 
                         </select>
+                        
+                    </div>
 
                         <div class=" ps-4 pt-4">
                             <p class="h6">Select OwnerShip Type</p>

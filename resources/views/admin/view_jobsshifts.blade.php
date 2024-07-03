@@ -106,12 +106,7 @@
                                                     {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
 
                                                     <div class="row g-3">
-                                                        <div class="col-12 col-lg-6">
-                                                            <label for="job_shift_id" class="form-label">Id</label>
-                                                            <input type="text" class="form-control" name="job_shift_id"
-                                                                id="job_shift_id" placeholder="job_shift_id"
-                                                                value="{{ $edit->job_shift_id }}" readonly>
-                                                        </div>
+                                                        
                                                         <div class="col-12 col-lg-6">
                                                             <label for="job_shift" class="form-label">Job Shift</label>
                                                             <input type="text" class="form-control" name="job_shift"
@@ -124,7 +119,14 @@
                                                                 id="lang " placeholder="lang "
                                                                 value="{{ $edit->lang }}" readonly>
                                                         </div>
-                                                        
+                                                        <div class="col-12">
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                
+                                                                <button class="btn btn-secondary px-4"><a
+                                                                        href="{{ url('list_jobshifts') }}">Back to
+                                                                        Job Shifts list</a></button>
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                     <!---end row-->

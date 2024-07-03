@@ -63,21 +63,7 @@
                     <form action="{{ url('add_jobsshifts') }}" method="POST">
                         @csrf
                         <input type="hidden"name="id" id="id">
-                        <div>
-                            <p class="h6 ps-3">Id</p>
-                        </div>
-                        <div class="input-group mb-3 p-2">
-                            <select name="job_shift_id" id="job_shift_id" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value=""> Select Id </option>
-                                @foreach ($job_shifts as $key => $job_shiftslist)
-                                    <option value="{{ $job_shiftslist->job_shift_id }}">
-                                        {{ $job_shiftslist->job_shift_id }}</option>
-                                @endforeach
-
-                            </select>
-                            
-                        </div>
+                        
                         <div>
                             <p class="h6 ps-3">Job Shifts</p>
                         </div>

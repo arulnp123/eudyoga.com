@@ -53,30 +53,35 @@
                         </li>
 
                     </ul>
-
+                    <form action="{{url('save_marital_status')}}" method="POST">
+                        @csrf
                     <div class="ps-4 pt-4">
 
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{url('save_marital_status')}}" method="POST">
-                        @csrf
-
-                        <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
-                            <option selected='Select Langauge'>Select Langauge</option>
-                            <option name="lang" id="lang" value="en">English</option>
+                    <div class="input-group mb-3 p-2">
+                        <select name="lang" id="lang" required class="form-control form-select"
+                            aria-label="Default select example">
+                            <option value=""> Select Langauge</option>
+                            @foreach ($add_marital_status as $key => $add_marital_status_list)
+                                <option value="{{ $add_marital_status_list->lang }}">
+                                    {{ $add_marital_status_list->lang }}</option>
+                            @endforeach
 
                         </select>
+                        
+                    </div>
 
                         <div class=" ps-4 pt-4">
-                            <p class="h6">Select Marital Status</p>
+                            <p class="h6">Marital Status</p>
                         </div>
 
                         <div class="input-group mb-3 p-2">
                             <select name="marital_status" id="marital_status" required class="form-control form-select"
                                  aria-label="Default select example">
-                                 <option value="" selected>Marital Status</option>
+                                 <option value=""> Selected Marital Status </option>
                                  @foreach ($add_marital_status as $key => $add_marital_status_list)
-                                     <option value="{{ $add_marital_status_list->marital_status_id }}">
+                                     <option value="{{ $add_marital_status_list->marital_status }}">
                                          {{ $add_marital_status_list->marital_status}}</option>
                                  @endforeach
 

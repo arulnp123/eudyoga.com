@@ -91,10 +91,10 @@
                                                                 value="{{ $seo->seo_keywords }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for=" seo_other" class="form-label">Seo Other</label>
-                                                            <input type="text" class="form-control" name="seo_title"
+                                                            <label for="seo_other" class="form-label">Seo Other</label>
+                                                            <input type="text" class="form-control" name="seo_other"
                                                                 id=" seo_other" placeholder=" seo other"
-                                                                value="{{ $seo-> seo_other }}" readonly>
+                                                                value="{{ $seo->seo_other }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="created_at" class="form-label">created at</label>

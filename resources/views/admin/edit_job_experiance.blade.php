@@ -17,15 +17,14 @@
             <div class="page-content">
                 <!--breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3"><a href="{{ url('dashboard_admin') }}">Home</a></div>
+                    <div class="breadcrumb-title pe-3">Home</a></div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{{ url('list_marital_status') }}"> Job Experience
-                                    </a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Job Experience</li>
+                                
 
                             </ol>
                         </nav>
@@ -95,7 +94,7 @@
                         <div class="input-group  p-2">
 
                             <select name="job_experience" id="job_experience" required class="form-control form-select" aria-label="Default select example">
-                                <option value=""selected>Job Experience</option>
+                                <option value="" selected>Job Experience</option>
                                 @foreach ($get_job_experience as $key => $get_job_experience_list)
                                     <option @if ($get_job_experience_list->job_experience == $edit->job_experience) selected @endif
                                         value="{{ $get_job_experience_list->job_experience }}">

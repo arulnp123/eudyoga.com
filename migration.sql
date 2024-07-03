@@ -92,3 +92,5 @@ ALTER TABLE `companies` ADD `hr_name` VARCHAR(50) NULL DEFAULT NULL AFTER `c_nam
 
 alter table cities drop state_id;
 ALTER TABLE `cities` ADD `state_id` int(10) NULL DEFAULT NULL AFTER `id`;
+
+alter table job_shifts drop job_shift_id;

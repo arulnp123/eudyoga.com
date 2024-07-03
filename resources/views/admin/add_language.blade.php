@@ -60,14 +60,14 @@
 
                     </ul>
 
-                    <form action="{{ url('add_language') }}" method="POST">
+                    <form action="{{ url('save_language') }}" method="POST">
                         @csrf
                         <input type="hidden"name="id" id="id">
                         <div>
                             <p class="h6 ps-3">Language</p>
                         </div>
                         <div class="input-group mb-3 p-2">
-                            <select name="gender_id" id="gender_id" required class="form-control form-select"
+                            <select name="lang" id="lang" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value=""> Language </option>
                                 @foreach ($add_language as $key => $languageslist)

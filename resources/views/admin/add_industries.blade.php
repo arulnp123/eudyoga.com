@@ -80,20 +80,21 @@
 				</li>
 
 			</ul>
-
-			<form action="{{ url('add_industries') }}" method="POST">
+			<form class="row g-3" method="post" action="{{ url('/save_industries') }}"
+			enctype="multipart/form-data">
+			
 				@csrf
 				<input type="hidden"name="id" id="id">
 				<div>
 					<p class="h6 ps-3">Id</p>
 				</div>
 				<div class="input-group mb-3 p-2">
-					<select name="industry_id" id="industry_id" required class="form-control form-select"
+					<select name="sort_order" id="sort_order" required class="form-control form-select"
 						aria-label="Default select example">
 						<option value=""> Select Id </option>
 						@foreach ($add_industries as $key => $add_industrieslist)
-							<option value="{{ $add_industrieslist->industry_id }}">
-								{{ $add_industrieslist->industry_id }}</option>
+							<option value="{{ $add_industrieslist->sort_order }}">
+								{{ $add_industrieslist->sort_order }}</option>
 						@endforeach
 
 					</select>
@@ -138,18 +139,12 @@
 
 				<div class=" d-flex">
 					<div class="form-check ms-3 ">
-						<input class="form-check-input" type="radio" name="is_default" id="is_default2"
-							value="1" checked>
-						<label class="form-check-label " for="is_defult">
-							Yes
-						</label>
+						<input class="form-check-input" type="radio" name="is_default" id="is_default2" value="1" checked>
+						<label class="form-check-label" for="is_defult"> Yes </label>
 					</div>
 					<div class="form-check ms-3">
-						<input class="form-check-input " type="radio" name="is_default" id="is_default2"
-							value="0">
-						<label class="form-check-label" for="is_defult">
-							No
-						</label>
+						<input class="form-check-input" type="radio" name="is_default" id="is_default2" value="0">
+						<label class="form-check-label" for="is_defult">No</label>
 					</div>
 				</div>
 

@@ -17,13 +17,17 @@
             <div class="page-content">
                 <!--breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Forms</div>
+                    <div class="breadcrumb-title pe-3"><a href="{{ url('dashboard_admin') }}">Home</a></div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
-                                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="javascript:;"></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Packages</li>
+                                <li class="breadcrumb-item active" aria-current="page"><a
+                                        href="{{ url('list_packages') }}">Packages
+                                    </a></li>
+                                <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;"></a> Edit
+                                    new Packages </li>
                             </ol>
                         </nav>
                     </div>
@@ -31,131 +35,172 @@
                 </div>
                 <!--end breadcrumb-->
 
-                <!--start stepper one-->
 
 
+                <div class="card pb-3" style="width: 100%">
+                    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                    <div class="card-body d-flex align-items-center ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-gear" viewBox="0 0 16 16">
+                            <path
+                                d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                            <path
+                                d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+                        </svg>
+                        {{-- <p class="card-text h4 ms-2">SALARY PERIOD FORM</p> --}}
+                    </div>
 
-                <div id="stepper1" class="bs-stepper">
-                    <div class="card">
+                    <ul class="nav nav-tabs ps-2">
 
+                        <li class="nav-item">
+                            <a class="nav-link active " aria-current="page" href="#">
+                                Details
+                            </a>
+                        </li>
 
+                    </ul>
 
+                    <form action="{{ url('update_packages') }}" method="post">
+                        @csrf
+                        <input type="hidden"name="id" id="id">
+                        <div>
+                            <p class="h6 ps-3">Package Title</p>
+                        </div>
+                        <div class="input-group mb-3 p-2">
+                            <select name="package_title" id="package_title" required class="form-control form-select"
+                                aria-label="Default select example">
+                                <option value=""> Package Title </option>
+                                @foreach ($edit_packages as $key => $packageslist)
+                                    <option value="{{ $packageslist->package_title }}">
+                                        {{ $packageslist->package_title }}</option>
+                                @endforeach
 
-                        <!--start stepper two-->
+                            </select>
+                            
+                        </div>
+                        <div>
+                            <p class="h6 ps-3">Package Price </p>
+                        </div>
 
-                        <div id="stepper2" class="bs-stepper">
-                            <div class="card">
+                        <div class="input-group mb-3 p-2">
+                            <select name="package_price" id="package_price" required class="form-control form-select"
+                                aria-label="Default select example">
+                                <option value=""> Package Price(In USD) </option>
+                                @foreach ($edit_packages as $key => $packageslist)
+                                    <option value="{{ $packageslist->package_price }}">
+                                        {{ $packageslist->package_price }}</option>
+                                @endforeach
 
-                                <div class="card-header">
-                                    <div class="d-lg-flex flex-lg-row align-items-lg-center justify-content-lg-between"
-                                        role="tablist">
-                                        <div class="step" data-target="#test-nl-1">
-                                            <div class="step-trigger" role="tab" id="stepper2trigger1"
-                                                aria-controls="test-nl-1">
-                                                <div class="bs-stepper-circle"><i class='bx bx-user fs-4'></i></div>
-                                                <div class="">
-                                                    <h5 class="mb-0 steper-title">1</h5>
-                                                    {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
-                                                </div>
-                                            </div>
-                                        </div>
+                            </select>
+                            
+                        </div>
+                        <div>
+                            <p class="h6 ps-3">Package num days</p>
+                        </div>
 
-                                        <div class="card-body">
-                                            {{-- <input value="{{ $employer_list }}" type="hidden" name="employer_id" id="employer_id"/> --}}
-                                            <div class="bs-stepper-content">
-                                                @foreach ($edit_packages as $key => $edit)
-                                                    <form class="row g-3" method="post"
-                                                        action="{{ url('/update_packages') }}" enctype="multipart/form-data">
-                                                        <input value="{{ $edit->id }}" type="hidden" name="id" id="id"/>
+                        <div class="input-group mb-3 p-2">
+                            <select name="Package_num_days" id="Package_num_days" required class="form-control form-select"
+                                aria-label="Default select example">
+                                <option value=""> Package num days </option>
+                                @foreach ($edit_packages as $key => $packageslist)
+                                    <option value="{{ $packageslist->package_num_days }}">
+                                        {{ $packageslist->package_num_days }}</option>
+                                @endforeach
 
-                                                        @csrf
-                                                        
-                                                       
-                                                        <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
-                                                            aria-labelledby="stepper2trigger1">
-                                                            <h5 class="mb-1">Enter Your Details</h5>
-                                                            {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
+                            </select>
+                            
+                        </div>
+						<div>
+                            <p class="h6 ps-3">Package num listings</p>
+                        </div>
 
-                                                            <div class="row g-3">
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="id" class="form-label">Title</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_title" id="package_title"
-                                                                        placeholder="package_title"
-                                                                        value="{{ $edit->package_title }}">
-                                                                </div>
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="package_price" class="form-label">Price
-                                                                        </label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_price" id="package_price"
-                                                                        placeholder="package_price"
-                                                                        value="{{ $edit->package_price }}">
-                                                                </div>
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="package_num_days" class="form-label">Num Days
-                                                                        </label>
-                                                                    <input type="text" class="form-control" name="package_num_days" id="package_num_days"
-                                                                        placeholder="package_num_days" value="{{ $edit->package_num_days }}">
-                                                                </div>
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="package_num_listings" class="form-label">Num Listening
-                                                                        </label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_num_listings" id="package_num_listings"
-                                                                        placeholder=" package_num_listings"
-                                                                        value="{{ $edit->package_num_listings }}">
-                                                                </div>
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="package_for" class="form-label">Packages For
-                                                                        </label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_for" id="package_for"
-                                                                        placeholder=" package_for"
-                                                                        value="{{ $edit->package_for }}">
-                                                                </div>
+                        <div class="input-group mb-3 p-2">
+                            <select name="Package_num_listings" id="Package_num_listings" required
+                            class="form-control form-select"
+                            aria-label="Default select example">
+                            <option value="" selected>Package num listings</option>
+                            @foreach ($packages as $job_shifts_list)
+                            <option @if ($edit_packages->package_num_listings == $job_shifts_list->id) selected @endif
+                                value="{{ $job_shifts_list->job_shift }}">
+                                {{ $job_shifts_list->job_shift }}
+                            </option>
+                        @endforeach
+                        </select>
+                        
+                            <select name="Package_num_listings" id="Package_num_listings" required class="form-control form-select"
+                                aria-label="Default select example">
+                                <option value=""> Package num listings </option>
+                                @foreach ($edit_packages as $key => $packageslist)
+                                    <option value="{{ $packageslist->package_num_listings }}">
+                                        {{ $packageslist->package_num_listings }}</option>
+                                @endforeach
 
+                            </select>
+                            
+                        </div>
 
-                                                            <div class="col-12">
-                                                                <div class="d-flex align-items-center gap-3">
-                                                                    <button class="btn btn-white px-4"
-                                                                        onclick="stepper2.next()">Submit</button>
-                                                                </div>
-                                                            </div>
-                                                        </div><!---end row-->
+                        <div>
+                            <p class="h6 ps-3">Package Type</p>
+                        </div>
 
-                                            </div>
-
-                                            </form>
-                                            @endforeach
-                                        </div>
-
-                                    </div>
-                                </div>
+                        <div class=" d-flex">
+                            <div class="form-check ms-3 ">
+                                <input class="form-check-input" type="radio" name="package_for" id="Job_Seeker"
+                                    value="Job_Seeker" checked>
+                                <label class="form-check-label " for="Job_Seeker">
+                                    Job Seeker
+                                </label>
+                            </div>
+                            <div class="form-check ms-3">
+                                <input class="form-check-input " type="radio" name="package_for" id="employer"
+                                    value="employer">
+                                <label class="form-check-label" for="employer">
+                                    Employer
+                                </label>
+                            </div>
+							<div class="form-check ms-3">
+                                <input class="form-check-input " type="radio" name="package_for" id="cv_Search"
+                                    value="cv_Search">
+                                <label class="form-check-label" for="cv_Search">
+                                    Cv Search
+                                </label>
                             </div>
                         </div>
-                    </div>
+
+                        {{-- <div class="pt-3	">
+                            <div>
+                                <p class="h6 ps-3">Active ?</p>
+                            </div>
+
+                            <div class=" d-flex ">
+                                <div class="form-check ms-4 ">
+                                    <input class="form-check-input" type="radio" name="is_active" id="is_active1"
+                                        value="1" checked>
+                                    <label class="form-check-label " name="is_active" id="is_active1">
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="form-check ms-3">
+                                    <input class="form-check-input " type="radio" name="is_active" id="is_active2"
+                                        value="0">
+                                    <label class="form-check-label" for="is_active2">
+                                        in Active
+                                    </label>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        <div class="ms-3 mt-4">
+                            <button name="submit" type="submit" class="btn btn-secondary">
+                                Submit
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-arrow-right-circle-fill ps-1"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                                </svg>
+
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!--end stepper two-->
-
-
-
-    <link href="{{ URL::to('/') }}/public/assets1/plugins/input-tags/css/tagsinput.css" rel="stylesheet" />
-
-    {{-- <script src="{{ URL::to('/') }}/public/assets1/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script> --}}
-    <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-    <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/main.js"></script>
-    <link href="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/css/bs-stepper.css" rel="stylesheet" />
-    <script src="{{ URL::to('/') }}/public/assets1/plugins/input-tags/js/tagsinput.js"></script>
-    <!--app JS-->
-
-</body>
-
-
-
-<div>
-    @include('admin.layouts.footer')
-</div>

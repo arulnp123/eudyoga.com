@@ -60,7 +60,7 @@
 
                     </ul>
 
-                    <form action="{{ url('update_jobtypes') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('update_industries') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @foreach ($edit_industries as $industries)
                             <input type="hidden" name="id" value="{{ $industries->id }}">

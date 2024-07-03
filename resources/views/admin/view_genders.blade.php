@@ -76,9 +76,9 @@
                                                                     <label for="gender_id"
                                                                         class="form-label">Id</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="gender_id" id="gender_id"
-                                                                        placeholder="gender_id"
-                                                                        value="{{ $edit->gender_id }}" readonly>
+                                                                        name="sort_order" id="sort_order"
+                                                                        placeholder="sort_order"
+                                                                        value="{{ $edit->sort_order }}" readonly>
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
                                                                     <label for="gender" class="form-label">Genders</label>
@@ -95,7 +95,14 @@
                                                                         placeholder="lang " value="{{ $edit->lang }}"
                                                                         readonly>
                                                                 </div>
-
+                                                                <div class="col-12">
+                                                                    <div class="d-flex align-items-center gap-3">
+                                                                        
+                                                                        <button class="btn btn-secondary px-4"><a
+                                                                                href="{{ url('list_genders') }}">Back to
+                                                                                Genders list</a></button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!---end row-->

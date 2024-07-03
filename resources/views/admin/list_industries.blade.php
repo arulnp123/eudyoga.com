@@ -58,9 +58,9 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Name</th>
-                    <th>Id</th>
+                    <th>Sort Order</th>
                     <th>Industry</th>
+                    <th>Lang</th>
                     <th>Action</th>
                     
                   </tr>
@@ -69,7 +69,7 @@
                   @foreach($industries as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->industry_id }}</td>
+                    <td>{{ $memb->sort_order }}</td>
                     <td>{{ $memb->industry }}</td>
                     <td>{{ $memb->lang }}</td>
                     <td>
@@ -90,10 +90,9 @@
                     </td>
                   
                   </tr>
-                 
-                  
-                </tbody>
+       
                 @endforeach
+              </tbody>
               </table>
             </div>
           </div>
