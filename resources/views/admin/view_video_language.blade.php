@@ -81,11 +81,25 @@
                                                                         value="{{ $edit->lang }}" readonly>
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="video_title" class="form-label">Slider </label>
+                                                                    <label for="video_title" class="form-label">video Title </label>
                                                                     <input type="text" class="form-control"
                                                                         name="video_title" id="video_title "
                                                                         placeholder="video_title "
                                                                         value="{{ $edit->video_title }}" readonly>
+                                                                </div>
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="video_text" class="form-label">video Text </label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="video_text" id="video_text "
+                                                                        placeholder="video_text "
+                                                                        value="{{ $edit->video_text }}" readonly>
+                                                                </div>
+                                                                <div class="col-12 col-lg-6">
+                                                                    <label for="video_link" class="form-label">video Link </label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="video_link" id="video_link "
+                                                                        placeholder="video_link "
+                                                                        value="{{ $edit->video_link }}" readonly>
                                                                 </div>
                                                                
                                                             </div>

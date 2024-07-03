@@ -1,6 +1,11 @@
 @include('admin.layouts.app')
 @yield('content')
 
+
+
+
+</head>
+
 <body class="bg-theme bg-theme2">
     <!--wrapper-->
     <div class="wrapper">
@@ -12,16 +17,13 @@
             <div class="page-content">
                 <!--breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3"><a href="{{ url('dashboard_admin') }}">Home</a></div>
+                    <div class="breadcrumb-title pe-3">Country Details</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
-
-                                <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{{ url('list_countries') }}"> Countries  
-                                    </a></li>
-                                <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;">Add
-									Country_details </li>
+                                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit Country Details</li>
                             </ol>
                         </nav>
                     </div>
@@ -29,8 +31,7 @@
                 </div>
                 <!--end breadcrumb-->
 
-
-                   <!--start stepper one-->
+                <!--start stepper one-->
 
 
 
@@ -76,37 +77,36 @@
 
                                     <div class="bs-stepper-content">
 
-                                        <form class="row g-3" method="post" action="{{ url('/update_employer') }}"
+                                        <form class="row g-3" method="post" action="{{ url('/update_country_detail') }}"
                                             enctype="multipart/form-data">
-                                            @csrf
-                                            <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
-                                                aria-labelledby="stepper2trigger1">
-                                                <h5 class="mb-1">Enter Your Details</h5>
-                                                <input value 
-                                                type="hidden" name="id"
-                                                    id="id" />
 
-                                            
+                                            @csrf
+                                           
+                                                <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
+                                                    aria-labelledby="stepper2trigger1">
+                                                    <h5 class="mb-1">Enter Your Details</h5>
+                                                    {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
+
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="country_id" class="form-label">Country id</label>
-                                                            <input type="text" class="form-control" name="country_id" id="Country_id" placeholder="Country_id"
-                                                                >
+                                                            <label for="country_id" class="form-label">Country Id</label>
+                                                            <input type="text" class="form-control" name="country_id" id="country_id" placeholder="country_id"
+                                                                value="{{ $edit_country_details->country_id }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="sort_name" class="form-label">Sort_name</label>
-                                                            <input type="text" class="form-control" name="sort_name" id="Sort_name" placeholder="Sort_name"
-                                                                >
+                                                            <label for="sort_name" class="form-label">Sort Name</label>
+                                                            <input type="text" class="form-control" name="sort_name" id="sort_name" placeholder="sort_name"
+                                                                value="{{ $edit_country_details->sort_name }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="phone_code" class="form-label">Phone code</label>
-                                                            <input type="text" class="form-control" name="phone_code" id="Phone_code" placeholder="Phone_code"
-                                                                >
+                                                            <label for="phone_code" class="form-label">Phone Code</label>
+                                                            <input type="phone_code" class="form-control" name="phone_code" id="phone_code" placeholder="phone_code"
+                                                                value="{{ $edit_country_details->phone_code }}">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="currency" class="form-label">Currency</label>
-                                                            <input type="text" class="form-control" name="currency" id="Currency" placeholder="Currency"
-                                                                >
+                                                            <label for="currency" class="form-label">currency</label>
+                                                            <input type="currency" class="form-control" name="currency" id="currency" placeholder="currency"
+                                                                value="{{ $edit_country_details->currency }}">
                                                         </div>
 
 
@@ -116,7 +116,6 @@
                                                                     class='bx bx-right-arrow-alt ms-2'></i></button>
                                                         </div>
                                                     </div><!---end row-->
-                                                
 
                                                 </div>
 
@@ -124,55 +123,53 @@
                                                     aria-labelledby="stepper2trigger2">
 
                                                     <h5 class="mb-1">Enter Your Details</h5>
-                                                    {{-- <h5 class="mb-1">Account Details</h5> --}}
-                                                {{-- <p class="mb-4">Enter Your Account Details.</p> --}}
 
-                                                <div class="row g-3">
-                                                    
+                                                    <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="code" class="form-label">Code</label>
-                                                            <input type="text" class="form-control" name="code" id="Code" placeholder="Code"
-                                                                >
-                                                        </div>  
-                                                        <div class="row g-3">
-                                                            <div class="col-12 col-lg-6">
-                                                                <label for="symbol" class="form-label">Symbol</label>
-                                                                <input type="symbol" class="form-control" name="symbol" id="Symbol" placeholder="Symbol"
-                                                                    >
-                                                            </div>  
-                                                            
-                                                                <div class="row g-3">
-                                                                    <div class="col-12 col-lg-6">
-                                                                        <label for="thousand_separator" class="form-label">Thousand separator</label>
-                                                                        <input type="text" class="form-control" name="thousand_separator" id="thousand_separator" placeholder="thousand_separator"
-                                                                            >
-                                                                    </div> 
-                                                                    <div class="row g-3">
-                                                                        <div class="col-12 col-lg-6">
-                                                                            <label for="decimal_separator" class="form-label">Decimal separator</label>
-                                                                            <input type="text" class="form-control" name="decimal_separator" id="decimal_separator" placeholder="decimal_separator"
-                                                                                >
-                                                                        </div> 
-                                                                         
-
+                                                            <label for="code" class="form-label">code</label>
+                                                            <input type="code" class="form-control" name="code" id="InputUsername" code="Industry"data-role="code"
+                                                                value="{{ $edit_country_details->code }}">
+                                                        </div>
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="symbol"
+                                                                class="form-label">symbol</label>
+                                                                <input type="symbol" class="form-control" name="symbol" id="symbol" placeholder="symbol"
+                                                                value="{{ $edit_country_details->symbol }}">
+                                                        </div>
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="thousand_separator"
+                                                                class="form-label">Thousand Separator</label>
+                                                            <input type="thousand_separator" class="form-control"
+                                                                name="thousand_separator" id="thousand_separator"
+                                                                placeholder="thousand_separator" value="{{ $edit_country_details->thousand_separator }}">
+                                                        </div>
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="decimal_separator"
+                                                                class="form-label">decimal_separator</label>
+                                                            <input type="decimal_separator" class="form-control"
+                                                                name="decimal_separator" id="decimal_separator"
+                                                                placeholder="decimal_separator" value="{{ $edit_country_details->decimal_separator }}">
+                                                        </div>
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-3">
-                                                                <button class="btn btn-outline-light px-4"
-                                                                    type="button" onclick="stepper2.previous()"><i
-                                                                        class='bx bx-left-arrow-alt me-2'></i>Previous</button>
                                                                 <button class="btn btn-light px-4" type="button"
-                                                                    onclick="stepper2.next()">Back To Country Details<i
-                                                                        class='bx bx-right-arrow-alt ms-2'></i></button>
+                                                                    onclick="stepper2.previous()"><i
+                                                                        class='bx bx-left-arrow-alt me-2'></i>Previous</button>
+                                                                <button class="btn btn-secondary px-4"><a
+                                                                        href="{{ url('list_country_details') }}">Back to Country Details list</a></button>
                                                             </div>
                                                         </div>
-                                                    </div><!---end row-->
+                                                    </div>
+                                                    <!---end row-->
 
                                                 </div>
 
-                                                
-                                            
 
-                                                 </div>
+                                                </div>
+
+                                               
+
+                                                </div>
 
                                         </form>
                                     </div>

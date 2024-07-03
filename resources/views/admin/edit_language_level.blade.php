@@ -109,7 +109,7 @@
                         <div class="d-flex">
                             <div class="form-check ms-3">
                                 <label class="form-check-label" for="is_default">
-                                    <input type="radio" @if ($get_language_level->is_default == 1) checked @endif
+                                    <input type="radio" @if ($edit_language_level->is_default == 1) checked @endif
                                         name="is_default" id="is_default2" value="1">
                                     Yes
                                 </label>
