@@ -1323,7 +1323,7 @@ public function list_packages(){
     $packages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_packages', compact( 'packages' ));
 }
-public function add_package(){
+public function add_packages(){
     $add_packages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_packages',compact('add_packages'));
 }

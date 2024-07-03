@@ -537,7 +537,7 @@ Route::get('/delete_genders/{id}', [App\Http\Controllers\Admin\AdminController::
 Route::get('/edit_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_genders'])->name('edit_genders');
 //packages
 Route::get('/list_packages', [App\Http\Controllers\Admin\AdminController::class, 'list_packages'])->name('list_packages');
-Route::get('/add_package', [App\Http\Controllers\Admin\AdminController::class, 'add_package'])->name('add_package');
+Route::get('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
 
 Route::get('/view_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_packages'])->name('view_packages');
 Route::get('/edit_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_packages'])->name('edit_packages');

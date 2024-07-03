@@ -283,9 +283,8 @@
                                                                 <button class="btn btn-light px-4" type="button"
                                                                     onclick="stepper2.previous()"><i
                                                                         class='bx bx-left-arrow-alt me-2'></i>Previous</button>
-                                                                <button class="btn btn-secondary px-4"><a
-                                                                        href="{{ url('site_settings') }}">Back to
-                                                                        Site settings list</a></button>
+                                                                <button class="btn btn-white px-4"
+                                                                    onclick="stepper2.next()">Submit</button>
                                                             </div>
                                                         </div>
                                                     

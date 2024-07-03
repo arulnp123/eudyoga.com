@@ -215,7 +215,7 @@
                                                                </label>
                                                             <input type="text" class="form-control"
                                                                 name="mail_from_address" id="mail_from_address"
-                                                                placeholder="mail_from_address"
+                                                                placeholder="mail_from address"
                                                                 value="{{ $edit->mail_from_address }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -223,7 +223,7 @@
                                                                 Period</label>
                                                             <input type="text" class="form-control"
                                                                 name="mail_from_name" id="mail_from_name"
-                                                                placeholder="mail_from_name"
+                                                                placeholder="Mail From Name"
                                                                 value="{{ $edit->mail_from_name }}" readonly>
                                                         </div>
 
