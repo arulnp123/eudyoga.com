@@ -1568,6 +1568,10 @@ public function update_site_settings(Request $request){
 }
 
 
+public function delet_site_settings($id){
+    $delete_site_settings =DB::table('site_settingd')->where('id', $id)->delete();
+    return redirect()->route('site_settings')->withMessage('Site Settings Successfully Deleted !');
+    }
 
 
 

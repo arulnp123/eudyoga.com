@@ -283,6 +283,9 @@ Route::get('/site_settings', [App\Http\Controllers\Admin\AdminController::class,
 Route::get('/view_site_settings/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_site_settings'])->name('view_site_settings');
 Route::get('/edit_site_settings/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_site_settings'])->name('edit_site_settings');
 Route::post('/update_site_settings', [App\Http\Controllers\Admin\AdminController::class, 'update_site_settings'])->name('update_site_settings');
+Route::post('/delete_site_settings/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_site_settings'])->name('delete_site_settings');
+
+
 
 
 
