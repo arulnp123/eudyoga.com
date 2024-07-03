@@ -5,7 +5,7 @@ ALTER TABLE `cities` ADD `status` VARCHAR(10) NULL DEFAULT NULL AFTER `upload_im
 UPDATE `user_profile` SET `first_name` = 'Kavya' WHERE `user_profile`.`id` = 16;
 UPDATE `user_profile` SET `email` = 'kavya@eudyoga.com' WHERE `user_profile`.`id` = 16;
 UPDATE `user_profile` SET `password` = '$2y$10$g528hGLv0wwy/L5vN80HCe/6XVDpRatmun34qupxI5L/MY0LDSc22' WHERE `user_profile`.`id` = 16;
-
+03/07/24
 alter table cities drop city_id;
 alter table states drop state_id;
 alter table countries drop country_id;
