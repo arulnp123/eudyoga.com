@@ -1536,8 +1536,8 @@ public function view_site_settings($id){
     return view('admin/view_site_settings', compact( 'view_site_settings' ));
 }
 
-public function edit_site_settings(){    
-    $edit_site_settings = DB::table('site_settings')->where( 'id', '=', $id )->get();
+public function edit_site_settings($id){    
+    $edit_site_settings = DB::table('site_settings')->where( 'id', '=', $id )->first();
     return view('admin/edit_site_settings',compact('edit_site_settings'));
 }
 
