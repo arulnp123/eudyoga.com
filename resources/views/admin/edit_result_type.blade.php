@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="input-group mb-3 p-2">
-                            <select name="salary_period" id="salary_period" required class="form-control form-select"
+                            <select name="result_type" id="result_type" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value=""selected>Select period</option>
                                 @foreach ($get_result_type as $key => $get_result_type_list)

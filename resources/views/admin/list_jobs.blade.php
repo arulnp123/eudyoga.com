@@ -55,6 +55,7 @@
                                  <th>City</th>
                                  <th>Action</th>
                              </tr>
+                             
                          </thead>
                          <tbody>
                              @foreach($jobs as $key => $memb)

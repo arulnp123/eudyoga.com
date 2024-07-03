@@ -86,7 +86,7 @@
                             </div>
 
                             <div class="input-group mb-3 p-2">
-                                <select name="salary_period" id="salary_period" required
+                                <select name="ownership_type" id="ownership_type" required
                                     class="form-control form-select" aria-label="Default select example">
                                     <option value=""selected>Select period</option>
                                     @foreach ($get_ownership_types as $key => $get_ownership_types_list)

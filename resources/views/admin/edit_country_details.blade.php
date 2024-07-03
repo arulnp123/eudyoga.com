@@ -18,10 +18,10 @@
                             <ol class="breadcrumb mb-0 p-0">
 
                                 <li class="breadcrumb-item active" aria-current="page"><a
-                                        href="{{ url('list_slider') }}"> Sliders 
+                                        href="{{ url('list_countries') }}"> Countries  
                                     </a></li>
                                 <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;">Add
-                                        Sliders </li>
+									Country_details </li>
                             </ol>
                         </nav>
                     </div>
@@ -30,187 +30,177 @@
                 <!--end breadcrumb-->
 
 
-
-                <div class="card pb-3" style="width: 100%">
-                    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                    <div class="card-body d-flex align-items-center ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-gear" viewBox="0 0 16 16">
-                            <path
-                                d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
-                            <path
-                                d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
-                        </svg>
-                        <p class="card-text h4 ms-2">SLIDERS FORM</p>
-                    </div>
-
-                    <ul class="nav nav-tabs ps-2">
-
-                        <li class="nav-item">
-                            <a class="nav-link active " aria-current="page" href="#">
-                                Deatails
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <div class="ps-4 pt-4">
-
-                        <p class="h6">Langauge</p>
-                    </div>
-                    <form action="{{ url('update_Slider') }}" method="POST">
-                        @csrf
-                        <div class="input-group mb-2 p-2">
-							<select name="lang" id="lang" required class="form-control form-select"
-								aria-label="Default select example">
-								<option value=""> Select Language </option>
-								@foreach ($get_lang_list as $key => $get_lang_list)
-									<option value="{{ $get_lang_list->lang }}">
-										{{ $get_lang_list->lang }}</option>
-								@endforeach
-	
-							</select>
-							
-						</div>
-
-                        <div class=" ps-3 pt-3">
-                            <p class="h6">Slider Image</p>
-                        </div>
-						<div class="input-group mb-2 p-2">
-                        <select name="slider_image" id="slider_image" required class="form-control form-select mt-3">
-                            <option value="">No File Choosen</option>
-
-                            @foreach ($get_slider_image_list as $key => $get_slider_image_list)
-                                <option value="{{ $get_slider_image_list->slider_image}}">
-                                    {{ $get_slider_image_list->slider_image }}</option>
-                            @endforeach
-                        </select>
-						</div>
-
-                        <div class=" ps-3 pt-3">
-                            <p class="h6">Slider Heading</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_heading" id="slider_heading" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Heading</option>
-                                @foreach ($get_slider_heading_list as $key => $get_slider_heading_list)
-                                    <option value="{{ $get_slider_heading_list->slider_heading}}">
-                                        {{ $get_slider_heading_list->slider_heading}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-
-						<div class=" ps-3 pt-3">
-                            <p class="h6">Slider Description</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_description" id="slider_description" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Description</option>
-                                @foreach ($get_slider_description_list as $key => $get_slider_description_list)
-                                    <option value="{{ $get_slider_description_list->slider_description}}">
-                                        {{ $get_slider_description_list->slider_description}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-						
-						<div class=" ps-3 pt-3">
-                            <p class="h6">Slider Link</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_link" id="slider_link" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Link</option>
-                                @foreach ($get_slider_link_list as $key => $get_slider_link_list)
-                                    <option value="{{ $get_slider_link_list->slider_link}}">
-                                        {{ $get_slider_link_list->slider_link}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-
-						<div class=" ps-3 pt-3">
-                            <p class="h6">Slider Link Test</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_link_text" id="slider_link_text" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Link Test</option>
-                                @foreach ($get_slider_link_text_list as $key => $get_slider_link_text_list)
-                                    <option value="{{ $get_slider_link_text_list->slider_link_text}}">
-                                        {{ $get_slider_link_text_list->slider_link_text}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
+                   <!--start stepper one-->
 
 
-                        <div>
-                            <p class="h6 ps-3">is default ?</p>
-                        </div>
 
-                        <div class=" d-flex">
-                            <div class="form-check ms-3 ">
-                                <input class="form-check-input" type="radio" name="is_default" id="is_default2"
-                                    value="1" checked>
-                                <label class="form-check-label " for="is_defult">
-                                    Yes
-                                </label>
-                            </div>
-                            <div class="form-check ms-3">
-                                <input class="form-check-input " type="radio" name="is_default" id="is_default2"
-                                    value="0">
-                                <label class="form-check-label" for="is_defult">
-                                    No
-                                </label>
-                            </div>
-                        </div>
+                <div id="stepper1" class="bs-stepper">
+                    <div class="card">
 
-                        <div class="pt-3	">
-                            <div>
-                                <p class="h6 ps-3">Active ?</p>
-                            </div>
 
-                            <div class=" d-flex ">
-                                <div class="form-check ms-4 ">
-                                    <input class="form-check-input" type="radio" name="is_active" id="is_active1"
-                                        value="1" checked>
-                                    <label class="form-check-label " name="is_active" id="is_active1">
-                                        Active
-                                    </label>
+
+
+                        <!--start stepper two-->
+
+                        <div id="stepper2" class="bs-stepper">
+                            <div class="card">
+
+                                <div class="card-header">
+                                    <div class="d-lg-flex flex-lg-row align-items-lg-center justify-content-lg-between"
+                                        role="tablist">
+                                        <div class="step" data-target="#test-nl-1">
+                                            <div class="step-trigger" role="tab" id="stepper2trigger1"
+                                                aria-controls="test-nl-1">
+                                                <div class="bs-stepper-circle"><i class='bx bx-user fs-4'></i></div>
+                                                <div class="">
+                                                    <h5 class="mb-0 steper-title">1</h5>
+                                                    {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bs-stepper-line"></div>
+                                        <div class="step" data-target="#test-nl-2">
+                                            <div class="step-trigger" role="tab" id="stepper2trigger2"
+                                                aria-controls="test-nl-2">
+                                                <div class="bs-stepper-circle"><i class='bx bx-user fs-4'></i></div>
+                                                <div class="">
+                                                    <h5 class="mb-0 steper-title">2</h5>
+                                                    {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
-                                <div class="form-check ms-3">
-                                    <input class="form-check-input " type="radio" name="is_active" id="is_active2"
-                                        value="0">
-                                    <label class="form-check-label" for="is_active2">
-                                        in Active
-                                    </label>
+                                <div class="card-body">
+
+                                    <div class="bs-stepper-content">
+
+                                        <form class="row g-3" method="post" action="{{ url('/update_employer') }}"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
+                                                aria-labelledby="stepper2trigger1">
+                                                <h5 class="mb-1">Enter Your Details</h5>
+                                                <input value 
+                                                type="hidden" name="id"
+                                                    id="id" />
+
+                                            
+                                                    <div class="row g-3">
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="country_id" class="form-label">Country id</label>
+                                                            <input type="text" class="form-control" name="country_id" id="Country_id" placeholder="Country_id"
+                                                                >
+                                                        </div>
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="sort_name" class="form-label">Sort_name</label>
+                                                            <input type="text" class="form-control" name="sort_name" id="Sort_name" placeholder="Sort_name"
+                                                                >
+                                                        </div>
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="phone_code" class="form-label">Phone code</label>
+                                                            <input type="text" class="form-control" name="phone_code" id="Phone_code" placeholder="Phone_code"
+                                                                >
+                                                        </div>
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="currency" class="form-label">Currency</label>
+                                                            <input type="text" class="form-control" name="currency" id="Currency" placeholder="Currency"
+                                                                >
+                                                        </div>
+
+
+                                                        <div class="col-12 col-lg-6">
+                                                            <button class="btn btn-light px-4" type="button"
+                                                                onclick="stepper2.next()">Next<i
+                                                                    class='bx bx-right-arrow-alt ms-2'></i></button>
+                                                        </div>
+                                                    </div><!---end row-->
+                                                
+
+                                                </div>
+
+                                                <div id="test-nl-2" role="tabpanel" class="bs-stepper-pane"
+                                                    aria-labelledby="stepper2trigger2">
+
+                                                    <h5 class="mb-1">Enter Your Details</h5>
+                                                    {{-- <h5 class="mb-1">Account Details</h5> --}}
+                                                {{-- <p class="mb-4">Enter Your Account Details.</p> --}}
+
+                                                <div class="row g-3">
+                                                    
+                                                        <div class="col-12 col-lg-6">
+                                                            <label for="code" class="form-label">Code</label>
+                                                            <input type="text" class="form-control" name="code" id="Code" placeholder="Code"
+                                                                >
+                                                        </div>  
+                                                        <div class="row g-3">
+                                                            <div class="col-12 col-lg-6">
+                                                                <label for="symbol" class="form-label">Symbol</label>
+                                                                <input type="symbol" class="form-control" name="symbol" id="Symbol" placeholder="Symbol"
+                                                                    >
+                                                            </div>  
+                                                            
+                                                                <div class="row g-3">
+                                                                    <div class="col-12 col-lg-6">
+                                                                        <label for="thousand_separator" class="form-label">Thousand separator</label>
+                                                                        <input type="text" class="form-control" name="thousand_separator" id="thousand_separator" placeholder="thousand_separator"
+                                                                            >
+                                                                    </div> 
+                                                                    <div class="row g-3">
+                                                                        <div class="col-12 col-lg-6">
+                                                                            <label for="decimal_separator" class="form-label">Decimal separator</label>
+                                                                            <input type="text" class="form-control" name="decimal_separator" id="decimal_separator" placeholder="decimal_separator"
+                                                                                >
+                                                                        </div> 
+                                                                         
+
+                                                        <div class="col-12">
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <button class="btn btn-outline-light px-4"
+                                                                    type="button" onclick="stepper2.previous()"><i
+                                                                        class='bx bx-left-arrow-alt me-2'></i>Previous</button>
+                                                                <button class="btn btn-light px-4" type="button"
+                                                                    onclick="stepper2.next()">Back To Country Details<i
+                                                                        class='bx bx-right-arrow-alt ms-2'></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div><!---end row-->
+
+                                                </div>
+
+                                                
+                                            
+
+                                                 </div>
+
+                                        </form>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-
-                        <div class="ms-3 mt-4">
-                            <button name="submit" type="submit" class="btn btn-secondary">
-                                Add
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-arrow-right-circle-fill ps-1"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                                </svg>
-
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <!--end stepper two-->
+
+
+
+                <link href="{{ URL::to('/') }}/public/assets1/plugins/input-tags/css/tagsinput.css"
+                    rel="stylesheet" />
+
+                {{-- <script src="{{ URL::to('/') }}/public/assets1/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script> --}}
+                <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+                <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/main.js"></script>
+                <link href="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/css/bs-stepper.css"
+                    rel="stylesheet" />
+                <script src="{{ URL::to('/') }}/public/assets1/plugins/input-tags/js/tagsinput.js"></script>
+                <!--app JS-->
+
 </body>
+
+
+
+<div>
+    @include('admin.layouts.footer')
+</div>

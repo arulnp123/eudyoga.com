@@ -69,7 +69,7 @@
 
                             <div class="input-group mt-4 p-2">
 
-                                <select name="salary_period" id="salary_period" required
+                                <select name="degree_level" id="degree_level" required
                                     class="form-control form-select" aria-label="Default select example">
                                     <option value=""selected>Degree Level</option>
                                     @foreach ($get_degree_level as $key => $get_degree_level_list)

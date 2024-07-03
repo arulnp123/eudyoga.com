@@ -50,27 +50,28 @@
                                 <th>Action</th>
 
                             </tr>
+                            <tbody>
                         </thead>
-                        <tbody>
-                            @foreach ($get_language_level as $key => $get_language_level_list)
+                       
+                            @foreach ($list_language_level as $key => $language_level_list)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $get_language_level_list->lang }}</td>
-                                    <td>{{ $get_language_level_list->language_level }}</td>
+                                    <td>{{ $language_level_list->lang }}</td>
+                                    <td>{{ $language_level_list->language_level }}</td>
                                     <td>
                                         <div class="col">
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-light"><a
-                                                        href="{{ url('/view_language_level', $get_language_level_list->id) }}"><i
+                                                        href="{{ url('/view_language_level', $language_level_list->id) }}"><i
                                                             class="lni lni-eye"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-light"><a
-                                                        href="{{ url('/edit_language_level', $get_language_level_list->id) }}"><i
+                                                        href="{{ url('/edit_language_level', $language_level_list->id) }}"><i
                                                             class='bx bx-edit me-0'></i>
                                                 </button>
                                                 <button type="button" class="btn btn-light"> <a
                                                         onclick="return confirm('Do you want to Confirm delete operation?')"
-                                                        href="{{ url('/delete_language_level', $get_language_level_list->id) }}"><i
+                                                        href="{{ url('/delete_language_level', $language_level_list->id) }}"><i
                                                             class="lni lni-trash"></i></a></button>
 
 

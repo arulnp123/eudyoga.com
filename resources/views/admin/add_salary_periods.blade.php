@@ -78,16 +78,17 @@
                          </div>
 
                          <div class="input-group mb-3 p-2">
-                             <select name="salary_period" id="salary_period" required class="form-control form-select"
-                                 aria-label="Default select example">
-                                 <option value="" selected>Select period</option>
-                                 @foreach ($addsalaryperiod as $key => $add_salaryperiod_list)
-                                     <option value="{{ $add_salaryperiod_list->salary_period_id }}">
-                                         {{ $add_salaryperiod_list->salary_period }}</option>
-                                 @endforeach
+                            <select name="salary_period" id="salary_period" required class="form-control form-select"
+                                aria-label="Default select example">
+                                <option value=""> Select period </option>
+                                @foreach ($addsalaryperiod as $key => $add_salaryperiod_list)
+                                    <option value="{{ $add_salaryperiod_list->salary_period }}">
+                                        {{ $add_salaryperiod_list->salary_period }}</option>
+                                @endforeach
 
-                             </select>>
-                         </div>
+                            </select>
+                            
+                        </div>
 
                          <div>
                              <p class="h6 ps-3">is default ?</p>

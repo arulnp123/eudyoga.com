@@ -71,6 +71,7 @@
                             <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
                                 <option value="{{ $language->lang }}">
                                     {{ $language->lang }}</option>
+                                    
                             </select>
                             <div class="mt-4">
                                 <p class="h6 ps-3">Native</p>
@@ -106,7 +107,7 @@
                             <div class=" d-flex">
                                 <div class="form-check ms-3 ">
                                     <label class="form-check-label " for="is_default">
-                                        <input type="radio" @if ($language->is_default == 1) checked @endif name="is_default"
+                                        <input type="radio" 
                                             id="is_default2" value="1">
                                         Yes
                                     </label>
@@ -115,7 +116,7 @@
                                 </label>
                                 <div class="form-check ms-3">
                                     <label class="form-check-label" for="is_default">
-                                        <input type="radio" @if ($language->is_default == 0) checked @endif name="is_default"
+                                        <input type="radio" 
                                             id="is_default0" value="0">
                                         No
                                     </label>
@@ -130,7 +131,7 @@
                                 <div class=" d-flex ">
                                     <d6iv class="form-check ms-4 ">
                                         <label class="form-check-label " name="is_active" id="is_active1">
-                                            <input type="radio" @if ($language->is_active == 1) checked @endif name="is_active"
+                                            <input type="radio"
                                                 id="is_active1" value="1">
                                             Active
                                         </label>
@@ -139,7 +140,7 @@
                                         <!-- <input class="form-check-input " type="radio" name="is_active" id="is_active2"
                                                     value="0"> -->
                                         <label class="form-check-label" for="is_active2">
-                                            <input type="radio" @if ($language->is_active == 0) checked @endif
+                                            <input type="radio" 
                                                 name="is_active" id="is_active2" value="0">
                                             in Active
                                         </label>
@@ -154,7 +155,7 @@
                                 <div class=" d-flex ">
                                     <d6iv class="form-check ms-4 ">
                                         <label class="form-check-label " name="is_rtl" id="is_rtl1">
-                                            <input type="radio" @if ($language->is_rtl == 1) checked @endif name="is_rtl"
+                                            <input type="radio" 
                                                 id="is_rtl1" value="1">
                                             Active
                                         </label>
@@ -163,7 +164,7 @@
                                         <!-- <input class="form-check-input " type="radio" name="is_active" id="is_active2"
                                                     value="0"> -->
                                         <label class="form-check-label" for="is_rtl2">
-                                            <input type="radio" @if ($language->is_rtl == 0) checked @endif
+                                            <input type="radio" 
                                                 name="is_rtl" id="is_rtl2" value="0">
                                             in Active
                                         </label>
