@@ -23,7 +23,7 @@
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Packages</li>
+                                <li class="breadcrumb-item active" aria-current="page"> Job Types</li>
                             </ol>
                         </nav>
                     </div>
@@ -65,7 +65,7 @@
                                             <div class="bs-stepper-content">
                                                 <form class="row g-3" action="#" enctype="multipart/form-data">
                                                     @csrf
-                                                    @foreach ($view_packages as $key => $edit)
+                                                    @foreach ($view_jobtypes as $key => $edit)
                                                         <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                             aria-labelledby="stepper2trigger1">
                                                             <h5 class="mb-1">Enter Your Details</h5>
@@ -73,52 +73,30 @@
 
                                                             <div class="row g-3">
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="package_title" class="form-label">Title</label>
+                                                                    <label for="job_type_id"
+                                                                        class="form-label">Id</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="package_title" id="package_title"
-                                                                        placeholder="package_title"
-                                                                        value="{{ $edit->package_title }}" readonly>
+                                                                        name="job_type_id" id="job_type_id"
+                                                                        placeholder="job_type_id"
+                                                                        value="{{ $edit->job_type_id }}" readonly>
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="package_price"
-                                                                        class="form-label">Price</label>
+                                                                    <label for="job_type" class="form-label">Job
+                                                                        Shift</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="package_price" id="package_price "
-                                                                        placeholder="package_price "
-                                                                        value="{{ $edit->package_price }}" readonly>
+                                                                        name="job_type" id="job_type "
+                                                                        placeholder="job_type "
+                                                                        value="{{ $edit->job_type }}" readonly>
                                                                 </div>
                                                                 <div class="col-12 col-lg-6">
-                                                                    <label for="package_num_days"
-                                                                        class="form-label">Num Days</label>
+                                                                    <label for="lang"
+                                                                        class="form-label">Language</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="package_num_days" id="package_num_days "
-                                                                        placeholder="package_num_days " value="{{ $edit->package_num_days }}"
+                                                                        name="lang" id="lang "
+                                                                        placeholder="lang " value="{{ $edit->lang }}"
                                                                         readonly>
                                                                 </div>
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="package_num_listings"
-                                                                        class="form-label">Num Listening</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_num_listings" id="package_num_listings "
-                                                                        placeholder="package_num_listings " value="{{ $edit->package_num_listings }}"
-                                                                        readonly>
-                                                                </div>
-                                                                <div class="col-12 col-lg-6">
-                                                                    <label for="package_for"
-                                                                        class="form-label">Packages For</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="package_for" id="package_for "
-                                                                        placeholder="package_for " value="{{ $edit->package_for }}"
-                                                                        readonly>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <div class="d-flex align-items-center gap-3">
-                                                                        
-                                                                        <button class="btn btn-secondary px-4"><a
-                                                                                href="{{ url('list_packages') }}">Back to
-                                                                                Packages list</a></button>
-                                                                    </div>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                         <!---end row-->

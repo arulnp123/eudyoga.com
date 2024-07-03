@@ -455,7 +455,8 @@ public function  print_resume(){
 
 
     $userid = Session::get('id');
-    $printresume = DB::table('users')->select('users.*', 'states.state_name', 'cities.city','countries.country','genders.gender','marital_statuses.marital_status', 'job_experiences.job_experience','career_levels.career_level')
+    $printresume = DB::table('users')->select('users.*', 'states.state_name', 'cities.city','countries.country',
+    'genders.gender','marital_statuses.marital_status', 'job_experiences.job_experience','career_levels.career_level')
     ->join('countries','countries.id','=','users.country_id')
     ->join('cities','cities.id','=','users.city_id')
     ->join('states','states.id','=','users.state_id')

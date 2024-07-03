@@ -64,35 +64,47 @@
                         </li>
 
                     </ul>
+                   
+                    <form action="{{ url('update_marital_status') }}" method="POST" enctype="multipart/form-data">
 
+                        <input value="{{ $edit_marital_status->id }}" type="hidden" name="id" />
+                        @csrf
+                       
                     <div class="ps-4 pt-4">
 
                         <p class="h6">Langauge</p>
                     </div>
 
-                    <form action="{{ url('update_marital_status') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @foreach ($edit_marital_status as $edit)
-                            <input type="hidden" name="id" value="{{ $edit->id }}">
-                            <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
-                                <option value="{{ $edit->lang }}">
-                                    {{ $edit->lang }}</option>
-                            </select>
+                    <div class="input-group mb-3 p-2">
+                        
+                        <select name="lang" id="lang" required class="form-control form-select"
+                            aria-label="Default select example">
+                            <option value=""> Select Language </option>
+                            @foreach ($get_marital_status as $get_marital_status_list)
+                                <option @if ( $edit_marital_status->lang == $get_marital_status_list->id ) selected @endif
+                                 value="{{ $get_marital_status_list->lang }}"> 
+                                    {{ $get_marital_status_list->lang }}</option>
+                            @endforeach
+
+                        </select>
+                        
+                    </div>
 
                             <div class=" ps-4 pt-4">
-                                <p class="h6">Select type</p>
+                                <p class="h6">Marital Status</p>
                             </div>
 
                             <div class="input-group mb-3 p-2">
-                                <select name="salary_period" id="salary_period" required class="form-control form-select"
+                                <select name="marital_status" id="marital_status" required class="form-control form-select"
                                     aria-label="Default select example">
-                                    <option value=""selected>Select period</option>
+                                    <option value=""selected>Marital Status</option>
                                     @foreach ($get_marital_status as $key => $get_marital_status_list)
-                                        <option  @if($get_marital_status_list->marital_status == $edit->marital_status ) selected @endif value="{{ $get_marital_status_list->marital_status }}">
+                                        <option  @if($edit_marital_status->marital_status == $get_marital_status_list->id) selected @endif 
+                                            value="{{ $get_marital_status_list->marital_status }}">
                                             {{ $get_marital_status_list->marital_status }}</option>
                                     @endforeach
     
-                                </select>>
+                                </select>
                             </div>
                             <p class="h6 ps-3">is default ?</p>
                             <div>
@@ -100,7 +112,7 @@
                             <div class=" d-flex">
                                 <div class="form-check ms-3 ">
                                     <label class="form-check-label " for="is_default">
-                                        <input type="radio" @if ($edit->is_default == 1) checked @endif
+                                        <input type="radio" @if ($get_marital_status_list->is_default == 1) checked @endif
                                             name="is_default" id="is_default2" value="1">
                                         Yes
                                     </label>
@@ -109,7 +121,7 @@
                                 </label>
                                 <div class="form-check ms-3">
                                     <label class="form-check-label" for="is_default">
-                                        <input type="radio" @if ($edit->is_default == 0) checked @endif
+                                        <input type="radio" @if ($get_marital_status_list->is_default == 0) checked @endif
                                             name="is_default" id="is_default0" value="0">
                                         No
                                     </label>
@@ -124,7 +136,7 @@
                                 <div class=" d-flex ">
                                     <div class="form-check ms-4 ">
                                         <label class="form-check-label " name="is_active" id="is_active1">
-                                            <input type="radio" @if ($edit->is_active == 1) checked @endif
+                                            <input type="radio" @if ($get_marital_status_list->is_active == 1) checked @endif
                                                 name="is_active" id="is_active1" value="1">
 
                                             Active
@@ -134,7 +146,7 @@
                                         <!-- <input class="form-check-input " type="radio" name="is_active" id="is_active2"
                                         value="0"> -->
                                         <label class="form-check-label" for="is_active2">
-                                            <input type="radio" @if ($edit->is_active == 0) checked @endif
+                                            <input type="radio" @if ($get_marital_status_list->is_active == 0) checked @endif
                                                 name="is_active" id="is_active2" value="0">
                                             in Active
                                         </label>
@@ -155,7 +167,7 @@
                                 </button>
                             </div>
                     </form>
-                    @endforeach
+                    
                 </div>
             </div>
         </div>

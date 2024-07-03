@@ -74,24 +74,31 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg-6">
-                                                            <label for="industry_id" class="form-label">Id</label>
-                                                            <input type="text" class="form-control" name="industry_id"
-                                                                id="industry_id" placeholder="industry_id"
-                                                                value="{{ $edit->industry_id }}" readonly>
+                                                            <label for="sort_order" class="form-label">Id</label>
+                                                            <input type="text" class="form-control" name="sort_order"
+                                                                id="sort_order" placeholder="sort_order"
+                                                                value="{{ $edit->sort_order }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="industry" class="form-label"> industry</label>
                                                             <input type="text" class="form-control" name="industry"
-                                                                id="industry " placeholder="industry "
+                                                                id="industry" placeholder="industry "
                                                                 value="{{ $edit->industry }}" readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <label for="lang" class="form-label">Language</label>
                                                                 <input type="text" class="form-control" name="lang"
-                                                                id="lang " placeholder="lang "
+                                                                id="lang" placeholder=" lang "
                                                                 value="{{ $edit->lang }}" readonly>
                                                         </div>
-                                                        
+                                                        <div class="col-12">
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                
+                                                                <button class="btn btn-secondary px-4"><a
+                                                                        href="{{ url('list_industries') }}">Back to
+                                                                        Industries list</a></button>
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                     <!---end row-->

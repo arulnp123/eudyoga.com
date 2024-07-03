@@ -22,7 +22,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Add Employer</li>
+								<li class="breadcrumb-item active" aria-current="page">Add City</li>
 							</ol>
 						</nav>
 					</div>
@@ -92,7 +92,7 @@
 	  <div class="card-body">
 	  
 		<div class="bs-stepper-content">
-		  <form method="post" action="{{url('/saveemployer')}}" enctype="multipart/form-data">
+		  <form method="post" action="{{url('/savecity')}}" enctype="multipart/form-data">
 			@csrf
 			<div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
 				<h5 class="mb-1">Enter Your Details</h5>

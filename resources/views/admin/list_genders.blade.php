@@ -58,9 +58,9 @@
                <thead>
                  <tr>
                    <th>S.No</th>
-                   <th>Name</th>
-                   <th>Id</th>
+                   <th>Sort Order</th>
                    <th>Genders</th>
+                   <th>Lang</th>
                    <th>Action</th>
                    
                  </tr>
@@ -69,7 +69,7 @@
                  @foreach($genders as $key => $memb)
                  <tr>
                    <td>{{ $key + 1 }}</td>
-                   <td>{{ $memb->gender_id }}</td>
+                   <td>{{ $memb->sort_order }}</td>
                    <td>{{ $memb->gender }}</td>
                    <td>{{ $memb->lang }}</td>
                    <td>

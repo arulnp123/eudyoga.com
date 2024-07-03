@@ -60,12 +60,12 @@
                     </div>
                     <form action="{{ url('update_degree_types') }}" method="POST">
                         @csrf
-                        @foreach ($edit_degree_types as $key => $edit_degree_types_list)
+                        @foreach ($edit_degree_types as $key => $edit_degree_types)
                             <input type="hidden" id="id" name="id"
-                                value="{{ $edit_degree_types_list->id }}">
+                                value="{{ $edit_degree_types->id }}">
                             <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
-                                <option value="{{ $edit_degree_types_list->lang }}">
-                                    {{ $edit_degree_types_list->lang }}</option>
+                                <option value="{{ $edit_degree_types->lang }}">
+                                    {{ $edit_degree_types->lang }}</option>
                             </select>
 
                             <div class=" ps-4 pt-4">
@@ -96,10 +96,10 @@
                                 <select name="salary_period" id="salary_period" required
                                     class="form-control form-select" aria-label="Default select example">
                                     <option value=""selected>Degree Type</option>
-                                    @foreach ($get_degree_types as $key => $get_degree_types_list)
-                                        <option @if ($get_degree_types_list->degree_type == $edit_degree_types_list->degree_type) selected @endif
-                                            value="{{ $get_degree_types_list->degree_type }}">
-                                            {{ $get_degree_types_list->degree_type }}</option>
+                                    @foreach ($edit_degree_types as $key => $edit_degree_types_list)
+                                        <option @if ($edit_degree_types_list == $edit_degree_types_list) selected @endif
+                                            value="{{ $edit_degree_types_list }}">
+                                            {{ $edit_degree_types_list }}</option>
                                     @endforeach
 
                                 </select>>
@@ -112,7 +112,7 @@
                             <div class=" d-flex">
                                 <div class="form-check ms-3 ">
                                     <label class="form-check-label " for="is_default">
-                                        <input type="radio" @if ($edit_degree_types_list->is_default == 1) checked @endif
+                                        <input type="radio" @if ($edit_degree_types_list == 1) checked @endif
                                             name="is_default" id="is_default2" value="1">
                                         Yes
                                     </label>
@@ -121,7 +121,7 @@
                                 </label>
                                 <div class="form-check ms-3">
                                     <label class="form-check-label" for="is_default">
-                                        <input type="radio" @if ($edit_degree_types_list->is_default == 0) checked @endif
+                                        <input type="radio" @if ($edit_degree_types_list == 0) checked @endif
                                             name="is_default" id="is_default0" value="0">
                                         No
                                     </label>
@@ -136,7 +136,7 @@
                                 <div class=" d-flex ">
                                     <div class="form-check ms-4 ">
                                         <label class="form-check-label " name="is_active" id="is_active1">
-                                            <input type="radio" @if ($edit_degree_types_list->is_active == 1) checked @endif
+                                            <input type="radio" @if ($edit_degree_types_list == 1) checked @endif
                                                 name="is_active" id="is_active1" value="1">
 
                                             Active
@@ -146,7 +146,7 @@
                                         <!-- <input class="form-check-input " type="radio" name="is_active" id="is_active2"
                                             value="0"> -->
                                         <label class="form-check-label" for="is_active2">
-                                            <input type="radio" @if ($edit_degree_types_list->is_active == 0) checked @endif
+                                            <input type="radio" @if ($edit_degree_types_list == 0) checked @endif
                                                 name="is_active" id="is_active2" value="0">
                                             in Active
                                         </label>

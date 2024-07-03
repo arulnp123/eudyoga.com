@@ -58,7 +58,7 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Id</th>
+                   
                     <th>Job Shift</th>
                     <th>Languages</th>
                     <th>Action</th>
@@ -69,7 +69,7 @@
                   @foreach($job_shifts as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->job_shift_id }}</td>
+                    
                     <td>{{ $memb->job_shift }}</td>
                     <td>{{ $memb->lang }}</td>
                     <td>
@@ -91,9 +91,8 @@
                   
                   </tr>
                  
-                  
-                </tbody>
                 @endforeach
+              </tbody>
               </table>
             </div>
           </div>

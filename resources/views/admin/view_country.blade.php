@@ -94,6 +94,13 @@
                                                                         placeholder="nationality "
                                                                         value="{{ $edit->nationality }}" readonly>
                                                                 </div>
+                                                                <div class="col-12">
+                                                                    <div class="d-flex align-items-center gap-3">
+                                                                        
+                                                                        <button class="btn btn-secondary px-4"><a
+                                                                                href="{{ url('list_countries') }}">Back to Country list</a></button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!---end row-->

@@ -252,6 +252,7 @@ Route::get('/advertisement', [App\Http\Controllers\Admin\AdminController::class,
 
 Route::get('/list_seo', [App\Http\Controllers\Admin\AdminController::class, 'list_seo'])->name('list_seo');
 Route::get('/view_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_seo'])->name('view_seo');
+Route::post('/update_seo', [App\Http\Controllers\Admin\AdminController::class, 'update_seo'])->name('update_seo');
 Route::get('/edit_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_seo'])->name('edit_seo');
 Route::get('/delete_seo/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_seo'])->name('delete_seo');
 
@@ -290,13 +291,13 @@ Route::get('/edit_site_settings/{id}', [App\Http\Controllers\Admin\AdminControll
 
 
 
-Route::get('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
-Route::get('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
+
+//Route::post('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
 Route::get('/add_state', [App\Http\Controllers\Admin\AdminController::class, 'add_state'])->name('add_state');
+
 Route::get('/add_city', [App\Http\Controllers\Admin\AdminController::class, 'add_city'])->name('add_city');
-Route::get('/add_package', [App\Http\Controllers\Admin\AdminController::class, 'add_package'])->name('add_package');
+Route::post('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
 Route::get('/add_functional_area', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_area'])->name('add_functional_area');
-Route::get('/add_gender', [App\Http\Controllers\Admin\AdminController::class, 'add_gender'])->name('add_gender');
 Route::get('/add_industries', [App\Http\Controllers\Admin\AdminController::class, 'add_industries'])->name('add_industries');
 Route::get('/add_job_types', [App\Http\Controllers\Admin\AdminController::class, 'add_job_types'])->name('add_job_types');
 Route::get('/add_jobshifts', [App\Http\Controllers\Admin\AdminController::class, 'add_jobshifts'])->name('add_jobshifts');
@@ -305,6 +306,9 @@ Route::get('/add_jobshifts', [App\Http\Controllers\Admin\AdminController::class,
 
 //Country
 Route::get('/list_country_details', [App\Http\Controllers\Admin\AdminController::class, 'list_country_details'])->name('list_country_details');
+Route::get('/view_country_details/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country_details'])->name('view_country_details');
+Route::get('/edit_country_details/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_country_details'])->name('edit_country_details');
+Route::get('delete_country_details/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_country_details'])->name('delete_country_details');
 Route::get('/add_country', [App\Http\Controllers\Admin\AdminController::class, 'add_country'])->name('add_country');
 Route::post('/save_country',[App\Http\Controllers\Admin\AdminController::class,'save_country'])->name('save_country');
 Route::get('/view_country/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_country'])->name('view_country');
@@ -382,6 +386,7 @@ Route::get('delete_carrer_level/{id}',[App\Http\Controllers\Admin\AdminControlle
 //Languages
 Route::get('/list_language', [App\Http\Controllers\Admin\AdminController::class, 'list_language'])->name('list_language');
 Route::get('/add_language', [App\Http\Controllers\Admin\AdminController::class, 'add_language'])->name('add_language');
+Route::post('/save_language', [App\Http\Controllers\Admin\AdminController::class, 'save_language'])->name('save_language');
 Route::get('/view_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'view_language'])->name('view_language');
 Route::get('/edit_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'edit_language'])->name('edit_language');
 Route::get('delete_language/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_language'])->name('delete_language');
@@ -538,7 +543,8 @@ Route::get('/delete_genders/{id}', [App\Http\Controllers\Admin\AdminController::
 Route::get('/edit_genders/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_genders'])->name('edit_genders');
 //packages
 Route::get('/list_packages', [App\Http\Controllers\Admin\AdminController::class, 'list_packages'])->name('list_packages');
-Route::get('/add_packages', [App\Http\Controllers\Admin\AdminController::class, 'add_packages'])->name('add_packages');
+Route::get('/add_package', [App\Http\Controllers\Admin\AdminController::class, 'add_package'])->name('add_package');
+
 Route::get('/view_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_packages'])->name('view_packages');
 Route::get('/edit_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_packages'])->name('edit_packages');
 Route::get('/delete_packages/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_packages'])->name('delete_packages');
@@ -546,7 +552,7 @@ Route::post('/update_packages', [App\Http\Controllers\Admin\AdminController::cla
 Route::post('/save_packages', [App\Http\Controllers\Admin\AdminController::class, 'save_packages'])->name('save_packages');
 //Functional Areas
 Route::get('/list_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'list_functional_areas'])->name('list_functional_areas');
-Route::get('/add_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_areas'])->name('add_functional_areas');
+Route::post('/add_functional_areas', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_areas'])->name('add_functional_areas');
 Route::get('/view_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'view_functional_areas'])->name('view_functional_areas');
 Route::get('/edit_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_functional_areas'])->name('edit_functional_areas');
 Route::get('/delete_functional_areas/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_functional_areas'])->name('delete_functional_areas');

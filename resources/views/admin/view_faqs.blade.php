@@ -23,7 +23,7 @@
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Sliders</li>
+                                <li class="breadcrumb-item active" aria-current="page">View Sliders</li>
                             </ol>
                         </nav>
                     </div>
@@ -94,7 +94,15 @@
                                                                         placeholder="faq_answer "
                                                                         value="{{ $edit->faq_answer }}" readonly>
                                                                 </div>
-                                                               
+                                                                <div class="col-12">
+                                                                    <div class="d-flex align-items-center gap-3">
+                                                                        
+                                                                        <button class="btn btn-secondary px-4"><a
+                                                                                href="{{ url('list_faqs') }}">Back to
+                                                                                Faq list</a></button>
+                                                                    </div>
+                                                                </div>
+                                        
                                                             </div>
                                                         </div>
                                                         <!---end row-->

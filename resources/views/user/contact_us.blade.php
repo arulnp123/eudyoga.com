@@ -66,7 +66,8 @@
                 <div class="col-lg-8 column">
                     <div class="contact-form">
                         <div id="message"></div>
-                        <form method="post" action="#" name="contactform" id="contactform">
+
+                        <form  method="post" action="" name="contactform" id="contactform">
                             <input type="hidden" name="_token" value="wf92gEzv5MvhnWl0HXPEaDnWDxKuc9Q5hOMnPnR8">
                             <div class="row">
                                 <div class="col-md-6">                  
@@ -87,9 +88,9 @@
                                 <!--<div class="col-md-12">-->
                                 <!--    <div data-sitekey="6Lfr3oImAAAAAAwFe5kshKBoexBOl2_ESpNjpp8P" class="g-recaptcha"></div>-->
                                 <!--                                    </div>-->
-                                <div class="col-md-12">
+                                <!--<div class="col-md-12">
                                     <button title="" class="button" type="submit" id="submit">Submit Now</button>
-                                </div>
+                                </div>-->
                             </div>
                         </form>
                     </div>

@@ -69,7 +69,7 @@
 
                                         <form action="#" enctype="multipart/form-data">
                                             @csrf
-                                            @foreach ($get_language_level as $key => $get_language_level_list)
+                                            @foreach ($view_language_level as $key => $view_language_level)
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                     aria-labelledby="stepper2trigger1">
                                                     <h5 class="mb-1">Language Level</h5>
@@ -80,14 +80,14 @@
                                                             <label for="lang" class="form-label">Languages</label>
                                                             <input type="text" class="form-control" name="lang"
                                                                 id="lang"
-                                                                value="{{ $get_language_level_list->lang }}" readonly>
+                                                                value="{{ $view_language_level->lang }}" readonly>
                                                         </div>
                                                         
                                                         <div class="col-12 col-lg-6">
                                                             <label for="job_experience" class="form-label">Language Level</label>
                                                             <input type="text" class="form-control"
                                                                 name="job_experience" id="job_experience"
-                                                                value="{{ $get_language_level_list->language_level }}"
+                                                                value="{{ $view_language_level->lang }}"
                                                                 readonly>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
@@ -95,7 +95,7 @@
                                                                 Is default</label>
                                                             <input type="is_default" class="form-control"
                                                                 id="is_default" name="is_default"
-                                                                value="{{ $get_language_level_list->is_default === 1 ? 'default' : 'Un default' }}"
+                                                                value="{{ $view_language_level->is_default === 1 ? 'default' : 'Un default' }}"
                                                                 readonly>
                                                         </div>
 
@@ -105,7 +105,7 @@
                                                                 Is Active</label>
                                                             <input type="is_active" class="form-control" id="is_active"
                                                                 name="is_active"
-                                                                value="{{ $get_language_level_list->is_active === 1 ? 'Active' : 'In Active' }}"
+                                                                value="{{ $view_language_level->is_active === 1 ? 'Active' : 'In Active' }}"
                                                                 readonly>
                                                         </div>
 

@@ -209,28 +209,28 @@
             <div class="srchint">
                 <ul class="row catelist">
 
-                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=137"
+                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs"
                             title="Tele Sale Representative">Tele Sale Representative <span>(3)</span></a>
                     </li>
 
 
-                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=118"
+                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/companies"
                             title="Sales">Sales <span>(1)</span></a>
                     </li>
 
 
-                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=2"
+                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/about_us"
                             title="Accounts, Finance &amp; Financial Services">Accounts, Finance &amp; Financial
                             Services <span>(1)</span></a>
                     </li>
 
 
-                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=13"
+                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs"
                             title="Business Development">Business Development <span>(1)</span></a>
                     </li>
 
 
-                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=23"
+                    <li class="col-md-4 col-sm-6"><a href="https://eudyoga.com/companies"
                             title="Creative Design">Creative Design <span>(1)</span></a>
                     </li>
 
@@ -378,7 +378,7 @@
 <!-- Testimonials start -->
 <!-- Testimonials End -->
 <!-- Subscribe start -->
-<div class="container">
+<!--<div class="container">
     <div class="subscribe">
 
         <h6>Newsletter</h6>
@@ -386,7 +386,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-lg-8">
                 <div id="alert_messages"></div>
-                <form method="post" action="https://eudyoga.com/subscribe-newsletter"
+               <form method="post" action="https://eudyoga.com/subscribe-newsletter"
                     name="subscribe_newsletter_form" id="subscribe_newsletter_form">
                     <input type="hidden" name="_token" value="Yc3cFKsRoWzZ7gOmEA5NXwE1opUQmqHthuZSlZsT">
 
@@ -399,7 +399,7 @@
                             id="email" required="required">
                         <div class="input-group-append">
                             <button class="btn btn-default" type="button"
-                                id="send_subscription_form">Subscribe</button>
+                                id="send_subscription_form">Subscribe</button>-->
                         </div>
                     </div>
 

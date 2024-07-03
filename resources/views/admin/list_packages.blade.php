@@ -37,7 +37,7 @@
                 <div class="portlet-title d-flex justify-content-between">
                     <div class=" caption"> <i class="icon-settings font-dark"></i> <span
                             class="caption-subject font-dark sbold uppercase"> Packages</span> </div>
-                    <div class="actions"> <a href="{{ url('add_packages') }}" class="btn btn-xs btn-success"><i
+                    <div class="actions"> <a href="{{ url('add_package') }}" class="btn btn-xs btn-success"><i
                                 class="glyphicon glyphicon-plus"></i> Add New Packages
                                 </a>
                     </div>
@@ -93,10 +93,8 @@
                     </td>
                   
                   </tr>
-                 
-                  
-                </tbody>
                 @endforeach
+              </tbody>
               </table>
             </div>
           </div>

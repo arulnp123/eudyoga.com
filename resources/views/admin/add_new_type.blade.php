@@ -59,19 +59,23 @@
                          </li>
 
                      </ul>
+                     <form action="{{ url('save_result_type') }}" method="POST">
+                        @csrf
 
                      <div class="ps-4 pt-4">
 
                          <p class="h6">Langauge</p>
                      </div>
-                     <form action="{{ url('save_result_type') }}" method="POST">
-                         @csrf
+                     <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
+                     <option selected='Select Langauge'>Select Langauge</option>
+                     @foreach ($add_new_type as $key => $add__langauge_list)
+                     <option name="lang" id="lang" value="en">English</option>
+                             {{ $add_new_type }}</option>
+                     @endforeach
 
-                         <select name="lang" aria-controls="example" class="form-select form-select-sm  mt-3">
-                             <option selected='Select Langauge'>Select Langauge</option>
-                             <option name="lang" id="lang" value="en">English</option>
+                 </select>
+                     
 
-                         </select>
 
                          <div class=" ps-4 pt-4">
                              <p class="h6">Select result Type</p>
@@ -81,7 +85,7 @@
                              <select name="result_type" id="result_type" required class="form-control form-select"
                                  aria-label="Default select example">
                                  <option value="" selected>result Type</option>
-                                 @foreach ($addresult as $key => $add_result_list)
+                                 @foreach ($add_new_type as $key => $add_result_list)
                                      <option value="{{ $add_result_list->result_type_id }}">
                                          {{ $add_result_list->result_type }}</option>
                                  @endforeach
@@ -90,7 +94,7 @@
                          </div>
 
                          <div>
-                             <p class="h6 ps-3">is default ?</p>
+                             <p class="h6 ps-4">is default ?</p>
                          </div>
 
                          <div class=" d-flex">

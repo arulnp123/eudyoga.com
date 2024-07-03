@@ -118,11 +118,7 @@
                                                             <label for="benefits" class="form-label">Benefits</label>
                                                             <textarea class="form-control" name="benefits" id="benefits" placeholder="Job Benefits" rows="3" readonly>{{ $edit->benefits }}</textarea>
                                                         </div>
-                                                        <div class="col-12 col-lg-6">
-                                                            <button class="btn btn-light px-4" type="button"
-                                                                onclick="stepper2.next()">Next<i
-                                                                    class='bx bx-right-arrow-alt ms-2'></i></button>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <!---end row-->
                                                 </div>

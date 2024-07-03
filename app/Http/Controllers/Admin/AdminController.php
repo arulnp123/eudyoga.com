@@ -61,7 +61,6 @@ public function updatestate(Request $request)
 public function addcity(Request $request)
 {
     DB::table('cities')->insert([
-        'state_id' => $request->state_id,
         'city' => $request->city,
         'status' => 'Active'
     ]);
@@ -70,18 +69,18 @@ public function addcity(Request $request)
 
 public function updatecity(Request $request)
 {
-    DB::table('cities')->where('id',$request->id)->update([
+    DB::table('cities')->where('id',$request->city_id)->update([
         'city' => $request->city,
         'status' => $request->status,
     ]);
-    return redirect()->back()->with('success', 'update cities Successfully ... !');
+    return redirect()->back()->with('success', 'update cities Successfully...!');
 }
 
 
     public function deletecity($id)
     {
         $deleteimage = DB::table('cities')->where('id', $id)->delete();
-    	return redirect()->back()->with('success', 'delete cities Successfully ... !');
+    	return redirect()->back()->with('success', 'delete cities Successfully... !');
     }
 
 public function checkadminlogin(Request $request){
@@ -891,7 +890,19 @@ public function advertisement(){
 
 
 //Seo
-
+public function update_seo(Request $request){
+        $update_seo = DB::table('seo')->where('id', $request->id)->update([
+            'page_title'=>$request->page_title,
+            'seo_title'=>$request->seo_title,
+            'seo_description'=>$request->seo_description,
+            'seo_keywords'=>$request->seo_keywords,
+            'seo_other'=>$request->seo_other,
+            'created_at'=>$request->created_at,
+            'updated_at'=>$request->updated_at,
+        ]);
+            return redirect()->route('list_seo')->withMessage('Seo Successfully Update !');
+    }
+ 
 public function list_seo(){
     $view_seo = DB::table('seo')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_seo', compact( 'view_seo' ));
@@ -902,6 +913,11 @@ public function view_seo($id){
     return view('admin/view_seo', compact('view_seo'));
 
 }
+public function edit_seo($id){
+    $edit_seo = DB::table('seo')->where('id', '=', $id)->first();
+    return view('admin/edit_seo', compact('edit_seo'));
+}
+
 
 //Countries
 public function list_countries(){
@@ -951,11 +967,11 @@ public function update_country(Request $request){
 
 // FAQs
 public function list_faqs(){
-    $faqs = DB::table('faqs')->orderBy( 'id', 'Desc' )->get();
+    $faqs = DB::table('faqs')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_faqs', compact( 'faqs' ));
 }
 public function add_faqs(){
-    $add_faqs = DB::table('faqs')->orderBy( 'id', 'Desc' )->get();
+    $add_faqs = DB::table('faqs')->orderBy( 'id', 'Asc' )->get();
     $get_lang_list = DB::table('faqs')->get();
     $get_faq_question_list = DB::table('faqs')->get();
     $get_faq_answer_list = DB::table('faqs')->get();
@@ -970,7 +986,7 @@ public function save_faqs(Request $request) {
    return redirect()->route('list_faqs')->withMessage('faqs Successfully Added !');
 }
 public function sort_faqs(){
-    $sort_faqs = DB::table('faqs')->orderBy( 'id', 'Desc' )->get();
+    $sort_faqs = DB::table('faqs')->orderBy( 'id', 'Asc' )->get();
     $get_faq_question_list = DB::table('faqs')->get();
         return view( 'admin/sort_faqs',compact('sort_faqs','get_faq_question_list'));
 }
@@ -1001,7 +1017,7 @@ public function update_faqs(Request $request){
 
 //Video_language
 public function list_video_language(){
-    $videos = DB::table('videos')->orderBy( 'id', 'Desc' )->get();
+    $videos = DB::table('videos')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_video_language', compact( 'videos' ));
 }
 public function add_video_language(){
@@ -1044,18 +1060,14 @@ public function update_video(Request $request){
    return redirect()->route('list_video_language')->withMessage('video language Successfully updated !');
 }
 
-
-
-
-
 //Testimonial
 public function list_testimonial(){
-    $testimonials = DB::table('testimonials')->orderBy( 'id', 'Desc' )->get();
+    $testimonials = DB::table('testimonials')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_testimonial', compact( 'testimonials' ));
 
 }
 public function add_testimonial(){
-    $add_testimonial = DB::table('testimonials')->orderBy( 'id', 'Desc' )->get();
+    $add_testimonial = DB::table('testimonials')->orderBy( 'id', 'Asc' )->get();
     $get_lang_list = DB::table('testimonials')->get();
     $get_testimonial_by_list = DB::table('testimonials')->get();
     $get_testimonial_list = DB::table('testimonials')->get();
@@ -1075,7 +1087,7 @@ public function save_testimonial(Request $request) {
    return redirect()->route('list_testimonial')->withMessage('testimonials Successfully Added !');
 }
 public function sort_testimonial(){
-    $sort_testimonial = DB::table('testimonials')->orderBy( 'id', 'Desc' )->get();
+    $sort_testimonial = DB::table('testimonials')->orderBy( 'id', 'Asc' )->get();
     $get_testimonial_list = DB::table('testimonials')->get();
         return view( 'admin/sort_testimonial',compact('sort_testimonial','get_testimonial_list'));
 }
@@ -1107,10 +1119,6 @@ public function update_testimonial(Request $request){
    ]);
    return redirect()->route('list_testimonial')->withMessage('testimonials Successfully updated !');
 }
-
-
-
-
 
 
 
@@ -1197,41 +1205,47 @@ public function list_cities(){
     return view('admin/list_cities', compact( 'companies' ));
 }
 
-
-
-
-
-
-
 public function list_carrer(){
     $companies = DB::table('companies')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_carrer', compact( 'companies' ));
 }
 
 
-
-
-
 //Country details
 public function list_country_details(){
-    $countries_details = DB::table('countries_details')->orderBy( 'id', 'Desc' )->get();
+    $countries_details = DB::table('countries_details')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_country_details', compact( 'countries_details' ));
 }
+public function view_country_details($id){
+    $view_country_details = DB::table('countries_details')->where('id', '=', $id)->get();
+    return view('admin/view_country_details', compact( 'view_country_details' ));
+}
+public function edit_country_details($id){
+    $edit_country_details = DB::table('countries_details')->where('id', '=', $id)->get();
+    $get_country_id = DB::table('countries_details')->get();
+    $get_sort_name = DB::table('countries_details')->get();
+    $get_phone_code = DB::table('countries_details')->get();
+    $get_currency = DB::table('countries_details')->get();
+    $get_code = DB::table('countries_details')->get();
+    $get_symbol = DB::table('countries_details')->get();
+    $get_thousand_separator = DB::table('countries_details')->get();
+    $get_decimal_separator= DB::table('countries_details')->get();
 
-
+    return view( 'admin/edit_country_details', compact('edit_country_details','get_country_id','get_sort_name','get_phone_code','get_currency','get_code','get_symbol','get_thousand_separator','get_decimal_separator'));
+}
 
 
 //Languages
 public function list_language(){
-    $languages = DB::table('languages')->orderBy( 'id', 'Desc' )->get();
+    $languages = DB::table('languages')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_language', compact( 'languages' ));
 }
 public function add_language(){
-    $add_language = DB::table('languages')->orderBy( 'id', 'Desc' )->get();
+    $add_language = DB::table('languages')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_language',compact('add_language'));
 }
-public function add_languages(Request $request) {
-    $add_language = DB::table( 'languages' )->insert( [
+public function save_language(Request $request) {
+    $save_language = DB::table( 'languages' )->insert( [
             'lang'=>$request->lang,
             'native'=>$request->native,
             'iso_code'=>$request->iso_code,
@@ -1264,16 +1278,14 @@ public function update_language(Request $request){
        return redirect()->route('list_language')->withMessage('languages Successfully updated !');
 }
 
-
-
 //Functional areas
 
 public function list_functional_areas(){
-    $functional_areas = DB::table('functional_areas')->orderBy( 'id', 'Desc' )->get();
+    $functional_areas = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_functional_areas', compact( 'functional_areas' ));
 }
 public function add_functional_area(){
-    $add_functional_area = DB::table('functional_areas')->orderBy( 'id', 'Desc' )->get();
+    $add_functional_area = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_functional_area',compact('add_functional_area'));
 }
 public function add_functional_areas(Request $request) {
@@ -1281,12 +1293,19 @@ public function add_functional_areas(Request $request) {
             'lang'=>$request->lang,
             'functional_area'=>$request->functional_area,
     ] );
-   return redirect()->route('listlist_functional_areas_packages')->withMessage('Functional Areas Successfully Added !');
+   return redirect()->route('list_functional_areas')->withMessage('Functional Areas Successfully Added !');
     }
 public function view_functional_areas($id){
         $view_functional_areas = DB::table('functional_areas')->where('id', '=', $id)->get();
         return view('admin/view_functional_areas', compact( 'view_functional_areas' ));
     }
+    public function update_functional_areas(Request $request){
+        $update_functional_areas = DB::table('functional_areas')->where('id', $request->id)->update([
+            'lang'=>$request->lang,
+            'functional_area'=>$request->functional_area,
+       ]);
+       return redirect()->route('list_functional_areas')->withMessage('Functional Areas Successfully updated !');
+}
 public function edit_functional_areas($id){
         $edit_functional_areas = DB::table('functional_areas')->where('id', '=', $id)->get();
         $get_functional_areas = DB::table('functional_areas')->get();
@@ -1299,54 +1318,55 @@ public function delete_functional_areas( $id ){
 
 
 
-
-
-
-
-
-
 //packages
 public function list_packages(){
     $packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_packages', compact( 'packages' ));
 }
-public function add_packages(){
+public function add_package(){
     $add_packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_packages',compact('add_packages'));
 }
-public function add_package(Request $request) {
+public function add_packages(Request $request) {
     $add_packages = DB::table( 'packages' )->insert( [
         'package_title'=>$request->package_title,
             'package_price'=>$request->package_price,
             'Package_num_days'=>$request->Package_num_days,
-            'Package_num_listings'=>$request->Package_num_listings
+            'Package_num_listings'=>$request->Package_num_listings,
 
     ] );
-
-
-   return redirect()->route('list_packages')->withMessage('packages Successfully Added !');
+   return redirect()->route('list_packages')->withMessage('Package Successfully Added !');
     }
 public function view_packages($id){
         $view_packages = DB::table('packages')->where('id', '=', $id)->get();
+       
         return view('admin/view_packages', compact( 'view_packages' ));
     }
 public function edit_packages($id){
         $edit_packages = DB::table('packages')->where('id', '=', $id)->get();
-        return view( 'admin/edit_packages', compact('edit_packages'));
+        $get_packages = DB::table('industries')->get();
+        return view( 'admin/edit_packages', compact('edit_packages','get_packages'));
     }
+public function update_packages(Request $request){
+        $update_packages = DB::table('packages')->where('id', $request->id)->update([
+            'package_title'=>$request->package_title,
+            'package_price'=>$request->package_price,
+            'Package_num_days'=>$request->Package_num_days,
+            'Package_num_listings'=>$request->Package_num_listings,
+            'package_for'=>$request->package_for
+       ]);
+       return redirect()->route('list_packages')->withMessage('Package Successfully updated !');
+}
 public function delete_packages( $id ){
         $delete_packages = DB::table('packages')->where( 'id', $id )->delete();
        return redirect()->route('list_packages')->withMessage('packages Successfully Deleted !');
     }
 
-
-
 //genders
 public function list_genders(){
-    $genders = DB::table('genders')->orderBy( 'id', 'Desc' )->get();
+    $genders = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_genders', compact('genders'));
 }
-
 
 public function view_genders($id){
     $view_genders = DB::table('genders')->where('id', '=', $id)->get();
@@ -1358,26 +1378,24 @@ public function edit_genders($id){
     return view( 'admin/edit_genders', compact('edit_genders','get_genders'));
 }
 public function add_genders(){
-    $add_genders = DB::table('genders')->orderBy( 'id', 'Desc' )->get();
+    $add_genders = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_genders',compact('add_genders'));
 }
-public function add_gender(Request $request) {
+public function save_genders(Request $request) {
     $add_genders = DB::table( 'genders' )->insert( [
-        'gender_id'=>$request->gender_id,
+            'sort_order'=>$request->sort_order,
             'gender'=>$request->gender,
-            'lang'=>$request->lang
+            'lang'=>$request->lang,
 
     ] );
-
-
    return redirect()->route('list_genders')->withMessage('genders Successfully Added !');
     }
 
 public function update_genders(Request $request){
         $update_genders = DB::table('genders')->where('id', $request->id)->update([
-            'gender_id'=>$request->gender_id,
+            'sort_order'=>$request->sort_order,
             'gender'=>$request->gender,
-            'lang'=>$request->lang
+            'lang'=>$request->lang,
 
        ]);
        return redirect()->route('list_genders')->withMessage('genders Successfully updated !');
@@ -1398,15 +1416,12 @@ public function list_new_types(){
     return view('admin/list_new_types', compact( 'companies' ));
 }
 
-
-
-
 //industries
 
 
 //industries
 public function list_industries(){
-    $industries = DB::table('industries')->orderBy( 'id', 'Desc' )->get();
+    $industries = DB::table('industries')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_industries', compact( 'industries' ));
 }
 public function view_industries($id){
@@ -1419,22 +1434,22 @@ public function edit_industries($id){
     return view( 'admin/edit_industries', compact('edit_industries','get_industries'));
 }
 public function add_industries(){
-    $add_industries = DB::table('industries')->orderBy( 'id', 'Desc' )->get();
+    $add_industries = DB::table('industries')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_industries',compact('add_industries'));
 }
-public function adds_industries(){
-    $add_industries = DB::table( 'industries' )->insert( [
-        'industry_id'=>$request->industry_id,
-        'industry'=>$request->industry,
-        'lang'=>$request->lang
+public function save_industries(Request $request){
+    $add_industries = DB::table('industries')->insert( [
+        'sort_order'=>$request->sort_order,
+        'industry'  =>$request->industry,
+        'lang'      =>$request->lang,
     ] );
-return redirect()->route('list_industries')->withMessage('industries Successfully Added !');
+return redirect()->route('list_industries')->withMessage('Industries Successfully Added !');
     }
 public function update_industries(Request $request){
         $update_industries = DB::table('industries')->where('id', $request->id)->update([
-        'industry_id'=>$request->industry_id,
+        'sort_order'=>$request->sort_order,
         'industry'=>$request->industry,
-        'lang'=>$request->lang
+        'lang'=>$request->lang,
 
        ]);
        return redirect()->route('list_industries')->withMessage('industries Successfully updated !');
@@ -1444,18 +1459,14 @@ public function delete_industries( $id ){
    return redirect()->route('list_industries')->withMessage('industries Successfully Deleted !');
 }
 public function sort_industries(){
-    $sort_industries = DB::table('industries')->orderBy( 'id', 'Desc' )->get();
+    $sort_industries = DB::table('industries')->orderBy( 'id', 'Asc' )->get();
             return view( 'admin/sort_industries',compact('sort_industries'));
 }
 
 
-
-
-
-
 //job types
 public function list_job_types(){
-    $job_types = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
+    $job_types = DB::table('job_types')->orderBy( 'id', 'Asc' )->get();
         return view('admin/list_job_types', compact( 'job_types' ));
 }
 public function view_jobtypes($id){
@@ -1471,7 +1482,7 @@ public function update_jobtypes(Request $request){
     $update_jobtypes = DB::table('job_types')->where('id', $request->id)->update([
         'job_types_id'=>$request->job_types_id,
         'job_types'=>$request->jobtypes,
-        'lang'=>$request->lang
+        'lang'=>$request->lang,
 
    ]);
    return redirect()->route('list_job_types')->withMessage('job types Successfully updated !');
@@ -1485,6 +1496,11 @@ public function add_jobtypes(){
     $job_types = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_jobtypes',compact('job_types'));
 }
+public function sort_jobtypes(){
+    $sort_jobtypes = DB::table('job_types')->orderBy( 'id', 'Desc' )->get();
+            return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
+}
+
 public function add_job_types(Request $request) {
     $add_jobs_types = DB::table( 'job_types' )->insert( [
         'job_type_id'=>$request->job_type_id,
@@ -1545,6 +1561,7 @@ public function update_site_settings(Request $request){
 public function add_state(){
     return view( 'admin/add_state');
 }
+
 public function add_city(){
     return view( 'admin/add_city');
 }
@@ -1571,44 +1588,48 @@ public function add_job_skill(){
 
 // LANGUAGE LEVEL START
 public function add_language_level(){
-    $get_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
-    return view( 'admin/add_language_level',compact('get_language_level'));
+    $add_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
+    return view( 'admin/add_language_level',compact('add_language_level'));
 }
 public function sort_language_level(){
-    return view( 'admin/sort_language_level');
+    $sort_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
+    return view( 'admin/sort_language_level',compact('sort_language_level'));
 }
+
 public function list_language_level(){
-    $get_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
-    return view('admin/list_language_level', compact( 'get_language_level' ));
+    $list_language_level = DB::table('language_levels')->orderBy( 'id', 'Desc' )->get();
+    return view('admin/list_language_level',compact('list_language_level'));
 }
-public function save_language_level(Request $request){
-    $get_language_level = DB::table('language_levels')->insert([
+public function view_language_level($id){
+    $view_language_level = DB::table('languages')->where('id', '=', $id)->get();
+    return view('admin/view_language_level', compact( 'view_language_level' ));
+}
+
+  public  function save_language_level(Request $request){
+    $add_language_level = DB::table('language_levels')->insert([
         'lang'            => $request -> lang,
         'language_level'  => $request -> language_level,
         'is_default'      => $request -> is_default,
-        'is_active'       => $request -> is_active
+        'is_active'       => $request -> is_active,
     ]);
     return redirect()->route('list_language_level')->withMessage('Language Level Successfully Added...!');
 }
-public function edit_language_level($id){
-    $get_language_level = DB::table('language_levels')->where('id', '=', $id)->first();
+ public function edit_language_level($id){
+    $edit_language_level = DB::table('language_levels')->where('id', '=', $id)->first();
     $get_language_levels = DB::table('language_levels')->get();
-    return view( 'admin/edit_language_level', compact('get_language_level','get_language_levels'));
+    return view( 'admin/edit_language_level', compact('edit_language_level','get_language_levels'));
 }
-public function update_language_level(Request $request){
-    $get_language_level = DB::table('language_levels')->where('id', $request->id)->update([
+ public function update_language_level(Request $request){
+    $update_language_level = DB::table('language_levels')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
         'language_level'  => $request -> language_level,
         'is_default'      => $request -> is_default,
-        'is_active'       => $request -> is_active
+        'is_active'       => $request -> is_active,
     ]);
     return redirect()->route('list_language_level')->withMessage('Language Level Successfully updated...!');
 }
-public function view_language_level($id){
-    $get_language_level = DB::table('language_levels')->where('id' , '=' , $id)->get();
-    return view('admin/view_language_level',compact('get_language_level'));
-}
-public function delete_language_level($id){
+
+ function delete_language_level($id){
     $get_language_level = DB::table('language_levels')->where('id' , $id)->delete();
     return redirect()->route('list_language_level')->withMessage('Language Level Successfully Deleted...!');
 }
@@ -1617,19 +1638,19 @@ public function delete_language_level($id){
 
 
 // CARRER LEVEL START
-public function add_carrer_level(){
+ function add_carrer_level(){
     $get_career_levels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/add_carrer_level',compact('get_career_levels'));
 }
-public function sort_carrer_level(){
+ function sort_carrer_level(){
     $get_career_levels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
     return view( 'admin/sort_carrer_level',compact('get_career_levels'));
 }
-public function list_carrer_level(){
+ function list_carrer_level(){
     $get_career_levels = DB::table('career_levels')->orderBy( 'id', 'Desc' )->get();
     return view('admin/list_carrer_level', compact( 'get_career_levels' ));
 }
-public function save_carrer_level(Request $request){
+ function save_carrer_level(Request $request){
     $get_career_levels = DB::table('career_levels')->insert([
         'lang'            => $request -> lang,
         'career_level'    => $request -> career_level,
@@ -1638,12 +1659,12 @@ public function save_carrer_level(Request $request){
     ]);
     return redirect()->route('list_carrer_level')->withMessage('Carrer Level Successfully Added...!');
 }
-public function edit_carrer_level($id){
+ function edit_carrer_level($id){
     $get_career_levels = DB::table('career_levels')->where('id', '=', $id)->first();
     $get_career = DB::table('career_levels')->get();
     return view( 'admin/edit_carrer_level', compact('get_career_levels','get_career'));
 }
-public function update_carrer_level(Request $request){
+ function update_carrer_level(Request $request){
     $get_career_levels = DB::table('career_levels')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
         'career_level'    => $request -> career_level,
@@ -1652,11 +1673,11 @@ public function update_carrer_level(Request $request){
     ]);
     return redirect()->route('list_carrer_level')->withMessage('Carrer Level Successfully updated...!');
 }
-public function view_carrer_level($id){
+ function view_carrer_level($id){
     $get_career_levels = DB::table('career_levels')->where('id' , '=' , $id)->get();
     return view('admin/view_carrer_level',compact('get_career_levels'));
 }
-public function delete_carrer_level($id){
+ function delete_carrer_level($id){
     $get_career_levels = DB::table('career_levels')->where('id' , $id)->delete();
     return redirect()->route('list_carrer_level')->withMessage('Carrer Levele Successfully Deleted...!');
 }
@@ -1670,16 +1691,18 @@ public function delete_carrer_level($id){
 
 // JOB EXPERIANCE START
 public function add_job_experiance(){
-    $add_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
+    $add_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
+// JOB EXPERIANCE START function add_job_experiance(){
+    
     return view( 'admin/add_job_experiance',compact('add_job_experiance'));
 
 }
 public function list_job_experiance(){
-    $list_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
+    $list_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_job_experiance', compact( 'list_job_experiance' ));
 }
 public function sort_job_experiance(){
-    $sort_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
+    $sort_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/sort_job_experiance', compact( 'sort_job_experiance' ));
 }
 public function save_job_experiance(Request $request){
@@ -1699,7 +1722,7 @@ public function edit_job_experiance($id){
 public function update_job_experiance(Request $request){
     $update_job_experiance = DB::table('job_experiences')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
-        'job_experiance'  => $request -> job_experiance,
+        'job_experience'  => $request -> job_experience,
         'is_default'      => $request -> is_default,
         'is_active'       => $request -> is_active
     ]);
@@ -1716,9 +1739,6 @@ public function delete_job_experiance($id){
 
 
 // JOB EXPERIANCE START
-
-
-
 
 
 // JOB SKILL START
@@ -1770,18 +1790,19 @@ public function delete_job_skills($id){
 
 // JOB SKILL END
 
+
 // JOB SHIFT
 
 public function add_jobshifts(){
-    $job_shifts = DB::table('job_shifts')->orderBy( 'id', 'Desc' )->get();
+    $job_shifts = DB::table('job_shifts')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_jobshifts',compact('job_shifts'));
 }
 public function list_jobshifts(){
-    $job_shifts = DB::table('job_shifts')->orderBy( 'id', 'Desc' )->get();
+    $job_shifts = DB::table('job_shifts')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_jobshifts', compact( 'job_shifts' ));
 }
 public function sort_jobshifts(){
-    $sort_jobshifts = DB::table('job_shifts')->orderBy( 'id', 'Desc' )->get();
+    $sort_jobshifts = DB::table('job_shifts')->orderBy( 'id', 'Asc' )->get();
             return view( 'admin/sort_jobshifts',compact('sort_jobshifts'));
 }
 
@@ -1791,10 +1812,10 @@ public function view_jobsshifts($id){
 }
 public function add_jobsshifts(Request $request) {
     $add_jobsshifts = DB::table( 'job_shifts' )->insert( [
-        'job_shift_id'=>$request->job_shift_id,
         'job_shift'=>$request->job_shift,
         'lang'=>$request->lang,
-
+        'is_default'=> $request->is_default,
+        'is_active'=> $request->is_active,
     ] );
 
 
@@ -1803,25 +1824,29 @@ public function add_jobsshifts(Request $request) {
 
 public function save_jobshifts(Request $request) {
     $add_jobsshifts = DB::table( 'job_shifts' )->insert( [
-                'job_shift_id'=>$request->job_shift_id,
                 'job_shift'=>$request->job_shift,
                 'lang'=>$request->lang,
+                'is_default'=> $request->is_default,
+                'is_active'=> $request->is_active,
 
     ] );
 return redirect()->route('list_jobshifts')->withMessage('job shifts Successfully Added !');
     }
 public function edit_jobsshifts($id){
-    $edit_jobsshifts = DB::table('job_shifts')->where('id', '=', $id)->get();
+    $edit_jobsshifts = DB::table('job_shifts')->where('id', '=', $id)->first();
+    //$edit_jobsshifts = DB::table('job_shifts')->where('id', '=', $id)->get();
     $get_jobsshifts = DB::table('job_shifts')->get();
     return view( 'admin/edit_jobsshifts', compact('edit_jobsshifts','get_jobsshifts'));
 }
 public function update_jobsshifts(Request $request){
-    $update_jobs = DB::table('job_shifts')->where('id', $request->id)->update([
-        'id'=>$request->id,
-        'job_shift'=>$request->jobshift,
-        'lang'=>$request->lang
+    $update_jobsshifts = DB::table('job_shifts')->where('id', $request->job_id)->update([
+        'lang'=>$request->lang,
+        'job_shift'=>$request->job_shift,
+        'is_default'=> $request->is_default,
+        'is_active'=> $request->is_active,
 
    ]);
+//    dd($request->all());
    return redirect()->route('list_jobshifts')->withMessage('job Successfully updated !');
 
 }
@@ -1891,7 +1916,6 @@ public function list_degree_types(){
 public function save_degree_types(Request $request){
     $save_degree_types = DB::table('degree_types')->insert([
         'lang'            => $request -> lang,
-        'degree_level'    => $request -> degree_level,
         'degree_type'     => $request -> degree_type,
         'is_default'      => $request -> is_default,
         'is_active'       => $request -> is_active
@@ -1910,10 +1934,9 @@ public function edit_degree_types($id){
 public function update_degree_types(Request $request){
     $update_degree_types = DB::table('degree_types')->where('id', $request->id)->update([
         'lang'            => $request -> lang,
-        'degree_level'    => $request -> degree_level,
         'degree_type'     => $request -> degree_type,
         'is_default'      => $request -> is_default,
-        'is_active'       => $request -> is_active
+        'is_active'       => $request -> is_active,
     ]);
 
     return redirect()->route('list_degree_types')->withMessage('Degree Type Successfully updated...!');
@@ -1983,8 +2006,8 @@ public function list_result_types(){
     return view('admin/list_result_types', compact( 'listresult' ));
 }
 public function add_new_type(){
-    $addresult = DB::table('result_types')->orderBy('id','ASC')->get();
-    return view( 'admin/add_new_type',compact('addresult'));
+    $add_new_type = DB::table('result_types')->orderBy('id','ASC')->get();
+    return view( 'admin/add_new_type',compact('add_new_type'));
 }
 public function sort_result_types(){
 
@@ -2029,11 +2052,11 @@ public function delete_result_type( $id ){
 // MARITAL STATUS START
 
 public function list_marital_status(){
-    $list_marital_status = DB::table('marital_statuses')->orderBy( 'id', 'Desc' )->get();
+    $list_marital_status = DB::table('marital_statuses')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_marital_status', compact('list_marital_status'));
 }
 public function add_marital_status(){
-    $add_marital_status = DB::table('marital_statuses')->orderBy('id','ASC')->get();
+    $add_marital_status = DB::table('marital_statuses')->orderBy('id','Asc')->get();
     return view( 'admin/add_marital_status', compact('add_marital_status') );
 }
 public function sort_marital_status(){
@@ -2041,7 +2064,7 @@ public function sort_marital_status(){
     return view( 'admin/sort_marital_status', compact('sort_marital_status') );
 }
 public function edit_marital_status($id){
-    $edit_marital_status = DB::table('marital_statuses')->where('id', '=', $id)->get();
+    $edit_marital_status = DB::table('marital_statuses')->where('id', '=', $id)->first();
     $get_marital_status = DB::table('marital_statuses')->get();
     return view( 'admin/edit_marital_status', compact('edit_marital_status','get_marital_status'));
 }

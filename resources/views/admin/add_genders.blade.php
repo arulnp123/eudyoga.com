@@ -60,19 +60,19 @@
 
                     </ul>
 
-                    <form action="{{ url('add_genders') }}" method="POST">
+                    <form action="{{ url('save_genders') }}" method="POST">
                         @csrf
                         <input type="hidden"name="id" id="id">
                         <div>
                             <p class="h6 ps-3">Id</p>
                         </div>
                         <div class="input-group mb-3 p-2">
-                            <select name="gender_id" id="gender_id" required class="form-control form-select"
+                            <select name="sort_order" id="sort_order" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value=""> Select Id </option>
                                 @foreach ($add_genders as $key => $genderslist)
-                                    <option value="{{ $genderslist->gender_id }}">
-                                        {{ $genderslist->gender_id }}</option>
+                                    <option value="{{ $genderslist->sort_order }}">
+                                        {{ $genderslist->sort_order }}</option>
                                 @endforeach
 
                             </select>
