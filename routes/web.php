@@ -279,8 +279,11 @@ Route::get('/list_industries', [App\Http\Controllers\Admin\AdminController::clas
 Route::get('/list_new_types', [App\Http\Controllers\Admin\AdminController::class, 'list_new_types'])->name('list_new_types');
 
 
-Route::get('/site_settings', [App\Http\Controllers\Admin\AdminController::class, 'site_settings'])->name('site_settings');
 
+
+
+
+Route::get('/site_settings', [App\Http\Controllers\Admin\AdminController::class, 'site_settings'])->name('site_settings');
 Route::get('/add_state', [App\Http\Controllers\Admin\AdminController::class, 'add_state'])->name('add_state');
 
 Route::get('/add_city', [App\Http\Controllers\Admin\AdminController::class, 'add_city'])->name('add_city');
