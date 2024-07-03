@@ -1665,15 +1665,11 @@ public function view_language_level($id){
 
 
 
-<<<<<<< HEAD
 // JOB EXPERIANCE START
 public function add_job_experiance(){
     $add_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
-=======
 // JOB EXPERIANCE START function add_job_experiance(){
-    public function add_job_experiance(){
-    $add_job_experiance = DB::table('job_experiences')->orderBy( 'id', 'Desc' )->get();
->>>>>>> 6144ee8c1d625c6e906160402b23a61f7f46cd04
+    
     return view( 'admin/add_job_experiance',compact('add_job_experiance'));
 
 }
