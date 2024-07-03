@@ -1320,15 +1320,15 @@ public function delete_functional_areas( $id ){
 
 //packages
 public function list_packages(){
-    $packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
+    $packages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_packages', compact( 'packages' ));
 }
 public function add_package(){
-    $add_packages = DB::table('packages')->orderBy( 'id', 'Desc' )->get();
+    $add_packages = DB::table('packages')->orderBy( 'id', 'Asc' )->get();
     return view( 'admin/add_packages',compact('add_packages'));
 }
-public function add_packages(Request $request) {
-    $add_packages = DB::table( 'packages' )->insert( [
+public function save_packages(Request $request) {
+    $save_packages = DB::table( 'packages' )->insert( [
         'package_title'=>$request->package_title,
             'package_price'=>$request->package_price,
             'Package_num_days'=>$request->Package_num_days,
@@ -1343,9 +1343,8 @@ public function view_packages($id){
         return view('admin/view_packages', compact( 'view_packages' ));
     }
 public function edit_packages($id){
-        $edit_packages = DB::table('packages')->where('id', '=', $id)->get();
-        $get_packages = DB::table('industries')->get();
-        return view( 'admin/edit_packages', compact('edit_packages','get_packages'));
+        $edit_packages = DB::table('packages')->where('id', '=', $id)->first();
+        return view( 'admin/edit_packages', compact('edit_packages'));
     }
 public function update_packages(Request $request){
         $update_packages = DB::table('packages')->where('id', $request->id)->update([

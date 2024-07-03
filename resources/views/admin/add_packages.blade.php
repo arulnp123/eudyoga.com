@@ -60,38 +60,24 @@
 
                     </ul>
 
-                    <form action="{{ url('add_packages') }}" method="post">
+                    <form action="{{ url('save_packages') }}" method="post">
                         @csrf
                         <input type="hidden"name="id" id="id">
                         <div>
                             <p class="h6 ps-3">Package Title</p>
                         </div>
                         <div class="input-group mb-3 p-2">
-                            <select name="package_title" id="package_title" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value=""> Package Title </option>
-                                @foreach ($add_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_title }}">
-                                        {{ $packageslist->package_title }}</option>
-                                @endforeach
-
-                            </select>
                             
+                            <input name="package_title" id="package_title" required class="form-control form-select"
+                                aria-label="Default select example">
                         </div>
                         <div>
                             <p class="h6 ps-3">Package Price </p>
                         </div>
 
                         <div class="input-group mb-3 p-2">
-                            <select name="package_price" id="package_price" required class="form-control form-select"
+                            <input name="package_price" id="package_price" required class="form-control form-select"
                                 aria-label="Default select example">
-                                <option value=""> Package Price(In USD) </option>
-                                @foreach ($add_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_price }}">
-                                        {{ $packageslist->package_price }}</option>
-                                @endforeach
-
-                            </select>
                             
                         </div>
                         <div>
@@ -99,15 +85,8 @@
                         </div>
 
                         <div class="input-group mb-3 p-2">
-                            <select name="Package_num_days" id="Package_num_days" required class="form-control form-select"
+                            <input name="Package_num_days" id="Package_num_days" required class="form-control form-select"
                                 aria-label="Default select example">
-                                <option value=""> Package num days </option>
-                                @foreach ($add_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_num_days }}">
-                                        {{ $packageslist->package_num_days }}</option>
-                                @endforeach
-
-                            </select>
                             
                         </div>
 						<div>
@@ -115,15 +94,8 @@
                         </div>
 
                         <div class="input-group mb-3 p-2">
-                            <select name="Package_num_listings" id="Package_num_listings" required class="form-control form-select"
+                            <input name="Package_num_listings" id="Package_num_listings" required class="form-control form-select"
                                 aria-label="Default select example">
-                                <option value=""> Package num listings </option>
-                                @foreach ($add_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_num_listings }}">
-                                        {{ $packageslist->package_num_listings }}</option>
-                                @endforeach
-
-                            </select>
                             
                         </div>
 

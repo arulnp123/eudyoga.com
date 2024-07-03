@@ -27,7 +27,7 @@
                                         href="{{ url('list_packages') }}">Packages
                                     </a></li>
                                 <li class="breadcrumb-item active" aria-current="page"> <a href="javascript:;"></a> Edit
-                                    new Packages </li>
+                                    New Packages </li>
                             </ol>
                         </nav>
                     </div>
@@ -59,84 +59,37 @@
                         </li>
 
                     </ul>
-
-                    <form action="{{ url('update_packages') }}" method="post">
-                        @csrf
-                        <input type="hidden"name="id" id="id">
                         <div>
                             <p class="h6 ps-3">Package Title</p>
                         </div>
-                        <div class="input-group mb-3 p-2">
-                            <select name="package_title" id="package_title" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value=""> Package Title </option>
-                                @foreach ($edit_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_title }}">
-                                        {{ $packageslist->package_title }}</option>
-                                @endforeach
-
-                            </select>
+                        <form action="{{ url('update_packages') }}" method="POST">
+                            @csrf
+                            <input type="hidden" value="{{ $edit_packages->id }}" name="id">
                             
+                       
+                        <div class="input-group mb-2 p-2">
+                            <input name="package_title" value="{{ $edit_packages->package_title }}" class="form-control">
                         </div>
+                        
                         <div>
                             <p class="h6 ps-3">Package Price </p>
                         </div>
-
-                        <div class="input-group mb-3 p-2">
-                            <select name="package_price" id="package_price" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value=""> Package Price(In USD) </option>
-                                @foreach ($edit_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_price }}">
-                                        {{ $packageslist->package_price }}</option>
-                                @endforeach
-
-                            </select>
-                            
+                        <div class="input-group mb-2 p-2">
+                            <input name="package_price" value="{{ $edit_packages->package_price }}" class="form-control">
                         </div>
+                       
                         <div>
                             <p class="h6 ps-3">Package num days</p>
                         </div>
-
-                        <div class="input-group mb-3 p-2">
-                            <select name="Package_num_listings" id="Package_num_listings" required
-                            class="form-control form-select"
-                            aria-label="Default select example">
-                            <option value="" selected>Package num listings</option>
-                            @foreach ($get_packages as $get_packages_list)
-                            <option @if ($edit_packages->package_num_listings == $get_packages_list->id) selected @endif
-                                value="{{ $get_packages_list->package_num_listings }}">
-                                {{ $get_packages_list->package_num_listings }}
-                            </option>
-                        @endforeach
-                        </select>
-                            <select name="Package_num_days" id="Package_num_days" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value=""> Package num days </option>
-                                @foreach ($edit_packages as $key => $packageslist)
-                                    <option value="{{ $packageslist->package_num_days }}">
-                                        {{ $packageslist->package_num_days }}</option>
-                                @endforeach
-
-                            </select>
-                            
+                        <div class="input-group mb-2 p-2">
+                            <input name="package_num_days" value="{{ $edit_packages->package_num_days }}" class="form-control">
                         </div>
+                       
 						<div>
                             <p class="h6 ps-3">Package num listings</p>
                         </div>
-
-                        <div class="input-group mb-3 p-2">
-                            <select name="Package_num_listings" id="Package_num_listings" required
-                            class="form-control form-select"
-                            aria-label="Default select example">
-                            <option value="" selected>Package num listings</option>
-                            @foreach ($get_packages as $get_packages_list)
-                            <option @if ($edit_packages->package_num_listings == $get_packages_list->id) selected @endif
-                                value="{{ $get_packages_list->package_num_listings }}">
-                                {{ $get_packages_list->package_num_listings }}
-                            </option>
-                        @endforeach
-                        </select>
+                        <div class="input-group mb-2 p-2">
+                            <input name="package_num_listings" value="{{ $edit_packages->package_num_listings }}" class="form-control">
                         </div>
 
                         <div>
