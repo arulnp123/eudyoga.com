@@ -37,10 +37,10 @@
                         <thead>
                             <tr>
                                 <th>S.No</th>
-                                <th>Company Name</th>
-                                <th>HR Name</th>
-                                <th>Email</th>
-                                <th>Location</th>
+                                <th>Seo Title</th>
+                                <th>Page Slug</th>
+                                <th>Seo Description</th>
+                                <th>Seo Keywords</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -48,10 +48,10 @@
                             @foreach ($list_translated_pages as $key => $memb)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $memb->c_name }}</td>
-                                    <td>{{ $memb->name }}</td>
-                                    <td>{{ $memb->email }}</td>
-                                    <td>{{ $memb->location }}</td>
+                                    <td>{{ $memb->seo_title }}</td>
+                                    <td>{{ $memb->page_slug }}</td>
+                                    <td>{{ $memb->seo_description }}</td>
+                                    <td>{{ $memb->seo_keywords }}</td>
                                     <td>
                                         <div class="col">
                                             <div class="btn-group" role="group" aria-label="Basic example">

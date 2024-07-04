@@ -64,7 +64,7 @@ public function addcity(Request $request)
         'city' => $request->city,
         'status' => 'Active'
     ]);
-    return redirect()->back()->with('success', 'Add cities Successfully ... !');
+    return redirect()->back()->with('success', 'City added Successfully ... !');
 }
 
 public function updatecity(Request $request)
@@ -73,7 +73,7 @@ public function updatecity(Request $request)
         'city' => $request->city,
         'status' => $request->status,
     ]);
-    return redirect()->back()->with('success', 'update cities Successfully...!');
+    return redirect()->back()->with('success', 'City updated Successfully...!');
 }
 
 
@@ -740,39 +740,23 @@ public function delete_cms($id){
     return redirect()->route('list_cms')->withMessage('C.M.S successfully deleted');
 }
 public function savetranslated(Request $request){
-    $savetranslated = DB::table( 'companies' )->insert( [
-       'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=>$request->password,
-        'c_name'=>$request->c_name,
-        'industry_id'=>$request->industry_id,
-        'ownership_type_id'=>$request->ownership_type_id,
-        'description'=>$request->description,
-        'location'=>$request->location,
-        'map'=>$request->map,
-        'no_of_offices'=>$request->no_of_offices,
-        'website'=>$request->website,
-        'no_of_employees'=>$request->no_of_employees,
-        'established_in'=>$request->established_in,
-        'fax'=>$request->fax,
-        'phone'=>$request->phone,
-        'facebook'=>$request->facebook,
-        'twitter'=>$request->twitter,
-        'linkedin'=>$request->linkedin,
-        'google_plus'=>$request->google_plus,
-        'pinterest'=>$request->pinterest,
-        'country_id'=>$request->country_id,
-        'state_id'=>$request->state_id,
-        'city_id'=>$request->city_id,
-        'package_id'=>$request->package_id,
-        'package_start_date'=>$request->package_start_date,
-        'package_end_date'=>$request->package_end_date,
+    $savetranslated = DB::table( 'cms' )->insert( [
+       'page_slug'=>$request->page_slug,
+        'show_in_top_menu'=>$request->show_in_top_menu,
+        'show_in_footer_menu'=>$request->show_in_footer_menu,
+        'seo_title'=>$request->seo_title,
+        'seo_description'=>$request->seo_description,
+        'seo_keywords'=>$request->seo_keywords,
+        'seo_other'=>$request->seo_other,
+        'created_at'=>$request->created_at,
+        'updated_at'=>$request->updated_at,
+        
     ]);
-        return redirect()->route('list_translated_pages')->withMessage('Translated Added Successfully !');
+        return redirect()->route('list_translated_pages')->withMessage('Translated Added Successfully.... !');
 }
 
 public function list_translated_pages(){
-    $list_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $list_translated_pages = DB::table('cms')->orderBy( 'id', 'Asc' )->get();
     return view('admin/list_translated_pages', compact( 'list_translated_pages' ));
 }
 
@@ -788,15 +772,28 @@ public function add_translated_pages(){
 
 public function view_translated_pages($id){
 
-    $view_translated_pages = DB::table('companies')->orderBy( 'id', 'Asc' )->get();
+    $view_translated_pages = DB::table('cms')->orderBy( 'id', 'Asc' )->get();
     return view('admin/view_translated_pages', compact( 'view_translated_pages' ));
 }
 public function edit_translated_pages($id){
-    $edit_translated_pages = DB::table('companies')->where('id', '=', $id)->first();
+    $edit_translated_pages = DB::table('cms')->where('id', '=', $id)->first();
     return view('admin/edit_translated_pages', compact('edit_translated_pages'));
 }
 
-
+public function update_translated_pages(Request $request){
+    $update_translated_pages = DB::table('cms')->where('id', $request->id)->update([
+        'page_slug'=>$request->page_slug,
+        'show_in_top_menu'=>$request->show_in_top_menu,
+        'show_in_footer_menu'=>$request->show_in_footer_menu,
+        'seo_title'=>$request->seo_title,
+        'seo_description'=>$request->seo_description,
+        'seo_keywords'=>$request->seo_keywords,
+        'seo_other'=>$request->seo_other,
+        'created_at'=>$request->created_at,
+        'updated_at'=>$request->updated_at,
+    ]);
+        return redirect()->route('list_translated_pages')->withMessage('Translated Successfully Update !');
+}
 // BLOGS
 public function add_blogs(){
     $add_blogs = DB::table('blogs')->orderby('id' , 'Asc')->get();

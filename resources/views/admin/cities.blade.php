@@ -13,7 +13,7 @@
       <div class="card">
          <div class="card-body">
 		     @if (session()->has('success'))
-               <div class="alert alert-success alert-dismissable" style="margin: 15px;">
+               <div class="alert alert-success text-bg-success border-none" style="margin: 15px;">
                   <a href="#" style="color:white !important" class="close" data-dismiss="alert"
                      aria-label="close">&times;</a>
                   <strong> {{ session('success') }} </strong>
@@ -49,7 +49,7 @@
                                      <div class="modal-content">
                                          <div class="modal-header">
                                              <h4 class="modal-title">Edit City Details</h4>
-                                             <button type="button" class="close" data-dismiss="modal"
+                                             <button type="button" class="close" data-bs-dismiss="modal"
                                                  aria-label="Close">
                                                  <span aria-hidden="true">&times;</span>
                                              </button>
