@@ -58,7 +58,7 @@
 
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{ url('update_Slider') }}" method="POST">
+                    <form action="{{ url('update_slider') }}" method="POST">
                         @csrf
                         <div class="input-group mb-2 p-2">
 							<select name="lang" id="lang" required class="form-control form-select"

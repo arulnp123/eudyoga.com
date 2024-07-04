@@ -98,6 +98,8 @@ class CandidateController extends Controller
       $userid = Session::get('id');
       $gender = DB::table('genders')->orderBy( 'id', 'Asc' )->get();
       $marital_statuses = DB::table('marital_statuses')->orderBy( 'id', 'Asc' )->get();
+      $states = DB::table('states')->orderBy( 'id', 'Asc' )->get();
+      $cities = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
       $candidateprofile = DB::table('users')->where('id', '=', $userid)->first();
       $managecountries = DB::table( 'countries' )->orderBy( 'id', 'Asc' )->get();
       $job_experiences = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
@@ -106,7 +108,7 @@ class CandidateController extends Controller
       $functional_areas  = DB::table('functional_areas')->orderBy( 'id', 'Asc' )->get();
     $getnationality =DB::table('nationality')->get();
 
-        return view( 'candidate/edit_profile_candidate', compact('candidateprofile','gender' ,'managecountries','marital_statuses','job_experiences','career_levels','industries'
+        return view( 'candidate/edit_profile_candidate', compact('candidateprofile','gender','cities','states' ,'managecountries','marital_statuses','job_experiences','career_levels','industries'
       ,'functional_areas','getnationality'));
   }
   public function  editprofilecandidate(Request $request){
