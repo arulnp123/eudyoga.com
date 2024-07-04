@@ -89,11 +89,9 @@ class CandidateController extends Controller
   }
 
   public function  candidate_register(){
-
     $states = DB::table('states')->orderBy('id', 'Asc')->get();
-
-        $cities = DB::table('cities')->orderBy('id', 'Asc')->get();
-        return view( 'candidate/candidate_register' ,compact('cities','states'));
+    $cities = DB::table('cities')->orderBy('id', 'Asc')->get();
+    return view( 'candidate/candidate_register' ,compact('cities','states'));
   }
 
   public function  edit_profile_candidate(){
