@@ -103,7 +103,7 @@
                                                          <label for="InputEmail" class="form-label">HR Recruiter
                                                              Name</label>
                                                          <input type="text" class="form-control" name="hr_name"
-                                                         value="{{ $edit_translated_pages->hr_name }}" placeholder="HR Recruiter Name">
+                                                         value="{{ $edit_translated_pages->name }}" placeholder="HR Recruiter Name">
                                                      </div>
 
                                                      <div class="col-12 col-lg-6">

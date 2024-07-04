@@ -320,7 +320,7 @@ Route::post('/update_country',[App\Http\Controllers\Admin\AdminController::class
 
 
 // FAQs
-Route::get('/adlist_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
+Route::get('/list_faqs', [App\Http\Controllers\Admin\AdminController::class, 'list_faqs'])->name('list_faqs');
 Route::get('/add_faqs', [App\Http\Controllers\Admin\AdminController::class, 'add_faqs'])->name('add_faqs');
 Route::post('/save_faqs',[App\Http\Controllers\Admin\AdminController::class,'save_faqs'])->name('save_faqs');
 Route::get('/sort_faqs/{id}', [App\Http\Controllers\Admin\AdminController::class, 'sort_faqs'])->name('sort_faqs');
@@ -358,7 +358,7 @@ Route::get('/edit_Slider/{id}',[App\Http\Controllers\Admin\AdminController::clas
 Route::get('delete_Slider/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_Slider'])->name('delete_Slider');
 Route::post('/save_Slider',[App\Http\Controllers\Admin\AdminController::class,'save_Slider'])->name('save_Slider');
 Route::get('/sort_slider', [App\Http\Controllers\Admin\AdminController::class, 'sort_slider'])->name('sort_slider');
-Route::post('/update_Slider',[App\Http\Controllers\Admin\AdminController::class,'update_Slider'])->name('update_Slider');
+Route::post('/update_slider',[App\Http\Controllers\Admin\AdminController::class,'update_slider'])->name('update_slider');
 
 // LANGUAGE LEVEL
 Route::get('/add_language_level', [App\Http\Controllers\Admin\AdminController::class, 'add_language_level'])->name('add_language_level');

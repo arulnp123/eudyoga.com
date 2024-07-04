@@ -51,14 +51,8 @@
                                             required="required" placeholder="Password Confirmation" value="">
                                         <span id="password_confirmation" class="help-block"> </span>
                                     </div>
-
-
-
-
-
-
                                     <div class="formrow">
-                                        <select name="state_id" id="stateid" required class="form-control">
+                                        <select name="state_name" id="state_name" required class="form-control">
                                             <option value="">Select State</option>
                                             @foreach ($states as $key => $statelist)
                                                 <option value="{{ $statelist->id }}">{{ $statelist->state_name }}</option>
@@ -66,7 +60,11 @@
                                         </select>
                                     </div>
                                     <div class="formrow">
-                                        <select name="city_id" id="cityid" required class="form-control">
+                                        <select name="city" id="city" required class="form-control">
+                                            <option value="">Select City</option>
+                                            @foreach ($cities as $key => $citieslist)
+                                                <option value="{{ $citieslist->id }}">{{ $citieslist->city }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 

@@ -236,17 +236,23 @@
                                                             </div>
                                                             <div class="col-12 col-lg-6">
                                                                 <label for="state_id" class="form-label">State</label>
-                                                                <select class="form-control" name="state_id"
-                                                                    id="state">
-                                                                    <option>Select State Name</option>
+                                                                <select name="state_name" id="state_name" required class="form-control">
+                                                                    <option value="">Select State</option>
+                                                                    @foreach ($states as $key => $statelist)
+                                                                        <option value="{{ $statelist->id }}">{{ $statelist->state_name }}</option>
+                                                                    @endforeach
                                                                 </select>
+                                                                
                                                             </div>
                                                             <div class="col-12 col-lg-6">
                                                                 <label for="city_id" class="form-label">City</label>
-                                                                <select class="form-control" name="city_id"
-                                                                    id="cityid">
-                                                                    <option>Select City Name</option>
+                                                                <select name="city" id="city" required class="form-control">
+                                                                    <option value="">Select City</option>
+                                                                    @foreach ($cities as $key => $citieslist)
+                                                                        <option value="{{ $citieslist->id }}">{{ $citieslist->city }}</option>
+                                                                    @endforeach
                                                                 </select>
+                                                                
                                                             </div>
                                                             
                                                             <div class="col-12 col-lg-6">

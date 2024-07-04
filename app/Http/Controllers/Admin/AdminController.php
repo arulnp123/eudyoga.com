@@ -945,6 +945,7 @@ public function save_country(Request $request) {
 }
 public function edit_country($id){
     $edit_country = DB::table('countries')->where('id', '=', $id)->get();
+    $get_country_list = DB::table('countries')->get();
     $get_lang_list = DB::table('countries')->get();
     $untrt = DB::table('countries')->get();
     $get_nationality_list = DB::table('countries')->get();
@@ -1176,8 +1177,8 @@ public function delete_Slider( $id ){
     $delete_Slider = DB::table('sliders')->where( 'id', $id )->delete();
    return redirect()->route('list_slider')->withMessage('sliders Successfully Deleted !');
 }
-public function update_Slider(Request $request){
-    $update_Slider = DB::table('sliders')->where('id', $request->id)->update([
+public function update_slider(Request $request){
+    $update_slider = DB::table('sliders')->where('id', $request->id)->update([
         'lang'=>$request->lang,
         'slider_image'=>$request->slider_image,
         'slider_heading'=>$request->slider_heading,
