@@ -794,6 +794,12 @@ public function update_translated_pages(Request $request){
     ]);
         return redirect()->route('list_translated_pages')->withMessage('Translated Successfully Update !');
 }
+
+public function delete_translated_pages( $id ){
+    $delete_translated_pages = DB::table('cms')->where( 'id', $id )->delete();
+   return redirect()->route('list_translated_pages')->withMessage('Delete Translated Pages Successfully Deleted !');
+}
+
 // BLOGS
 public function add_blogs(){
     $add_blogs = DB::table('blogs')->orderby('id' , 'Asc')->get();

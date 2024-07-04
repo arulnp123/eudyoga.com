@@ -65,7 +65,7 @@
                                                 </button>
                                                 <button type="button" class="btn btn-light"> <a
                                                         onclick="return confirm('Do you want to Confirm delete operation?')"
-                                                        href="{{ url('/deleteuser', $memb->id) }}"><i
+                                                        href="{{ url('/delete_translated_pages', $memb->id) }}"><i
                                                             class="lni lni-trash"></i></a></button>
                                             </div>
                                         </div>
