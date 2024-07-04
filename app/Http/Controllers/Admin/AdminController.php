@@ -1163,7 +1163,7 @@ public function view_Slider($id){
     return view('admin/view_Slider', compact( 'view_Slider' ));
 }
 public function edit_Slider($id){
-    $edit_Slider = DB::table('sliders')->where('id', '=', $id)->get();
+    $edit_Slider = DB::table('sliders')->where('id', '=', $id)->first();
     $get_lang_list = DB::table('sliders')->get();
     $get_slider_heading_list = DB::table('sliders')->get();
     $get_slider_image_list = DB::table('sliders')->get();
@@ -1502,7 +1502,7 @@ public function sort_jobtypes(){
 }
 
 public function add_job_types(Request $request) {
-    $add_jobs_types = DB::table( 'job_types' )->insert( [
+    $add_jobtypes = DB::table( 'job_types' )->insert( [
         'job_type_id'=>$request->job_type_id,
         'job_type'=>$request->job_type,
         'lang'=>$request->lang,

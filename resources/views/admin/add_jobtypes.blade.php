@@ -60,7 +60,7 @@
 
                     </ul>
 
-                    <form action="{{ url('add_job_types') }}" method="POST">
+                    <form action="{{ url('/add_jobtypes') }}" method="POST">
                         @csrf
                         <input type="hidden"name="id" id="id">
                         <div>

@@ -296,7 +296,7 @@ Route::get('/add_city', [App\Http\Controllers\Admin\AdminController::class, 'add
 Route::post('/save_packages', [App\Http\Controllers\Admin\AdminController::class, 'save_packages'])->name('save_packages');
 Route::get('/add_functional_area', [App\Http\Controllers\Admin\AdminController::class, 'add_functional_area'])->name('add_functional_area');
 Route::get('/add_industries', [App\Http\Controllers\Admin\AdminController::class, 'add_industries'])->name('add_industries');
-Route::get('/add_job_types', [App\Http\Controllers\Admin\AdminController::class, 'add_job_types'])->name('add_job_types');
+Route::post('/add_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'add_jobtypes'])->name('add_jobtypes');
 Route::get('/add_jobshifts', [App\Http\Controllers\Admin\AdminController::class, 'add_jobshifts'])->name('add_jobshifts');
 
 

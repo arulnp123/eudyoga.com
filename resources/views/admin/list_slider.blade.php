@@ -69,14 +69,18 @@
                   <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $memb->lang }}</td>
+                    <td>{{ $memb->slider_image }}</td>
                     <td>{{ $memb->slider_heading	 }}</td>
+                    <td>{{ $memb->slider_description }}</td>
+                    <td>{{ $memb->slider_link }}</td>
+                    <td>{{ $memb->slider_link_text }}</td>
                     {{-- <td>{{ $memb->email }}</td> --}}
                     <td>
                       <div class="col">
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-light"><a href="{{ url('view_Slider', $memb->id) }}"><i class="lni lni-eye"></i>
                           </button>
-                          <button type="button" class="btn btn-light"><a href="{{ url('edit_Slider', $memb->id) }}"><i class='bx bx-edit me-0'></i>
+                          <button type="button" class="btn btn-light"><a href="{{ url('/edit_Slider', $memb->id) }}"><i class='bx bx-edit me-0'></i>
                           </button>
                           <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
                             href="{{ url('delete_Slider', $memb->id) }}"><i class="lni lni-trash"></i></a></button>

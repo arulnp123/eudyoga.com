@@ -58,98 +58,100 @@
 
                         <p class="h6">Langauge</p>
                     </div>
-                    <form action="{{ url('update_slider') }}" method="POST">
+                    <form action="{{ url('update_slider') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="input-group mb-2 p-2">
-							<select name="lang" id="lang" required class="form-control form-select"
-								aria-label="Default select example">
-								<option value=""> Select Language </option>
-								@foreach ($get_lang_list as $key => $get_lang_list)
-									<option value="{{ $get_lang_list->lang }}">
-										{{ $get_lang_list->lang }}</option>
-								@endforeach
-	
-							</select>
-							
-						</div>
-
-                        <div class=" ps-3 pt-3">
-                            <p class="h6">Slider Image</p>
-                        </div>
-						<div class="input-group mb-2 p-2">
-                        <select name="slider_image" id="slider_image" required class="form-control form-select mt-3">
-                            <option value="">Slider Image</option>
-
-                            @foreach ($get_slider_image_list as $key => $get_slider_image_list)
-                                <option value="{{ $get_slider_image_list->slider_image}}">
-                                    {{ $get_slider_image_list->slider_image }}</option>
-                            @endforeach
-                        </select>
-						</div>
-
-                        <div class=" ps-3 pt-3">
-                            <p class="h6">Slider Heading</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_heading" id="slider_heading" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Heading</option>
-                                @foreach ($get_slider_heading_list as $key => $get_slider_heading_list)
-                                    <option value="{{ $get_slider_heading_list->slider_heading}}">
-                                        {{ $get_slider_heading_list->slider_heading}}</option>
+                        <input type="hidden" value="{{ $edit_Slider->id }}" name="id">
+                        <div class="row g-3">
+                            <div class="col-12 col-lg-6">
+                                <label for="lang" class="form-label">Langauge</label>
+                                <select name="lang" id="lang" required
+                                    class="form-control form-select"
+                                    aria-label="Default select example">
+                                    <option value="" selected>Langauge</option>
+                                    @foreach ($get_lang_list as $langlist)
+                                    <option @if ($edit_Slider->lang == $langlist->id) selected @endif
+                                        value="{{ $langlist->lang }}">
+                                        {{ $langlist->lang }}
+                                    </option>
                                 @endforeach
+                                </select>
+                            </div>
 
-                            </select>
-                        </div>
-
-						<div class=" ps-3 pt-3">
-                            <p class="h6">Slider Description</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_description" id="slider_description" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Description</option>
-                                @foreach ($get_slider_description_list as $key => $get_slider_description_list)
-                                    <option value="{{ $get_slider_description_list->slider_description}}">
-                                        {{ $get_slider_description_list->slider_description}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
+                            <div class="row g-3">
+                                <div class="col-12 col-lg-6">
+                                    <label for="slider_image" class="form-label">Slider Image</label>
+                                    <select name="slider_image" id="slider_image" required
+                                        class="form-control form-select"
+                                        aria-label="Default select example">
+                                        <option value="" selected>Slider Image</option>
+                                        @foreach ($get_slider_image_list as $imagelist)
+                                        <option @if ($edit_Slider->slider_image == $imagelist->id) selected @endif
+                                            value="{{ $imagelist->slider_image }}">
+                                            {{ $imagelist->slider_image }}
+                                        </option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-12 col-lg-6">
+                                        <label for="slider_heading" class="form-label">Slider Heading</label>
+                                        <select name="slider_heading" id="slider_heading" required
+                                            class="form-control form-select"
+                                            aria-label="Default select example">
+                                            <option value="" selected>Slider Heading</option>
+                                            @foreach ($get_slider_heading_list as $headinglist)
+                                            <option @if ($edit_Slider->slider_heading == $headinglist->id) selected @endif
+                                                value="{{ $headinglist->slider_heading }}">
+                                                {{ $headinglist->slider_heading }}
+                                            </option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col-12 col-lg-6">
+                                            <label for="slider_description" class="form-label">Slider Heading</label>
+                                            <select name="slider_description" id="slider_heading" required
+                                                class="form-control form-select"
+                                                aria-label="Default select example">
+                                                <option value="" selected>Slider Heading</option>
+                                                @foreach ($get_slider_description_list as $descriptionlist)
+                                                <option @if ($edit_Slider->slider_description == $descriptionlist->id) selected @endif
+                                                    value="{{ $descriptionlist->slider_description }}">
+                                                    {{ $descriptionlist->slider_description }}
+                                                </option>
+                                            @endforeach
+                                            </select>
+                                        </div>
 						
-						<div class=" ps-3 pt-3">
-                            <p class="h6">Slider Link</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_link" id="slider_link" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Link</option>
-                                @foreach ($get_slider_link_list as $key => $get_slider_link_list)
-                                    <option value="{{ $get_slider_link_list->slider_link}}">
-                                        {{ $get_slider_link_list->slider_link}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-
-						<div class=" ps-3 pt-3">
-                            <p class="h6">Slider Link Test</p>
-                        </div>
-
-                        <div class="input-group mb-2 p-2">
-                            <select name="slider_link_text" id="slider_link_text" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="">Slider Link Test</option>
-                                @foreach ($get_slider_link_text_list as $key => $get_slider_link_text_list)
-                                    <option value="{{ $get_slider_link_text_list->slider_link_text}}">
-                                        {{ $get_slider_link_text_list->slider_link_text}}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
+                                        <div class="row g-3">
+                                            <div class="col-12 col-lg-6">
+                                                <label for="slider_link" class="form-label">Slider Link</label>
+                                                <select name="slider_link" id="slider_link" required
+                                                    class="form-control form-select"
+                                                    aria-label="Default select example">
+                                                    <option value="" selected>Slider Link</option>
+                                                    @foreach ($get_slider_link_list as $linklist)
+                                                    <option @if ($edit_Slider->slider_link == $linklist->id) selected @endif
+                                                        value="{{ $linklist->slider_link }}">
+                                                        {{ $linklist->slider_link }}
+                                                    </option>
+                                                @endforeach
+                                                </select>
+                                                <div class="row g-3">
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="slider_link_text" class="form-label">Slider Link Text</label>
+                                                        <select name="slider_link_text" id="slider_link_text" required
+                                                            class="form-control form-select"
+                                                            aria-label="Default select example">
+                                                            <option value="" selected>Slider Link Text</option>
+                                                            @foreach ($get_slider_link_text_list as $linklist)
+                                                            <option @if ($edit_Slider->slider_link_text == $linklist->id) selected @endif
+                                                                value="{{ $linklist->slider_link_text }}">
+                                                                {{ $linklist->slider_link_text }}
+                                                            </option>
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
 
 
                         <div>
