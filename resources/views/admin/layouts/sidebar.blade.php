@@ -39,8 +39,8 @@
 
                  <li> <a href="{{ url('list_admin_users') }}"><i class='bx bx-radio-circle'></i>List Admin</a>
                  </li>
-                 <li> <a href="{{ url('add_admin_users') }}"><i class='bx bx-radio-circle'></i>Add Admin</a>
-                 </li>
+                 <!--<li> <a href="{{ url('add_admin_users') }}"><i class='bx bx-radio-circle'></i>Add Admin</a>
+                 </li>-->
 
              </ul>
          </li>

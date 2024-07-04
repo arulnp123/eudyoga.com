@@ -85,27 +85,28 @@
                                              <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                  aria-labelledby="stepper2trigger1">
                                                  <div class="row g-3">
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="c_name" class="form-label">
-                                                             Company Name</label>
-                                                         <input type="text" class="form-control" name="c_name"
-                                                             value="{{ $edit_translated_pages->c_name }}"
-                                                             placeholder="Company Name">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="LastName" class="form-label">Company Email</label>
-                                                         <input type="text" class="form-control" name="email"
-                                                             value="{{ $edit_translated_pages->email }}"
-                                                             placeholder="Company Email">
-                                                     </div>
-
-                                                     <div class="col-12 col-lg-12">
-                                                         <label for="InputEmail" class="form-label">HR Recruiter
-                                                             Name</label>
-                                                         <input type="text" class="form-control" name="hr_name"
-                                                         value="{{ $edit_translated_pages->name }}" placeholder="HR Recruiter Name">
-                                                     </div>
-
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="page_slug" class="form-label">
+                                                           Page Slug</label>
+                                                        <input type="text" class="form-control" name="page_slug"
+                                                          placeholder="Page Slug" value="{{ $edit_translated_pages->page_slug }}">
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="show_in_top_menu" class="form-label">show_in_top_menu</label>
+                                                        <input type="text" class="form-control" name="show_in_top_menu"
+                                                            placeholder="show_in_top_menu" value="{{ $edit_translated_pages->show_in_top_menu }}">
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="show_in_footer_menu" class="form-label">show_in_footer_menu</label>
+                                                        <input type="text" class="form-control" name="show_in_footer_menu"
+                                                             placeholder="show_in_footer_menu" value="{{ $edit_translated_pages->show_in_footer_menu }}">
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="seo_title" class="form-label">seo title</label>
+                                                        <input type="text" class="form-control" name="seo_title"
+                                                         placeholder="seo_title" value="{{ $edit_translated_pages->seo_title }}">
+                                                    </div>
+                                                    
                                                      <div class="col-12 col-lg-6">
                                                          <button class="btn btn-light px-4" type="button"
                                                              onclick="stepper2.next()">Next<i
@@ -119,40 +120,43 @@
 
                                                  <h5 class="mb-1">Enter Your Details</h5>
                                                  <div class="row g-3">
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="seo_description" class="form-label">Seo Description</label>
+                                                        <textarea class="form-control" name="seo_description" placeholder="seo description" rows="3"
+                                                       readonly>{{ $edit_translated_pages->seo_description }}</textarea>
+                                                        
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="seo_keywords" class="form-label">Seo Keyword</label>
+                                                        <input type="text" class="form-control" name="seo_keywords"
+                                                         placeholder="seo keyword" value="{{ $edit_translated_pages->seo_keywords }}" readonly>
+                                                    </div>                                                                                                         
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="InputUsername"
-                                                             class="form-label">Industry</label>
-                                                         <input type="text" class="form-control"
-                                                             name="industry_id" id="InputUsername"
-                                                             placeholder="Industry">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="InputEmail2" class="form-label">Ownership
-                                                             Type</label>
-                                                         <input type="text" class="form-control"
-                                                             name="ownership_type_id" id="InputEmail2"
-                                                             placeholder="Ownership Type">
-                                                     </div>
-                                                     <div class="col-12 col-lg-6">
-                                                         <label for="inputAddress2" class="form-label">Company
-                                                             details</label>
-                                                         <textarea class="form-control" name="description" id="description" placeholder="Company details" rows="3"></textarea>
+                                                         <label for="seo_other" class="form-label">Seo Other</label>
+                                                         <textarea class="form-control" name="seo_other" placeholder="seo other" rows="3"
+                                                         readonly>{{ $edit_translated_pages->seo_other }}</textarea>
                                                      </div>
                                                      <div class="col-12 col-lg-6">
-                                                         <label for="InputConfirmPassword"
-                                                             class="form-label">Location</label>
-                                                         <textarea class="form-control" name="location" id="location" placeholder="Location" rows="3"></textarea>
-                                                     </div>
-                                                     <div class="col-12">
-                                                         <div class="d-flex align-items-center gap-3">
-                                                             <button class="btn btn-outline-light px-4" type="button"
-                                                                 onclick="stepper2.previous()"><i
-                                                                     class='bx bx-left-arrow-alt me-2'></i>Previous</button>
-                                                             <button class="btn btn-light px-4" type="button"
-                                                                 onclick="stepper2.next()">Next<i
-                                                                     class='bx bx-right-arrow-alt ms-2'></i></button>
-                                                         </div>
-                                                     </div>
+                                                        <label for="PhoneNumber" class="form-label">Created At</label>
+                                                        <input type="text" class="form-control"
+                                                            name="created_at" id="created_at"
+                                                            placeholder="created at" value="{{ $edit_translated_pages->created_at }}" readonly>
+                                                    </div>
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="PhoneNumber" class="form-label">Updated At</label>
+                                                        <input type="text" class="form-control"
+                                                            name="updated_at" id="updated_at"
+                                                            placeholder="updated at" value="{{ $edit_translated_pages->updated_at }}" readonly>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="d-flex align-items-center gap-3">
+                                                            <button class="btn btn-light px-4" type="button"
+                                                                onclick="stepper2.previous()"><i
+                                                                    class='bx bx-left-arrow-alt me-2'></i>Previous</button>
+                                                            <button class="btn btn-secondary px-4"><a
+                                                                    href="{{ url('list_translated_pages') }}">Back to Translated Pages List</a></button>
+                                                        </div>
+                                                    </div>
                                                  </div><!---end row-->
 
                                              </div>
