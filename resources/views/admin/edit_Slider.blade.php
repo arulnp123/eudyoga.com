@@ -78,7 +78,7 @@
                         </div>
 						<div class="input-group mb-2 p-2">
                         <select name="slider_image" id="slider_image" required class="form-control form-select mt-3">
-                            <option value="">No File Choosen</option>
+                            <option value="">Slider Image</option>
 
                             @foreach ($get_slider_image_list as $key => $get_slider_image_list)
                                 <option value="{{ $get_slider_image_list->slider_image}}">
