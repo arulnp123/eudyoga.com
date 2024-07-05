@@ -123,5 +123,4 @@
             .appendTo('#example2_wrapper .col-md-6:eq(0)');
     });
 </script>
-app JS
 <script src="{{ URL::to('/') }}/assets1/assets/js/app.js"></script>

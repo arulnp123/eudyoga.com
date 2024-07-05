@@ -58,9 +58,7 @@
                                                                 enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input type="hidden" class="form-control"
-                                                                    value
-                                                                <div id="test-nl-1" role="tabpanel"
-                                                                    class="bs-stepper-pane"
+                                                                 id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                                     aria-labelledby="stepper2trigger1">
                                                                     <h5 class="mb-1 mb-3" style="color: black">Enter
                                                                         Your Details</h5>
@@ -68,50 +66,25 @@
 
                                                                     <div class="row g-3">
                                                                         <div class="col-12 col-lg-6">
-                                                                            <label for="email"
-                                                                                class="form-label mb-2">Name</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="name"
-                                                                                value
-                                                                                id="name" placeholder="Full Name">
-                                                                        </div>
-
-
-                                                                        <div class="col-12 col-lg-6">
-                                                                            <label for="image"
-                                                                                class="form-label mb-2">Whatsapp
-                                                                                Number</label>
-                                                                            <input class="form-control form-control-sm"
-                                                                            
-                                                                                id="image" type="text">
+                                                                            <label for="email" class="form-label mb-2">Name</label>
+                                                                            <input type="text" class="form-control" name="name" id="name" placeholder="Full Name">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
-                                                                            <label for="email"
-                                                                                class="form-label mb-2">Email</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="email"
-                                                                                
-                                                                                id="email" placeholder="email">
+                                                                            <label for="image" class="form-label mb-2">Whatsapp Number</label>
+                                                                            <input class="form-control form-control-sm" name="mobile_num" id="mobile_num" type="text">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
-                                                                            <label for="state"
-                                                                                class="form-label mb-2">state</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="state"
-                                                                                
-                                                                                id="state" placeholder="state">
+                                                                            <label for="email" class="form-label mb-2">Email</label>
+                                                                            <input type="text" class="form-control" name="email" id="email" placeholder="email">
                                                                         </div>
                                                                         <div class="col-12 col-lg-6">
-                                                                            <label for="city"
-                                                                                class="form-label mb-2">City</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="city"
-                                                                                
-                                                                                id="city" placeholder="city">
+                                                                            <label for="state" class="form-label mb-2">State</label>
+                                                                            <input type="text" class="form-control" name="state" id="state" placeholder="state">
                                                                         </div>
-
-
-
+                                                                        <div class="col-12 col-lg-6">
+                                                                            <label for="city" class="form-label mb-2">City</label>
+                                                                            <input type="text" class="form-control" name="city" id="city" placeholder="city">
+                                                                        </div>
 
                                                                         <script>
                                                                             $('#countries').on('change', function() {
@@ -159,12 +132,12 @@
                                                                                 });
                                                                             });
                                                                         </script>
-                                                                        <!-- <div class="col-12">
-                                          <div class="d-flex align-items-center gap-3">
-                                              <button class="btn btn-light px-4" type="button" onclick="stepper2.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Previous</button>
-                                              <button class="btn btn-white px-4" type="submit" onclick="stepper2.next()">Submit</button>
-                                          </div>
-                                      </div> -->
+                                                                       <div class="col-12">
+                                                                        <div class="d-flex align-items-center gap-3">
+                                              <!--<button class="btn btn-light px-4" type="button" onclick="stepper2.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Previous</button>-->
+                                                                       <button class="btn btn-light px-4" type="submit" onclick="stepper2.next()">Submit</button>
+                                                                       </div>
+                                                                      </div> 
                                                                     </div><!---end row-->
 
                                                                 </div>
@@ -178,8 +151,7 @@
                                     </div>
                                     <!--end stepper two-->
 
-
-
+                                    
                                     <link
                                         href="{{ URL::to('/') }}/public/assets1/plugins/input-tags/css/tagsinput.css"
                                         rel="stylesheet" />
@@ -267,10 +239,11 @@
                 <br>
             </div>
         </div>
+
         <!--Footer-->
         <div class="largebanner shadow3">
             <div class="adin">
-                <img src="{{ URL::to('/') }}/public/assets/images/banner1.jpg">
+                <img src="{{ URL::to('/') }}/assets/images/banner1.jpg">
             </div>
             <div class="clearfix"></div>
         </div>
