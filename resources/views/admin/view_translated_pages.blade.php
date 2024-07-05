@@ -77,7 +77,7 @@
 		<div class="bs-stepper-content">
 			<form class="row g-3" action="#" enctype="multipart/form-data">
 				@csrf
-				@foreach ($view_translated_pages as $key => $edit)
+				@foreach ($view_translated_pages as $key => $translated)
 				<div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
 						aria-labelledby="stepper2trigger1">
 						<h5 class="mb-1">Enter Your Details</h5>
@@ -87,25 +87,25 @@
 					<label for="page_slug" class="form-label">Page Slug</label>
 					   <input type="text" class="form-control" name="page_slug"
 						id="page_slug" placeholder="Page Slug"
-						value="{{ $edit->page_slug }}" readonly>
+						value="{{ $translated->page_slug }}" readonly>
 					
 				 </div>
 				<div class="col-12 col-lg-6">
 					<label for="show_in_top_menu" class="form-label">Show in Top Menu</label>
 					<input type="text" class="form-control" name="show_in_top_menu"
 						placeholder="show in top menu"
-						value="{{ $edit->show_in_top_menu }}" readonly>
+						value="{{ $translated->show_in_top_menu }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="show_in_footer_menu" class="form-label">Show in Footer Menu</label>
 					<input type="text" class="form-control" name="show_in_footer_menu"
 						 placeholder="show in footer menu"
-						 value="{{ $edit->show_in_footer_menu }}" readonly>
+						 value="{{ $translated->show_in_footer_menu }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="seo_title" class="form-label">Seo Title</label>
 					<input type="text" class="form-control" name="seo_title"
-					 placeholder="seo title" value="{{ $edit->seo_title }}" readonly>
+					 placeholder="seo title" value="{{ $translated->seo_title }}" readonly>
 				</div>
 				
 				  
@@ -126,30 +126,30 @@
 				<div class="col-12 col-lg-6">
 					<label for="seo_description" class="form-label">Seo Description</label>
 					<textarea class="form-control" name="seo_description" placeholder="seo description" rows="3"
-                   readonly>{{ $edit->seo_description }}</textarea>
+                   readonly>{{ $translated->seo_description }}</textarea>
 					
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="seo_keywords" class="form-label">Seo Keyword</label>
 					<input type="text" class="form-control" name="seo_keywords"
-					 placeholder="seo keyword" value="{{ $edit->seo_keywords }}" readonly>
+					 placeholder="seo keyword" value="{{ $translated->seo_keywords }}" readonly>
 				</div>                                                                                                         
 				 <div class="col-12 col-lg-6">
 					 <label for="seo_other" class="form-label">Seo Other</label>
 					 <textarea class="form-control" name="seo_other" placeholder="seo other" rows="3"
-					 readonly>{{ $edit->seo_other }}</textarea>
+					 readonly>{{ $translated->seo_other }}</textarea>
 				 </div>
 				 <div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Created At</label>
 					<input type="text" class="form-control"
 						name="created_at" id="created_at"
-						placeholder="created at" value="{{ $edit->created_at }}" readonly>
+						placeholder="created at" value="{{ $translated->created_at }}" readonly>
 				</div>
 				<div class="col-12 col-lg-6">
 					<label for="PhoneNumber" class="form-label">Updated At</label>
 					<input type="text" class="form-control"
 						name="updated_at" id="updated_at"
-						placeholder="updated at" value="{{ $edit->updated_at }}" readonly>
+						placeholder="updated at" value="{{ $translated->updated_at }}" readonly>
 				</div>
 				<div class="col-12">
 					<div class="d-flex align-items-center gap-3">

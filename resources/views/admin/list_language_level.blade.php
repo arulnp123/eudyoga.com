@@ -45,8 +45,8 @@
                         <thead>
                             <tr>
                                 <th>S.No</th>
-                                <th>LANGUAGE</th>
-                                <th>LanguageLevel</th>
+                                <th>Language</th>
+                                <th>Language Level</th>
                                 <th>Action</th>
 
                             </tr>

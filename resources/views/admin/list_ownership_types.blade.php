@@ -33,7 +33,7 @@
                         <div class=" caption"> <i class="icon-settings font-dark"></i> <span
                                 class="caption-subject font-dark sbold uppercase">Ownership typ</span> </div>
                         <div class="actions"> <a href="{{ url('add_ownership_types') }}"
-                                class="btn btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i> Add New
+                                class="btn btn-xs btn-success mb-2"><i class="glyphicon glyphicon-plus"></i> Add New
                                 Ownership type</a>
                         </div>
                     </div>

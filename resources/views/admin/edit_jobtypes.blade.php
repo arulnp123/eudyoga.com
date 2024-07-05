@@ -61,18 +61,35 @@
                     </ul>
 
                     <form action="{{ url('update_jobtypes') }}" method="POST" enctype="multipart/form-data">
+                        @csrf   
+                        @foreach ($edit_jobtypes as $key => $edit_jobtypes_list)                    
+                        <input value="{{ $edit_jobtypes_list->id }}" type="hidden" name="id" />
                         @csrf
-                        @foreach ($edit_jobtypes as $job_types)
+                        <div>
+                            <p class="h6 ps-3 mt-4 ">Id</p>
+                        </div>
+                        <div class="input-group mb-3 p-2">
+                            <select name="sort_order" id="sort_order" required class="form-control form-select"
+                                aria-label="Default select example">
+                                <option value=""> Select Id </option>
+                                @foreach ($get_jobtypes as $key => $get_jobtypes_list)
+                                <option @if ($get_jobtypes_list->sort_order == $edit_jobtypes_list->sort_order) selected @endif
+                                    value="{{ $get_jobtypes_list->sort_order }}">
+                                    {{ $get_jobtypes_list->sort_order }}</option>
+                            @endforeach
+
+                            </select>
+                            
+                        </div>
                             <div>
                                 <p class="h6 ps-3 mt-4 ">Languages</p>
                             </div>
                             <div class="input-group  p-2">
-
-                                <select name="job_shift" id="job_shift" required class="form-control form-select"
+                                <select name="lang" id="lang" required class="form-control form-select"
                                     aria-label="Default select example">
                                     <option value=""selected>Job Type</option>
                                     @foreach ($get_jobtypes as $key => $get_jobtypes_list)
-                                        <option @if ($get_jobtypes_list->lang == $job_types->lang) selected @endif
+                                        <option @if ($get_jobtypes_list->lang == $edit_jobtypes_list->lang) selected @endif
                                             value="{{ $get_jobtypes_list->lang }}">
                                             {{ $get_jobtypes_list->lang }}</option>
                                     @endforeach
@@ -87,11 +104,11 @@
 
                             <div class="input-group  p-2">
 
-                                <select name="job_shift" id="job_shift" required class="form-control form-select"
+                                <select name="job_type" id="job_type" required class="form-control form-select"
                                     aria-label="Default select example">
                                     <option value=""selected>Job Type</option>
                                     @foreach ($get_jobtypes as $key => $get_jobtypes_list)
-                                        <option @if ($get_jobtypes_list->job_type == $job_types->job_type) selected @endif
+                                        <option @if ($get_jobtypes_list->job_type == $edit_jobtypes_list->job_type) selected @endif
                                             value="{{ $get_jobtypes_list->job_type }}">
                                             {{ $get_jobtypes_list->job_type }}</option>
                                     @endforeach
@@ -106,7 +123,7 @@
                             <div class=" d-flex">
                                 <div class="form-check ms-3 ">
                                     <label class="form-check-label " for="is_default">
-                                        <input type="radio" @if ($job_types->is_default == 1) checked @endif
+                                        <input type="radio" @if ($edit_jobtypes_list->is_default == 1) checked @endif
                                             name="is_default" id="is_default2" value="1">
                                         Yes
                                     </label>
@@ -115,7 +132,7 @@
                                 </label>
                                 <div class="form-check ms-3">
                                     <label class="form-check-label" for="is_default">
-                                        <input type="radio" @if ($job_types->is_default == 0) checked @endif
+                                        <input type="radio" @if ($edit_jobtypes_list->is_default == 0) checked @endif
                                             name="is_default" id="is_default0" value="0">
                                         No
                                     </label>
@@ -130,7 +147,7 @@
                                 <div class=" d-flex ">
                                     <d6iv class="form-check ms-4 ">
                                         <label class="form-check-label " name="is_active" id="is_active1">
-                                            <input type="radio" @if ($job_types->is_active == 1) checked @endif
+                                            <input type="radio" @if ($edit_jobtypes_list->is_active == 1) checked @endif
                                                 name="is_active" id="is_active1" value="1">
                                             Active
                                         </label>
@@ -139,7 +156,7 @@
                                         <!-- <input class="form-check-input " type="radio" name="is_active" id="is_active2"
                                                     value="0"> -->
                                         <label class="form-check-label" for="is_active2">
-                                            <input type="radio" @if ($job_types->is_active == 0) checked @endif
+                                            <input type="radio" @if ($edit_jobtypes_list->is_active == 0) checked @endif
                                                 name="is_active" id="is_active2" value="0">
                                             in Active
                                         </label>

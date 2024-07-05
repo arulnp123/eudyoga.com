@@ -72,7 +72,7 @@
 
                                 <select name="page_slug" id="page_slug" required class="form-control form-select"
                                     aria-label="Default select example">
-                                    <option value=""selected>Degree Level</option>
+                                    <option value=""selected>Page Slug</option>
                                     @foreach ($get_cms_detail as $key => $get_cms_detail_list)
                                         <option @if ($get_cms_detail_list->page_slug == $get_cms_list->page_slug) selected @endif
                                             value="{{ $get_cms_detail_list->page_slug }}">

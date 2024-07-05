@@ -771,8 +771,7 @@ public function add_translated_pages(){
 }
 
 public function view_translated_pages($id){
-
-    $view_translated_pages = DB::table('cms')->orderBy( 'id', 'Asc' )->get();
+    $view_translated_pages = DB::table('cms')->where( 'id', '=', $id )->get();
     return view('admin/view_translated_pages', compact( 'view_translated_pages' ));
 }
 public function edit_translated_pages($id){
@@ -1483,8 +1482,8 @@ public function edit_jobtypes($id){
 }
 public function update_jobtypes(Request $request){
     $update_jobtypes = DB::table('job_types')->where('id', $request->id)->update([
-        'job_types_id'=>$request->job_types_id,
-        'job_types'=>$request->jobtypes,
+        'sort_order'=>$request->sort_order,
+        'job_type'=>$request->job_type,
         'lang'=>$request->lang,
 
    ]);
@@ -1504,18 +1503,18 @@ public function sort_jobtypes(){
             return view( 'admin/sort_jobtypes',compact('sort_jobtypes'));
 }
 
-public function add_job_types(Request $request) {
-    $add_jobtypes = DB::table( 'job_types' )->insert( [
-        'job_type_id'=>$request->job_type_id,
-        'job_type'=>$request->job_type,
-        'lang'=>$request->lang,
+//public function add_job_types(Request $request) {
+   // $add_jobtypes = DB::table( 'job_types' )->insert( [
+        //'sort_order'=>$request->sort_order,
+        //'job_type'=>$request->job_type,
+        //'lang'=>$request->lang,
 
-    ] );
-   return redirect()->route('list_job_types')->withMessage('job types Successfully Added !');
-    }
+   // ] );
+   //return redirect()->route('list_job_types')->withMessage('job types Successfully Added !');
+   // }
 public function save_jobtypes(Request $request) {
         $save_jobtypes = DB::table( 'job_types' )->insert( [
-                    'job_type_id'=>$request->job_type_id,
+                    'sort_order'=>$request->sort_order,
                     'job_type'=>$request->job_type,
                     'lang'=>$request->lang,
 

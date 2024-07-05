@@ -202,7 +202,7 @@ Route::get('/edit_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'
 Route::post('/update_cms',[App\Http\Controllers\Admin\AdminController::class,'update_cms'])->name('update_cms');
 Route::get('/view_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'view_cms'])->name('view_cms');
 Route::get('delete_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_cms'])->name('delete_cms');
-
+ 
 // BLOGS
 Route::get('/add_blogs', [App\Http\Controllers\Admin\AdminController::class, 'add_blogs'])->name('add_blogs');
 Route::post('/saveblogs', [App\Http\Controllers\Admin\AdminController::class, 'saveblogs'])->name('saveblogs');
@@ -414,7 +414,7 @@ Route::get('delete_job_skills/{id}',[App\Http\Controllers\Admin\AdminController:
 Route::get('/list_job_types', [App\Http\Controllers\Admin\AdminController::class, 'list_job_types'])->name('list_job_types');
 Route::get('/sort_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'sort_jobtypes'])->name('sort_jobtypes');
 Route::post('/save_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'save_jobtypes'])->name('save_jobtypes');
-Route::get('/add_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'add_jobtypes'])->name('add_job_types');
+Route::get('/add_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'add_jobtypes'])->name('add_jobtypes');
 Route::post('/update_jobtypes', [App\Http\Controllers\Admin\AdminController::class, 'update_jobtypes'])->name('update_jobtypes');
 Route::get('/delete_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_jobtypes'])->name('delete_jobtypes');
 Route::get('/edit_jobtypes/{id}', [App\Http\Controllers\Admin\AdminController::class, 'edit_jobtypes'])->name('edit_jobtypes');

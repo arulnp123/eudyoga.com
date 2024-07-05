@@ -75,7 +75,7 @@
                         <div class="input-group  p-2">
                             <select name="lang" id="lang" required class="form-control form-select"
                                 aria-label="Default select example">
-                                <option value="" selected>Select Career Level</option>
+                                <option value="" selected>Select Language</option>
                                 @foreach ($edit_language_level as $key => $get_language_levels_list)
                                 <option @if ($edit_language_level == $edit_language_level) selected @endif
                                         value="{{ $get_language_levels_list }}">

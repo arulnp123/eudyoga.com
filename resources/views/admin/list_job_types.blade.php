@@ -69,7 +69,7 @@
                   @foreach($job_types as $key => $memb)
                   <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $memb->job_type }}</td>
+                    <td>{{ $memb->sort_order }}</td>
                     <td>{{ $memb->job_type }}</td>
                     <td>{{ $memb->lang }}</td>
                     <td>

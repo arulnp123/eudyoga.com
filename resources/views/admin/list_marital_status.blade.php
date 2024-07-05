@@ -32,7 +32,7 @@
                         <div class=" caption"> <i class="icon-settings font-dark"></i> <span
                                 class="caption-subject font-dark sbold uppercase">Marital Status</span> </div>
                         <div class="actions"> <a href="{{ url('add_marital_status') }}"
-                                class="btn btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i> Add New
+                                class="btn btn-xs btn-success mb-2"><i class="glyphicon glyphicon-plus"></i> Add New
                                 Marital Status</a>
                         </div>
                     </div>

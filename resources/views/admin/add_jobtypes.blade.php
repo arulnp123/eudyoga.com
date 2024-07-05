@@ -60,19 +60,19 @@
 
                     </ul>
 
-                    <form action="{{ url('/add_jobtypes') }}" method="POST">
+                    <form action="{{ url('/save_jobtypes') }}" method="POST">
                         @csrf
                         <input type="hidden"name="id" id="id">
                         <div>
                             <p class="h6 ps-3">Id</p>
                         </div>
                         <div class="input-group mb-3 p-2">
-                            <select name="job_type_id" id="job_type_id" required class="form-control form-select"
+                            <select name="sort_order" id="sort_order" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value=""> Select Id </option>
                                 @foreach ($job_types as $key => $job_typeslist)
-                                    <option value="{{ $job_typeslist->job_type }}">
-                                        {{ $job_typeslist->job_type }}</option>
+                                    <option value="{{ $job_typeslist->sort_order }}">
+                                        {{ $job_typeslist->sort_order }}</option>
                                 @endforeach
 
                             </select>
@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="input-group mb-3 p-2">
-                            <select name="job_types" id="job_types" required class="form-control form-select"
+                            <select name="job_type" id="job_type" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value=""> Select Job Type </option>
                                 @foreach ($job_types as $key => $job_typeslist)
