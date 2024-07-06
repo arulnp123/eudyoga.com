@@ -65,43 +65,48 @@
 
                     </ul>
 
+                   
                     <div class="ps-4 pt-4">
 
                         <p class="h6">Langauge</p>
                     </div>
-
                     <form action="{{ url('update_language_level') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="input-group  p-2">
-                            <select name="lang" id="lang" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="" selected>Select Language</option>
-                                @foreach ($edit_language_level as $key => $get_language_levels_list)
-                                <option @if ($edit_language_level == $edit_language_level) selected @endif
-                                        value="{{ $get_language_levels_list }}">
-                                        {{ $get_language_levels_list }}</option>
+                        <input type="hidden" value="{{ $edit_language_level->id }}" name="id">
+                        <div class="row g-3">
+                            <div class="col-12 col-lg-6">
+                                <label for="lang" class="form-label">Langauge</label>
+                                <select name="lang" id="lang" required
+                                    class="form-control form-select"
+                                    aria-label="Default select example">
+                                    <option value="" selected>Langauge</option>
+                                    @foreach ($get_language_levels as $langlist)
+                                    <option @if ($edit_language_level->lang == $langlist->id) selected @endif
+                                        value="{{ $langlist->lang }}">
+                                        {{ $langlist->lang }}
+                                    </option>
                                 @endforeach
-
-                            </select>
-                        </div>
+                                </select>
+                            </div>
 
                         <div class=" ps-4 pt-4">
                             <p class="h6">Select type</p>
                         </div>
                         <div class="row g-3">
                             <div class="col-12 col-lg-6">
-                        <div class="input-group  p-2">
-                            <select name="language_level" id="language_level" required class="form-control form-select"
-                                aria-label="Default select example">
-                                <option value="" selected>Select Career Level</option>
-                                @foreach ($get_language_levels as $key => $get_language_levels_list)
-                                    <option @if ($edit_language_level->language_level == $edit_language_level->language_level) selected @endif
-                                        value="{{ $get_language_levels_list->language_level }}">
-                                        {{ $get_language_levels_list->language_level }}</option>
+                                <label for="language_level" class="form-label"> Language Level</label>
+                                <select name="language_level" id="language_level" required
+                                    class="form-control form-select"
+                                    aria-label="Default select example">
+                                    <option value="" selected>Language Level</option>
+                                    @foreach ($get_language_levels as $langlist)
+                                    <option @if ($edit_language_level->language_level == $langlist->id) selected @endif
+                                        value="{{ $langlist->language_level }}">
+                                        {{ $langlist->language_level }}
+                                    </option>
                                 @endforeach
-
-                            </select>
-                        </div>
+                                </select>
+                            </div>
                         <div class="mt-4">
                             <p class="h6 ps-3">is default ?</p>
 
