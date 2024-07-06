@@ -118,7 +118,7 @@
     <div class="container">
 
         <div class="largebanner shadow3 mt-0">
-            <div class="jobint text-center"><img src="{{ URL::to('/') }}/public/assets/images/banner1.jpg">.</div>
+            <div class="jobint text-center"><img src="{{ URL::to('/') }}/assets/images/banner1.jpg">.</div>
             <div class="clearfix"></div>
         </div>
 
