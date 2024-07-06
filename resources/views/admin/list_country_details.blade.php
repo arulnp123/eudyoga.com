@@ -75,7 +75,7 @@
                           <button type="button" class="btn btn-light"><a href="{{ url('edit_country_details',$memb->id) }}"><i class='bx bx-edit me-0'></i>
                           </button>
                            <button type="button"  class="btn btn-light"> <a onclick="return confirm('Do you want to Confirm delete operation?')"
-                            href="{{ url('/deleteuser') }}"><i class="lni lni-trash"></i></a></button>
+                            href="{{ url('/delete_country_details', $memb->id) }}"><i class="lni lni-trash"></i></a></button>
                          
                         
                         </div>
