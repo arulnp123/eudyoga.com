@@ -75,7 +75,7 @@
                             <select name="language_level" id="language_level" required class="form-control form-select"
                                 aria-label="Default select example">
                                 <option value="" selected>Language Level</option>
-                                @foreach ($get_language_level as $key => $get_language_level_list)
+                                @foreach ($add_language_level as $key => $get_language_level_list)
                                     <option value="{{ $get_language_level_list->language_level}}">
                                         {{ $get_language_level_list->language_level}}</option>
                                 @endforeach
