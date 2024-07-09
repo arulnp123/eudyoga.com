@@ -196,17 +196,20 @@ class EmployerController extends Controller
     $userid = Session::get('id'); 
     // dd($userid);  
     // print_r($userid);die;
-    $getstate = DB::table('states')->orderBy( 'id', 'Desc' )->get();
-    $getcountry = DB::table('countries')->orderBy( 'id', 'Desc' )->get();
-    $getcity = DB::table('cities')->orderBy( 'id', 'Desc' )->get();
-    $getindustries = DB::table('industries')->orderBy( 'id', 'Desc' )->get();
-    $getownership_types = DB::table('ownership_types')->orderBy( 'id', 'Desc' )->get();
+    $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
+    $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
+    $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
+    $getindustries = DB::table('industries')->orderBy( 'id', 'Asc' )->get();
+    $getownership_types = DB::table('ownership_types')->orderBy( 'id', 'Asc' )->get();
+    $getdegree_level = DB::table('degree_levels')->orderBy( 'id', 'Asc' )->get();
+    $getjob_experience = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
     $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state_name')
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
     ->where('companies.id', '=', $userid)->first();
     // print_r($employerprofile);die;
-    return view( 'employer/edit_profile', compact('employerprofile','getstate','getcountry','getcity','getindustries','getownership_types'));
+    return view( 'employer/edit_profile', compact('employerprofile','getstate','getcountry','getcity',
+    'getindustries','getownership_types','getdegree_level','getjob_experience'));
   } 
   public function editprofile(Request $request){
     $userid = $request->id;
@@ -239,11 +242,11 @@ class EmployerController extends Controller
 			'map'=>$request->map,
 		] );
     $updateJobExperiences = DB::table('job_experiences')->where('user_id',$userid)->update([
-      'job_experience_id' => $request->job_experience_id]
-  );
+      'job_experience' => $request->job_experience,
+      ]);
   $updateDegreeLevels = DB::table('degree_levels')->where('user_id',$userid)->update([
-    'degree_level_id' => $request->degree_level_id]
- );
+    'degree_level_id' => $request->degree_level_id,
+    ]);
  //dd($updatemember, $updateJobExperiences, $updateDegreeLevels);
     return redirect( 'edit_profile')->with('success', 'Profile updated successfully');
   
