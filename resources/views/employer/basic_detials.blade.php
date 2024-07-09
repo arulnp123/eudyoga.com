@@ -54,7 +54,7 @@
                                                         @endif
                                                         <div class="bs-stepper-content">
                                                             <form method="get"
-                                                                action="{{ url('/basicdetialscandidate') }}"
+                                                                action="{{ url('/basicdetialsemployerprofile') }}"
                                                                 enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input type="hidden" class="form-control"
@@ -120,14 +120,62 @@
                                                                                 id="city" placeholder="city">
                                                                         </div>
 
-                                                                    </div><!---end row-->
+                                                                        <script>
+                                                                            $('#countries').on('change', function() {
+                                                                                var state_id = this.value;
+                                                                                // alert (countryid);
+                                                                                $("#state").html('');
+                                                                                $.ajax({
+                                                                                    url: "{{ url('/getstate') }}",
+                                                                                    type: "POST",
+                                                                                    data: {
+                                                                                        country_id: state_id,
+                                                                                        _token: '{{ csrf_token() }}'
+                                                                                    },
+                                                                                    dataType: 'json',
+                                                                                    success: function(result) {
+                                                                                        $('#state').html('<option value="">-- Select State Name --</option>');
+                                                                                        $.each(result, function(key, value) {
+                                                                                            $("#state").append('<option value="' + value
+                                                                                                .id + '">' + value.state + '</option>');
+                                                                                        });
+                                                                                        $('#cities').html('<option value="">-- Select City Name --</option>');
+                                                                                    }
+                                                                                });
+                                                                            });
+                                                                            // city		
+                                                                            $('#state').on('change', function() {
+                                                                                var city_id = this.value;
+                                                                                $("#cityid").html('');
+                                                                                $.ajax({
+                                                                                    url: "{{ url('/getcity') }}",
+                                                                                    type: "POST",
+                                                                                    data: {
+                                                                                        state_id: city_id,
+                                                                                        _token: '{{ csrf_token() }}'
+                                                                                    },
+                                                                                    dataType: 'json',
+                                                                                    success: function(result) {
+                                                                                        $('#cityid').html('<option value="">-- Select City Name --</option>');
+                                                                                        $.each(result, function(key, value) {
+                                                                                            $("#cityid").append('<option value="' + value
+                                                                                                .id + '">' + value.city + '</option>');
+                                                                                        });
+
+                                                                                    }
+                                                                                });
+                                                                            });
+                                                                        </script>
+                                                                       <div class="col-12">
+                                                                        <div class="d-flex align-items-center gap-3">
+                                              <!--<button class="btn btn-light px-4" type="button" onclick="stepper2.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Previous</button>-->
+                                                                       <button class="btn btn-light px-4" type="submit" onclick="stepper2.next()">Submit</button>
+                                                                       </div>
+                                                                      </div> 
+                                                                  </div><!---end row-->
 
                                                                 </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
+                                                            
                                                 </form>
                                             </div>
 
