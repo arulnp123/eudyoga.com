@@ -9,132 +9,138 @@
                 <br>
                 <br>
                 <br>
+                <br>
 
                 <center>
                     <h3>Edit Profile</h3>
                 </center>
-
-
                 <div class="page-wrapper">
                     <div class="page-content">
                         <!--breadcrumb-->
-                        <div class="page-wrapper">
-                            <div class="page-content">
-                                <!--breadcrumb-->
-                                <div>
+                        <div>
 
-                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                            <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 
-                                    </div>
-                                </div>
-                                <!--end breadcrumb-->
+                            </div>
+                        </div>
+                        <!--end breadcrumb-->
 
-                                <!--start stepper one-->
+                        <!--start stepper one-->
 
 
 
-                                <div id="stepper1" class="bs-stepper">
+                        <div id="stepper1" class="bs-stepper">
+                            <div class="card">
+
+
+
+
+                                <!--start stepper two-->
+
+                                <div id="stepper2" class="bs-stepper">
                                     <div class="card">
 
-
-
-
-                                        <!--start stepper two-->
-
-                                        <div id="stepper2" class="bs-stepper">
-                                            <div class="card">
-
-                                                <div class="card-header">
-                                                    <div class="d-lg-flex flex-lg-row align-items-lg-center justify-content-lg-between"
-                                                        role="tablist">
-                                                        <div class="step" data-target="#test-nl-1">
-                                                            <div class="step-trigger" role="tab"
-                                                                id="stepper2trigger1" aria-controls="test-nl-1">
-                                                                <div class="bs-stepper-circle"><i
-                                                                        class='bx bx-user fs-4'>1</i></div>
-
-                                                            </div>
+                                        <div class="card-header ">
+                                            <div class="d-lg-flex flex-lg-row align-items-lg-center justify-content-lg-between "
+                                                role="tablist">
+                                                <div class="step" data-target="#test-nl-1">
+                                                    <div class="step-trigger" role="tab" id="stepper2trigger1"
+                                                        aria-controls="test-nl-1">
+                                                        <div class="bs-stepper-circle"><i class='bx bx-user fs-4'>1</i>
                                                         </div>
-                                                        <div class="bs-stepper-line"></div>
-                                                        <div class="step" data-target="#test-nl-2">
-                                                            <div class="step-trigger" role="tab"
-                                                                id="stepper2trigger2" aria-controls="test-nl-2">
-                                                                <div class="bs-stepper-circle"><i
-                                                                        class='bx bx-user fs-4'>2</i></div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="bs-stepper-line" data-target="#test-nl-3"></div>
-                                                        <div class="step" data-target="#test-nl-3">
-                                                            <div class="step-trigger" role="tab"
-                                                                id="stepper2trigger3" aria-controls="test-nl-3">
-                                                                <div class="bs-stepper-circle"><i
-                                                                        class='bx bx-user fs-4'>3</i></div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="bs-stepper-line"></div>
-                                                        <div class="step" data-target="#test-nl-4">
-                                                            <div class="step-trigger" role="tab"
-                                                                id="stepper2trigger4" aria-controls="test-nl-4">
-                                                                <div class="bs-stepper-circle"><i
-                                                                        class='bx bx-user fs-4'>4</i></div>
-
-                                                            </div>
-                                                        </div>
+                                                        {{-- <div class=""> --}}
+                                                        {{-- <h5 class="mb-0 steper-title">Next</h5> --}}
+                                                        {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
+                                                        {{-- </div>  --}}
                                                     </div>
                                                 </div>
-                                                <div class="card-body">
-                                                    @if (session()->has('success'))
-                                                        <div class="alert alert-success alert-dismissable"
-                                                            style="margin: 15px;">
-                                                            <a href="#" style="color:white !important"
-                                                                class="close" data-dismiss="alert"
-                                                                aria-label="close">&times;</a>
-                                                            <strong> {{ session('success') }} </strong>
+                                                <div class="bs-stepper-line"></div>
+                                                <div class="step" data-target="#test-nl-2">
+                                                    <div class="step-trigger" role="tab" id="stepper2trigger2"
+                                                        aria-controls="test-nl-2">
+                                                        <div class="bs-stepper-circle"><i class='bx bx-user fs-4'>2</i>
                                                         </div>
-                                                    @endif
-                                                    @if (session()->has('error'))
-                                                        <div class="alert alert-danger alert-dismissable"
-                                                            style="margin: 15px;">
-                                                            <a href="#" style="color:white !important"
-                                                                class="close" data-dismiss="alert"
-                                                                aria-label="close">&times;</a>
-                                                            <strong> {{ session('error') }} </strong>
+                                                        {{-- <div class=""> --}}
+                                                        {{-- <h5 class="mb-0 steper-title">Next</h5> --}}
+                                                        {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
+                                                        {{-- </div> --}}
+                                                    </div>
+                                                </div>
+                                                <div class="bs-stepper-line" data-target="#test-nl-3"></div>
+                                                <div class="step" data-target="#test-nl-3">
+                                                    <div class="step-trigger" role="tab" id="stepper2trigger3"
+                                                        aria-controls="test-nl-3">
+                                                        <div class="bs-stepper-circle"><i class='bx bx-user fs-4'>3</i>
                                                         </div>
-                                                    @endif
-                                                    <div class="bs-stepper-content">
-                                                        <form method="post" action="{{ url('/editprofile') }}"
-                                                            enctype="multipart/form-data">
-                                                            @csrf
-                                                            <input type="hidden" class="form-control"
-                                                                value="{{ $employerprofile }} " name="id">
+                                                        {{-- <div class=""> --}}
+                                                        {{-- <h5 class="mb-0 steper-title">Next</h5> --}}
 
-                                                            <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
+                                                        {{-- </div> --}}
+                                                    </div>
+                                                </div>
+                                                <div class="bs-stepper-line"></div>
+                                                <div class="step" data-target="#test-nl-4">
+                                                    <div class="step-trigger" role="tab" id="stepper2trigger4"
+                                                        aria-controls="test-nl-4">
+                                                        <div class="bs-stepper-circle"><i class='bx bx-user fs-4'>4</i>
+                                                        </div>
+                                                        {{-- <div class=""> --}}
+                                                        {{-- <h5 class="mb-0 steper-title">Finish</h5> --}}
+                                                        {{-- <p class="mb-0 steper-sub-title">Enter Your Details</p> --}}
+                                                        {{-- </div> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            @if (session()->has('success'))
+                                                <div class="alert alert-success alert-dismissable"
+                                                    style="margin: 15px;">
+                                                    <a href="#" style="color:white !important" class="close"
+                                                        data-dismiss="alert" aria-label="close">&times;</a>
+                                                    <strong> {{ session('success') }} </strong>
+                                                </div>
+                                            @endif
+                                            @if (session()->has('error'))
+                                                <div class="alert alert-danger alert-dismissable" style="margin: 15px;">
+                                                    <a href="#" style="color:white !important" class="close"
+                                                        data-dismiss="alert" aria-label="close">&times;</a>
+                                                    <strong> {{ session('error') }} </strong>
+                                                </div>
+                                            @endif
+                                            <div class="bs-stepper-content">
+                                                <form method="post" action="{{ url('/editprofile') }}"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" class="form-control"
+                                                        value="{{ $employerprofile }} " name="id">
+
+                                                    <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                                 aria-labelledby="stepper2trigger1">
                                                                 <h5 class="mb-1">Enter Your Details</h5>
                                                                 {{-- <p class="mb-4">Enter your personal information to get closer to copanies</p> --}}
                                                                 <br>
+
                                                                 <div class="row g-3">
+                                                                    
                                                                     <div class="col-12 col-lg-6">
-                                                                        <label for="logo" class="form-label">Company
-                                                                            Logo</label>
-                                                                        <input type="logo" class="form-control"
+                                                                        <label for="logo" class="form-label">Company Logo</label>
+                                                                        <input type="file" class="form-control"
                                                                             value="{{$employerprofile}}" name="logo" id="logo"
                                                                             placeholder="Company Logo">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
-                                                                        <label for="hr_name" class="form-label">HR
-                                                                            Recruiter Name</label>
+                                                                        <label for="hr_name" class="form-label">HR Recruiter Name</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile }}"
-                                                                            name="name" id="name"
-                                                                            placeholder="HR Recruiter Name">
+                                                                            name="name" id="name" placeholder="HR Recruiter Name">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
-                                                                        <label for="name"
-                                                                            class="form-label">Company Name</label>
-                                                                        <textarea class="form-control" name="c_name" id="c_name" placeholder="Company Name" rows="3">{{ $employerprofile }}</textarea>
+                                                                        <label for="c_name" class="form-label">Company Name</label>
+                                                                        <input type="text" class="form-control"
+                                                                            value="{{ $employerprofile }}"
+                                                                            name="c_name" id="c_name" placeholder="Company Name">
+                                                                        
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="industry_id"
@@ -142,8 +148,7 @@
                                                                             <select name="industry_id" id="industry_id"
                                                                             required class="form-control form-select"
                                                                             aria-label="Default select example">
-                                                                            <option value=""selected>Industry
-                                                                                </option>
+                                                                            <option value=""selected>Industry</option>
                                                                             @foreach ($getindustries as $key => $getindustries_list)
                                                                                 <option
                                                                                     @if ($employerprofile == $getindustries_list->industry) selected @endif
@@ -159,10 +164,8 @@
                                                                         <label for="phone"
                                                                             class="form-label">Mobile Number</label>
                                                                         <input type="number" class="form-control"
-                                                                            name="phone"
-                                                                            value="{{ $employerprofile }}"
-                                                                            id="phone"
-                                                                            placeholder="Mobile Number">
+                                                                            name="phone" value="{{ $employerprofile }}"
+                                                                            id="phone" placeholder="Mobile Number">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="alternate_phone"
@@ -198,19 +201,15 @@
                                                                             class="form-label">Email-Id</label>
                                                                         <input type="email" class="form-control"
                                                                             value="{{ $employerprofile->email ?? '' }}"
-                                                                            name="email" id="email"
-                                                                            placeholder="Email-Id">
+                                                                            name="email" id="email" placeholder="Email-Id">
                                                                     </div>
 
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="alternate_email"
-                                                                            class="form-label">Alternative Email
-                                                                            Id</label>
+                                                                            class="form-label">Alternative Email Id</label>
                                                                         <input type="email" class="form-control"
                                                                             value="{{ $employerprofile->alternate_email ?? '' }}"
-                                                                            name="alternate_email"
-                                                                            id="alternate_email"
-                                                                            placeholder="Alternative Email Id">
+                                                                            name="alternate_email" id="alternate_email" placeholder="Alternative Email Id">
                                                                     </div>
 
                                                                     <div class="col-12 col-lg-6">
@@ -218,32 +217,27 @@
                                                                             class="form-label">Established In</label>
                                                                         <input type="date" class="form-control"
                                                                             value="{{ $employerprofile->established_in ?? '' }}"v
-                                                                            name="established_in" id="established_in"
-                                                                            placeholder="Established In">
+                                                                            name="established_in" id="established_in" placeholder="Established In">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="website"
                                                                             class="form-label">Website URL</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->websit ?? '' }}"
-                                                                            name="website" id="website"
-                                                                            placeholder="Website URL">
+                                                                            name="website" id="website" placeholder="Website URL">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
-                                                                        <label for="gst" class="form-label">GST
-                                                                            Number</label>
+                                                                        <label for="gst" class="form-label">GST Number</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->gst ?? '' }}"
-                                                                            name="gst" id="gst"
-                                                                            placeholder="GST Number">
+                                                                            name="gst" id="gst" placeholder="GST Number">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="branch	"
                                                                             class="form-label">Branch</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->branch ?? '' }}"
-                                                                            name="branch" id="branch"
-                                                                            placeholder="Branch">
+                                                                            name="branch" id="branch" placeholder="Branch">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <div class="d-flex align-items-center gap-3">
@@ -272,22 +266,18 @@
                                                                             class="form-label">No of Office</label>
                                                                         <input type="number" class="form-control"
                                                                             value="{{ $employerprofile->no_of_offices ?? '' }}"
-                                                                            name="no_of_offices" id="no_of_offices"
-                                                                            placeholder="No of Office">
+                                                                            name="no_of_offices" id="no_of_offices" placeholder="No of Office">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="no_of_employees"
                                                                             class="form-label">No of Employees</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->no_of_employees ?? '' }}"
-                                                                            name="no_of_employees"
-                                                                            id="no_of_employees"
-                                                                            placeholder="No of Employees">
+                                                                            name="no_of_employees" id="no_of_employees" placeholder="No of Employees">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="description	"
-                                                                            class="form-label">Description(Company
-                                                                            Profile)</label>
+                                                                            class="form-label">Description(Company Profile)</label>
                                                                         <textarea class="form-control"  name="description"
                                                                             id="description" placeholder="Description" rows="3">{{ $employerprofile->description ?? '' }}</textarea>
                                                                     </div>
@@ -295,7 +285,7 @@
                                                                         <label for="location"
                                                                             class="form-label">Address</label>
                                                                         <textarea class="form-control"  name="location" id="location"
-                                                                            placeholder="location" rows="3">{{ $employerprofile->location ?? '' }}</textarea>
+                                                                            placeholder="Address" rows="3">{{ $employerprofile->location ?? '' }}</textarea>
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="country_id"
@@ -303,8 +293,7 @@
                                                                             <select name="country_id" id="country_id"
                                                                             required class="form-control form-select"
                                                                             aria-label="Default select example">
-                                                                            <option value=""selected>Country
-                                                                                </option>
+                                                                            <option value=""selected> Country</option>
                                                                             @foreach ($getcountry as $key => $getcountry_list)
                                                                                 <option
                                                                                     @if ($employerprofile == $getcountry_list->country) selected @endif
@@ -321,13 +310,12 @@
                                                                         <select name="state_id" id="state_id"
                                                                             required class="form-control form-select"
                                                                             aria-label="Default select example">
-                                                                            <option value=""selected>Degree
-                                                                                Level</option>
+                                                                            <option value=""selected> State</option>
                                                                             @foreach ($getstate as $key => $getstate_list)
                                                                                 <option
                                                                                     @if ($employerprofile == $getstate_list) selected @endif
                                                                                     value="{{ $getstate }}">
-                                                                                    {{ $getstate }}
+                                                                                    {{ $getstate_list->state_name }}
                                                                                 </option>
                                                                             @endforeach
 
@@ -339,8 +327,7 @@
                                                                             <select name="city_id" id="city_id"
                                                                             required class="form-control form-select"
                                                                             aria-label="Default select example">
-                                                                            <option value=""selected>Degree
-                                                                                Level</option>
+                                                                            <option value=""selected> City </option>
                                                                             @foreach ($getcity as $key => $getcity_list)
                                                                                 <option
                                                                                     @if ($employerprofile == $getcity_list) selected @endif
@@ -353,7 +340,7 @@
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="ownership_type_id"
-                                                                            class="form-label">Ownership</label>
+                                                                            class="form-label">Ownership Type</label>
                                                                             <select name="ownership_type_id" id="ownership_type_id"
                                                                             required class="form-control form-select"
                                                                             aria-label="Default select example">
@@ -395,92 +382,100 @@
                                                                             class="form-label">Facebook</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->facebook ?? '' }}"
-                                                                            name="facebook" id="facebook"
-                                                                            placeholder="Facebook">
+                                                                            name="facebook" id="facebook" placeholder="Facebook">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="twitter"
                                                                             class="form-label">Twitter</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->twitter ?? '' }}"
-                                                                            name="twitter" id="twitter"
-                                                                            placeholder="Twitter">
+                                                                            name="twitter" id="twitter" placeholder="Twitter">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="linkedin"
                                                                             class="form-label">LinkedIn</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->linkedin ?? '' }}"
-                                                                            name="linkedin" id="linkedin"
-                                                                            placeholder="LinkedIn">
+                                                                            name="linkedin" id="linkedin" placeholder="LinkedIn">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="google_plus"
                                                                             class="form-label">Google Plus</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->google_plus ?? '' }}"
-                                                                            name="google_plus" id="google_plus"
-                                                                            placeholder="Google Plus">
+                                                                            name="google_plus" id="google_plus" placeholder="Google Plus">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="pinterest"
                                                                             class="form-label">Pinterest</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->pinterest ?? '' }}"
-                                                                            name="pinterest" id="pinterest"
-                                                                            placeholder="Pinterest">
+                                                                            name="pinterest" id="pinterest" placeholder="Pinterest">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="map"
                                                                             class="form-label">Google Map </label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $employerprofile->map ?? '' }}"
-                                                                            name="map" id="map"
-                                                                            placeholder="Google Map">
+                                                                            name="map" id="map" placeholder="Google Map">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
-                                                                        <label for="degree_level_id"
-                                                                            class="form-label">Required Degree
-                                                                            Level</label>
-                                                                        <input type="text" class="form-control"
-                                                                            value="{{ $degree_levels->degree_level_id ?? '' }}"
-                                                                            name="degree_level_id" id="PhoneNumber"
-                                                                            placeholder="Required Degree Level">
+                                                                        <label for="degree_level"
+                                                                            class="form-label">Required Degree Level</label>
+                                                                            <select name="degree_level_id" id="degree_level_id"
+                                                                            required class="form-control form-select"
+                                                                            aria-label="Default select example">
+                                                                            <option value=""selected> Required Degree Level </option>
+                                                                            @foreach ($getdegree_level as $key => $getdegree_level_list)
+                                                                                <option
+                                                                                    @if ($employerprofile == $getdegree_level_list) selected @endif
+                                                                                    value="{{ $getdegree_level }}">
+                                                                                    {{ $getdegree_level_list->degree_level }}
+                                                                                </option>
+                                                                            @endforeach
+
+                                                                        </select>
+                                                                            
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
-                                                                        <label for="PhoneNumber"
-                                                                            class="form-label">Required job
-                                                                            experience</label>
-                                                                        <input type="text" class="form-control"
-                                                                            value="{{ $job_experiences->job_experience_id ?? '' }}"
-                                                                            name="job_experience_id" id="PhoneNumber"
-                                                                            placeholder="Required job experience">
+                                                                        <label for="job_experience"
+                                                                            class="form-label">Required Job Experience</label>
+                                                                            <select name="job_experience_id" id="job_experience_id"
+                                                                            required class="form-control form-select"
+                                                                            aria-label="Default select example">
+                                                                            <option value=""selected> Required Job Experience </option>
+                                                                            @foreach ($getjob_experience as $key => $getjob_experience_list)
+                                                                                <option
+                                                                                    @if ($employerprofile->job_experience == $getjob_experience_list->job_experience) selected @endif
+                                                                                    value="{{ $getjob_experience }}">
+                                                                                    {{ $getjob_experience_list->job_experience }}
+                                                                                </option>
+                                                                            @endforeach
+
+                                                                        </select>
+                                                                        
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <div class="d-flex align-items-center gap-3">
-                                                                            <button class="btn btn-light px-4"
-                                                                                type="button"
-                                                                                onclick="stepper2.previous()"><i
-                                                                                    class='bx bx-left-arrow-alt me-2'></i>Previous</button>
-                                                                            <input class="btn btn-white px-4"
-                                                                                type="submit"></input>
+                                                                            <button class="btn btn-light px-4" type="button" onclick="stepper2.previous()">
+                                                                                <i class='bx bx-left-arrow-alt me-2'></i>Previous</button>
+                                                                                <input class="btn btn-white px-4" type="submit"></input>
                                                                         </div>
                                                                     </div>
                                                                 </div><!---end row-->
-                                                                {{-- @endforeach --}}
-                                                        </form>
                                                     </div>
-
-                                                </div>
+                                                </form>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <!--end stepper two-->
+                            </div>
+                        </div>
 
 
-
-                                <link href="{{ URL::to('/') }}/assets1/plugins/input-tags/css/tagsinput.css"
+                        <!--end stepper two-->
+                        <link href="{{ URL::to('/') }}/assets1/plugins/input-tags/css/tagsinput.css"
                                     rel="stylesheet" />
 
                                 {{-- <script src="{{ URL::to('/') }}/assets1/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script> --}}
@@ -490,6 +485,7 @@
                                     rel="stylesheet" />
                                 <script src="{{ URL::to('/') }}/assets1/plugins/input-tags/js/tagsinput.js"></script>
                                 <!--app JS-->
+
 
                                 <style>
                                     /* Customize the background color of the form */
@@ -623,8 +619,8 @@
 
             <div class="col-md-3 col-sm-12">
                 <h5>Jobs By Industry</h5>
-                <!--<div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>-->
-                <!--<div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>-->
+                <div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>
+                <div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>
             </div>
 
 
@@ -670,3 +666,7 @@
 
     </div>
 </div>
+
+
+
+                        
