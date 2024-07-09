@@ -244,9 +244,9 @@ class EmployerController extends Controller
     $updateJobExperiences = DB::table('job_experiences')->where('user_id',$userid)->update([
       'job_experience' => $request->job_experience,
       ]);
-  $updateDegreeLevels = DB::table('degree_levels')->where('user_id',$userid)->update([
-    'degree_level_id' => $request->degree_level_id,
-    ]);
+ // $updateDegreeLevels = DB::table('degree_levels')->where('user_id',$userid)->update([//
+    //'degree_level_id' => $request->degree_level_id,//
+    
  //dd($updatemember, $updateJobExperiences, $updateDegreeLevels);
     return redirect( 'edit_profile')->with('success', 'Profile updated successfully');
   

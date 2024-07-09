@@ -9,7 +9,7 @@
                 <h1 class="page-heading">Job Seekers</h1>
             </div>
             <div class="col-md-6 col-sm-6">
-                <div class="breadCrumb"><a href="{{ url('/') }}">Home</a> / <span>Job Seekers</span>
+                <div class="breadCrumb"><a href="{{ url('candiate_profile') }}">Home</a> / <span>Job Seekers</span>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                                 <input type="text" name="search" value="" class="form-control"
                                     placeholder="Enter Skills or job seeker details" />
                             </div>
-                            <div class="col-md-2 {{ $errors->has('functional_area_id') ? ' has-error' : '' }}">
+                            <div class="col-md-2">
                                 <select name="functional_area_id" id="functional_area_id" required class="form-control">
                                     <option value="">Select Functional Area</option>
                                     @foreach ($functional_areas as $key => $functional_areaslist)
@@ -294,7 +294,7 @@
 
                         <div class="widget ">
                             <h4 class="widget-title">By Skill</h4>
-                            <ul class="job_skilllistt view_more_ul">
+                            <ul class="job_skillist view_more_ul">
                                 @foreach ($job_skills as $key => $job_skilllist)
                                     <li>
                                         <input type="checkbox" name="job_skill" id="{{ $job_skilllist->id }}"
@@ -403,7 +403,7 @@
                                         </div>
                                         <div class="col-lg-2.5">
                                             <div class="listbtn"><a
-                                                    href="{{ url('user_profile', $user->id) }}">ViewProfile</a>
+                                                    href="{{ url('candiate_profile', $user->id) }}">ViewProfile</a>
                                             </div>
                                         </div>
                                     </div>

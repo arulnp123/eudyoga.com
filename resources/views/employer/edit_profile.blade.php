@@ -446,7 +446,7 @@
                                                                             <option value=""selected> Required Job Experience </option>
                                                                             @foreach ($getjob_experience as $key => $getjob_experience_list)
                                                                                 <option
-                                                                                    @if ($employerprofile->job_experience == $getjob_experience_list->job_experience) selected @endif
+                                                                                    @if ($employerprofile == $getjob_experience_list->job_experience) selected @endif
                                                                                     value="{{ $getjob_experience }}">
                                                                                     {{ $getjob_experience_list->job_experience }}
                                                                                 </option>
