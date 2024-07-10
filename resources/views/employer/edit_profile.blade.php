@@ -113,7 +113,7 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" class="form-control"
-                                                        value="{{ $employerprofile }} " name="id">
+                                                        value="{{ $employerprofile->id }} " name="id">
 
                                                     <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane"
                                                                 aria-labelledby="stepper2trigger1">
