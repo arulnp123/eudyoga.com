@@ -37,7 +37,7 @@
 
                                 <!--start stepper two-->
 
-                                <div id="stepper2" class="bs-stepper">
+                                <div id="stepper2" class="bs-stepper ">
                                     <div class="card">
 
                                         <div class="card-header ">
@@ -667,6 +667,10 @@
     </div>
 </div>
 
-
+<script>
+    $(document).ready(function () {
+      var stepper = new Stepper($('.bs-stepper')[0]);
+    });
+</script>
 
                         
