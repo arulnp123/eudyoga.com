@@ -205,6 +205,7 @@ class EmployerController extends Controller
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
     ->where('companies.id', '=', $userid)->first();
+    //dd($employerprofile);
     return view( 'employer/edit_profile', compact('employerprofile','getstate','getcountry','getcity',
     'getindustries','getownership_types','getdegree_level','getjob_experience'));
   } 

@@ -296,8 +296,8 @@
                                                                             <option value=""selected> Country</option>
                                                                             @foreach ($getcountry as $key => $getcountry_list)
                                                                                 <option
-                                                                                    @if ($employerprofile == $getcountry_list->country) selected @endif
-                                                                                    value="{{ $getcountry_list->country }}">
+                                                                                    @if ($employerprofile->country_id == $getcountry_list->id) selected @endif
+                                                                                    value="{{ $getcountry_list->id }}">
                                                                                     {{ $getcountry_list->country }}
                                                                                 </option>
                                                                             @endforeach
@@ -313,8 +313,8 @@
                                                                             <option value=""selected> State</option>
                                                                             @foreach ($getstate as $key => $getstate_list)
                                                                                 <option
-                                                                                    @if ($employerprofile == $getstate_list) selected @endif
-                                                                                    value="{{ $getstate }}">
+                                                                                    @if ($employerprofile->state_id == $getstate_list->id) selected @endif
+                                                                                    value="{{ $getstate_list->id }}">
                                                                                     {{ $getstate_list->state_name }}
                                                                                 </option>
                                                                             @endforeach
@@ -330,8 +330,8 @@
                                                                             <option value=""selected> City </option>
                                                                             @foreach ($getcity as $key => $getcity_list)
                                                                                 <option
-                                                                                    @if ($employerprofile == $getcity_list) selected @endif
-                                                                                    value="{{ $getcity }}">
+                                                                                    @if ($employerprofile->city_id == $getcity_list->id) selected @endif
+                                                                                    value="{{ $getcity_list->id }}">
                                                                                     {{ $getcity_list->city }}
                                                                                 </option>
                                                                             @endforeach

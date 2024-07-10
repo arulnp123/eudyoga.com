@@ -94,3 +94,8 @@ alter table cities drop state_id;
 ALTER TABLE `cities` ADD `state_id` int(10) NULL DEFAULT NULL AFTER `id`;
 
 alter table job_shifts drop job_shift_id;
+
+10/07/2024
+alter table companies modify country_id int DEFAULT 0;
+alter table companies modify state_id int DEFAULT 0;
+alter table companies modify city_id int DEFAULT 0;
