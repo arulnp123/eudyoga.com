@@ -126,19 +126,19 @@
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="logo" class="form-label">Company Logo</label>
                                                                         <input type="file" class="form-control"
-                                                                            value="{{$employerprofile}}" name="logo" id="logo"
+                                                                            value="{{$employerprofile->logo}}" name="logo" id="logo"
                                                                             placeholder="Company Logo">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="hr_name" class="form-label">HR Recruiter Name</label>
                                                                         <input type="text" class="form-control"
-                                                                            value="{{ $employerprofile }}"
+                                                                            value="{{ $employerprofile->name }}"
                                                                             name="name" id="name" placeholder="HR Recruiter Name">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="c_name" class="form-label">Company Name</label>
                                                                         <input type="text" class="form-control"
-                                                                            value="{{ $employerprofile }}"
+                                                                            value="{{ $employerprofile->c_name }}"
                                                                             name="c_name" id="c_name" placeholder="Company Name">
                                                                         
                                                                     </div>
@@ -164,7 +164,7 @@
                                                                         <label for="phone"
                                                                             class="form-label">Mobile Number</label>
                                                                         <input type="number" class="form-control"
-                                                                            name="phone" value="{{ $employerprofile }}"
+                                                                            name="phone" value="{{ $employerprofile->phone }}"
                                                                             id="phone" placeholder="Mobile Number">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
@@ -347,7 +347,7 @@
                                                                             <option value=""selected>Ownership</option>
                                                                             @foreach ($getownership_types as $key => $getownership_types)
                                                                                 <option
-                                                                                    @if ($employerprofile == $getownership_types->ownership_type_id) selected @endif
+                                                                                    @if ($employerprofile->ownership_type_id == $getownership_types->ownership_type_id) selected @endif
                                                                                     value="{{ $getownership_types->ownership_type_id }}">
                                                                                     {{ $getownership_types->ownership_type }}
                                                                                 </option>

@@ -194,8 +194,6 @@ class EmployerController extends Controller
 
   public function edit_profile(){
     $userid = Session::get('id'); 
-    // dd($userid);  
-    // print_r($userid);die;
     $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
     $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
     $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
@@ -207,7 +205,6 @@ class EmployerController extends Controller
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
     ->where('companies.id', '=', $userid)->first();
-    // print_r($employerprofile);die;
     return view( 'employer/edit_profile', compact('employerprofile','getstate','getcountry','getcity',
     'getindustries','getownership_types','getdegree_level','getjob_experience'));
   } 
