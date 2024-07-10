@@ -203,11 +203,9 @@ class EmployerController extends Controller
     $getownership_types = DB::table('ownership_types')->orderBy( 'id', 'Asc' )->get();
     $getdegree_level = DB::table('degree_levels')->orderBy( 'id', 'Asc' )->get();
     $getjob_experience = DB::table('job_experiences')->orderBy( 'id', 'Asc' )->get();
-    /*$employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state_name')
+    $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state_name')
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
-    ->where('companies.id', '=', $userid)->first();*/
-    $employerprofile = DB::table('companies')->select('companies.*')
     ->where('companies.id', '=', $userid)->first();
     // print_r($employerprofile);die;
     return view( 'employer/edit_profile', compact('employerprofile','getstate','getcountry','getcity',
