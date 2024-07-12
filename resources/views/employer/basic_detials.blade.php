@@ -54,7 +54,7 @@
                                                         @endif
                                                         <div class="bs-stepper-content">
                                                             <form method="get"
-                                                                action="{{ url('/basicdetialsemployerprofile') }}"
+                                                                action="{{ url('/basic_detials') }}"
                                                                 enctype="multipart/form-data">
                                                                 @csrf
                                                                 <input type="hidden" class="form-control"
@@ -85,6 +85,7 @@
                                                                             <label for="city" class="form-label mb-2">City</label>
                                                                             <input type="text" class="form-control" name="city" id="city" placeholder="city">
                                                                         </div>
+                                                                        
 
                                                                         <script>
                                                                             $('#countries').on('change', function() {
@@ -135,7 +136,7 @@
                                                                        <div class="col-12">
                                                                         <div class="d-flex align-items-center gap-3">
                                               <!--<button class="btn btn-light px-4" type="button" onclick="stepper2.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Previous</button>-->
-                                                                       <button class="btn btn-light px-4" type="submit" onclick="stepper2.next()">Submit</button>
+                                                                       <button class="btn btn-light px-4" type="Submit" onclick="stepper2.next()">Submit</button>
                                                                        </div>
                                                                       </div> 
                                                                     </div><!---end row-->
