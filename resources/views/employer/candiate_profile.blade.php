@@ -17,7 +17,6 @@
 </div>
 <!-- Inner Page Title end -->
 
-<form action="https://eudyoga.com/job-seekers" method="get">
     <!-- Page Title start -->
     <div class="pageSearch">
         <div class="container-fluid">
@@ -29,9 +28,10 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="searchform">
+                    <form action="" method="post" onsubmit="return load_property(event)">
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" name="search" value="" class="form-control"
+                                <input type="text" value="" class="form-control"
                                     placeholder="Enter Skills or job seeker details" />
                             </div>
                             <div class="col-md-2">
@@ -43,14 +43,11 @@
                                     @endforeach
                                 </select>
                             </div>
-
-
-
                             <div class="formrow">
                                 <select name="state_id" id="stateid" required class="form-control">
                                     <option value="">Select State</option>
                                     @foreach ($states as $key => $statelist)
-                                        <option value="{{ $statelist->id }}">{{ $statelist->state_name}}</option>
+                                        <option value="{{ $statelist->id }}">{{ $statelist->state_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -60,49 +57,16 @@
                                 </select>
                             </div>
                             <div class="col-md-1">
-                                <button type="submit" class="btn"><i class="fa fa-search"
+                                <button type="search" class="btn"><i class="fa fa-search"
                                         aria-hidden="true"></i></button>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $('#stateid').on('change', function() {
-            var state_id = this.value;
-            $("#cityid").html('');
-            $.ajax({
-                url: "{{ url('/getcity') }}",
-                type: "POST",
-                data: {
-                    state_id: state_id,
-                    _token: '{{ csrf_token() }}'
-                },
-                dataType: 'json',
-                success: function(result) {
-                    $('#cityid').html('<option value="">Select City</option>');
-                    $.each(result, function(key, value) {
-                        $("#cityid").append('<option value="' + value
-                            .id + '">' + value.city + '</option>');
-                    });
-                }
-            });
-        });
-        $(document).ready(function() {
-            $(".txtOnly").keypress(function(e) {
-                var key = e.keyCode;
-                if (key >= 48 && key <= 57) {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
-    <!-- Page Title end -->
-</form>
-
-
 
 <div class="listpgWraper">
     <div class="container">
@@ -230,12 +194,7 @@
                             <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="career"
                                 onclick="careerlevel()">View More</span>
-
                         </div>
-
-
-
-                        <!-- Jobs By Career Level end -->
 
                         <!-- Jobs By Gender -->
                         <div class="widget ">
@@ -252,19 +211,9 @@
                                 @endforeach
 
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="gender"
                                 onclick="gender()">View More</span>
-
-                        </div>
-
-
-                        <!-- Jobs By Gender end -->
-
-
-
-                        <!-- Jobs By Industry -->
-
+                            </div>
 
                         <div class="widget ">
                             <h4 class="widget-title"> By Industry</h4>
@@ -286,12 +235,6 @@
 
                         </div>
 
-
-
-                        <!-- Jobs By Industry end -->
-
-                        <!-- Jobs By Skill -->
-
                         <div class="widget ">
                             <h4 class="widget-title">By Skill</h4>
                             <ul class="job_skillist view_more_ul">
@@ -301,21 +244,13 @@
                                             value="{{ $job_skilllist->job_skill }}">
                                         <label for="{{ $job_skilllist->id }}"></label>
                                         {{ $job_skilllist->job_skill }}
-
                                     </li>
                                 @endforeach
-
                             </ul>
                             <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="job_skill"
                                 onclick="skill()">View More</span>
-
                         </div>
-
-
-                        <!-- Jobs By Skill -->
-
-                        <!-- Jobs By  Functional Areas -->
 
                         <div class="widget ">
                             <h4 class="widget-title">Jobs By Functional Areas</h4>
@@ -328,18 +263,11 @@
                                         <label for="{{ $functional_areaslist->id }}"></label>
                                         {{ $functional_areaslist->functional_area }}
                                 @endforeach
-
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="functional_area"
                                 onclick="functionalarea()">View More</span>
-
                         </div>
 
-
-
-
-                        <!-- Salary -->
                         <div class="widget">
                             <h4 class="widget-title">Salary Range</h4>
                             <div class="form-group">
@@ -355,41 +283,22 @@
                                     <option value="">Select Salary Currency</option>
 
                                     <option value="INR" selected="selected">INR</option>
-
                                 </select>
                             </div>
-                            <!-- Salary end -->
-
-                            <!-- button -->
                             <div class="searchnt">
                                 <button type="submit" class="btn"><i class="fa fa-search"
                                         aria-hidden="true"></i> Search</button>
                             </div>
-                            <!-- button end-->
                         </div>
-                        <!-- Side Bar end -->
                     </div>
                 </div>
 
-                <!-- Side Bar start -->
                 <div class="col-lg-9">
-
-                    <!-- Search List -->
-
-                    {{-- <div class="topstatinfo">
-                        Showing Jobs :  {{ $users->currentPage() * $users->perPage() }} - {{ $activeusers }}
-                    </div> --}}
                     @if (count($users) > 0)
                         <ul class="searchList">
-
-
-
                             @foreach ($users as $user)
                                 <li class="">
-
                                     <div class="row">
-
-
                                         <div class="col-lg-10 col-md-8">
                                             <div class="jobimg"><img src="assets/images/favicon.png">
                                             </div>
@@ -412,7 +321,7 @@
                             @endforeach
 
                         </ul>
-                        @else
+                    @else
                         <!-- Error 404 Template 1 - Bootstrap Brain Component -->
                         <section class="d-flex justify-content-center align-items-center">
                             <div class="container">
@@ -434,9 +343,9 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </section>
-                        @endif
+                    @endif
                     <li class="pagination float-right mb-5">
                         {{ $users->links() }}
                     </li>
@@ -738,15 +647,15 @@
 
             });
 
-            function showProcessingForm(btn_id){		
+            function showProcessingForm(btn_id){
 
             $("#"+btn_id).val( 'Processing .....' );
 
-            $("#"+btn_id).attr('disabled','disabled');		
+            $("#"+btn_id).attr('disabled','disabled');
 
             }
 
-		
+
 
 		setInterval("hide_savedAlert()",7000);
 
@@ -769,17 +678,11 @@
                 success: function(res) {
 
                         $('.notification').html(res);
-
-                   
-
                 }
 
             });
 
         });
-
-		
-
         </script>
 
 <script>
@@ -787,8 +690,6 @@
         "bLengthChange": false
     });
 </script>
-
-
 
 <script>
     $(document).ready(function() {
@@ -801,9 +702,6 @@
         industry();
         skill();
         functionalarea();
-
-
-
     });
 
     function toggleCheckboxes() {
@@ -908,7 +806,6 @@
             }
         });
 
-
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
 
@@ -923,8 +820,6 @@
                     'none';
             }
         });
-
-
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
 
@@ -939,13 +834,50 @@
                     'none';
             }
         });
-
-
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
+
+        $('#stateid').on('change', function() {
+            var state_id = this.value;
+            $("#cityid").html('');
+            $.ajax({
+                url: "{{ url('/getcity') }}",
+                type: "POST",
+                data: {
+                    state_id: state_id,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#cityid').html('<option value="">Select City</option>');
+                    $.each(result, function(key, value) {
+                        $("#cityid").append('<option value="' + value
+                            .id + '">' + value.city + '</option>');
+                    });
+                }
+            });
+        });
+        $(document).ready(function() {
+            $(".txtOnly").keypress(function(e) {
+                var key = e.keyCode;
+                if (key >= 48 && key <= 57) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+
+        function load_property(e) {
+            e.preventDefault();
+            var id = 0;
+            var type = 0;
+            var url = "{{ url('/search') }}";
+            var functional_area_id = $("#functional_area_id").val();
+            var state_id = $("#state_id").val();
+            var city_id = $("#city_id").val();
+            url = url + "/" + functional_area_id + "/" + state_id + "/" + city_id;
+            window.location.href = url
+        }
 </script>
 </body>
-
-
-
 </html>

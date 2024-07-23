@@ -14,7 +14,7 @@ class EmployerController extends Controller
 {
 
   // public function __construct(){
-    
+
   //   $this->middleware('Auth');
   // }
 
@@ -23,37 +23,38 @@ class EmployerController extends Controller
 
       $cities = DB::table('cities')->orderBy('id', 'Asc')->get();
       return view( 'employer/employer_register',compact('cities','states'));
-  } 
+  }
 
   public function  employer_register2(){
     $states = DB::table('states')->orderBy('id', 'Asc')->get();
 
       $cities = DB::table('cities')->orderBy('id', 'Asc')->get();
       return view( 'employer/employer_register2',compact('cities','states'));
-  } 
- 
+  }
+
 
   public function  basic_detials(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     // echo $userid;die;
     $employerprofile = DB::table('companies')->select('companies.*', 'cities.city', 'states.state_name')
     ->join('states','states.id','=','companies.state_id')
     ->join('cities','cities.id','=','companies.city_id')
     ->where('companies.id', '=', $userid)->first();
     // print_r($employerprofile);die;
-   
+
         return view( 'employer/basic_detials', compact('employerprofile'));
-  } 
+  }
 
   public function  candiate_profile (){
     // $candiate_profile = DB::table('users')->select('users.*')->get();
+    $users = DB::table('users')->select('users.*','companies.company_follwers_id')
+    ->join('companies','companies.company_follwers_id', '=' ,'users.id')
+    ->orderBy('id', 'Asc')->paginate(10);
+
     $states = DB::table('states')->orderBy('id', 'Asc')->get();
     $countries = DB::table('countries')->orderBy('id', 'Asc')->get();
     $cities = DB::table('cities')->orderBy('id', 'Asc')->get();
     $functional_areas = DB::table('functional_areas')->orderBy('id', 'Asc')->get();
-    $users = DB::table('users')->select('users.*','companies.company_follwers_id')
-    ->join('companies','companies.company_follwers_id', '=' ,'users.id')
-    ->orderBy('id', 'Asc')->paginate(10);
     $industries = DB::table('industries')->orderBy('id', 'Asc')->get();
     $career_levels = DB::table('career_levels')->orderBy('id', 'Asc')->get();
     $job_experiences = DB::table('job_experiences')->orderBy('id', 'Asc')->get();
@@ -62,15 +63,39 @@ class EmployerController extends Controller
     $activeusers = DB::table( 'users' )->where( 'is_active', 1 )->count();
     // dd($users);
         return view( 'employer/candiate_profile', compact('countries','states','cities','functional_areas','users','industries','career_levels','job_experiences','genders','job_skills','activeusers'));
-  } 
+  }
 
+  public function search( $functional_area_id, $state_id, $city_id ) {
 
+    $sql = "select * from functional_areas where functional_area=$functional_area_id ";
+    $sql .= " and sort_order = '$state_id'";
+    // echo $sql;die;
 
+    // $sql = 'select * from category where parent_id=0 and status=1 order by category_name';
+    // $category = DB::select( DB::raw( $sql ) );
+    // $category = json_decode( json_encode( $category ), true );
+    // foreach ( $category as $key => $cat ) {
+    //     $category_id = $cat[ 'id' ];
+    //     $sql = "select id,category_name from category where parent_id = $category_id";
+    //     $result = DB::select( DB::raw( $sql ) );
+    //     $category[ $key ][ 'subcat' ] = $result;
+    // }
+    // $category = json_decode( json_encode( $category ) );
+    // $sql = 'select * from area where parent_id=0 and status=1 order by area_name';
+    // $state = DB::select( DB::raw( $sql ) );
+    // $state = json_decode( json_encode( $state ), true );
+    // foreach ( $state as $key => $stat ) {
+    //     $area_id = $stat[ 'id' ];
+    //     $sql = "select id,area_name from area where parent_id = $area_id";
+    //     $result = DB::select( DB::raw( $sql ) );
+    //     $state[ $key ][ 'subarea' ] = $result;
+    // }
+    // $state = json_decode( json_encode( $state ) );
 
+        return view( 'employer/search', compact( 'functional_area_id', 'state_id', 'city_id' ) );
+}
 
    public function addemployer(Request $request){
-       //  dd($request->all()); 
-       
    $employeeData = DB::table( 'companies' )->insert( [
       'user_type_id'=>'2',
       'name'=>$request->name,
@@ -87,12 +112,12 @@ class EmployerController extends Controller
 
       Session::put( 'id', $user_id );
       return redirect( '/employer_index' );
-   } 
+   }
 
 
 
 
- 
+
 
   public function employer_login(){
     return view( 'employer/employer_login');
@@ -146,11 +171,11 @@ class EmployerController extends Controller
   public function employerlogout(){
     Session::flush();
     return redirect( '/employer_login' );
-  }   
+  }
 
   public function employer_profile(){
     return view( 'employer/employer_profile');
-  }  
+  }
 
   public function employer_index()
     {
@@ -163,17 +188,17 @@ class EmployerController extends Controller
 
   public function employer_dashboard(){
     return view( 'employer/employer_dashboard');
-  }  
-  
-  
+  }
+
+
   public function abc(){
     return view( 'employer/abc');
-  }  
+  }
   public function company_followers(){
     return view( 'employer/company_followers');
-  }  
+  }
   public function company_jobs(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
 
     $jobDetail = DB::table('jobs')->select('jobs.*','job_shifts.job_shift' ,'cities.city')
     ->join('job_shifts','job_shifts.id', '=' ,'jobs.job_shift_id')
@@ -181,19 +206,19 @@ class EmployerController extends Controller
     ->where('jobs.company_id', '=', $userid)->get();
 
     return view( 'employer/company_jobs',compact('jobDetail'));
-  }  
+  }
   public function company_messages(){
     return view( 'employer/company_messages');
-  }  
+  }
   public function company_public_profile(){
     return view( 'employer/company_public_profile');
-  }  
+  }
   public function cv_search_packages(){
     return view( 'employer/cv_search_packages');
   }
 
   public function edit_profile(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
     $getcountry = DB::table('countries')->orderBy( 'id', 'Asc' )->get();
     $getcity = DB::table('cities')->orderBy( 'id', 'Asc' )->get();
@@ -208,7 +233,7 @@ class EmployerController extends Controller
     //dd($employerprofile);
     return view( 'employer/edit_profile', compact('employerprofile','getstate','getcountry','getcity',
     'getindustries','getownership_types','getdegree_level','getjob_experience'));
-  } 
+  }
   public function editprofile(Request $request){
     $userid = $request->id;
     $updatemember = DB::table('companies')->where('id',$userid)->update([
@@ -244,14 +269,14 @@ class EmployerController extends Controller
       ]);
  // $updateDegreeLevels = DB::table('degree_levels')->where('user_id',$userid)->update([//
     //'degree_level_id' => $request->degree_level_id,//
-    
+
  //dd($updatemember, $updateJobExperiences, $updateDegreeLevels);
     return redirect( 'edit_profile')->with('success', 'Profile updated successfully');
-  
-  } 
+
+  }
 
   public function post_job(){
-    $userid = Session::get('id'); 
+    $userid = Session::get('id');
     $employerprofile = DB::table('companies')->select('companies.*');
     $states = DB::table('states')->orderBy('id', 'Asc')->get();
     $country = DB::table('countries')->orderBy('id', 'Asc')->get();
@@ -264,14 +289,14 @@ class EmployerController extends Controller
     $get_genders = DB::table('genders')->orderBy('id', 'Asc')->get();
     $get_degree_levels = DB::table('degree_levels')->orderBy('id', 'Asc')->get();
     $get_job_experiences = DB::table('job_experiences')->orderBy('id', 'Asc')->get();
-    
-    
+
+
     return view( 'employer/post_job', compact('employerprofile','states','country','get_job_skills','get_salary_periods','get_career_levels','get_functional_areas','get_job_types','get_job_shifts','get_genders','get_degree_levels','get_job_experiences'));
-    
-  } 
+
+  }
   public function upload_post_job(Request $request){
-    $userid = Session::get('id'); 
-    
+    $userid = Session::get('id');
+
    DB::table('jobs')->where('id',$userid)->insert([
     'company_id'         => $userid,
     'title'              => $request->title,
@@ -296,17 +321,17 @@ class EmployerController extends Controller
     'job_experience_id'  => $request->job_experience_id,
     'is_freelance'       => $request->is_freelance,
     'hr_details'         => $request->hr_details,
-    
-   
+
+
    ]);
 
    return redirect('company_jobs')->with('success', 'Job Post successfully');
-} 
+}
 public function delete_post_job($id){
    DB::table('jobs')->where('id', '=' , $id)->delete();
-   
+
   return redirect('company_jobs')->with('success','Successfully deteled..!');
-  
+
 }
 
 public function edit_post_job(Request $request){
@@ -326,17 +351,17 @@ public function edit_post_job(Request $request){
   $get_genders = DB::table('genders')->orderBy('id', 'Asc')->get();
   $get_degree_levels = DB::table('degree_levels')->orderBy('id', 'Asc')->get();
   $get_job_experiences = DB::table('job_experiences')->orderBy('id', 'Asc')->get();
-  
-  
+
+
   return view( 'employer/edit_post_job', compact('JobPost','states','country','get_job_skills','get_salary_periods','get_career_levels','get_functional_areas','get_job_types','get_job_shifts','get_genders','get_degree_levels','get_job_experiences'));
-  
-} 
+
+}
 
 public function update_post_job(Request $request){
   $userid = $request->id;
-  
+
   $updateJobPost = DB::table('jobs')->where('id', '=' ,$userid)->update([
-    
+
     'title'              => $request->title,
     'description'        => $request->description,
     'benefits'           => $request->benefits,
@@ -359,41 +384,41 @@ public function update_post_job(Request $request){
     'job_experience_id'  => $request->job_experience_id,
     'is_freelance'       => $request->is_freelance,
     'hr_details'         => $request->hr_details,
-    
+
   ]);
-  
+
   return redirect('company_jobs')->with('success' , 'Job Post Successfully Updated...! ');
-  
+
 }
   public function unlocked_users(){
     return view( 'employer/unlocked_users');
-  } 
+  }
   public function user_profile($id){
     $profile  = DB::table('users')->where('id', '=', $id)->get();
     $profile1 = DB::table('users')->select('users.*', 'cities.city', 'states.state_name')->join('states','states.id','=','users.state_id')->join('cities','cities.id','=','users.city_id')->where('users.id', '=', $id)->first();
     // dd($profile);
     return view( 'employer/user_profile',compact('profile','profile1'));
-  } 
+  }
 
 public function candsearch(Request $request)
 
   {
-  
+
   if($request->ajax())
-  
+
   {
-  
+
   $output="";
-  
+
   $users=DB::table('users')->where('first_name','LIKE','%'.$request->search."%")->get();
-  
+
   if($users)
-  
+
   {
-  
+
   foreach ($users as $key => $product) {
       $output.=' <li class="">'.
-     
+
       '<div class="row">
 
 
@@ -411,55 +436,55 @@ public function candsearch(Request $request)
           </div>
           <div class="col-lg-2.5">
               <div class="listbtn"><a
-                      href="{{"user_profile/", '.$product->id.') }}">ViewProfile</a>    
+                      href="{{"user_profile/", '.$product->id.') }}">ViewProfile</a>
               </div>
           </div>
       </div>
-    <p>  </p> 
+    <p>  </p>
   </li>';
    /* $output.='<tr>'.
-    
+
     '<td>'.$product->first_name.'</td>'.
-    
+
     '<td>'.$product->street_address.'</td>'.
-    
+
     '<td>'.$product->description.'</td>'.
-    
-    
+
+
     '</tr>'; */
   }
-    
-    
-    
+
+
+
   return Response($output);
-  
-  
-  
+
+
+
      }
-  
-  
-  
+
+
+
      }
-  
-  
-  
+
+
+
   }
 
   public function search_cand(Request $request){
     $title = $request->search;
     // $location = $request->job_location;
-  
+
     if($title != 0){
     $search_cand = DB::table('users')->where('first_name','LIKE','%'.$request->search."%")->paginate(10);
     // ->Where('job_location', '=', $location)->Where('status', '=', 'Active')->get();
     }else {
         $search_cand = DB::table('users')->where('first_name','LIKE','%'.$request->search."%")->paginate(10);
     //    ->where('job_tittle', 'LIKE', '%'.$title.'%')->Where('status', '=', 'Active')->get();
-  
+
     }
     return view('search_cand',compact('search_cand'));
-  }  
-  
+  }
+
 
 
 
