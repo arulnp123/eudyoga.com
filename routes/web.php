@@ -74,8 +74,13 @@ Route::post('/checkemail', [App\Http\Controllers\Employer\EmployerController::cl
 Route::get('/logout', [App\Http\Controllers\Frontend\EmployerController::class, 'logout'])->name('logout');
 Route::get('/candsearch',  [App\Http\Controllers\Employer\EmployerController::class, 'candsearch'])->name('candsearch');
 Route::get('/search_cand',  [App\Http\Controllers\Employer\EmployerController::class, 'search_cand'])->name('search_cand');
+<<<<<<< HEAD
 Route::get('/getcity/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'getcity'])->name('getcity');
 
+=======
+Route::get('/getcity', [App\Http\Controllers\Candidate\EmployerController::class, 'getcity'])->name('getcity');
+Route::get('/search/{functional_area_id}/{sort_order}/{city_id}', [App\Http\Controllers\Employer\EmployerController::class, 'search'])->name('search');
+>>>>>>> 12296de8a914b47aff36e6784eb503762f71f73f
 
 
 
@@ -187,7 +192,7 @@ Route::get('/edit_candidate/{id}', [App\Http\Controllers\Admin\AdminController::
 Route::post('/update_candidate', [App\Http\Controllers\Admin\AdminController::class, 'update_candidate'])->name('update_candidate');
 Route::get('/delete_candidate/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete_candidate'])->name('delete_candidate');
 
-// CMS 
+// CMS
 Route::get('/add_cms', [App\Http\Controllers\Admin\AdminController::class, 'add_cms'])->name('add_cms');
 Route::get('/list_cms', [App\Http\Controllers\Admin\AdminController::class, 'list_cms'])->name('list_cms');
 Route::get('/list_translated_pages', [App\Http\Controllers\Admin\AdminController::class, 'list_translated_pages'])->name('list_translated_pages');
@@ -202,7 +207,7 @@ Route::get('/edit_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'
 Route::post('/update_cms',[App\Http\Controllers\Admin\AdminController::class,'update_cms'])->name('update_cms');
 Route::get('/view_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'view_cms'])->name('view_cms');
 Route::get('delete_cms/{id}',[App\Http\Controllers\Admin\AdminController::class,'delete_cms'])->name('delete_cms');
- 
+
 // BLOGS
 Route::get('/add_blogs', [App\Http\Controllers\Admin\AdminController::class, 'add_blogs'])->name('add_blogs');
 Route::post('/saveblogs', [App\Http\Controllers\Admin\AdminController::class, 'saveblogs'])->name('saveblogs');
