@@ -39,7 +39,7 @@ public function addstate(Request $request)
 public function updatestate(Request $request)
 {
     DB::table('states')->where('id',$request->state_id)->update([
-        'state_name' => $request->state,
+        'state_name' => $request->state_name,
         'status' => $request->status,
     ]);
     return redirect()->back()->with('success', 'update states  Successfully ... !');
@@ -794,6 +794,10 @@ public function update_translated_pages(Request $request){
     ]);
         return redirect()->route('list_translated_pages')->withMessage('Translated Successfully Update !');
 }
+public function delete_translated_pages( $id ){
+    $delete_translated_pages = DB::table('cms')->where( 'id', $id )->delete();
+   return redirect()->route('list_translated_pages')->withMessage('Delete Translated Page Successfully Deleted !');
+}
 // BLOGS
 public function add_blogs(){
     $add_blogs = DB::table('blogs')->orderby('id' , 'Asc')->get();
@@ -914,7 +918,10 @@ public function edit_seo($id){
     $edit_seo = DB::table('seo')->where('id', '=', $id)->first();
     return view('admin/edit_seo', compact('edit_seo'));
 }
-
+public function delete_seo( $id ){
+    $delete_seo = DB::table('seo')->where( 'id', $id )->delete();
+   return redirect()->route('list_seo')->withMessage('Seo Successfully Deleted !');
+}
 
 //Countries
 public function list_countries(){
@@ -1480,8 +1487,8 @@ public function edit_jobtypes($id){
 }
 public function update_jobtypes(Request $request){
     $update_jobtypes = DB::table('job_types')->where('id', $request->id)->update([
-        'job_types_id'=>$request->job_types_id,
-        'job_types'=>$request->jobtypes,
+        'sort_order'=>$request->sort_order,
+        'job_type'=>$request->job_type,
         'lang'=>$request->lang,
 
    ]);
@@ -1503,7 +1510,7 @@ public function sort_jobtypes(){
 
 public function add_job_types(Request $request) {
     $add_jobtypes = DB::table( 'job_types' )->insert( [
-        'job_type_id'=>$request->job_type_id,
+        'sort_order'=>$request->sort_order,
         'job_type'=>$request->job_type,
         'lang'=>$request->lang,
 
@@ -1512,7 +1519,7 @@ public function add_job_types(Request $request) {
     }
 public function save_jobtypes(Request $request) {
         $save_jobtypes = DB::table( 'job_types' )->insert( [
-                    'job_type_id'=>$request->job_type_id,
+                    'sort_order'=>$request->sort_order,
                     'job_type'=>$request->job_type,
                     'lang'=>$request->lang,
 

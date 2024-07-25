@@ -81,8 +81,8 @@
                             <option value="">Testimonial By</option>
 
                             @foreach ($get_testimonial_by_list as $key => $get_testimonial_by_list)
-                                <option value="{{ $get_testimonial_by_list->testimonial_by	}}">
-                                    {{ $get_testimonial_by_list->testimonial_by	 }}</option>
+                                <option value="{{ $get_testimonial_by_list->testimonial_by }}">
+                                    {{ $get_testimonial_by_list->testimonial_by }}</option>
                             @endforeach
                         </select>
 						</div>
@@ -96,8 +96,8 @@
                                 aria-label="Default select example">
                                 <option value="">Testimonial </option>
                                 @foreach ($get_testimonial_list as $key => $get_testimonial_list)
-                                    <option value="{{ $get_testimonial_list->testimonial}}">
-                                        {{ $get_testimonial_list->testimonial}}</option>
+                                    <option value="{{ $get_testimonial_list->testimonial }}">
+                                        {{ $get_testimonial_list->testimonial }}</option>
                                 @endforeach
 
                             </select>

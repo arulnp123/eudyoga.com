@@ -394,17 +394,17 @@
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bi bi-pie-chart-fill"></i>
                  </div>
-                 <div class="menu-title">Job Experiance</div>
+                 <div class="menu-title">Job Experience</div>
              </a>
              <ul>
                  <li> <a href="{{ url('list_job_experiance') }}"><i class='bx bx-radio-circle'></i>List Job
-                         Experiance</a>
+                         Experience</a>
                  </li>
                  <li> <a href="{{ url('add_job_experiance') }}"><i class='bx bx-radio-circle'></i>Add new Job
-                         Experiance</a>
+                         Experience</a>
                  </li>
                  <li> <a href="{{ url('sort_job_experiance') }}"><i class='bx bx-radio-circle'></i>Sort Job
-                         Experiance</a>
+                         Experience</a>
                  </li>
              </ul>
          </li>

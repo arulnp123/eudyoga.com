@@ -74,7 +74,7 @@ Route::post('/checkemail', [App\Http\Controllers\Employer\EmployerController::cl
 Route::get('/logout', [App\Http\Controllers\Frontend\EmployerController::class, 'logout'])->name('logout');
 Route::get('/candsearch',  [App\Http\Controllers\Employer\EmployerController::class, 'candsearch'])->name('candsearch');
 Route::get('/search_cand',  [App\Http\Controllers\Employer\EmployerController::class, 'search_cand'])->name('search_cand');
-Route::get('/getcity', [App\Http\Controllers\Candidate\EmployerController::class, 'getcity'])->name('getcity');
+Route::get('/getcity/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'getcity'])->name('getcity');
 
 
 

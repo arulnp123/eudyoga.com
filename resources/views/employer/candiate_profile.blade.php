@@ -30,7 +30,7 @@
                 <div class="col-lg-10">
                     <div class="searchform">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <input type="text" name="search" value="" class="form-control"
                                     placeholder="Enter Skills or job seeker details" />
                             </div>
@@ -46,17 +46,18 @@
 
 
 
-                            <div class="formrow">
+                            <div class="col-md-2">
                                 <select name="state_id" id="stateid" required class="form-control">
                                     <option value="">Select State</option>
-                                    @foreach ($states as $key => $statelist)
-                                        <option value="{{ $statelist->id }}">{{ $statelist->state_name}}</option>
+                                    @foreach ($states as $s)
+                                        <option value="{{ $s->id }}">{{ $s->state_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="formrow">
+                            <div class="col-md-3">
                                 <select name="city_id" id="cityid" required class="form-control">
-                                    <option value="">select city </option>
+                                    <option value="">Select city </option>
+                                    
                                 </select>
                             </div>
                             <div class="col-md-1">
@@ -70,26 +71,7 @@
         </div>
     </div>
     <script>
-        $('#stateid').on('change', function() {
-            var state_id = this.value;
-            $("#cityid").html('');
-            $.ajax({
-                url: "{{ url('/getcity') }}",
-                type: "POST",
-                data: {
-                    state_id: state_id,
-                    _token: '{{ csrf_token() }}'
-                },
-                dataType: 'json',
-                success: function(result) {
-                    $('#cityid').html('<option value="">Select City</option>');
-                    $.each(result, function(key, value) {
-                        $("#cityid").append('<option value="' + value
-                            .id + '">' + value.city + '</option>');
-                    });
-                }
-            });
-        });
+
         $(document).ready(function() {
             $(".txtOnly").keypress(function(e) {
                 var key = e.keyCode;
@@ -943,6 +925,24 @@
 
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
+
+    $('#stateid').on('change', function() {
+            var state_id = this.value;
+            $("#cityid").html('');
+            var url = "{{ url('/getcity') }}/"+state_id;
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: 'json',
+                success: function(result) {
+                    $('#cityid').html('<option value="">Select City</option>');
+                    $.each(result, function(key, value) {
+                        $("#cityid").append('<option value="' + value
+                            .id + '">' + value.city + '</option>');
+                    });
+                }
+            });
+        });
 </script>
 </body>
 

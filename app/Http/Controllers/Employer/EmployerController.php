@@ -192,6 +192,11 @@ class EmployerController extends Controller
     return view( 'employer/cv_search_packages');
   }
 
+  public function getcity($state_id){
+    $cities = DB::table('cities')->select('id','city')->where('state_id',$state_id)->orderBy( 'city', 'Asc' )->get();
+    return response()->json($cities);
+  }
+
   public function edit_profile(){
     $userid = Session::get('id'); 
     $getstate = DB::table('states')->orderBy( 'id', 'Asc' )->get();
