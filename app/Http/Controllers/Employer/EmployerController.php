@@ -65,10 +65,10 @@ class EmployerController extends Controller
         return view( 'employer/candiate_profile', compact('countries','states','cities','functional_areas','users','industries','career_levels','job_experiences','genders','job_skills','activeusers'));
   }
 
-  public function search( $functional_area_id, $state_id, $city_id ) {
+  public function search( $fun_id, $stateid, $cityid ) {
 
-    $sql = "select * from functional_areas where functional_area=$functional_area_id ";
-    $sql .= " and sort_order = '$state_id'";
+    $sql = "select * from functional_areas where functional_area=$fun_id ";
+    $sql .= " and functional_area = '$stateid'";
     // echo $sql;die;
 
     // $sql = 'select * from category where parent_id=0 and status=1 order by category_name';
@@ -92,7 +92,7 @@ class EmployerController extends Controller
     // }
     // $state = json_decode( json_encode( $state ) );
 
-        return view( 'employer/search', compact( 'functional_area_id', 'state_id', 'city_id' ) );
+        return view( 'employer/search', compact( 'fun_id', 'stateid', 'cityid' ) );
 }
 
    public function addemployer(Request $request){
@@ -113,11 +113,6 @@ class EmployerController extends Controller
       Session::put( 'id', $user_id );
       return redirect( '/employer_index' );
    }
-
-
-
-
-
 
   public function employer_login(){
     return view( 'employer/employer_login');
@@ -436,7 +431,7 @@ public function candsearch(Request $request)
           </div>
           <div class="col-lg-2.5">
               <div class="listbtn"><a
-                      href="{{"user_profile/", '.$product->id.') }}">ViewProfile</a>
+                      href="{{ "user_profile/", '.$product->id.') }}">ViewProfile</a>
               </div>
           </div>
       </div>
