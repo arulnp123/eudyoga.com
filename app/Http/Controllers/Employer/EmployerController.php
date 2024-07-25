@@ -65,35 +65,6 @@ class EmployerController extends Controller
         return view( 'employer/candiate_profile', compact('countries','states','cities','functional_areas','users','industries','career_levels','job_experiences','genders','job_skills','activeusers'));
   }
 
-  public function search( $fun_id, $stateid, $cityid ) {
-
-    $sql = "select * from functional_areas where functional_area=$fun_id ";
-    $sql .= " and functional_area = '$stateid'";
-    // echo $sql;die;
-
-    // $sql = 'select * from category where parent_id=0 and status=1 order by category_name';
-    // $category = DB::select( DB::raw( $sql ) );
-    // $category = json_decode( json_encode( $category ), true );
-    // foreach ( $category as $key => $cat ) {
-    //     $category_id = $cat[ 'id' ];
-    //     $sql = "select id,category_name from category where parent_id = $category_id";
-    //     $result = DB::select( DB::raw( $sql ) );
-    //     $category[ $key ][ 'subcat' ] = $result;
-    // }
-    // $category = json_decode( json_encode( $category ) );
-    // $sql = 'select * from area where parent_id=0 and status=1 order by area_name';
-    // $state = DB::select( DB::raw( $sql ) );
-    // $state = json_decode( json_encode( $state ), true );
-    // foreach ( $state as $key => $stat ) {
-    //     $area_id = $stat[ 'id' ];
-    //     $sql = "select id,area_name from area where parent_id = $area_id";
-    //     $result = DB::select( DB::raw( $sql ) );
-    //     $state[ $key ][ 'subarea' ] = $result;
-    // }
-    // $state = json_decode( json_encode( $state ) );
-
-        return view( 'employer/search', compact( 'fun_id', 'stateid', 'cityid' ) );
-}
 
    public function addemployer(Request $request){
    $employeeData = DB::table( 'companies' )->insert( [
@@ -210,6 +181,11 @@ class EmployerController extends Controller
   }
   public function cv_search_packages(){
     return view( 'employer/cv_search_packages');
+  }
+
+  public function getcity($state_id){
+    $cities = DB::table('cities')->select('id','city')->where('state_id',$state_id)->orderBy( 'city', 'Asc' )->get();
+    return response()->json($cities);
   }
 
   public function edit_profile(){

@@ -17,17 +17,17 @@
 </div>
 <!-- Inner Page Title end -->
 
-<!-- Page Title start -->
-<div class="pageSearch">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2">
-                <a href="http://localhost/eudyoga.in/post_job" class="btn"><i
-                        class="fa fa-file-text"aria-hidden="true"></i>Post Job</a>
+    <!-- Page Title start -->
+    <div class="pageSearch">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2">
+                    <a href="http://localhost/eudyoga.in/post_job" class="btn"><i
+                            class="fa fa-file-text"aria-hidden="true"></i>Post Job</a>
 
-            </div>
-            <div class="col-lg-10">
-                <div class="searchform">
+                </div>
+                <div class="col-lg-10">
+                    <div class="searchform">
                     <form action="" method="post" onsubmit="return load_property(event)">
                         <div class="row">
                             <div class="col-md-4">
@@ -62,11 +62,11 @@
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <div class="listpgWraper">
     <div class="container">
@@ -111,11 +111,19 @@
 
                                     </li>
                                 @endforeach
+
                             </ul>
                             <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="state"
                                 onclick="state()">View More</span>
                         </div>
+
+
+
+                        <!-- Jobs By State end-->
+
+
+                        <!-- Jobs By City -->
 
                         <div class="widget">
                             <h4 class="widget-title">By City</h4>
@@ -131,10 +139,16 @@
                                 @endforeach
 
                             </ul>
+                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="city"
                                 onclick="city()">View More</span>
 
                         </div>
+
+
+                        <!-- Jobs By City end-->
+
+                        <!-- Jobs By Experience -->
 
                         <div class="widget ">
                             <h4 class="widget-title">By Experiance</h4>
@@ -157,6 +171,13 @@
 
                         </div>
 
+
+
+                        <!-- Jobs By Experience end -->
+
+
+                        <!-- Jobs By Career Level -->
+
                         <div class="widget ">
                             <h4 class="widget-title">By Career Level</h4>
                             <ul class="careerlevell view_more_ul">
@@ -168,11 +189,14 @@
 
                                     </li>
                                 @endforeach
+
                             </ul>
+                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="career"
                                 onclick="careerlevel()">View More</span>
                         </div>
 
+                        <!-- Jobs By Gender -->
                         <div class="widget ">
                             <h4 class="widget-title"> By Gender</h4>
                             <ul class="genderlistt view_more_ul">
@@ -189,7 +213,7 @@
                             </ul>
                             <span class="text text-primary view_more hide_vm" id="gender"
                                 onclick="gender()">View More</span>
-                        </div>
+                            </div>
 
                         <div class="widget ">
                             <h4 class="widget-title"> By Industry</h4>
@@ -292,11 +316,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- <p>{{ $user->description }}</p> --}}
                                 </li>
                             @endforeach
 
                         </ul>
                     @else
+                        <!-- Error 404 Template 1 - Bootstrap Brain Component -->
                         <section class="d-flex justify-content-center align-items-center">
                             <div class="container">
                                 <div class="row">
@@ -317,6 +343,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </section>
                     @endif
                     <li class="pagination float-right mb-5">
@@ -343,6 +370,11 @@
     </div>
     <div class="clearfix"></div>
 </div>
+
+
+
+
+
 
 <div class="footerWrap">
     <div class="container">
@@ -421,10 +453,16 @@
                     <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"
                             aria-hidden="true"></i></a>
                 </div>
+                <!-- Social Icons end -->
+
             </div>
+            <!--About us End-->
+
+
         </div>
     </div>
 </div>
+<!--Footer end-->
 <!--Copyright-->
 <div class="copyright">
     <div class="container">
@@ -617,6 +655,8 @@
 
             }
 
+
+
 		setInterval("hide_savedAlert()",7000);
 
         function hide_savedAlert(){
@@ -624,6 +664,8 @@
           $(document).find('.svjobalert').hide();
 
         }
+
+
 
         $(document).ready(function(){
 
@@ -795,49 +837,47 @@
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
 
-    $('#stateid').on('change', function() {
-        var state_id = this.value;
-        $("#cityid").html('');
-        $.ajax({
-            url: "{{ url('/getcity') }}",
-            type: "POST",
-            data: {
-                state_id: state_id,
-                _token: '{{ csrf_token() }}'
-            },
-            dataType: 'json',
-            success: function(result) {
-                $('#cityid').html('<option value="">Select City</option>');
-                $.each(result, function(key, value) {
-                    $("#cityid").append('<option value="' + value
-                        .id + '">' + value.city + '</option>');
-                });
-            }
+        $('#stateid').on('change', function() {
+            var state_id = this.value;
+            $("#cityid").html('');
+            $.ajax({
+                url: "{{ url('/getcity') }}",
+                type: "POST",
+                data: {
+                    state_id: state_id,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#cityid').html('<option value="">Select City</option>');
+                    $.each(result, function(key, value) {
+                        $("#cityid").append('<option value="' + value
+                            .id + '">' + value.city + '</option>');
+                    });
+                }
+            });
         });
-    });
-    $(document).ready(function() {
-        $(".txtOnly").keypress(function(e) {
-            var key = e.keyCode;
-            if (key >= 48 && key <= 57) {
-                e.preventDefault();
-            }
+        $(document).ready(function() {
+            $(".txtOnly").keypress(function(e) {
+                var key = e.keyCode;
+                if (key >= 48 && key <= 57) {
+                    e.preventDefault();
+                }
+            });
         });
-    });
 
 
-    function load_property(e) {
-        e.preventDefault();
-        var id = 0;
-        var type = 0;
-        var url = "{{ url('/search') }}";
-        var fun_id = $("#fun_id").val();
-        alert(fun_id);
-        var stateid = $("#stateid").val();
-        var cityid = $("#cityid").val();
-        url = url + "/" + fun_id + "/" + stateid + "/" + cityid;
-        window.location.href = url
-    }
+        function load_property(e) {
+            e.preventDefault();
+            var id = 0;
+            var type = 0;
+            var url = "{{ url('/search') }}";
+            var functional_area_id = $("#functional_area_id").val();
+            var state_id = $("#state_id").val();
+            var city_id = $("#city_id").val();
+            url = url + "/" + functional_area_id + "/" + state_id + "/" + city_id;
+            window.location.href = url
+        }
 </script>
 </body>
-
 </html>

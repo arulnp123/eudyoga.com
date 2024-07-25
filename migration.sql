@@ -99,3 +99,4 @@ alter table job_shifts drop job_shift_id;
 alter table companies modify country_id int DEFAULT 0;
 alter table companies modify state_id int DEFAULT 0;
 alter table companies modify city_id int DEFAULT 0;
+
