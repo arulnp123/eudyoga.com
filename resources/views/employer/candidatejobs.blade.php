@@ -2,24 +2,26 @@
 @yield('content')
 
     <section class="gray">
-        <div class="container">
+        <!--<div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
+                    <div class="text-center">
                     <div class="filter_search_opt">
                         <a href="javascript:void(0);" onclick="openFilterSearch()">Search Property<i
                                 class="ml-2 ti-menu"></i></a>
                     </div>
                 </div>
             </div>
-
-            <div class="listpgWraper">
+        </div>-->
+        <div class="listpgWraper">
             <div class="container">
                 <form action="https://eudyoga.com/job-seekers" method="get">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="sidebar">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="text-center">
                                 <input type="hidden" name="search" value="" />
-                                <div class="widget">
+                                
+                                <!--<div class="widget">
                                     <h4 class="widget-title">Country</h4>
                                     <ul class="optionlist view_more_ul">
                                         {{-- @foreach ($countries as $key => $countrylist)
@@ -132,8 +134,8 @@
 
                                             </li>
                                         @endforeach --}}
-                                    </ul>
-                                    <!-- title end -->
+                                    </ul>-->
+                                    <!-- title end 
                                     <span class="text text-primary view_more hide_vm" id="industry"
                                         onclick="industry()">View More</span>
                                 </div>
@@ -149,8 +151,8 @@
                                                 {{ $job_skilllist->job_skill }}
                                             </li>
                                         @endforeach --}}
-                                    </ul>
-                                    <!-- title end -->
+                                    </ul>-->
+                                    <!-- title end 
                                     <span class="text text-primary view_more hide_vm" id="job_skill"
                                         onclick="skill()">View More</span>
                                 </div>
@@ -166,8 +168,8 @@
                                                 <label for="{{ $functional_areaslist->id }}"></label>
                                                 {{ $functional_areaslist->functional_area }}
                                         @endforeach --}}
-                                    </ul>
-                                    <span class="text text-primary view_more hide_vm" id="functional_area"
+                                    </ul>-->
+                                    <!--<span class="text text-primary view_more hide_vm" id="functional_area"
                                         onclick="functionalarea()">View More</span>
                                 </div>
 
@@ -191,12 +193,13 @@
                                     <div class="searchnt">
                                         <button type="submit" class="btn"><i class="fa fa-search"
                                                 aria-hidden="true"></i> Search</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
+                    
 
-                        <div class="col-lg-9">
+                        <div class="col-lg-12">
                             @if (count($getjobs) > 0)
                                 <ul class="searchList">
                                     @foreach ($getjobs as $user)
@@ -242,6 +245,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                
                                 </section>
                             @endif
                             {{-- <li class="pagination float-right mb-5">
@@ -255,6 +259,7 @@
                         </ul>
                 </form>
             </div>
+        </div>
         </div>
         </div>
     </section>
