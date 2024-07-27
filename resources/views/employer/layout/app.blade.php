@@ -211,15 +211,15 @@
 
                     });
 
-                    function showProcessingForm(btn_id){    
+                    function showProcessingForm(btn_id){
 
                     $("#"+btn_id).val( 'Processing .....' );
 
-                    $("#"+btn_id).attr('disabled','disabled');    
+                    $("#"+btn_id).attr('disabled','disabled');
 
                     }
 
-            
+
 
             setInterval("hide_savedAlert()",7000);
 
@@ -243,7 +243,7 @@
 
                                 $('.notification').html(res);
 
-                           
+
 
                         }
 
@@ -251,11 +251,11 @@
 
                 });
 
-            
-       
-       
+
+
+
                 </script>
-   
+
 
 </body>
 

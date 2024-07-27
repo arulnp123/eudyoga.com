@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="searchform">
-                        <form  action="{{ url('/viewjobs') }}">
+                        <form  action="{{ url('/candidatejobs') }}">
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" value="" class="form-control"
@@ -55,7 +55,7 @@
                                 </select>
                             </div>
                             <div class="col-md-1">
-                                <button type="submit" value="search" class="btn"><i class="fa fa-search"
+                                <button type="submit" value="Search" class="btn"><i class="fa fa-search"
                                         aria-hidden="true"></i></button>
                             </div>
                         </div>

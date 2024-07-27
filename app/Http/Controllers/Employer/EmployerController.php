@@ -54,8 +54,7 @@ class EmployerController extends Controller
         }
 
 
-        public function viewjobs( Request $request ) {
-
+        public function candidatejobs( Request $request ) {
 
             $functional_area_id = $request->functional_area_id;
             $state_id = $request->state_id;
@@ -70,8 +69,8 @@ class EmployerController extends Controller
                 ->where( 'jobs.state_id', $state_id )
                 ->orderBy( 'jobs.id', 'asc' )->get();
             }
-            // echo $getjobs;die;
-            return view( 'employer.viewjobs', compact( 'getjobs' ) );
+            // echo'<pre>';print_r( $getjobs );echo'</pre>';die;
+            return view( 'employer.candidatejobs', compact( 'getjobs' ) );
         }
 
         public function addemployer(Request $request){

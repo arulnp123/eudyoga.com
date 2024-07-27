@@ -76,7 +76,7 @@ Route::get('/candsearch',  [App\Http\Controllers\Employer\EmployerController::cl
 Route::get('/search_cand',  [App\Http\Controllers\Employer\EmployerController::class, 'search_cand'])->name('search_cand');
 Route::get('/getcity/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'getcity'])->name('getcity');
 
-Route::get('/viewjobs', [App\Http\Controllers\Employer\EmployerController::class, 'viewjobs'])->name('viewjobs');
+Route::get('/candidatejobs', [App\Http\Controllers\Employer\EmployerController::class, 'candidatejobs'])->name('candidatejobs');
 
 Route::get('/getcity', [App\Http\Controllers\Candidate\EmployerController::class, 'getcity'])->name('getcity');
 
