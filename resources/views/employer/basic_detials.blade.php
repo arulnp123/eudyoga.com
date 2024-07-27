@@ -70,8 +70,7 @@
                                                             </div>
                                                         @endif
                                                         <div class="bs-stepper-content">
-                                                 <form action="{{ url('/savebasic') }}"
-                                                            method="POST">
+                                                 <form action="{{ url('/savebasic') }}" method="POST">
                                                             {{ csrf_field() }}
                                                                 <input type="hidden" class="form-control"
                                                                     id="test-nl-1" role="tabpanel"
