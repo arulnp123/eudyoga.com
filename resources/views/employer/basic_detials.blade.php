@@ -241,15 +241,15 @@
         </div>
     </div>
 
-    <script>
+    <link href="{{ URL::to('/') }}/public/assets1/plugins/input-tags/css/tagsinput.css"
+    rel="stylesheet" />
+    <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/main.js"></script>
+    <link href="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/css/bs-stepper.css"
+    rel="stylesheet" />
+    <script src="{{ URL::to('/') }}/public/assets1/plugins/input-tags/js/tagsinput.js"></script>
 
-        <link href="{{ URL::to('/') }}/public/assets1/plugins/input-tags/css/tagsinput.css"
-            rel="stylesheet" />
-        <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-        <script src="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/js/main.js"></script>
-        <link href="{{ URL::to('/') }}/public/assets1/plugins/bs-stepper/css/bs-stepper.css"
-            rel="stylesheet" />
-        <script src="{{ URL::to('/') }}/public/assets1/plugins/input-tags/js/tagsinput.js"></script>
+    <script>
 
         $('#countries').on('change', function() {
             var state_id = this.value;
