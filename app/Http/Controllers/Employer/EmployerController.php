@@ -33,6 +33,17 @@ class EmployerController extends Controller
             ->where('companies.id', '=', $userid)->first();
                 return view( 'employer/basic_detials', compact('employerprofile'));
         }
+        
+        public function savebasic(Request $request){
+            DB::table('companies')->insert([
+                'name' => $request -> name,
+                'email'=> $request -> email,
+                'phone'=> $request -> phone,
+                'state_id'=>$request->state_id,
+                'city_id'=>$request->city_id,
+            ]);
+            return redirect()->back()->with('success', 'Basic details Successfully... !');
+        }
 
         public function  candiate_profile (){
             $users = DB::table('users')->select('users.*','companies.company_follwers_id')

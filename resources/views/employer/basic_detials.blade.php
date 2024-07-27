@@ -91,7 +91,7 @@
                                                                             class="form-label mb-2">Whatsapp
                                                                             Number</label>
                                                                         <input class="form-control form-control-sm"
-                                                                            name="mobile_num" id="mobile_num"
+                                                                            name="phone" id="phone"
                                                                             type="text">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
@@ -105,14 +105,14 @@
                                                                         <label for="state"
                                                                             class="form-label mb-2">State</label>
                                                                         <input type="text" class="form-control"
-                                                                            name="state"
+                                                                            name="state_id"
                                                                             placeholder="state">
                                                                     </div>
                                                                     <div class="col-12 col-lg-6">
                                                                         <label for="city"
                                                                             class="form-label mb-2">City</label>
                                                                         <input type="text" class="form-control"
-                                                                            name="city"
+                                                                            name="city_id"
                                                                             placeholder="city">
                                                                     </div>
 
