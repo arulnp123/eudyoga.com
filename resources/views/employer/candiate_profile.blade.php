@@ -14,19 +14,17 @@
         </div>
     </div>
 </div>
-<!-- Inner Page Title end -->
 
-    <!-- Page Title start -->
-    <div class="pageSearch">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-2">
-                    <a href="http://localhost/eudyoga.in/post_job" class="btn"><i
-                            class="fa fa-file-text"aria-hidden="true"></i>Post Job</a>
-                </div>
-                <div class="col-lg-10">
-                    <div class="searchform">
-                        <form  action="{{ url('/candidatejobs') }}">
+<div class="pageSearch">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="http://localhost/eudyoga.in/post_job" class="btn"><i
+                        class="fa fa-file-text"aria-hidden="true"></i>Post Job</a>
+            </div>
+            <div class="col-lg-10">
+                <div class="searchform">
+                    <form action="{{ url('/candidatejobs') }}">
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" value="" class="form-control"
@@ -60,24 +58,20 @@
                             </div>
                         </div>
                     </form>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <div class="listpgWraper">
     <div class="container">
-
         <form action="https://eudyoga.com/job-seekers" method="get">
-            <!-- Search Result and sidebar start -->
             <div class="row">
                 <div class="col-md-3 col-sm-6">
 
                     <div class="sidebar">
                         <input type="hidden" name="search" value="" />
-
-                        <!-- Jobs By Country -->
                         <div class="widget">
                             <h4 class="widget-title">Country</h4>
                             <ul class="optionlist view_more_ul">
@@ -95,8 +89,6 @@
 
                         </div>
 
-
-                        <!-- Jobs By State -->
                         <div class="widget">
                             <h4 class="widget-title">By State</h4>
                             <ul class="statelistt view_more_ul block">
@@ -111,17 +103,9 @@
                                 @endforeach
 
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="state"
                                 onclick="state()">View More</span>
                         </div>
-
-
-
-                        <!-- Jobs By State end-->
-
-
-                        <!-- Jobs By City -->
 
                         <div class="widget">
                             <h4 class="widget-title">By City</h4>
@@ -137,16 +121,9 @@
                                 @endforeach
 
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="city"
                                 onclick="city()">View More</span>
-
                         </div>
-
-
-                        <!-- Jobs By City end-->
-
-                        <!-- Jobs By Experience -->
 
                         <div class="widget ">
                             <h4 class="widget-title">By Experiance</h4>
@@ -163,18 +140,9 @@
                                 @endforeach
 
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="job_experience"
                                 onclick="job_experience()">View More</span>
-
                         </div>
-
-
-
-                        <!-- Jobs By Experience end -->
-
-
-                        <!-- Jobs By Career Level -->
 
                         <div class="widget ">
                             <h4 class="widget-title">By Career Level</h4>
@@ -189,12 +157,10 @@
                                 @endforeach
 
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="career"
                                 onclick="careerlevel()">View More</span>
                         </div>
 
-                        <!-- Jobs By Gender -->
                         <div class="widget ">
                             <h4 class="widget-title"> By Gender</h4>
                             <ul class="genderlistt view_more_ul">
@@ -207,11 +173,10 @@
 
                                     </li>
                                 @endforeach
-
                             </ul>
                             <span class="text text-primary view_more hide_vm" id="gender"
                                 onclick="gender()">View More</span>
-                            </div>
+                        </div>
 
                         <div class="widget ">
                             <h4 class="widget-title"> By Industry</h4>
@@ -222,15 +187,12 @@
                                             value="{{ $industrieslist->industry }}">
                                         <label for="{{ $industrieslist->id }}"></label>
                                         {{ $industrieslist->industry }}
-
                                     </li>
                                 @endforeach
 
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="industry"
                                 onclick="industry()">View More</span>
-
                         </div>
 
                         <div class="widget ">
@@ -245,7 +207,6 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            <!-- title end -->
                             <span class="text text-primary view_more hide_vm" id="job_skill"
                                 onclick="skill()">View More</span>
                         </div>
@@ -310,27 +271,21 @@
                                         </div>
                                         <div class="col-lg-2.5">
                                             <div class="listbtn"><a
-                                                    href="{{ url('candiate_profile', $user->id) }}">ViewProfile</a>
+                                                    href="{{ url('user_profile', $user->id) }}">ViewProfile</a>
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <p>{{ $user->description }}</p> --}}
                                 </li>
                             @endforeach
-
                         </ul>
                     @else
-                        <!-- Error 404 Template 1 - Bootstrap Brain Component -->
                         <section class="d-flex justify-content-center align-items-center">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="text-center">
                                             <h2 class="d-flex justify-content-center align-items-center gap-2 mb-4">
-                                                {{-- <span class="display-1 fw-bold h1">4</span> --}}
-                                                <!-- <i class="bi bi-exclamation-circle-fill text-danger display-4"></i> -->
                                                 <i class="fa fa-exclamation-circle text-danger fa-2x"></i>
-                                                {{-- <span class="display-1 fw-bold bsb-flip-h h1">4</span> --}}
                                             </h2>
                                             <h3 class="h2">Oops! </h3>
                                             <p class="mb-3" style="color: red">Sorry No Candidate Profile </p>
@@ -341,27 +296,17 @@
                                     </div>
                                 </div>
                             </div>
-
                         </section>
                     @endif
                     <li class="pagination float-right mb-5">
                         {{ $users->links() }}
                     </li>
-
-                    {{-- <div class="topstatinfo">
-                        Showing Jobs : {{ $users->currentPage() * $users->perPage() }} Total {{ $activeusers }}
-                    </div> --}}
-
-
                     </li>
-                    <!-- job end -->
                     </ul>
-
-
         </form>
     </div>
 </div>
-<!--Footer-->
+
 <div class="largebanner shadow3">
     <div class="adin">
         <img src="https://eudyoga.com/assets/images/banner1.jpg">.
@@ -369,69 +314,40 @@
     <div class="clearfix"></div>
 </div>
 
-
-
-
-
-
 <div class="footerWrap">
     <div class="container">
         <div class="row">
-
-            <!--Quick Links-->
             <div class="col-md-3 col-sm-6">
                 <h5>Quick Links</h5>
-                <!--Quick Links menu Start-->
                 <ul class="quicklinks">
                     <li><a href="index">Home</a></li>
                     <li><a href="contact_us">Contact Us</a></li>
                     <li class="postad"><a href="login.html">Post a Job</a></li>
                     <li><a href="faq">FAQs</a></li>
-
                     <li class=""><a href="about_us">About Us</a></li>
-
                     <li class=""><a href="cms/Terms_And_Conditions.html">Terms &amp; Conditions</a></li>
-
-                    <!--<li class=""><a href="cms/Privacy_Policy.html">Privacy Policy</a></li>-->
-
-                    <!--<li class=""><a href="cms/Refund_Policy.html">Refund_Policy</a></li>-->
-                    <!--<li><a href="https://103.154.233.105:2003/mail/" target="_blank">EMAIL ID LOGIN</a></li>-->
                 </ul>
             </div>
-            <!--Quick Links menu end-->
 
             <div class="col-md-3 col-sm-6">
                 <h5>Jobs By Functional Area</h5>
-                <!--Quick Links menu Start-->
                 <ul class="quicklinks">
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=49">Human Resources</a></li>
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=68">Manufacturing &amp;
                             Operations</a></li>
-                    <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=17">Client Services &amp; Customer
-                            Support
+                    <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=17">Client Services &amp; Customer  Support
 
                         </a></li>
-                    <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=53">Interior Designers &amp;-->
-                    <!--        Architects</a>-->
-                    <!--</li>-->
-                    <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=137">Tele Sale Representative</a>-->
-                    <!--</li>-->
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=37">Field Operations</a></li>
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=23">Creative Design</a></li>
-                    <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=127">SMO</a></li>-->
-                    <!--<li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=112">Retail</a></li>-->
                     <li><a href="https://eudyoga.com/jobs?functional_area_id%5B%5D=58">IT Systems Analyst</a></li>
                 </ul>
             </div>
 
             <div class="col-md-3 col-sm-12">
                 <h5>Jobs By Industry</h5>
-                <!--<div class="phone"> <a href="tel:+918884442935">+91 888-444-2935</a></div>-->
-                <!--<div class="email"> <a href="mailto:jobdesk@eudyoga.com">jobdesk@eudyoga.com</a> </div>-->
             </div>
 
-
-            <!--About Us-->
             <div class="col-md-3 col-sm-12">
                 <h5>Contact Us</h5>
                 <div class="phone"> <a href="tel:+91 888-444-2936">+91 888-444-2936</a></div>
@@ -439,7 +355,6 @@
                 <div class="address">No 1088/1 K N Ext, Yeshwanthpur Bangalore Bangalore Karnataka – 560022 India
                 </div>
 
-                <!-- Social Icons -->
                 <div class="social"><a href="https://www.facebook.com/profile.php?id=100067114542067"
                         target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
                     <a href="https://twitter.com/e_udyoga" target="_blank"><i class="fab fa-twitter-square"
@@ -451,16 +366,10 @@
                     <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"
                             aria-hidden="true"></i></a>
                 </div>
-                <!-- Social Icons end -->
-
             </div>
-            <!--About us End-->
-
-
         </div>
     </div>
 </div>
-<!--Footer end-->
 <!--Copyright-->
 <div class="copyright">
     <div class="container">
@@ -653,8 +562,6 @@
 
             }
 
-
-
 		setInterval("hide_savedAlert()",7000);
 
         function hide_savedAlert(){
@@ -662,8 +569,6 @@
           $(document).find('.svjobalert').hide();
 
         }
-
-
 
         $(document).ready(function(){
 
@@ -677,7 +582,6 @@
 
                         $('.notification').html(res);
                 }
-
             });
 
         });
@@ -835,44 +739,45 @@
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
 
-        $('#stateid').on('change', function() {
-            var state_id = this.value;
-            $("#cityid").html('');
-            $.ajax({
-                url: "{{ url('/getcity') }}",
-                type: "POST",
-                data: {
-                    state_id: state_id,
-                    _token: '{{ csrf_token() }}'
-                },
-                dataType: 'json',
-                success: function(result) {
-                    $('#cityid').html('<option value="">Select City</option>');
-                    $.each(result, function(key, value) {
-                        $("#cityid").append('<option value="' + value
-                            .id + '">' + value.city + '</option>');
-                    });
-                }
-            });
-        });
-        $(document).ready(function() {
-            $(".txtOnly").keypress(function(e) {
-                var key = e.keyCode;
-                if (key >= 48 && key <= 57) {
-                    e.preventDefault();
-                }
-            });
-        });
-
-
-        var search = "{{ url('search') }}";
-            function load_report() {
-            var searchresult = $("#searchresult").val();
-            if (searchresult != "") {
-                var url = search + "/" + searchresult;
-                window.location.href = url;
+    $('#stateid').on('change', function() {
+        var state_id = this.value;
+        $("#cityid").html('');
+        $.ajax({
+            url: "{{ url('/getcity') }}",
+            type: "POST",
+            data: {
+                state_id: state_id,
+                _token: '{{ csrf_token() }}'
+            },
+            dataType: 'json',
+            success: function(result) {
+                $('#cityid').html('<option value="">Select City</option>');
+                $.each(result, function(key, value) {
+                    $("#cityid").append('<option value="' + value
+                        .id + '">' + value.city + '</option>');
+                });
             }
-}
+        });
+    });
+    $(document).ready(function() {
+        $(".txtOnly").keypress(function(e) {
+            var key = e.keyCode;
+            if (key >= 48 && key <= 57) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    var search = "{{ url('search') }}";
+
+    function load_report() {
+        var searchresult = $("#searchresult").val();
+        if (searchresult != "") {
+            var url = search + "/" + searchresult;
+            window.location.href = url;
+        }
+    }
 </script>
 </body>
+
 </html>
