@@ -291,17 +291,4 @@
             $("#editcategory").modal("show");
         }
     </script>
-    <script>
-        function load_property(e) {
-            e.preventDefault();
-            var id = 0;
-            var type = 0;
-            var url = "{{ url('/search') }}";
-            var cat_id = $("#cat_id").val();
-            var area_id = $("#area_id").val();
-            var budjet = $("#budjet").val();
-            url = url + "/" + cat_id + "/" + area_id  + "/" + budjet;
-            window.location.href = url
-        }
-    </script>
 @endpush
