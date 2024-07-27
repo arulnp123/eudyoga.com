@@ -65,6 +65,7 @@ Route::get('/delete_post_job/{id}', [App\Http\Controllers\Employer\EmployerContr
 Route::get('/edit_post_job/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'edit_post_job'])->name('edit_post_job');
 Route::post('/update_post_job', [App\Http\Controllers\Employer\EmployerController::class, 'update_post_job'])->name('update_post_job');
 Route::get('/basic_detials', [App\Http\Controllers\Employer\EmployerController::class, 'basic_detials'])->name('basic_detials');
+Route::post('/savebasic', [App\Http\Controllers\Employer\EmployerController::class, 'savebasic'])->name('savebasic');
 
 Route::get('/candiate_profile', [App\Http\Controllers\Employer\EmployerController::class, 'candiate_profile'])->name('candiate_profile');
 Route::get('/user_profile/{id}', [App\Http\Controllers\Employer\EmployerController::class, 'user_profile'])->name('user_profile');
