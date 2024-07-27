@@ -1,29 +1,16 @@
 @include('layouts.app')
-
 @yield('content')
-
-
 
 <div class="container">
 <div class="listpgWraper">
-    
                 <div class="col-lg-9">
-
-                    <!-- Search List -->
-
                     <div class="topstatinfo">
-                        Showing Jobs : 1 - 
+                        Showing Jobs : 1 -
                     </div>
-
                     <ul class="searchList">
-
-
                         @foreach ($job_search as $jobs2)
                             <li class="">
-
                                 <div class="row">
-
-
                                     <div class="col-lg-10 col-md-8">
                                         <div class="jobimg"><img
                                                 src="https://eudyoga.com/public/admin_assets/no-image.png">
@@ -46,74 +33,33 @@
                                                       href="{{ url('view_detail', $jobs2->id) }}">ViewDetials</a>
                                             </div>
                                         </div>
-                                   
                                 </div>
                                 <div class="content">
                                     <p class="more">{{ $jobs2->description }}</p>
-                                    
                                 </div>
-
                             </li>
                         @endforeach
-
-
- 
-
-
                     </ul>
-
 
                     <li class="pagination float-right mb-5">
                         {{ $job_search->links() }}
                     </li>
 
                     <div class="topstatinfo">
-                        Showing Jobs : 1 - 
-                    </div> 
-
-
-                    
-
-
-
-
-
-                    <!-- Pagination Start -->
-
-                    <div class="pagiWrap">
-
-                        <div class="row">
-
-                            <div class="col-lg-5">
-
-                                {{-- <div class="showreslt">
-
-                                    Showing Jobs : 1 - 8 Total 8
-
-                                </div> --}}
-
-                            </div>
-
-                            <div class="col-lg-7 text-right">
-
-
-
-
-
-                            </div>
-
-                        </div>
-
+                        Showing Jobs : 1 -
                     </div>
 
-                    <!-- Pagination end -->
-
+                    <div class="pagiWrap">
+                        <div class="row">
+                            <div class="col-lg-5">
+                            </div>
+                            <div class="col-lg-7 text-right">
+                            </div>
+                        </div>
+                    </div>
                  </div>
-
                  </div>
-
                 </div>
-                <!--Footer-->
 <div class="largebanner shadow3">
     <div class="adin">
         <img src="https://eudyoga.com/public/images/banner1.jpg">.
@@ -121,19 +67,11 @@
     <div class="clearfix"></div>
 </div>
 
-
-
-
-
-
 <div class="footerWrap">
 <div class="container">
   <div class="row">
-
-      <!--Quick Links-->
       <div class="col-md-3 col-sm-6">
           <h5>Quick Links</h5>
-          <!--Quick Links menu Start-->
           <ul class="quicklinks">
               <li><a href="index">Home</a></li>
               <li><a href="contact_us">Contact Us</a></li>
@@ -198,20 +136,10 @@
               <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"
                       aria-hidden="true"></i></a>
           </div>
-          <!-- Social Icons end -->
-
       </div>
-      <!--About us End-->
-
-
   </div>
 </div>
 </div>
-<!--Footer end-->
-
-
-
-
 
                 <script>
 $(document).ready(function(){
@@ -219,21 +147,21 @@ $(document).ready(function(){
     var ellipsestext = "...";
     var moretext = "Read more";
     var lesstext = "Read less";
-    
-    
+
+
     $('.more').each(function() {
         var content = $(this).html();
-        
+
         if(content.length > showChar) {
             var c = content.substr(0, showChar);
             var h = content.substr(showChar, content.length - showChar);
-            
+
             var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-            
+
             $(this).html(html);
         }
     });
-    
+
     $(".morelink").click(function(){
         if($(this).hasClass("less")) {
             $(this).removeClass("less");

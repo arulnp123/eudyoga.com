@@ -1,7 +1,6 @@
 @include('employer/layout.app')
 @yield('content')
 
-
 <div class="pageTitle">
     <div class="container">
         <div class="row">
@@ -24,11 +23,10 @@
                 <div class="col-lg-2">
                     <a href="http://localhost/eudyoga.in/post_job" class="btn"><i
                             class="fa fa-file-text"aria-hidden="true"></i>Post Job</a>
-
                 </div>
                 <div class="col-lg-10">
                     <div class="searchform">
-                    <form action="" method="post" onsubmit="return load_property(event)">
+                        <form  action="{{ url('/viewjobs') }}">
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" value="" class="form-control"
@@ -57,7 +55,7 @@
                                 </select>
                             </div>
                             <div class="col-md-1">
-                                <button type="search" class="btn"><i class="fa fa-search"
+                                <button type="submit" value="search" class="btn"><i class="fa fa-search"
                                         aria-hidden="true"></i></button>
                             </div>
                         </div>
@@ -867,17 +865,14 @@
         });
 
 
-        function load_property(e) {
-            e.preventDefault();
-            var id = 0;
-            var type = 0;
-            var url = "{{ url('/search') }}";
-            var functional_area_id = $("#functional_area_id").val();
-            var state_id = $("#state_id").val();
-            var city_id = $("#city_id").val();
-            url = url + "/" + functional_area_id + "/" + state_id + "/" + city_id;
-            window.location.href = url
-        }
+        var search = "{{ url('search') }}";
+            function load_report() {
+            var searchresult = $("#searchresult").val();
+            if (searchresult != "") {
+                var url = search + "/" + searchresult;
+                window.location.href = url;
+            }
+}
 </script>
 </body>
 </html>
