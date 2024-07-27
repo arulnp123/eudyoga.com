@@ -364,7 +364,7 @@
 <!--Footer-->
 <div class="largebanner shadow3">
     <div class="adin">
-        <img src="https://eudyoga.com/public/assets/images/banner1.jpg">.
+        <img src="https://eudyoga.com/assets/images/banner1.jpg">.
     </div>
     <div class="clearfix"></div>
 </div>
