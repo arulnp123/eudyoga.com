@@ -1,7 +1,6 @@
 @include('employer/layout.app')
 @yield('content')
 
-
 <div class="pageTitle">
     <div class="container">
         <div class="row">
@@ -24,14 +23,13 @@
                 <div class="col-lg-2">
                     <a href="http://localhost/eudyoga.in/post_job" class="btn"><i
                             class="fa fa-file-text"aria-hidden="true"></i>Post Job</a>
-
                 </div>
                 <div class="col-lg-10">
                     <div class="searchform">
-                    <form action="" method="post" onsubmit="return load_property(event)">
+                        <form  action="{{ url('/viewjobs') }}">
                         <div class="row">
-                            <div class="col-md-2">
-                                <input type="text" name="search" value="" class="form-control"
+                            <div class="col-md-4">
+                                <input type="text" value="" class="form-control"
                                     placeholder="Enter Skills or job seeker details" />
                             </div>
                             <div class="col-md-2">
@@ -43,25 +41,21 @@
                                     @endforeach
                                 </select>
                             </div>
-
-
-
-                            <div class="col-md-2">
+                            <div class="formrow">
                                 <select name="state_id" id="stateid" required class="form-control">
                                     <option value="">Select State</option>
-                                    @foreach ($states as $s)
-                                        <option value="{{ $s->id }}">{{ $s->state_name}}</option>
+                                    @foreach ($states as $key => $statelist)
+                                        <option value="{{ $statelist->id }}">{{ $statelist->state_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-3">
+                            <div class="formrow">
                                 <select name="city_id" id="cityid" required class="form-control">
-                                    <option value="">Select city </option>
-                                    
+                                    <option value="">select city </option>
                                 </select>
                             </div>
                             <div class="col-md-1">
-                                <button type="search" class="btn"><i class="fa fa-search"
+                                <button type="submit" value="search" class="btn"><i class="fa fa-search"
                                         aria-hidden="true"></i></button>
                             </div>
                         </div>
@@ -71,21 +65,6 @@
             </div>
         </div>
     </div>
-    <script>
-
-        $(document).ready(function() {
-            $(".txtOnly").keypress(function(e) {
-                var key = e.keyCode;
-                if (key >= 48 && key <= 57) {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
-    <!-- Page Title end -->
-</form>
-
-
 
 <div class="listpgWraper">
     <div class="container">
@@ -856,15 +835,6 @@
         loadBtn.innerText = loadBtn.innerText === 'View More' ? 'View Less' : 'View More';
     };
 
-<<<<<<< HEAD
-    $('#stateid').on('change', function() {
-            var state_id = this.value;
-            $("#cityid").html('');
-            var url = "{{ url('/getcity') }}/"+state_id;
-            $.ajax({
-                url: url,
-                type: "GET",
-=======
         $('#stateid').on('change', function() {
             var state_id = this.value;
             $("#cityid").html('');
@@ -875,7 +845,6 @@
                     state_id: state_id,
                     _token: '{{ csrf_token() }}'
                 },
->>>>>>> 12296de8a914b47aff36e6784eb503762f71f73f
                 dataType: 'json',
                 success: function(result) {
                     $('#cityid').html('<option value="">Select City</option>');
@@ -886,8 +855,6 @@
                 }
             });
         });
-<<<<<<< HEAD
-=======
         $(document).ready(function() {
             $(".txtOnly").keypress(function(e) {
                 var key = e.keyCode;
@@ -898,18 +865,14 @@
         });
 
 
-        function load_property(e) {
-            e.preventDefault();
-            var id = 0;
-            var type = 0;
-            var url = "{{ url('/search') }}";
-            var functional_area_id = $("#functional_area_id").val();
-            var state_id = $("#state_id").val();
-            var city_id = $("#city_id").val();
-            url = url + "/" + functional_area_id + "/" + state_id + "/" + city_id;
-            window.location.href = url
-        }
->>>>>>> 12296de8a914b47aff36e6784eb503762f71f73f
+        var search = "{{ url('search') }}";
+            function load_report() {
+            var searchresult = $("#searchresult").val();
+            if (searchresult != "") {
+                var url = search + "/" + searchresult;
+                window.location.href = url;
+            }
+}
 </script>
 </body>
 </html>

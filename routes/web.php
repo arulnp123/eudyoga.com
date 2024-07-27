@@ -80,6 +80,11 @@ Route::get('/getcity/{id}', [App\Http\Controllers\Employer\EmployerController::c
 
 
 
+Route::get('/viewjobs', [App\Http\Controllers\Employer\EmployerController::class, 'viewjobs'])->name('viewjobs');
+
+
+Route::get('/getcity', [App\Http\Controllers\Candidate\EmployerController::class, 'getcity'])->name('getcity');
+
 
 // Candidate
 Route::get('/candidate_login', [App\Http\Controllers\Candidate\CandidateController::class, 'candidate_login'])->name('candidate_login');
