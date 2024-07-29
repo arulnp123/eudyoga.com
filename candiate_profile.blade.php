@@ -380,7 +380,7 @@
                         Vision World Pvt Ltd</a></div>
             </div>
             <div class="col-md-4">
-                <div class="paylogos"><img src="https://eudyoga.com/images/payment-icons.png"
+                <div class="paylogos"><img src="https://eudyoga.com/public/images/payment-icons.png"
                         alt="" /></div>
             </div>
         </div>
@@ -392,37 +392,37 @@
     data-turbo-eval="false"></script>
 <!-- Bootstrap's JavaScript -->
 
-<script src="https://eudyoga.com/js/jquery.min.js"></script>
+<script src="https://eudyoga.com/public/js/jquery.min.js"></script>
 
-<script src="https://eudyoga.com/js/bootstrap.bundle.min.js"></script>
+<script src="https://eudyoga.com/public/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://eudyoga.com/js/popper.js"></script>
+<script src="https://eudyoga.com/public/js/popper.js"></script>
 
 <!-- Owl carousel -->
 
-<script src="https://eudyoga.com/js/owl.carousel.js"></script>
+<script src="https://eudyoga.com/public/js/owl.carousel.js"></script>
 
 <script src="https://eudyoga.com/public/admin_assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
     type="text/javascript"></script>
 
-<script src="https://eudyoga.com/admin_assets/global/plugins/Bootstrap-3-Typeahead/bootstrap3-typeahead.min.js"
+<script src="https://eudyoga.com/public/admin_assets/global/plugins/Bootstrap-3-Typeahead/bootstrap3-typeahead.min.js"
     type="text/javascript"></script>
 
 <!-- END PAGE LEVEL PLUGINS -->
 
-<script src="https://eudyoga.com/admin_assets/global/plugins/select2/js/select2.full.min.js"
+<script src="https://eudyoga.com/public/admin_assets/global/plugins/select2/js/select2.full.min.js"
     type="text/javascript"></script>
 
-<script src="https://eudyoga.com/admin_assets/global/plugins/jquery.scrollTo.min.js" type="text/javascript">
+<script src="https://eudyoga.com/public/admin_assets/global/plugins/jquery.scrollTo.min.js" type="text/javascript">
 </script>
 
 <!-- Revolution Slider -->
 
-<script type="text/javascript" src="https://eudyoga.com/js/revolution-slider/js/jquery.themepunch.tools.min.js">
+<script type="text/javascript" src="https://eudyoga.com/public/js/revolution-slider/js/jquery.themepunch.tools.min.js">
 </script>
 
 <script type="text/javascript"
-    src="https://eudyoga.com/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+    src="https://eudyoga.com/public/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
