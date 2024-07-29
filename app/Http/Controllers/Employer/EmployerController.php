@@ -34,8 +34,9 @@ class EmployerController extends Controller
                 return view( 'employer/basic_detials', compact('employerprofile'));
         }
         
+        
         public function savebasic(Request $request){
-            DB::table('companies')->insert([
+           DB::table('companies')->insert([
                 'name' => $request -> name,
                 'email'=> $request -> email,
                 'phone'=> $request -> phone,
