@@ -100,3 +100,6 @@ alter table companies modify country_id int DEFAULT 0;
 alter table companies modify state_id int DEFAULT 0;
 alter table companies modify city_id int DEFAULT 0;
 
+
+29/07/24
+ALTER TABLE `cities` ADD `status` VARCHAR(50) NULL DEFAULT NULL AFTER `upload_image`;

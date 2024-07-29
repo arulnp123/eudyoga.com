@@ -77,7 +77,7 @@
                                                 </button>
                                                 <button type="button" class="btn btn-light "> <a
                                                         onclick="return confirm('Do you want to Confirm delete operation?')"
-                                                        href="{{ url('/delete_major_subject', $major_list->major_subject_id) }}"><i
+                                                        href="{{ url('/delete_major_subject', $major_list->id) }}"><i
                                                             class="lni lni-trash"></i></a>
                                                 </button>
                                            
